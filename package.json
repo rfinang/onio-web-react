@@ -6,7 +6,9 @@
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "figma:sync": "node scripts/sync-figma-tokens.js",
+    "figma:watch": "nodemon scripts/sync-figma-tokens.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

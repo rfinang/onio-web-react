@@ -3,6 +3,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Import Figma Variables */
+@import './figma-variables.css';
+
 /* Figma Variables - Auto-sync from Design System */
 :root {
   /* Colors - These will be updated automatically from Figma Variables API */

@@ -10,6 +10,7 @@ import {getFooterApi, getGlobalApi, getHeaderApi} from "../api";
 import Config from "../config/index";
 
 import "nprogress/nprogress.css";
+import "../styles/tailwind.css";
 
 import layout from "../components/helper/layout";
 import PageHead from "../components/common/Head";
