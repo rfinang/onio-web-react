@@ -1,0 +1,70 @@
+/* Tailwind CSS - Modern Design System */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Figma Variables - Auto-sync from Design System */
+:root {
+  /* Colors - These will be updated automatically from Figma Variables API */
+  --onio-primary: #007bff;
+  --onio-secondary: #6c757d;
+  --onio-accent: #28a745;
+  --onio-neutral: #f8f9fa;
+  --onio-dark: #343a40;
+  --onio-light: #ffffff;
+  
+  /* Typography - Based on Figma text styles */
+  --onio-font-size-xs: 0.75rem;
+  --onio-font-size-sm: 0.875rem;
+  --onio-font-size-base: 1rem;
+  --onio-font-size-lg: 1.125rem;
+  --onio-font-size-xl: 1.25rem;
+  --onio-font-size-2xl: 1.5rem;
+  
+  /* Spacing - Figma spacing tokens */
+  --onio-space-xs: 0.25rem;
+  --onio-space-sm: 0.5rem;
+  --onio-space-md: 1rem;
+  --onio-space-lg: 1.5rem;
+  --onio-space-xl: 2rem;
+  --onio-space-2xl: 3rem;
+}
+
+/* Component Layer - Reusable patterns */
+@layer components {
+  .btn-onio-primary {
+    @apply bg-onio-primary text-white px-6 py-3 rounded-md font-medium transition-all hover:opacity-90 focus:ring-2 focus:ring-onio-primary focus:ring-offset-2;
+  }
+  
+  .btn-onio-secondary {
+    @apply bg-onio-secondary text-white px-6 py-3 rounded-md font-medium transition-all hover:opacity-90 focus:ring-2 focus:ring-onio-secondary focus:ring-offset-2;
+  }
+  
+  .card-onio {
+    @apply bg-white rounded-lg shadow-onio-medium p-6 border border-gray-100;
+  }
+  
+  .text-onio-heading {
+    @apply font-onio-display text-onio-dark font-bold leading-tight;
+  }
+  
+  .text-onio-body {
+    @apply font-onio text-gray-700 leading-relaxed;
+  }
+}
+
+/* Utility Layer - Custom utilities for Onio design system */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}

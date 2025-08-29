@@ -1,0 +1,79 @@
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import Cookies from "universal-cookie";
+const CookiePopupStyles = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem 0;
+  z-index: 9999;
+  background-color: #ffffff;
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  &.show {
+    transform: translateY(0);
+    visibility: visible;
+  }
+  .cookieConsent__content p,
+  .cookieConsent__content a {
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: 500;
+    overflow: inherit !important;
+  }
+  @media (max-width: 739.98px) {
+    .cookieConsent .close--cookie {
+      width: 100%;
+    }
+  }
+`;
+function CookiePopup() {
+  const [cookiePopup, setCookiePopup] = useState(false);
+
+  useEffect(() => {
+    const cookies = new Cookies();
+    // const three_party_accept = localStorage.getItem('three_party_accept');
+    // const cookie_accept = localStorage.getItem('cookie_accept');
+    const three_party_accept = cookies.get("three_party_accept");
+    const cookie_accept = cookies.get("cookie_accept");
+    if (cookie_accept !== "true" || three_party_accept !== "true") {
+      setCookiePopup(true);
+    }
+  }, []);
+
+  return (
+    <CookiePopupStyles className={cookiePopup ? `show` : ""}>
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-sm-9 col-12 cookieConsent__content mb-sm-0 mb-2">
+            <p className="mb-0">
+              We are using cookies to give you the best experience on our website.{" "}
+              <br className="d-md-inline d-none" />
+              You can <a href="/privacy-policy">find out more</a> about which cookies we are using
+              or switch them off in <a href="/privacy-settings">settings</a>.
+            </p>
+          </div>
+          <div className="col-sm-auto col-12 ms-sm-auto">
+            <button
+              className="btn btn--border btn--black btn--large close--cookie"
+              onClick={() => {
+                // localStorage.setItem("cookie_accept", "true")
+                // localStorage.setItem("three_party_accept", "true")
+                const cookies = new Cookies();
+                cookies.set("cookie_accept", "true");
+                cookies.set("three_party_accept", "true");
+                setCookiePopup(false);
+              }}
+            >
+              <span className="js-link__text">I agree</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </CookiePopupStyles>
+  );
+}
+
+export default CookiePopup;

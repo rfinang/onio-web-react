@@ -1,0 +1,89 @@
+variables:
+  CLI_VERSION: 8.3.20
+  IMAGE_VERSION: 0.0.1
+  IMAGE_NAME: "mpirevn/react-onio"
+
+image: docker:latest
+services:
+  - docker:dind
+
+before_script:
+  - "export CI_PROJECT_VERSION=`echo $CI_COMMIT_REF_NAME | cut -d'-' -f 2,3 | sed 's/-//'`"
+  - "echo CI_PROJECT_VERSION: $CI_COMMIT_REF_NAME --\\> $CI_PROJECT_VERSION"
+  - "export RANCHER_DOCKER_REGISTRY_SERVER=docker.io"
+  - "export RANCHER_DOCKER_REGISTRY_NAMESPACE=/mpirevn"
+  - "echo RANCHER_DOCKER_REGISTRY_NAMESPACE: $RANCHER_DOCKER_REGISTRY_NAMESPACE"
+  - "echo DOCKER_REGISTRY_USERNAME: $DOCKER_REGISTRY_USERNAME"
+  - "echo DOCKER_REGISTRY_PASSWORD: $DOCKER_REGISTRY_PASSWORD"
+
+after_script:
+  - echo "After script section"
+
+stages:
+  - docker-build-web
+  - release
+
+qat-docker-build:
+  stage: docker-build-web
+  services:
+    - docker:dind
+  only:
+    - development
+  script:
+    - whoami && pwd && date
+    - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD
+    - docker build --force-rm -f Dockerfile -t $RANCHER_DOCKER_REGISTRY_SERVER${RANCHER_DOCKER_REGISTRY_NAMESPACE}/react-onio:qat .
+    - docker push $RANCHER_DOCKER_REGISTRY_SERVER${RANCHER_DOCKER_REGISTRY_NAMESPACE}/react-onio:qat
+  tags:
+    - gitlab-org-docker
+  when: manual
+
+performance-docker-build:
+  stage: docker-build-web
+  services:
+    - docker:dind
+  only:
+    - performance-main
+  script:
+    - whoami && pwd && date
+    - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD
+    - docker build --force-rm -f Dockerfile -t $RANCHER_DOCKER_REGISTRY_SERVER${RANCHER_DOCKER_REGISTRY_NAMESPACE}/react-onio:performance .
+    - docker push $RANCHER_DOCKER_REGISTRY_SERVER${RANCHER_DOCKER_REGISTRY_NAMESPACE}/react-onio:performance
+  tags:
+    - gitlab-org-docker
+  when: manual
+
+
+strapi-v4-docker-build:
+  stage: docker-build-web
+  services:
+    - docker:dind
+  only:
+    - main-change-api-strapi-v4
+    - v4-smart-hub
+    - shelf-label
+    - chore/change-font
+  script:
+    - whoami && pwd && date
+    - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD
+    - docker build --force-rm -f Dockerfile -t $RANCHER_DOCKER_REGISTRY_SERVER${RANCHER_DOCKER_REGISTRY_NAMESPACE}/react-onio:strapi-v4 .
+    - docker push $RANCHER_DOCKER_REGISTRY_SERVER${RANCHER_DOCKER_REGISTRY_NAMESPACE}/react-onio:strapi-v4
+  tags:
+    - gitlab-org-docker
+  when: manual
+
+release:
+  stage: release
+  services:
+    - docker:dind
+  only:
+    - /^release-.*$/
+  script:
+    - whoami && pwd && date
+    - echo $IMAGE_NAME:$CI_PROJECT_VERSION
+    - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD
+    - docker build --force-rm -f Dockerfile -t $IMAGE_NAME:$CI_PROJECT_VERSION .
+    - docker push $IMAGE_NAME:$CI_PROJECT_VERSION
+  tags:
+    - gitlab-org-docker
+  when: manual

@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  redis:
+    image: redis:4-alpine
+    command: redis-server --requirepass qwerty --save 900 1 --save 300 10 --save 60 10000
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis_data:/data

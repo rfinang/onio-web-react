@@ -1,0 +1,22 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" r="19" stroke="white" stroke-width="2"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40">
+<circle cx="20" cy="20" r="20" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask0)">
+<line x1="-28.9882" y1="11.8163" x2="28.1821" y2="68.9867" stroke="white" stroke-width="2"/>
+<line x1="-21.953" y1="4.78117" x2="35.2173" y2="61.9515" stroke="white" stroke-width="2"/>
+<line y1="-1" x2="80.8511" y2="-1" transform="matrix(0.707107 0.707106 -0.707107 0.707106 -15.6211 -1.54883)" stroke="white" stroke-width="2"/>
+<line x1="-7.87883" y1="-9.29109" x2="49.2915" y2="47.8792" stroke="white" stroke-width="2"/>
+<line x1="-0.843675" y1="-16.3282" x2="56.3267" y2="40.8422" stroke="white" stroke-width="2"/>
+<line x1="6.19148" y1="-23.3653" x2="63.3618" y2="33.805" stroke="white" stroke-width="2"/>
+<line x1="13.2305" y1="-30.4005" x2="70.4009" y2="26.7699" stroke="white" stroke-width="2"/>
+<line x1="11.8163" y1="68.9863" x2="68.9867" y2="11.8159" stroke="white" stroke-width="2"/>
+<line y1="-1" x2="80.851" y2="-1" transform="matrix(0.707107 -0.707106 0.707107 0.707106 5.48828 62.6582)" stroke="white" stroke-width="2"/>
+<line y1="-1" x2="80.851" y2="-1" transform="matrix(0.707106 -0.707108 0.707106 0.707108 -1.54688 55.6211)" stroke="white" stroke-width="2"/>
+<line x1="-9.29304" y1="47.8769" x2="47.8774" y2="-9.29351" stroke="white" stroke-width="2"/>
+<line x1="-16.3282" y1="40.8417" x2="40.8421" y2="-16.3286" stroke="white" stroke-width="2"/>
+<line x1="-23.3634" y1="33.8046" x2="33.8071" y2="-23.3658" stroke="white" stroke-width="2"/>
+<line x1="-30.4024" y1="26.7675" x2="26.7679" y2="-30.4028" stroke="white" stroke-width="2"/>
+</g>
+</svg>

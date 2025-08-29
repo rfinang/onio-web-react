@@ -1,0 +1,58 @@
+export const customSelectStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    borderBottom: "1px dotted pink",
+    color: "#222021",
+    fontWeight: 500,
+    fontSize: "1.8rem",
+    lineHeight: "2.2rem",
+    padding: 10,
+    paddingLeft: 12,
+    paddingRight: 12,
+    border: "none",
+    backgroundColor: state.isSelected ? "#f5f5f5" : "transparent",
+    transition: "background-color 0.4s ease",
+    "&:hover": {
+      backgroundColor: "#f5f5f5",
+      cursor: "pointer",
+    },
+  }),
+  control: (provided) => ({
+    ...provided,
+    backgroundColor: "transparent",
+    color: "#fff",
+    borderRadius: 0,
+    border: "none",
+    borderBottom: "0.2rem solid",
+    borderBottomColor: "#fff",
+    boxShadow: "none",
+    "&:hover": {
+      borderColor: "#fff",
+    },
+  }),
+  singleValue: (provided) => ({ ...provided, color: "#fff" }),
+  valueContainer: (provided) => ({
+    ...provided,
+    margin: 0,
+    padding: "0 3px",
+    border: "none",
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: "#fff",
+  }),
+  input: (provided) => ({
+    ...provided,
+    margin: 0,
+    padding: 0,
+    height: "4.8rem",
+  }),
+  menu: (provided) => ({
+    ...provided,
+    borderRadius: 0,
+    paddingTop: 10,
+    paddingBottom: 10,
+    marginTop: "0.3rem",
+  }),
+  indicatorSeparator: () => ({ display: "none" }),
+};

@@ -1,0 +1,258 @@
+import React, {useState, useEffect} from "react";
+import Cookies from "universal-cookie";
+import router from "next/router";
+import nProgress from "nprogress";
+import styled from "styled-components";
+import {AppWrapper} from "../context/AppContext";
+import Script from "next/script";
+import Layout from "../components/layout";
+import {getFooterApi, getGlobalApi, getHeaderApi} from "../api";
+import Config from "../config/index";
+
+import "nprogress/nprogress.css";
+
+import layout from "../components/helper/layout";
+import PageHead from "../components/common/Head";
+import useScrollRestoration from "../hooks/useScrollRestoration";
+
+// import axios from 'axios';
+//
+// axios.defaults.auth = {
+//   username: 'onio-web',
+//   password: '0okm9ijn'
+// }
+
+const LoadingStyles = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f5f5f5;
+`;
+
+function MyApp({Component, pageProps}) {
+  const {dataHeader, dataGlobal, dataFooter, dataCookie, currentPath, ...rest} = pageProps;
+  const [pageLoading, setPageLoading] = useState(false);
+  const [acceptCookie, setAcceptCookie] = useState(false);
+  const [acceptThreeParty, setAcceptThreeParty] = useState(false);
+
+  const {hubspot_portal_id, gtag_id} = dataGlobal;
+  const {three_party_accept, cookie_accept} = dataCookie;
+
+
+  const htmlString = dataGlobal.ga_head;
+
+  useEffect(() => {
+    const div = document.createElement('div');
+    div.innerHTML = htmlString;
+    const script = div.querySelector('script');
+    if (script) {
+      const newScript = document.createElement('script');
+      newScript.src = script.src;
+      newScript.defer = script.defer;
+      if (script.dataset.domain) {
+        newScript.dataset.domain = script.dataset.domain;
+      }
+      document.body.appendChild(newScript);
+    }
+  }, []);
+
+  useScrollRestoration(router);
+
+  router.events.on("routeChangeStart", () => {
+    window.scrollTo(0, 0);
+    setPageLoading(true);
+    document.querySelector("#searchModal .modal-header button").click();
+    nProgress.start();
+  });
+  router.events.on("routeChangeComplete", () => {
+    setPageLoading(false);
+    nProgress.done();
+  });
+  router.events.on("routeChangeError", () => {
+    setPageLoading(false);
+    nProgress.done();
+  });
+
+  useState(() => {
+    if (typeof window !== "undefined") {
+      const threePartyAccept = localStorage.getItem("three_party_accept");
+      const cookieAccept = localStorage.getItem("cookie_accept");
+      if (cookieAccept === "true") {
+        setAcceptCookie(true);
+      }
+      if (threePartyAccept) {
+        setAcceptThreeParty(true);
+      }
+    }
+  }, []);
+  useEffect(() => {
+    nProgress.start();
+    const onPageLoad = () => {
+      new layout();
+      setPageLoading(false)
+      nProgress.done();
+
+    };
+
+    // Check if the page has already loaded
+    if (document.readyState === "interactive") {
+      onPageLoad();
+    } else {
+      window.addEventListener("DOMContentLoaded", onPageLoad);
+      // Remove the event listener when component unmounts
+      return () => window.removeEventListener("DOMContentLoaded", onPageLoad);
+    }
+  }, []);
+
+  const stringScript = `window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments)}
+        gtag('js', new Date());
+        gtag('config', '${gtag_id}');`;
+
+  // console.log(dataGlobal.ga_head);
+
+  return (
+    <AppWrapper>
+      {three_party_accept == "true" && (
+        <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${gtag_id}`}/>
+      )}
+      {three_party_accept == "true" && (
+        <Script
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: stringScript,
+          }}
+        ></Script>
+      )}
+
+      {three_party_accept !== "true" && (
+        <Script
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('consent', 'default', {'ad_storage': 'denied','analytics_storage': 'denied'})`,
+          }}
+        ></Script>
+      )}
+
+      {pageLoading && <div id="loading-overlay-document" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 1000,
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden',
+        background: '#f5f5f5'
+      }}/>}
+      <Layout dataHeader={dataHeader} dataGlobal={dataGlobal} dataFooter={dataFooter}>
+        <React.Fragment>
+          {/*{acceptThreeParty &&*/}
+          {/*// <div style={{display: "none"}} dangerouslySetInnerHTML={{__html: dataGlobal.ga_head}}></div>*/}
+          {/*  <Script*/}
+          {/*    id="ga-head"*/}
+          {/*    strategy="afterInteractive"*/}
+          {/*    dangerouslySetInnerHTML={{ __html: dataGlobal.ga_head }}*/}
+          {/*  />*/}
+          {/*}*/}
+
+          {/*{acceptThreeParty &&*/}
+          {/*  <Script*/}
+          {/*    id="ga-external"*/}
+          {/*    src={dataGlobal.ga_head}*/}
+          {/*    strategy="afterInteractive"*/}
+          {/*    data-domain="onio.com"*/}
+          {/*    defer*/}
+          {/*  />*/}
+          {/*}*/}
+
+          {/*{acceptThreeParty &&*/}
+          {/*<div style={{display: "none"}} dangerouslySetInnerHTML={{__html: dataGlobal.hubspot_tracking_code}}></div style={{display: "none"}}>*/}
+          {/*}*/}
+        </React.Fragment>
+        <PageHead seo={dataGlobal?.default_seo}>
+          <meta name="robots" content={`${dataGlobal?.robot_index},${dataGlobal?.robot_follow}`}/>
+          <meta property="og:type" content="website"/>
+          <meta property="og:url" content={`${Config.HOST_URL}${currentPath}`}/>
+        </PageHead>
+        <Component {...rest} />
+        <Script strategy="lazyOnload" src="/bootstrap.min.js"/>
+
+        {three_party_accept == "true" && (
+          <Script
+            // type="text/javascript"
+            id="hs-script-loader"
+            // async={true}
+            // defer={true}
+            strategy="lazyOnload"
+            src={`//js-na1.hs-scripts.com/${hubspot_portal_id}.js`}
+          />
+        )}
+      </Layout>
+    </AppWrapper>
+  );
+}
+
+MyApp.getInitialProps = async function ({Component, ctx}) {
+  let pageProps = {};
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+  // let dataHeader, dataGlobal, dataFooter;
+  //
+  // const cacheGlobal = await ClientRedis.get(KeyCache.global)
+  // console.log('cacheGlobal', cacheGlobal)
+  // if (cacheGlobal) {
+  //   dataGlobal = JSON.parse(cacheGlobal);
+  // } else {
+  //   const res_global = await getGlobalApi();
+  //   dataGlobal = res_global.data;
+  //   ClientRedis.set(KeyCache.global,JSON.stringify(dataGlobal))
+  // }
+  //
+  // const cacheHeader = await ClientRedis.get(KeyCache.header)
+  // console.log('cacheHeader', cacheHeader)
+  // if (cacheHeader) {
+  //   dataHeader = JSON.parse(cacheHeader);
+  // } else {
+  //   const res_header = await getHeaderApi();
+  //   dataHeader = res_header.data;
+  //   ClientRedis.set(KeyCache.header,JSON.stringify(dataHeader))
+  // }
+  //
+  // const cacheFooter = await ClientRedis.get(KeyCache.footer)
+  // console.log('cacheFooter', cacheFooter)
+  // if (cacheFooter) {
+  //   dataFooter = JSON.parse(cacheFooter);
+  // } else {
+  //   const res_footer = await getFooterApi();
+  //   dataFooter = res_footer.data;
+  //   ClientRedis.set(KeyCache.footer,JSON.stringify(dataFooter))
+  // }
+  const [dataHeader, dataGlobal, dataFooter] = await Promise.all([
+    getHeaderApi(),
+    getGlobalApi(),
+    getFooterApi(),
+  ]);
+
+  pageProps.query = ctx.query;
+  return {
+    pageProps: {
+      ...pageProps,
+      dataHeader: dataHeader.data.data,
+      dataGlobal: dataGlobal.data.data,
+      dataFooter: dataFooter.data.data,
+      dataCookie: {
+        three_party_accept: ctx.req.cookies.three_party_accept,
+        cookie_accept: ctx.req.cookies.cookie_accept,
+      },
+      currentPath: ctx.asPath
+    },
+  };
+};
+export default MyApp;

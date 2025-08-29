@@ -1,0 +1,233 @@
+import Link from "next/link";
+import { AccordianStyles } from "../styles/elements/accordian";
+import { HeroImageStyles, HomeDropOverMenu } from "../styles/home/HeroImage";
+import ImageComp from "../common/Image";
+import Slider from "react-slick";
+import {useState} from "react";
+
+
+function HeroBanner({ banners, bannerLinks }) {
+  if (banners.isEmpty || !bannerLinks)
+    return (<></>);
+
+  let initDotColor = banners[0]?.text_color ?? 'white';
+  const [dotColor, setDotColor] = useState(initDotColor);
+
+  const settings = {
+        dots: true,
+        arrows: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        customPaging: (i) => <span>{i + 1}</span>,
+        appendDots: (dots) => (
+            <div>
+                <div className="container">
+                    <ul className="ul-reset"> {dots} </ul>
+                </div>
+            </div>
+        ),
+        beforeChange: function (current, next) {
+            if (banners[next]?.text_color) {
+                setDotColor(banners[next].text_color);
+            }
+        }
+    };
+
+  return (
+    <>
+      <HeroImageStyles>
+          <div
+              className={`heroSlide dot-${dotColor} js-animation--fade--none`}
+          >
+            <Slider {...settings}>
+          {banners.map((item) => {
+            const { id, title, mobile_title, description, hide_desc_mobile, link_to, icon, image, mobile_image, text_color, show_links } = item;
+            let banner_mobile_title = mobile_title ?? title;
+            return (
+                <div key={id} className="slide-item">
+                  <div className="hero__item">
+                    <div className="heroImage">
+                  <div className="heroImage__poster">
+                    <div className="heroImage__poster__inner image__object-fit js-animation--image is-animation-loading">
+                      {image && (
+                          <ImageComp image={image} preload={true} customClass={mobile_image ? 'd-sm-block d-none' : ''} />
+                      )}
+                      {mobile_image && (
+                          <ImageComp image={mobile_image} preload={true}  customClass={'d-sm-none d-block'}/>
+                      )}
+                    </div>
+                  </div>
+                  <div className="heroImage__container">
+                    <div className="container">
+                      <div className="container__inner">
+                        <div className="row h-100 align-items-end">
+                          <div className={`col-lg-${show_links ? '6' : '8'} col-md-${show_links ? '6' : '8'} col-sm-8 heroImage__container__content`}>
+                            <h1
+                                className={`h2 d-sm-block d-none heroImage__container__heading text-${text_color} js-animation--chars is-animation-loading`}
+                                data-screen-offset=".4"
+                                dangerouslySetInnerHTML={{ __html: title.replaceAll("\n", "<br/>") }}
+                            >
+                            </h1>
+                              <h1
+                                  className={`h2 d-sm-none d-block heroImage__container__heading text-${text_color} js-animation--chars is-animation-loading`}
+                                  data-screen-offset=".4"
+                                  dangerouslySetInnerHTML={{ __html: banner_mobile_title.replaceAll("\n", "<br/>") }}
+                              >
+                              </h1>
+                            <div className="d-sm-flex align-items-start heroImage__container__desc">
+                              {icon && (
+                                  <span
+                                      className="icon js-animation--fade is-animation-loading"
+                                      data-screen-offset=".4"
+                                  >
+                          <img src={icon.url} alt="" />
+                        </span>
+                              )}
+                              <p
+                                  className={`h6 mb-0 js-animation--chars is-animation-loading text-${text_color}
+                                  ${hide_desc_mobile ? 'd-none d-sm-none d-md-none d-lg-block' : ''}
+                                  `}
+                                  data-screen-offset=".4"
+                                  dangerouslySetInnerHTML={{ __html: description.replaceAll("\n", "<br/>") }}
+                              >
+                              </p>
+                            </div>
+
+                            <p
+                                className="d-inline-block mb-0 js-animation--fade is-animation-loading"
+                                data-screen-offset="1.2"
+                            >
+                              <Link href={link_to.url}>
+                                <a className={`btn btn--large js-link--btn btn--bg btn--bg--${text_color}`}>
+                                  <span className="js-link__text">{link_to.label}</span>
+                                </a>
+                              </Link>
+                            </p>
+                          </div>
+                          {bannerLinks && show_links && (
+                              <div
+                                  className="col-lg-5 col-md-6 col-12 heroImage__container__right d-md-flex justify-content-end pr-0 d-none offset-lg-1 js-animation--fade is-animation-loading"
+                                  data-screen-offset="1.6"
+                              >
+                                <div className="overMenu backdropBlur">
+                                  <div className="overMenu__inner">
+                                    <div className="overMenuBlur__heading">
+                                      <h4 className={`heading--block heading--block--${text_color} d-inline-block`}>
+                                        <span className="heading--block__text">{bannerLinks.label}</span>
+                                      </h4>
+                                    </div>
+                                    {bannerLinks.links.length > 0 && (
+                                        <AccordianStyles className="ul-reset">
+                                          {bannerLinks.links.map((item) => (
+                                              <li key={item.id} className="accordian__item">
+                                                <Link href={item.url}>
+                                                  <a className={`accordian__item__link accordian__item__link--${text_color}`}>
+                                                    <div className="row g-0">
+                                                      <div className="col">
+                                                        <h6 className="h6 accordian__item__link__text mb-0">
+                                                          {item.label}
+                                                        </h6>
+                                                      </div>
+                                                      <div className="col-auto accordian__item__link__icon">
+                                          <span className={`iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--${text_color}`}>
+                                            <svg
+                                                width="16"
+                                                height="28"
+                                                viewBox="0 0 16 28"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                  d="M1.5769 1.61548L13.9613 13.9998L1.5769 26.3842"
+                                                  stroke={text_color}
+                                                  strokeWidth="2"
+                                              />
+                                            </svg>
+                                          </span>
+                                                      </div>
+                                                    </div>
+                                                  </a>
+                                                </Link>
+                                              </li>
+                                          ))}
+                                        </AccordianStyles>
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </div>
+                </div>
+            );
+          })}
+
+        </Slider>
+          </div>
+      </HeroImageStyles>
+      {bannerLinks && (
+        <HomeDropOverMenu className="d-md-none d-block">
+          <div className="home__dropOverMenu">
+            <div className="container js-animation--fade is-animation-loading">
+              <div className="overMenu backdropBlur">
+                <div className="overMenu__inner">
+                  <div className="overMenuBlur__heading mt-3 mb-3">
+                    <h4 className="heading--block heading--block--black d-inline-block">
+                      <span className="heading--block__text">{bannerLinks.label}</span>
+                    </h4>
+                  </div>
+                  {bannerLinks.links.length > 0 && (
+                    <AccordianStyles className="ul-reset">
+                      {bannerLinks.links.map((item) => (
+                        <li key={item.id} className="accordian__item">
+                          <Link href={item.url}>
+                            <a className="accordian__item__link accordian__item__link--black">
+                              <div className="row g-0">
+                                <div className="col">
+                                  <h6 className="h6 accordian__item__link__text mb-0">
+                                    {item.label}
+                                  </h6>
+                                </div>
+                                <div className="col-auto accordian__item__link__icon">
+                                  <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">
+                                    <svg
+                                      width="16"
+                                      height="28"
+                                      viewBox="0 0 16 28"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M1.5769 1.61548L13.9613 13.9998L1.5769 26.3842"
+                                        stroke="white"
+                                        strokeWidth="2"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </div>
+                            </a>
+                          </Link>
+                        </li>
+                      ))}
+                    </AccordianStyles>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </HomeDropOverMenu>
+      )}
+    </>
+  );
+}
+
+export default HeroBanner;

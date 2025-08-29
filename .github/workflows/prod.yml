@@ -1,0 +1,50 @@
+name: 'prod'
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Who to greet"
+        default: "World"
+
+env:
+  TAG_PREFIX: 'v'
+
+jobs:
+  BuildAndPushDockerImage:
+    if: |
+      startsWith(github.ref, 'refs/tags/release')
+    runs-on: ubuntu-latest
+    outputs:
+      DOCKER_IMAGE: ${{ steps.set_docker_image.outputs.DOCKER_IMAGE }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      - name: Remove unuse file
+        run: |
+          rm ./.git -rf
+          rm ./.github -rf
+          rm ./auth.json -rf
+      - name: List all file test
+        run: ls -a
+      - name: Get tag name
+        id: tag_name
+        run: |
+          CI_PROJECT_VERSION=$(echo "${GITHUB_REF#refs/tags/}" | cut -d'-' -f 2,3)
+          echo "CI_PROJECT_VERSION=${CI_PROJECT_VERSION}" >> $GITHUB_OUTPUT
+      - name: Build and push container image to registry
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          build-args: |
+            TAG=${{ steps.tag_name.outputs.CI_PROJECT_VERSION }}
+          tags: mpirevn/react-onio:${{ steps.tag_name.outputs.CI_PROJECT_VERSION }}
+          file: ./Dockerfile
+          context: ./
