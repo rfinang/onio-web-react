@@ -9,23 +9,22 @@ import Benefits from "./onio-zero/Benefits";
 import ZeroEnvironmentalBenefits from "./onio-zero/EnvironmentalBenefits";
 import HomeContact from "../home/HomeContact";
 import HomeProject from "../home/HomeProject";
-import PageAnimations from "../helper/animation/page-animations";
 import PageHead from "../common/Head";
+import usePageAnimations from "../../hooks/usePageAnimations";
+
 function ProductPage({ onioZeroData, homeProject, lowerBomData, newsletterSectionData }) {
   if (!onioZeroData || onioZeroData.length === 0) return <NotFound />;
 
     const newsletterRef = useRef(null);
+    usePageAnimations();
 
     useEffect(() => {
-    setTimeout(() => {
-      new PageAnimations();
-    });
-        if (window.location.hash === "#newsletter") {
-            setTimeout(() => {
-                newsletterRef.current.scrollIntoView({block: "start", inline: "nearest", behavior: "instant"});
-            }, 200)
-        }
-  }, []);
+      if (window.location.hash === "#newsletter") {
+          setTimeout(() => {
+              newsletterRef.current.scrollIntoView({block: "start", inline: "nearest", behavior: "instant"});
+          }, 200)
+      }
+    }, []);
   const {
     seo,
     product_banner,

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { TeamsStyles } from "../styles/about/Teams";
 import ImageComp from "../common/Image";
 function AboutTeams({ teamData }) {
@@ -28,7 +27,7 @@ function AboutTeams({ teamData }) {
                 return (
                   <div key={id} className="col-sm-6 col-12">
                     <div className="staff">
-                      <Link href={link}>
+                      <Link href={link} legacyBehavior>
                         <a className="staff__link d-block">
                           <div
                             className="staff__thumbnail js-animation--fade--none image__object-fit font-0"

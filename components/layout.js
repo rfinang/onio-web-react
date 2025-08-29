@@ -29,7 +29,6 @@ export default function Layout({ children, ...rest }) {
 
   // useEffect(() => {
   //     document.addEventListener("load", () => {
-  //         console.log('aaaaaaaaaae')
   //         openContactForm();
   //     })
   //     // setTimeout(openContactForm, 1000);

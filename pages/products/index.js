@@ -10,6 +10,7 @@ function ProductsLanding(props) {
 export const getServerSideProps = async () => {
   let dataProps = {};
   const dataCache = await ClientRedis.get(KeyCache.productLanding)
+  // const dataCache = null;
   if (dataCache) {
     dataProps = JSON.parse(dataCache);
   } else {

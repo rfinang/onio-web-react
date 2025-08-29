@@ -50,7 +50,7 @@ export default function Header({ dataGlobal, dataHeader: header, dataFooter }) {
       <div className="container">
         <div className="row align-items-center">
           <div className="header__logo col-auto col-md-2">
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <a className="d-block">
                 <img src={logo.url} alt="" />
               </a>

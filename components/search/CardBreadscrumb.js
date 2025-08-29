@@ -4,7 +4,7 @@ function CardBreadscrumb({ data }) {
   return (
     <ul className="metaLabel card-text__category">
       <li>
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <a title="Home">Home</a>
         </Link>
       </li>
@@ -14,7 +14,7 @@ function CardBreadscrumb({ data }) {
             const { slug, label } = item;
             return (
               <li key={index}>
-                <Link href={slug}>
+                <Link href={slug} legacyBehavior>
                   <a title={label}>{label}</a>
                 </Link>
               </li>

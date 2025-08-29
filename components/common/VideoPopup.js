@@ -6,13 +6,16 @@ function VideoPopup({ videoURL }) {
   useEffect(() => {
     var myModalEl = document.getElementById("videoModal");
     myModalEl.addEventListener("hidden.bs.modal", function () {
-      document.querySelector(".js-video__player").pause();
+      const player = document.querySelector(".js-video__player");
+      if (player) player.pause();
     });
     myModalEl.addEventListener("shown.bs.modal", function () {
-      document.querySelector(".js-video__player").play();
+      const player = document.querySelector(".js-video__player");
+      if (player) player.play();
     });
     return () => {
-      document.querySelector(".js-video__player").pause();
+      const player = document.querySelector(".js-video__player");
+      if (player) player.pause();
     };
   }, []);
   return (

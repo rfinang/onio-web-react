@@ -1,6 +1,5 @@
 import ImageComp from "../../common/Image";
 import { IntegrationStyles } from "../../styles/project-landing/smart-hub/Integration";
-import React from "react";
 
 function Integration({ data }) {
   if (!data) return null;

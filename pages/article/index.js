@@ -16,6 +16,7 @@ function ArticleLanding(props) {
 export const getServerSideProps = async () => {
     let cacheProps = {};
     const dataCache = await ClientRedis.get(KeyCache.blogLanding)
+    // const dataCache = null;
     if (dataCache) {
         cacheProps = JSON.parse(dataCache);
     } else {

@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { VideoItem } from "../styles/VideoItem";
 import { NavNewsItem } from "../styles/NavNewsItem";
@@ -23,7 +22,7 @@ function Nav({ menus }) {
             const listChild = item.items.filter((item) => item.Child.length === 0);
             return (
               <li key={item.id} className={`menu-item ${item.items.length ? "has-sub-menu" : ""}`}>
-                <Link href={item.link}>
+                <Link href={item.link} legacyBehavior>
                   <a
                     className={`menu-item__link ${item.items.length ? "menu-item__has-sub" : ""}`}
                     data-href={item.name}
@@ -45,7 +44,7 @@ function Nav({ menus }) {
                                   className={`col-lg-${2 + index} col-sm-6 col-12`}
                                 >
                                   <h6 className="h6 menu-item__child__title">
-                                    <Link href={itemChild.url}>
+                                    <Link href={itemChild.url} legacyBehavior>
                                       <a>{itemChild.label}</a>
                                     </Link>
                                   </h6>
@@ -53,7 +52,7 @@ function Nav({ menus }) {
                                     <ul className="menu-item__child__menu mb-3 mb-lg-0">
                                       {itemChild.Child.map((itemSubChild) => (
                                         <li key={itemSubChild.id}>
-                                          <Link href={itemSubChild.url}>
+                                          <Link href={itemSubChild.url} legacyBehavior>
                                             <a>{itemSubChild.label}</a>
                                           </Link>
                                         </li>
@@ -70,7 +69,7 @@ function Nav({ menus }) {
                             <ul className="menu-item__child__pages">
                               {listChild.map((listChildItem) => (
                                 <li key={listChildItem.id}>
-                                  <Link href={listChildItem.url}>
+                                  <Link href={listChildItem.url} legacyBehavior>
                                     <a className="h6 d-block">{listChildItem.label}</a>
                                   </Link>
                                 </li>

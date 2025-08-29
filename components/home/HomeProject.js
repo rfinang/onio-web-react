@@ -3,6 +3,7 @@ import { HomeProjectStyles } from "../styles/home/HomeProject";
 import ImageComp from "../common/Image";
 function HomeProject({ homeProject, customClass, hideTop = false, showDesc = false }) {
   if (!homeProject) return null;
+  
   const { label, title, link_to, tech_redefined_items, description_title, description } =
     homeProject;
   const techRedefinedItem = tech_redefined_items.length > 0 ? tech_redefined_items[0] : null;
@@ -21,7 +22,7 @@ function HomeProject({ homeProject, customClass, hideTop = false, showDesc = fal
                 className="col-auto ms-auto d-sm-block d-none js-animation--fade"
                 data-offset=".15"
               >
-                <Link href={link_to.url}>
+                <Link href={link_to.url} legacyBehavior>
                   <a className="pageLink pageLink--black">
                     <span className="pageLink__text">{link_to.label}</span>
                     <span className="pageLink__icon">
@@ -73,7 +74,7 @@ function HomeProject({ homeProject, customClass, hideTop = false, showDesc = fal
               />
             </div>
             <div className="col-12 d-sm-none d-block">
-              <Link href={link_to.url}>
+              <Link href={link_to.url} legacyBehavior>
                 <a className="pageLink pageLink--black">
                   <span className="pageLink__text">{link_to.label}</span>
                   <span className="pageLink__icon">
@@ -95,7 +96,7 @@ function HomeProject({ homeProject, customClass, hideTop = false, showDesc = fal
           </div>
           {tech_redefined_items.length < 2 ? (
             <div className="bigThumbnailLink">
-              <Link href={techRedefinedItem.link}>
+              <Link href={techRedefinedItem.link} legacyBehavior>
                 <a className="bigThumbnailLink__link" href="#">
                   <div className="bigThumbnailLink__thumbnail image__object-fit js-animation--fade--none">
                     <ImageComp image={techRedefinedItem.image} />
@@ -136,7 +137,7 @@ function HomeProject({ homeProject, customClass, hideTop = false, showDesc = fal
                 return (
                   <div key={id} className="col-sm-6 col-12">
                     <div className="project">
-                      <Link href={item.link}>
+                      <Link href={item.link} legacyBehavior>
                         <a className="project__link">
                           <div
                             className="project__thumbnail image__object-fit js-animation--fade--none"

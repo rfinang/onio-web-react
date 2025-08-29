@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import ImageComp from "../../common/Image";
 import Post from "../Post";
 
@@ -35,7 +34,7 @@ function BlogDetailAuthor({ writer, authorPost }) {
                 />
 
                 <div className="blogAuthor__links">
-                  <Link href={`/team-member/${slug}.html`}>
+                  <Link href={`/team-member/${slug}.html`} legacyBehavior>
                     <a className="pageLink pageLink--black">
                       <span className="pageLink__text">Read Bio</span>
                       <span className="pageLink__icon">

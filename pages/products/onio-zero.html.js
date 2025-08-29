@@ -16,6 +16,7 @@ function OnioZero(props) {
 export const getServerSideProps = async () => {
   let props = {};
   const dataCache = await ClientRedis.get(KeyCache.onioZero);
+  // const dataCache = null;
   if (dataCache) {
     props = JSON.parse(dataCache);
     return {

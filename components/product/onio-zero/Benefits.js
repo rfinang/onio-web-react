@@ -1,4 +1,3 @@
-import React from "react";
 import EnvironmentalBenefits from "../../home/EnvironmentalBenefits";
 import BenefitAnimations from "../../home/BenefitAnimations";
 import { BenefitsStyles } from "../../styles/product/Benefits";

@@ -37,6 +37,20 @@ export const HeroImageStyles = styled.div`
 
   
   .heroSlide {
+       /* Safari-specific optimizations */
+       -webkit-backface-visibility: hidden;
+       -webkit-transform: translateZ(0);
+       transform: translateZ(0);
+       will-change: opacity, visibility;
+       
+       /* Ensure immediate visibility in Safari */
+       &.js-animation--fade--none {
+         opacity: 1 !important;
+         visibility: visible !important;
+         -webkit-animation-fill-mode: forwards;
+         animation-fill-mode: forwards;
+       }
+       
        &.dot-black {
           .slick-dots li span {
             display: flex;

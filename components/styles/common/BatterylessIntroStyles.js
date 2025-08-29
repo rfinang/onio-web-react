@@ -2,24 +2,23 @@ import styled from "styled-components";
 
 export const BatterylessIntroStyles = styled.div`
   .turnkey-landing-intro {
-    padding: 14.1rem 0 2rem;
+    padding: 14.1rem 0 4.5rem;
   }
   .turnkey-landing-intro .top {
     position: relative;
     z-index: 5;
   }
   .turnkey-landing-intro .top .section-title {
-    margin-bottom: 18.7rem;
+    margin-bottom: 10rem;
   }
   .turnkey-landing-intro .top .product-canvas {
-    width: 73.2rem;
-    height: 73.2rem;
+    width: 49.5rem;
+    height: 46.5rem;
     max-width: 88vw;
-    max-height: 88vw;
-    // max-width: 100%;
+    max-height: calc(88vw * 465/495);
     margin: 0 auto;
     position: absolute;
-    top: 0rem;
+    top: 16rem;
     left: 0;
     right: 0;
   }
@@ -33,7 +32,7 @@ export const BatterylessIntroStyles = styled.div`
     height: 100%;
   }
   .turnkey-landing-intro .block-title {
-    margin-bottom: 7.3rem;
+    margin-bottom: 4.7rem;
     background-color: #222021;
     color: #fff;
   }
@@ -44,20 +43,10 @@ export const BatterylessIntroStyles = styled.div`
     line-height: 100%;
     margin-bottom: 0;
   }
-  @media (max-width: 1023.98px) {
-    .turnkey-landing-intro .info-title {
-      font-size: 10rem;
-    }
-  }
-  @media (max-width: 739.98px) {
-    .turnkey-landing-intro .info-title {
-      font-size: 72px;
-    }
-  }
   .turnkey-landing-intro .info-list {
     list-style: none;
     padding-left: 0;
-    margin-bottom: 8.8rem;
+    margin-bottom: 0;
   }
   .turnkey-landing-intro .info-list li {
     border-top: 2px solid #000000;
@@ -97,6 +86,9 @@ export const BatterylessIntroStyles = styled.div`
   }
 
   @media (max-width: 1023.98px) {
+    .turnkey-landing-intro .info-title {
+      font-size: 10rem;
+    }
     .turnkey-landing-intro .block-title {
       margin-bottom: 5.3rem;
     }
@@ -116,20 +108,24 @@ export const BatterylessIntroStyles = styled.div`
     .turnkey-landing-intro .info-list {
       width: 335px;
       max-width: 100%;
+      margin-bottom: 54px;
     }
   }
   @media (max-width: 739.98px) {
     .turnkey-landing-intro {
       padding: 2.9230769231rem 0 4.4rem;
     }
+    .turnkey-landing-intro .info-title {
+      font-size: 72px;
+    }
     .turnkey-landing-intro .top .product-canvas {
-      width: 268px;
-      height: 268px;
+      width: 248px;
+      height: 233px;
       max-width: 88vw;
-      max-height: 88vw;
+      max-height: calc(88vw * 465/495);
     }
     .turnkey-landing-intro .info-list {
-      margin-bottom: 0;
+      margin-bottom: 54px;
       width: 100%;
     }
     .turnkey-landing-intro .info-list li a {

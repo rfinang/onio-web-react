@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { HomeQuickStyles } from "../styles/home/HomeQuick";
 import ImageComp from "../common/Image";
 function RelatedPages({ whatNext }) {
@@ -34,7 +33,7 @@ function RelatedPages({ whatNext }) {
                       className="relateLink js-animation--mask"
                       data-offset={(index + 1) * 0.25 + 0.25}
                     >
-                      <Link href={item.url}>
+                      <Link href={item.url} legacyBehavior>
                         <a className="relateLink__link backdropBlur backdropBlur--hover d-block">
                           <div className="backdropBlur__inner">
                             <h5

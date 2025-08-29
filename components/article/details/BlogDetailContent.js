@@ -1,4 +1,3 @@
-import React from "react";
 import {useAppContext} from "../../../context/AppContext";
 function BlogDetailContent({ content, linkTo, sendMail, handleMouseClick, customClass }) {
   const { dispatch } = useAppContext();

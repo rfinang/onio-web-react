@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import ImageComp from "../../common/Image";
 import { BatterylessAboutStyles } from "../../styles/project-landing/smart-hub/BatterylessAbout";
 

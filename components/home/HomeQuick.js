@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { HomeQuickStyles } from "../styles/home/HomeQuick";
 import ImageComp from "../common/Image";
 function HomeQuick({ whatNext }) {
@@ -41,7 +40,7 @@ function HomeQuick({ whatNext }) {
                         data-offset={index / 2 === 0 ? ".5" : ".75"}
                       >
                         <div className="relateLink">
-                          <Link href={item.url}>
+                          <Link href={item.url} legacyBehavior>
                             <a className="relateLink__link backdropBlur backdropBlur--hover d-block">
                               <div className="backdropBlur__inner">
                                 <h5 className="h5 relateLink__heading text-white h6">

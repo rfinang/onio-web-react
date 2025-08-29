@@ -1,4 +1,3 @@
-import React from "react";
 import ImageComp from "../../common/Image";
 
 function BlogDetailPoster({ feature_image, mobile_feature_image }) {

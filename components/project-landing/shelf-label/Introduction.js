@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import ImageComp from "../../common/Image";
 import { IntroductionStyles } from "../../styles/project-landing/shelf-label/Introduction";
 
@@ -25,7 +24,7 @@ function Introduction({ data }) {
               </p>
             </div>
             <div className="d-none d-sm-block col-auto ms-auto">
-              <Link href={link.url}>
+              <Link href={link.url} legacyBehavior>
                 <a
                     className="pageLink pageLink--black js-animation--fade"
                     data-screen-offset="1.7"

@@ -1,4 +1,3 @@
-import React from "react";
 import { InvestorPartnerStyles } from "../styles/investor/Partner";
 
 function InvestorPartner({ partner }) {

@@ -1,4 +1,3 @@
-import React from "react";
 import { BatterylessQuickStyles } from "../../styles/project-landing/batteryless-remote/BatterylessQuick";
 import { useAppContext } from "../../../context/AppContext";
 function BatterylessQuick({ data }) {

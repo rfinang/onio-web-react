@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { BatterylessAboutStyles } from "../../styles/project-landing/smart-hub/Community";
 
 function Community({data}) {
@@ -21,7 +20,7 @@ function Community({data}) {
             <div className="col-auto ms-sm-auto order-1 order-sm-2 mb-3">
               {link && (
 
-              <Link href={url}>
+              <Link href={url} legacyBehavior>
                 <a
                   className="pageLink pageLink--black js-animation--fade"
                   data-screen-offset="1.7"

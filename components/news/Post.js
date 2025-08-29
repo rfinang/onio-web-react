@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import ImageComp from "../common/Image";
 import { PostStyles } from "../styles/elements/Post";
 import Tippy from "@tippyjs/react";
@@ -17,7 +16,7 @@ function Post({ data }) {
   return (
     <PostStyles>
       <div className="article">
-        <Link href={`/news/${slug}.html`}>
+        <Link href={`/news/${slug}.html`} legacyBehavior>
           <a className="article__link">
             <div className="article__thumbnail image__object-fit font-0">
               <ImageComp image={thumbnail} />

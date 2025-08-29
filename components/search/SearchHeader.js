@@ -89,21 +89,21 @@ function SearchHeader({
                 data-screen-offset=".35"
               >
                 <li>
-                  <Link href={`/search?keyword=${keyword}`}>
+                  <Link href={`/search?keyword=${keyword}`} legacyBehavior>
                     <a className={active === 0 ? "active" : ""} title="Top Hits">
                       Top Hits
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/search/general?keyword=${keyword}`}>
+                  <Link href={`/search/general?keyword=${keyword}`} legacyBehavior>
                     <a className={active === 1 ? "active" : ""} title={`General (${generalCount})`}>
                       General ({generalCount})
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/search/products?keyword=${keyword}`}>
+                  <Link href={`/search/products?keyword=${keyword}`} legacyBehavior>
                     <a
                       className={active === 2 ? "active" : ""}
                       title={`Products (${productsCount})`}
@@ -113,7 +113,7 @@ function SearchHeader({
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/search/article?keyword=${keyword}`}>
+                  <Link href={`/search/article?keyword=${keyword}`} legacyBehavior>
                     <a
                       className={active === 3 ? "active" : ""}
                       title={`Articles (${articleCount})`}
@@ -123,7 +123,7 @@ function SearchHeader({
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/search/news?keyword=${keyword}`}>
+                  <Link href={`/search/news?keyword=${keyword}`} legacyBehavior>
                     <a className={active === 4 ? "active" : ""} title={`News (${newsCount})`}>
                       News ({newsCount})
                     </a>
@@ -147,7 +147,7 @@ function SearchHeader({
                 {popularKeyword.map((item, index) => {
                   return (
                     <li key={`ps_${index}`}>
-                      <Link href={`/search?keyword=${item.key_data}`}>
+                      <Link href={`/search?keyword=${item.key_data}`} legacyBehavior>
                         <a title={item.key_data}>{item.key_data}</a>
                       </Link>
                     </li>

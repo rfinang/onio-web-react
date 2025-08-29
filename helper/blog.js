@@ -1,15 +1,18 @@
 import _ from "lodash";
 const mapItem = (item) => {
+  // Handle both direct properties and Strapi v4 attributes structure
+  const data = item.attributes || item;
+  
   return {
     id: item.id,
-    title: item.title,
-    content: item.content,
-    slug: item.slug,
-    publish_date: item.publish_date,
-    thumbnail: item.thumbnail,
-    categories: item.categories,
-    read_time: item.read_time,
-    feature_image: item.feature_image,
+    title: data.title,
+    content: data.content,
+    slug: data.slug,
+    publish_date: data.publish_date,
+    thumbnail: data.thumbnail ? JSON.parse(JSON.stringify(data.thumbnail)) : null,
+    categories: data.categories ? JSON.parse(JSON.stringify(data.categories)) : null,
+    read_time: data.read_time,
+    feature_image: data.feature_image ? JSON.parse(JSON.stringify(data.feature_image)) : null,
   };
 };
 

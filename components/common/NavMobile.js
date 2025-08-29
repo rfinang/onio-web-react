@@ -92,7 +92,7 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
                                       return (
                                         <div key={itemChild.id}>
                                           <h6 className="h6 menu-item__child__title">
-                                            <Link href={itemChild.url}>
+                                            <Link href={itemChild.url} legacyBehavior>
                                               <a>{itemChild.label}</a>
                                             </Link>
                                           </h6>
@@ -100,7 +100,7 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
                                             <ul className="menu-item__child__menu">
                                               {itemChild.Child.map((itemSubChild) => (
                                                 <li key={itemSubChild.id}>
-                                                  <Link href={itemSubChild.url}>
+                                                  <Link href={itemSubChild.url} legacyBehavior>
                                                     <a>{itemSubChild.label}</a>
                                                   </Link>
                                                 </li>
@@ -116,7 +116,7 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
                                   <ul className="menu-item__child__pages">
                                     {listChild.map((listChildItem) => (
                                       <li key={listChildItem.id}>
-                                        <Link href={listChildItem.url}>
+                                        <Link href={listChildItem.url} legacyBehavior>
                                           <a className="h6 d-block">{listChildItem.label}</a>
                                         </Link>
                                       </li>
@@ -194,7 +194,7 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
                           </div>
                         </>
                       ) : (
-                        <Link href={item.link}>
+                        <Link href={item.link} legacyBehavior>
                           <a className={`menu-item__link`}>
                             <span className="menu-item__text">{item.name}</span>
                           </a>
@@ -233,7 +233,7 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
               <ul className="terms ul-reset mt-sm-1 mt-2">
                 {menuPolicy.items.map((item) => (
                   <li key={item.id} className="term__item">
-                    <Link href={item.url}>
+                    <Link href={item.url} legacyBehavior>
                       <a className="term__item__link">{item.label}</a>
                     </Link>
                   </li>

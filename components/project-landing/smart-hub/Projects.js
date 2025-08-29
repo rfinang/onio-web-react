@@ -17,7 +17,7 @@ function Project({ data }) {
               <h2 className={`h2 mb-0 js-animation--chars`}>{title}</h2>
             </div>
             <div className="col-auto ms-sm-auto mb-3 mt-sm-2">
-              <Link href={link_to.url}>
+              <Link href={link_to.url} legacyBehavior>
                 <a
                   className="pageLink pageLink--black"
                   target={link_to.open_new_tab ? "_blank" : "_self"}
@@ -50,7 +50,7 @@ function Project({ data }) {
           </div>
           {items.length < 2 ? (
             <div className="bigThumbnailLink">
-              <Link href={items[0].link}>
+              <Link href={items[0].link} legacyBehavior>
                 <a className="bigThumbnailLink__link" href="#">
                   <div className="bigThumbnailLink__thumbnail image__object-fit js-animation--fade--none">
                     <ImageComp image={items[0].image} />
@@ -91,7 +91,7 @@ function Project({ data }) {
                 return (
                   <div key={id} className="col-sm-6 col-12">
                     <div className="project">
-                      <Link href={item.link}>
+                      <Link href={item.link} legacyBehavior>
                         <a className="project__link">
                           <div
                             className="project__thumbnail image__object-fit js-animation--fade--none"

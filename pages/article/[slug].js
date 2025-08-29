@@ -30,7 +30,7 @@ export const getServerSideProps = async (props) => {
     };
   }
 
-  const categories = blogDetailsData.categories.map((item) => item.id);
+  const categories = blogDetailsData.categories ? blogDetailsData.categories.map((item) => item.id) : [];
 
   const [authorPostData, relatedPostData] = await Promise.all([
     getBlogApi({

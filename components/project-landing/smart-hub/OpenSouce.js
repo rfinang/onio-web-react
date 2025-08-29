@@ -41,7 +41,7 @@ function OpenSource({ data }) {
           <div className="row">
             <div className="col-md-6">
               {get_the_project_files && (
-                <Link href={url}>
+                <Link href={url} legacyBehavior>
                   <a
                     className="resource resource--link resource--black js-animation--fade animation--fade"
                     target={open_new_tab ? "_blank" : "_self"}

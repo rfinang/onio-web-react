@@ -38,7 +38,7 @@ function BlogHeader({ blogHeaderData, blogCategories, totalPost = null }) {
               <div className="col-sm col-7 offset-sm-0 offset-1">
                 <ul className="filterBlog__categories ul-reset">
                   <li className="filterBlog__item js-animation--fade" data-screen-offset=".6">
-                    <Link href="/article">
+                    <Link href="/article" legacyBehavior>
                       <a className="h6 d-block linkHover--black">All</a>
                     </Link>
                   </li>
@@ -50,7 +50,7 @@ function BlogHeader({ blogHeaderData, blogCategories, totalPost = null }) {
                         className="filterBlog__item js-animation--fade"
                         data-screen-offset={0.6 + (index + 1) / 10}
                       >
-                        <Link href={`/article/category/${slug}.html`}>
+                        <Link href={`/article/category/${slug}.html`} legacyBehavior>
                           <a className="h6 d-block linkHover--black">{name}</a>
                         </Link>
                       </li>

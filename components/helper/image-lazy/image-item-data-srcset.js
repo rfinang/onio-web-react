@@ -51,10 +51,20 @@ class ImageItemDataSrcset {
     this.destroy();
   }
 
+  resize() {
+    // Handle resize events if needed
+  }
+
   destroy() {
-    this.obServer.unobserve(this.DOM.el);
-    this.obServer.disconnect();
-    this.obServer = null;
+    if (this.obServer) {
+      this.obServer.unobserve(this.DOM.el);
+      this.obServer.disconnect();
+      this.obServer = null;
+    }
+    if (this.timeOnScreen) {
+      clearTimeout(this.timeOnScreen);
+      this.timeOnScreen = null;
+    }
   }
 }
 

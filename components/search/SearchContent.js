@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import ImageComp from "../common/Image";
 
 import CardText from "./CardText";
@@ -24,7 +23,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
                   <h3 className="h6 block-title js-animation--fade" data-screen-offset=".15">
                     Articles /
                   </h3>
-                  <Link href={`/search/article?keyword=${keyword}`}>
+                  <Link href={`/search/article?keyword=${keyword}`} legacyBehavior>
                     <a
                       className="block-viewmore js-animation--fade"
                       data-screen-offset=".25"
@@ -63,7 +62,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
                                 />
                               </svg>
                             </div>
-                            <Link href={itemSlug}>
+                            <Link href={itemSlug} legacyBehavior>
                               <a className="link" title={title}></a>
                             </Link>
                           </div>
@@ -83,7 +82,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
                 {news?.data?.count === 0 ? (
                   <span className="block-viewmore">No matches</span>
                 ) : (
-                  <Link href={`/search/news?keyword=${keyword}`}>
+                  <Link href={`/search/news?keyword=${keyword}`} legacyBehavior>
                     <a
                       className="block-viewmore js-animation--fade"
                       data-screen-offset=".25"
@@ -123,7 +122,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
                               />
                             </svg>
                           </div>
-                          <Link href={itemSlug}>
+                          <Link href={itemSlug} legacyBehavior>
                             <a className="link" title={title}></a>
                           </Link>
                         </div>
@@ -146,7 +145,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
                     {general?.data?.count === 0 ? (
                       <span className="block-viewmore">No matches</span>
                     ) : (
-                      <Link href={`/search/general?keyword=${keyword}`}>
+                      <Link href={`/search/general?keyword=${keyword}`} legacyBehavior>
                         <a
                           className="block-viewmore js-animation--fade"
                           data-screen-offset=".25"
@@ -181,7 +180,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
                     {products?.data?.count === 0 ? (
                       <span className="block-viewmore">No matches</span>
                     ) : (
-                      <Link href={`/search/products?keyword=${keyword}`}>
+                      <Link href={`/search/products?keyword=${keyword}`} legacyBehavior>
                         <a
                           className="block-viewmore js-animation--fade"
                           data-screen-offset=".25"

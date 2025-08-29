@@ -1,4 +1,3 @@
-import React from "react";
 import ImageComp from "../../common/Image";
 import SettingChart from "../settingChart/SettingChart";
 import {PoweredProfilerStyled} from "../../styles/energy-emulator/PoweredProfilerStyled";

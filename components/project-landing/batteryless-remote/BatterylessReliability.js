@@ -1,4 +1,3 @@
-import React from "react";
 import ImageComp from "../../common/Image";
 import BenefitAnimations from "../../home/BenefitAnimations";
 import { BatterylessReliabilityStyles } from "../../styles/project-landing/batteryless-remote/BatterylessReliability";

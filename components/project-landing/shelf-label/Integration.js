@@ -1,4 +1,3 @@
-import React from "react";
 import { IntegrationStyles } from "../../styles/project-landing/shelf-label/Integration";
 import ImageComp from "../../common/Image";
 import {useAppContext} from "../../../context/AppContext";

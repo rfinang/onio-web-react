@@ -1,4 +1,3 @@
-import React from "react";
 import { EnvironmentalBenefitsStyles } from "../../styles/home/EnvironmentalBenefits";
 
 function ZeroEnvironmentalBenefits({ sectionEnviromentalBenefits, materialSavings }) {

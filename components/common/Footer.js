@@ -26,7 +26,7 @@ export default function Footer({ dataFooter: footer, dataGlobal }) {
                       data-offset={index * 0.05 + 0.2}
                     >
                       {item.url !== "#contact-form" ? (
-                        <Link href={item.url}>
+                        <Link href={item.url} legacyBehavior>
                           <a className="hyperlink__item__link nav--link">{item.label}</a>
                         </Link>
                       ) : (
@@ -54,7 +54,7 @@ export default function Footer({ dataFooter: footer, dataGlobal }) {
                       data-offset={index * 0.05 + 0.3}
                     >
                       {item.url !== "#contact-form" ? (
-                        <Link href={item.url}>
+                        <Link href={item.url} legacyBehavior>
                           <a className="hyperlink__item__link nav--link">{item.label}</a>
                         </Link>
                       ) : (
@@ -104,7 +104,7 @@ export default function Footer({ dataFooter: footer, dataGlobal }) {
                 <ul className="terms ul-reset mt-sm-2">
                   {menu_policy.items.map((item) => (
                     <li key={item.id} className="term__item">
-                      <Link href={item.url}>
+                      <Link href={item.url} legacyBehavior>
                         <a className="term__item__link">{item.label}</a>
                       </Link>
                     </li>

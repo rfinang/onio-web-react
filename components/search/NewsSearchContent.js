@@ -74,7 +74,7 @@ function NewsSearchContent({ keyword, news }) {
                             />
                           </svg>
                         </div>
-                        <Link href={itemSlug}>
+                        <Link href={itemSlug} legacyBehavior>
                           <a className="link" title={title}></a>
                         </Link>
                       </div>

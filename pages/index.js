@@ -25,8 +25,8 @@ export const getServerSideProps = async (context) => {
       /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
   ))
 
-  // const dataCache = await ClientRedis.get(KeyCache.home);
-  const dataCache = null;
+  const dataCache = await ClientRedis.get(KeyCache.home);
+  // const dataCache = null;
   if (dataCache) {
     cacheProps = JSON.parse(dataCache);
   } else {
@@ -42,12 +42,12 @@ export const getServerSideProps = async (context) => {
 
 
     cacheProps = {
-      dataHome: dataHome.data.data,
-      dataPower: dataPower.data.data,
-      lowserBomData: lowserBom.data.data,
-      homeProject: homeProject.data.data,
-      oneChipData: oneChipData.data.data,
-      newsletterSectionData: newsletterSection.data.data,
+      dataHome: dataHome.data.data ? JSON.parse(JSON.stringify(dataHome.data.data)) : null,
+      dataPower: dataPower.data.data ? JSON.parse(JSON.stringify(dataPower.data.data)) : null,
+      lowserBomData: lowserBom.data.data ? JSON.parse(JSON.stringify(lowserBom.data.data)) : null,
+      homeProject: homeProject.data.data ? JSON.parse(JSON.stringify(homeProject.data.data)) : null,
+      oneChipData: oneChipData.data.data ? JSON.parse(JSON.stringify(oneChipData.data.data)) : null,
+      newsletterSectionData: newsletterSection.data.data ? JSON.parse(JSON.stringify(newsletterSection.data.data)) : null,
     };
     ClientRedis.set(KeyCache.home, JSON.stringify(cacheProps));
   }

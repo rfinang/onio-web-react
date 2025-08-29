@@ -14,14 +14,19 @@ export default function LottieAnimation({ urlData }) {
     setIsClient(true);
   }, []);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (!urlData) return;
-    try {
-      let obj = await (await fetch(urlData)).json();
-      setData(obj);
-    } catch (error) {
-      console.error('Failed to load Lottie animation:', error);
-    }
+    
+    const fetchData = async () => {
+      try {
+        let obj = await (await fetch(urlData)).json();
+        setData(obj);
+      } catch (error) {
+        console.error('Failed to load Lottie animation:', error);
+      }
+    };
+    
+    fetchData();
   }, [urlData]);
 
   if (!isClient) {

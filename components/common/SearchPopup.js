@@ -95,7 +95,7 @@ function SearchPopup() {
                             {popularKeyword.map((item, index) => {
                               return (
                                 <li key={`ps_${index}`}>
-                                  <Link href={`/search?keyword=${item.key_data}`}>
+                                  <Link href={`/search?keyword=${item.key_data}`} legacyBehavior>
                                     <a title={item.key_data}>{item.key_data}</a>
                                   </Link>
                                 </li>

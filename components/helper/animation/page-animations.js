@@ -11,10 +11,12 @@ import AnimationButton from "./button";
 
 class PageAnimations {
   constructor() {
+    this.imageLazy = null;
     this.init();
   }
+  
   init() {
-    new ImageLazy();
+    this.imageLazy = new ImageLazy();
     if (checkDeviceMobile()) return;
     document.querySelectorAll(".js-link--btn:not(.is-render)").forEach((btn) => {
       btn.classList.add("is-render");
@@ -41,6 +43,13 @@ class PageAnimations {
     document.querySelectorAll(".js-animation--mask").forEach((item) => new AnimationMask(item));
     document.querySelectorAll(".js-material").forEach((item) => new AnimationMaterial(item));
     document.querySelectorAll(".js-animation--scale").forEach((item) => new AnimationScale(item));
+  }
+  
+  destroy() {
+    if (this.imageLazy && typeof this.imageLazy.destroy === 'function') {
+      this.imageLazy.destroy();
+      this.imageLazy = null;
+    }
   }
 }
 export default PageAnimations;

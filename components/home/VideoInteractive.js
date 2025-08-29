@@ -38,7 +38,7 @@ function VideoInteractive({ powerZero, customClass = "" }) {
           </div>
           <div className="col-md-auto col-12 ms-md-auto">
             {LinkTo && (
-              <Link href={LinkTo.url}>
+              <Link href={LinkTo.url} legacyBehavior>
                 <a className="pageLink pageLink--black  js-animation--fade">
                   <span className="pageLink__text">{LinkTo.label}</span>
                   <span className="pageLink__icon">

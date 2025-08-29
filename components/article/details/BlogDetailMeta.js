@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import {calculateReadTime} from "../../../helper";
 
 function BlogDetailMeta({ read_time, created_at, categories, content }) {
@@ -18,7 +17,7 @@ function BlogDetailMeta({ read_time, created_at, categories, content }) {
               {categories.map((item, index) => {
                 const { id, name, slug } = item;
                 return (
-                  <Link key={id} href={`/article/category/${slug}.html`}>
+                  <Link key={id} href={`/article/category/${slug}.html`} legacyBehavior>
                     <a className="h5 linkHover linkHover--black blogDetail__meta__cat__link">
                       {name}
                       {index + 1 < categories.length ? (

@@ -19,7 +19,8 @@ export default function useScrollRestoration(router) {
         if ('scrollRestoration' in window.history) {
             let shouldScrollRestore = false;
             window.history.scrollRestoration = 'manual';
-            restoreScrollPos(router.asPath);
+            // Only restore scroll position on browser back/forward, not on page load
+            // restoreScrollPos(router.asPath);
 
             const onBeforeUnload = event => {
                 saveScrollPos(router.asPath);

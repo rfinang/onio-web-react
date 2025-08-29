@@ -1,4 +1,3 @@
-import React from "react";
 import { TeamContentStyles } from "../styles/team-member/Content";
 import ImageComp from "../common/Image";
 function TeamMemberContent({ data, articleCount }) {

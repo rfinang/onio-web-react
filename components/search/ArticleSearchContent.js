@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { getSearchArticlesApi } from "../../api";
 import ImageComp from "../common/Image";
@@ -13,9 +13,18 @@ function ArticleSearchContent({ keyword, articles }) {
   const [itemList, setItemList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [queryStart, setQueryStart] = useState(9);
+  const imageLazyRef = useRef(null);
+  
   useEffect(() => {
     setItemList(articles.data.items);
+    return () => {
+      if (imageLazyRef.current) {
+        imageLazyRef.current.destroy();
+        imageLazyRef.current = null;
+      }
+    };
   }, [articles]);
+  
   const handleLoadmore = async () => {
     setIsLoading(true);
     const res = await getSearchArticlesApi({
@@ -25,7 +34,14 @@ function ArticleSearchContent({ keyword, articles }) {
     });
     setQueryStart(queryStart + 9);
     setItemList([...itemList, ...res.data.data.items]);
-    new ImageLazy();
+    
+    setTimeout(() => {
+      if (imageLazyRef.current) {
+        imageLazyRef.current.destroy();
+      }
+      imageLazyRef.current = new ImageLazy();
+    }, 100);
+    
     setIsLoading(false);
   };
   return (
@@ -75,7 +91,7 @@ function ArticleSearchContent({ keyword, articles }) {
                             />
                           </svg>
                         </div>
-                        <Link href={itemSlug}>
+                        <Link href={itemSlug} legacyBehavior>
                           <a className="link" title={title}></a>
                         </Link>
                       </div>

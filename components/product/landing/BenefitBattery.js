@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import HomePossibilities from "../../home/HomePossibilities";
 import { BenefitBatteryStyles } from "../../styles/home/Benefitbattery";
 function BenefitBattery({ benefitBatteryless, sectionNavigation, oneChipData }) {
@@ -20,7 +19,7 @@ function BenefitBattery({ benefitBatteryless, sectionNavigation, oneChipData }) 
                 </p>
               </div>
               <div className="col-sm-auto col-12 ms-sm-auto">
-                <Link href={navLink.url}>
+                <Link href={navLink.url} legacyBehavior>
                   <a
                     className="pageLink pageLink--black js-animation--fade is-animation-loading"
                     data-screen-offset="1.15"

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { BatterylessAboutStyles } from "../../styles/project-landing/batteryless-remote/BatterylessAbout";
 
 function BatterylessAbout({ data }) {
@@ -21,7 +20,7 @@ function BatterylessAbout({ data }) {
               </p>
             </div>
             <div className="d-none d-sm-block col-auto ms-auto">
-              <Link href={link_to.url}>
+              <Link href={link_to.url} legacyBehavior>
                 <a
                   className="pageLink pageLink--black js-animation--fade"
                   data-screen-offset="1.7"

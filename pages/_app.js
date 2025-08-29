@@ -12,6 +12,13 @@ import Config from "../config/index";
 import "nprogress/nprogress.css";
 import "../styles/tailwind.css";
 
+// Configure NProgress
+nProgress.configure({ 
+  minimum: 0.3,
+  speed: 800,
+  showSpinner: false // Hide the spinner to reduce visual noise
+});
+
 import layout from "../components/helper/layout";
 import PageHead from "../components/common/Head";
 import useScrollRestoration from "../hooks/useScrollRestoration";
@@ -40,7 +47,7 @@ function MyApp({Component, pageProps}) {
   const [acceptCookie, setAcceptCookie] = useState(false);
   const [acceptThreeParty, setAcceptThreeParty] = useState(false);
 
-  const {hubspot_portal_id, gtag_id} = dataGlobal;
+  const {gtag_id} = dataGlobal;
   const {three_party_accept, cookie_accept} = dataCookie;
 
 
@@ -63,20 +70,42 @@ function MyApp({Component, pageProps}) {
 
   useScrollRestoration(router);
 
-  router.events.on("routeChangeStart", () => {
-    window.scrollTo(0, 0);
-    setPageLoading(true);
-    document.querySelector("#searchModal .modal-header button").click();
-    nProgress.start();
-  });
-  router.events.on("routeChangeComplete", () => {
-    setPageLoading(false);
-    nProgress.done();
-  });
-  router.events.on("routeChangeError", () => {
-    setPageLoading(false);
-    nProgress.done();
-  });
+  useEffect(() => {
+    const handleRouteStart = (url) => {
+      // Only scroll to top on actual route changes, not page reloads
+      if (url !== router.asPath) {
+        window.scrollTo(0, 0);
+      }
+      setPageLoading(true);
+      // Safely check for search modal
+      const searchModalButton = document.querySelector("#searchModal .modal-header button");
+      if (searchModalButton) {
+        searchModalButton.click();
+      }
+      nProgress.start();
+    };
+
+    const handleRouteComplete = () => {
+      setPageLoading(false);
+      nProgress.done();
+    };
+
+    const handleRouteError = () => {
+      setPageLoading(false);
+      nProgress.done();
+    };
+
+    router.events.on("routeChangeStart", handleRouteStart);
+    router.events.on("routeChangeComplete", handleRouteComplete);
+    router.events.on("routeChangeError", handleRouteError);
+
+    // Cleanup event listeners
+    return () => {
+      router.events.off("routeChangeStart", handleRouteStart);
+      router.events.off("routeChangeComplete", handleRouteComplete);
+      router.events.off("routeChangeError", handleRouteError);
+    };
+  }, []);
 
   useState(() => {
     if (typeof window !== "undefined") {
@@ -91,21 +120,20 @@ function MyApp({Component, pageProps}) {
     }
   }, []);
   useEffect(() => {
-    nProgress.start();
     const onPageLoad = () => {
       new layout();
-      setPageLoading(false)
+      setPageLoading(false);
+      // Ensure nProgress is completed on page load
       nProgress.done();
-
     };
 
     // Check if the page has already loaded
-    if (document.readyState === "interactive") {
+    if (document.readyState === "complete") {
       onPageLoad();
     } else {
-      window.addEventListener("DOMContentLoaded", onPageLoad);
+      window.addEventListener("load", onPageLoad);
       // Remove the event listener when component unmounts
-      return () => window.removeEventListener("DOMContentLoaded", onPageLoad);
+      return () => window.removeEventListener("load", onPageLoad);
     }
   }, []);
 
@@ -153,28 +181,6 @@ function MyApp({Component, pageProps}) {
       }}/>}
       <Layout dataHeader={dataHeader} dataGlobal={dataGlobal} dataFooter={dataFooter}>
         <React.Fragment>
-          {/*{acceptThreeParty &&*/}
-          {/*// <div style={{display: "none"}} dangerouslySetInnerHTML={{__html: dataGlobal.ga_head}}></div>*/}
-          {/*  <Script*/}
-          {/*    id="ga-head"*/}
-          {/*    strategy="afterInteractive"*/}
-          {/*    dangerouslySetInnerHTML={{ __html: dataGlobal.ga_head }}*/}
-          {/*  />*/}
-          {/*}*/}
-
-          {/*{acceptThreeParty &&*/}
-          {/*  <Script*/}
-          {/*    id="ga-external"*/}
-          {/*    src={dataGlobal.ga_head}*/}
-          {/*    strategy="afterInteractive"*/}
-          {/*    data-domain="onio.com"*/}
-          {/*    defer*/}
-          {/*  />*/}
-          {/*}*/}
-
-          {/*{acceptThreeParty &&*/}
-          {/*<div style={{display: "none"}} dangerouslySetInnerHTML={{__html: dataGlobal.hubspot_tracking_code}}></div style={{display: "none"}}>*/}
-          {/*}*/}
         </React.Fragment>
         <PageHead seo={dataGlobal?.default_seo}>
           <meta name="robots" content={`${dataGlobal?.robot_index},${dataGlobal?.robot_follow}`}/>
@@ -184,16 +190,6 @@ function MyApp({Component, pageProps}) {
         <Component {...rest} />
         <Script strategy="lazyOnload" src="/bootstrap.min.js"/>
 
-        {three_party_accept == "true" && (
-          <Script
-            // type="text/javascript"
-            id="hs-script-loader"
-            // async={true}
-            // defer={true}
-            strategy="lazyOnload"
-            src={`//js-na1.hs-scripts.com/${hubspot_portal_id}.js`}
-          />
-        )}
       </Layout>
     </AppWrapper>
   );

@@ -8,9 +8,9 @@ import HomeBlog from "./HomeBlog";
 import HomeContact from "./HomeContact";
 import HomeQuick from "./HomeQuick";
 
-import PageAnimations from "../helper/animation/page-animations";
 import PageHead from "../common/Head";
 import HomeSmartHub from "./SmartHub";
+import usePageAnimations from "../../hooks/usePageAnimations";
 
 function HomePage({
   dataHome: homePage,
@@ -23,12 +23,10 @@ function HomePage({
 }) {
 
     const newsletterRef = useRef(null);
+    usePageAnimations();
 
     useEffect(() => {
-    setTimeout(() => {
-      new PageAnimations();
-    });
-      if (window.location.hash === "#newsletter") {
+      if (window.location.hash === "#newsletter" && newsletterRef.current) {
           setTimeout(() => {
               newsletterRef.current.scrollIntoView({block: "start", inline: "nearest", behavior: "instant"});
           }, 200)

@@ -1,4 +1,3 @@
-import React from "react";
 import ImageComp from "../../common/Image";
 import { useAppContext } from "../../../context/AppContext";
 function KeyFeature({ sectionKeyFeature }) {

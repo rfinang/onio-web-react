@@ -117,7 +117,6 @@ const EnergyConsumptionStage = ({data, id, ...props}) => {
     // useEffect(() => {
     //
     //
-    //     console.log("update data aa")
     //
     //
     // }, [duration, energy, unit])

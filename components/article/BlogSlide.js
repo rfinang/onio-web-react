@@ -55,7 +55,7 @@ function BlogSlide({ blogFeatured }) {
                         <div className="col-lg-5 col-md-7 col-sm-10 col-12">
                           <div className="blogSlide__articles__wrap">
                             <div className="blogSlide__article">
-                              <Link href={`/article/${slug}.html`}>
+                              <Link href={`/article/${slug}.html`} legacyBehavior>
                                 <a className="blogSlide__article__inner d-block">
                                   <div className="blogSlide__article__meta d-flex">
                                     <span className="metaLabel article__info__meta__date text-white">
@@ -66,18 +66,20 @@ function BlogSlide({ blogFeatured }) {
                                     </span>
                                   </div>
                                   <div className="blogSlide__article__info">
-                                    <ul className="blogSlide__article__info__tags article__info__tags ul-reset text-white metaLabel">
-                                      {categories.map((category, index) => {
-                                        return (
-                                          <li key={category.id} className="tag__item">
-                                            {category.name}
-                                            {index < categories.length - 1 ? (
-                                              <span className="tag__item tag__item--slack">|</span>
-                                            ) : null}
-                                          </li>
-                                        );
-                                      })}
-                                    </ul>
+                                    {categories && categories.length > 0 && (
+                                      <ul className="blogSlide__article__info__tags article__info__tags ul-reset text-white metaLabel">
+                                        {categories.map((category, index) => {
+                                          return (
+                                            <li key={category.id} className="tag__item">
+                                              {category.name}
+                                              {index < categories.length - 1 ? (
+                                                <span className="tag__item tag__item--slack">|</span>
+                                              ) : null}
+                                            </li>
+                                          );
+                                        })}
+                                      </ul>
+                                    )}
                                     <h3 className="h3 blogSlide__article__info__heading text-white">
                                       {title}
                                     </h3>

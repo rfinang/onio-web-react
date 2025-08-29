@@ -24,7 +24,7 @@ function NewsPost({
               </h4>
             </div>
             <div className="col-auto d-sm-block d-none ms-auto">
-              <Link href={pageLinkURL}>
+              <Link href={pageLinkURL} legacyBehavior>
                 <a className="pageLink pageLink--black js-animation--fade" data-offset=".15">
                   <span className="pageLink__text">{pageLinkText}</span>
                   <span className="pageLink__icon">
@@ -59,7 +59,7 @@ function NewsPost({
             })}
 
             <div className="col-12 d-sm-none d-block mt-sm-0 mt-4 js-animation--fade">
-              <Link href="/articles">
+              <Link href="/articles" legacyBehavior>
                 <a className="pageLink pageLink--black">
                   <span className="pageLink__text">View all articles</span>
                   <span className="pageLink__icon">

@@ -18,6 +18,11 @@ class AnimationHelper {
   handleScrolling() {
     const { el, setOffset, animationIn } = this.animationOb;
     setOffset();
+    
+    // Check if element is already in view before setting up observer
+    const rect = el.getBoundingClientRect();
+    const isAlreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
     this.OBServer = new IntersectionObserver((entries) => {
       this.isVisible = entries[0].isIntersecting;
       if (this.isVisible) {
@@ -29,7 +34,15 @@ class AnimationHelper {
     }, {
       rootMargin: '500px'
     });
+    
     this.OBServer.observe(el);
+    
+    // If element is already visible, trigger animation immediately
+    if (isAlreadyVisible) {
+      this.isVisible = true;
+      if (this.timeOutAnimationIn) clearTimeout(this.timeOutAnimationIn);
+      this.timeOutAnimationIn = setTimeout(animationIn, 100);
+    }
   }
 
   removeHandleScrolling() {

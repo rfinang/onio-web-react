@@ -107,7 +107,7 @@ function Features({ data }) {
             </div>
           </div>
           {buy_hardware && (
-            <Link href={buy_hardware.url}>
+            <Link href={buy_hardware.url} legacyBehavior>
               <a
                 className="resource resource--black mb-0 js-animation--fade"
                 target={buy_hardware.open_new_tab ? "_blank" : "_self"}

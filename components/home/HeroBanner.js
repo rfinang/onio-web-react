@@ -3,7 +3,7 @@ import { AccordianStyles } from "../styles/elements/accordian";
 import { HeroImageStyles, HomeDropOverMenu } from "../styles/home/HeroImage";
 import ImageComp from "../common/Image";
 import Slider from "react-slick";
-import {useState} from "react";
+import { useState, useEffect } from "react";
 
 
 function HeroBanner({ banners, bannerLinks }) {
@@ -12,6 +12,13 @@ function HeroBanner({ banners, bannerLinks }) {
 
   let initDotColor = banners[0]?.text_color ?? 'white';
   const [dotColor, setDotColor] = useState(initDotColor);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Ensure banner is marked as loaded for Safari
+    const timer = setTimeout(() => setIsLoaded(true), 10);
+    return () => clearTimeout(timer);
+  }, []);
 
   const settings = {
         dots: true,
@@ -41,7 +48,13 @@ function HeroBanner({ banners, bannerLinks }) {
     <>
       <HeroImageStyles>
           <div
-              className={`heroSlide dot-${dotColor} js-animation--fade--none`}
+              className={`heroSlide dot-${dotColor} js-animation--fade--none ${isLoaded ? 'hero-loaded' : ''}`}
+              style={{ 
+                opacity: 1, 
+                visibility: 'visible',
+                transform: 'translateZ(0)', // Force hardware acceleration in Safari
+                WebkitTransform: 'translateZ(0)'
+              }}
           >
             <Slider {...settings}>
           {banners.map((item) => {
@@ -101,7 +114,7 @@ function HeroBanner({ banners, bannerLinks }) {
                                 className="d-inline-block mb-0 js-animation--fade is-animation-loading"
                                 data-screen-offset="1.2"
                             >
-                              <Link href={link_to.url}>
+                              <Link href={link_to.url} legacyBehavior>
                                 <a className={`btn btn--large js-link--btn btn--bg btn--bg--${text_color}`}>
                                   <span className="js-link__text">{link_to.label}</span>
                                 </a>
@@ -124,7 +137,7 @@ function HeroBanner({ banners, bannerLinks }) {
                                         <AccordianStyles className="ul-reset">
                                           {bannerLinks.links.map((item) => (
                                               <li key={item.id} className="accordian__item">
-                                                <Link href={item.url}>
+                                                <Link href={item.url} legacyBehavior>
                                                   <a className={`accordian__item__link accordian__item__link--${text_color}`}>
                                                     <div className="row g-0">
                                                       <div className="col">
@@ -188,7 +201,7 @@ function HeroBanner({ banners, bannerLinks }) {
                     <AccordianStyles className="ul-reset">
                       {bannerLinks.links.map((item) => (
                         <li key={item.id} className="accordian__item">
-                          <Link href={item.url}>
+                          <Link href={item.url} legacyBehavior>
                             <a className="accordian__item__link accordian__item__link--black">
                               <div className="row g-0">
                                 <div className="col">

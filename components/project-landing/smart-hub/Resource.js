@@ -40,7 +40,7 @@ function Resource({ data }) {
                       const { id, url, label, open_new_tab } = item;
                       return (
                         <li key={id}>
-                          <Link href={url}>
+                          <Link href={url} legacyBehavior>
                             <a title={label} target={open_new_tab ? "_blank" : "_self"}>
                               {label}
                               <svg

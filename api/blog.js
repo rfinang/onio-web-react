@@ -3,15 +3,21 @@ import Config from "../config/index";
 import qs from "qs";
 
 const urls = {
-  getBlog: `${Config.HOST_API}/blog`,
+  getBlog: `${Config.HOST_API}/blogs`,
   getBlogLanding: `${Config.DOMAIN_API}/blog-landing?populate=deep`,
   getBlogDetail: `${Config.DOMAIN_API}/blogs/slug/`,
-  getBlogCategories: `${Config.HOST_API}/blog/categories`,
+  getBlogCategories: `${Config.HOST_API}/categories`,
 };
 
 export const getBlogApi = (params = null) => {
+  // Always populate thumbnail and other media fields for blogs
+  const enhancedParams = {
+    ...params,
+    populate: params?.populate || ['thumbnail', 'feature_image', 'categories', 'writer']
+  };
+  
   return axios.get(urls.getBlog, {
-    params,
+    params: enhancedParams,
     paramsSerializer: params => {
       return qs.stringify(params)
     }

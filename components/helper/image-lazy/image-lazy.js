@@ -14,12 +14,24 @@ class ImageLazy {
   }
 
   destroy() {
-    this.imageLazys.forEach((lazy) => lazy.destroy());
-    this.imageLazys = null;
+    if (this.imageLazys && Array.isArray(this.imageLazys)) {
+      this.imageLazys.forEach((lazy) => {
+        if (lazy && typeof lazy.destroy === 'function') {
+          lazy.destroy();
+        }
+      });
+      this.imageLazys = null;
+    }
   }
 
   resize() {
-    this.imageLazys.forEach((lazy) => lazy.resize());
+    if (this.imageLazys && Array.isArray(this.imageLazys)) {
+      this.imageLazys.forEach((lazy) => {
+        if (lazy && typeof lazy.resize === 'function') {
+          lazy.resize();
+        }
+      });
+    }
   }
 }
 export default ImageLazy;

@@ -13,7 +13,6 @@ export const getServerSideProps = async () => {
     let dataProps = {};
     const dataCache = await ClientRedis.get(KeyCache.energyEmulator)
     if (1==-1) {
-        console.log("get from cache", dataCache)
         dataProps = JSON.parse(dataCache);
     } else {
         const [energyEmulatorLanding, newsletterSection] = await Promise.all([
@@ -27,7 +26,6 @@ export const getServerSideProps = async () => {
             newsletterSectionData: newsletterSection.data.data,
         }
 
-        console.log(dataProps);
 
         ClientRedis.set(KeyCache.energyEmulator, JSON.stringify(dataProps))
     }

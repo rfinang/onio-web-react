@@ -86,7 +86,7 @@ function CareerLandingContent({ careerHeader, workLocations, careersData }) {
                             className="accordian__item accordian__item--large js-animation--fade"
                             data-offset=".15"
                           >
-                            <Link href={`/career/${slug}.html`}>
+                            <Link href={`/career/${slug}.html`} legacyBehavior>
                               <a className="accordian__item__link accordian__item__link--black">
                                 <div className="row align-items-sm-start align-items-center g-0">
                                   <div className="col-ms-7 col">
@@ -156,7 +156,7 @@ function CareerLandingContent({ careerHeader, workLocations, careersData }) {
                               const { id, title: careerTitle, slug } = item;
                               return (
                                 <li key={id} className="accordian__item accordian__item--large">
-                                  <Link href={`/career/${slug}.html`}>
+                                  <Link href={`/career/${slug}.html`} legacyBehavior>
                                     <a className="accordian__item__link accordian__item__link--black">
                                       <div className="row align-items-sm-start align-items-center g-0">
                                         <div className="col-ms-7 col">

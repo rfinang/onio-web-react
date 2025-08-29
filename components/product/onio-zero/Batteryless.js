@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import ImageComp from "../../common/Image";
 import { BatterylessStyles } from "../../styles/product/Batteryless";
 import Energy from "./Energy";
@@ -88,7 +87,7 @@ function Batteryless({ getStart, sectionEnergy, sectionKeyFeature }) {
                             data-offset=".1"
                             data-screen-offset={1 + (index + 1) / 10}
                           >
-                            <Link href={url}>
+                            <Link href={url} legacyBehavior>
                               <a className="accordian__item__link accordian__item__link--white">
                                 <div className="row g-0">
                                   <div className="col">

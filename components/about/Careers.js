@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import ImageComp from "../common/Image";
 import { CareersStyles } from "../styles/about/Careers";
 
@@ -85,7 +84,7 @@ function Careers({ careerData, positions }) {
                         className="accordian__item accordian__item--large js-animation--fade"
                         data-offset={index * 0.05 + 0.1}
                       >
-                        <Link href={`/career/${slug}.html`}>
+                        <Link href={`/career/${slug}.html`} legacyBehavior>
                           <a className="accordian__item__link accordian__item__link--white">
                             <div className="row align-items-sm-start align-items-center g-0">
                               <div className="col-ms-7 col">
@@ -140,7 +139,7 @@ function Careers({ careerData, positions }) {
                 </ul>
                 <div className="text-sm-end">
                   <div className="d-inline-block js-animation--fade">
-                    <Link href="/career">
+                    <Link href="/career" legacyBehavior>
                       <a className="pageLink pageLink--white">
                         <span className="pageLink__text">View all current positions</span>
                         <span className="pageLink__icon">

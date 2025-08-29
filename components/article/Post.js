@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import ImageComp from "../common/Image";
 import { PostStyles } from "../styles/elements/Post";
 import {calculateReadTime} from "../../helper";
@@ -18,7 +17,7 @@ function Post({ data }) {
   return (
     <PostStyles>
       <div className="article">
-        <Link href={`/article/${slug}.html`}>
+        <Link href={`/article/${slug}.html`} legacyBehavior>
           <a className="article__link">
             <div className="article__thumbnail image__object-fit font-0">
               <ImageComp image={thumbnail} />
@@ -30,7 +29,7 @@ function Post({ data }) {
                   {read_time ? read_time : calculateReadTime(content) + " min read"}
                 </span>
               </div>
-              {categories.length > 0 && (
+              {categories && categories.length > 0 && (
                 <ul className="article__info__tags ul-reset text-silver metaLabel">
                   {categories.map((category, index) => {
                     return (

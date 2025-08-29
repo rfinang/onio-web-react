@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 const CareerDetailsStyles = styled.div`
   .careersDetail__content {

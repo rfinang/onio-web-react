@@ -1,4 +1,3 @@
-import React from "react";
 import Post from "../Post";
 function BlogDetailReadmore({ relatedPost }) {
   if (!relatedPost) return null;

@@ -9,6 +9,7 @@ function ProjectLanding(props) {
 export const getServerSideProps = async () => {
   let dataProps = {};
   const dataCache = await ClientRedis.get(KeyCache.technologyRedefined)
+  // const dataCache = null;
   if (dataCache) {
     dataProps = JSON.parse(dataCache);
     return {

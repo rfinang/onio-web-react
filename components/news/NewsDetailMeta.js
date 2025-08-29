@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 function NewsDetailMeta({ label, created_at }) {
   let createAt = new Date(created_at);

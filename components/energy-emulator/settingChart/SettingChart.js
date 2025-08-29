@@ -172,7 +172,6 @@ const SettingChart = ({powerProfilesConfig, solarProfilesConfig, powerProfilesPr
         toast.success("✅ Preset loaded from file!");
       } catch (err) {
 
-        console.log(err)
         toast.error("❌ Failed to parse JSON file.");
       }
     };

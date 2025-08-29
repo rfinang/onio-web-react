@@ -23,7 +23,7 @@ function SizeMatter({ data, lowerBomData }) {
               dangerouslySetInnerHTML={{ __html: description }}
             />
             <div className="col-sm-auto col-12 ms-sm-auto js-animation--fade" data-offset=".15">
-              <Link href={link_to.url}>
+              <Link href={link_to.url} legacyBehavior>
                 <a className="pageLink pageLink--black">
                   <span className="pageLink__text">{link_to.label}</span>
                   <span className="pageLink__icon">
