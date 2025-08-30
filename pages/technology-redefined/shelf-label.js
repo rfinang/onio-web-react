@@ -3,7 +3,7 @@ import ClientRedis from "../../redis/index";
 import KeyCache from "../../constant/cache";
 import {getShelfLabelApi, getNewsletterApi} from "../../api";
 
-function SmartHub(props) {
+function ShelfLabel(props) {
   return <ShelfLabelPage {...props} />;
 }
 export const getServerSideProps = async () => {
@@ -39,4 +39,4 @@ export const getServerSideProps = async () => {
     }
   }
 };
-export default SmartHub;
+export default ShelfLabel;

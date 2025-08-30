@@ -5,6 +5,13 @@ class AnimationButton {
     this.DOM = { el };
 
     this.DOM.text = this.DOM.el.querySelector(".js-link__text");
+    
+    // Safety check: if no text element found, skip initialization
+    if (!this.DOM.text) {
+      console.warn('AnimationButton: .js-link__text element not found in button', el);
+      return;
+    }
+    
     this.DOM.domText = document.createElement("span");
     this.DOM.domText.innerHTML = this.DOM.text.innerHTML;
     this.DOM.domText.classList.add("js-link__text__element");
@@ -20,10 +27,15 @@ class AnimationButton {
   }
 
   init() {
+    // Skip if no text element was found
+    if (!this.DOM.text) return;
     this.bindEvent();
   }
 
   mouseEnter() {
+    // Skip if no text element was found
+    if (!this.DOM.text) return;
+    
     gsap.fromTo(
       this.DOM.domText,
       { y: "0%" },
@@ -79,6 +91,9 @@ class AnimationButton {
   }
 
   bindEvent() {
+    // Skip if no text element was found
+    if (!this.DOM.text) return;
+    
     this.DOM.el.addEventListener("mouseenter", this.mouseEnter.bind(this));
     this.DOM.el.addEventListener("click", this.mouseClick.bind(this));
   }

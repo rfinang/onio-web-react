@@ -40,27 +40,34 @@ function update(st) {
   let steps = st === 0 ? 0 : Math.round(st / (stepByScreen / ratio));
   steps = steps > totalSteps ? totalSteps : steps;
   if (lastStep === steps) return;
-  if (st > lastScrollTop) {
-    playTimeline();
-  } else if (st < lastScrollTop) {
-    reverseTimeline();
+  
+  // Directly set the position without animation - remove any transitions
+  let xPosition = steps * frame_w;
+  
+  // Debug logging
+  if (steps !== lastStep) {
+    console.log('ESL Update - step:', steps, 'xPosition:', xPosition, 'frame_w:', frame_w);
   }
-
-  lastScrollTop = st;
-
-  let currentStep = Math.abs(getMatrixValue() / frame_w);
-
-  let stepsToScroll = Math.abs(steps - currentStep);
+  
+  // Kill any GSAP animations on this element immediately
+  if (typeof gsap !== 'undefined') {
+    gsap.killTweensOf(sprite_active);
+  }
+  
+  // Try using margin-left instead of transform to avoid any smoothing
+  sprite_active.style.cssText = `
+    margin-left: -${xPosition}px !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    will-change: auto !important;
+  `;
+  
   lastStep = steps;
-
-  // CLEAR TIMEOUT SCROLL
-  window.clearTimeout(scrollEndCallback);
-  // SET NEW TIMEOUT TO TRIGGER SCROLLEND CALLBACK
-
-  scrollEndCallback = setTimeout(function () {
-    // SCROLLEND
-    pauseTimeline();
-  }, (1000 / 22) * stepsToScroll);
+  lastScrollTop = st;
 }
 
 // PLAY
@@ -92,28 +99,62 @@ function set_anim_active() {
   // SPRITE ACTIVE
   sprite_active = document.querySelector(".js-sprite-img");
   frame_w = sprite_active.parentNode.offsetWidth;
+  
+  // Debug: log the frame width and ensure no CSS transitions
+  console.log('ESL Sprite - frame_w:', frame_w, 'totalSteps:', totalSteps);
+  if (sprite_active) {
+    // Kill any GSAP tweens on this element
+    gsap.killTweensOf(sprite_active);
+    // Clear any inline GSAP transforms
+    gsap.set(sprite_active, { clearProps: "all" });
+    
+    // Force remove any transitions that might exist
+    sprite_active.style.transition = 'none !important';
+    sprite_active.style.webkitTransition = 'none !important';
+    // Check computed style
+    const computedStyle = window.getComputedStyle(sprite_active);
+    console.log('ESL Sprite computed transition:', computedStyle.transition);
+  }
 
   steps = totalSteps;
 
   // SPRITE VALUES
   bg_position_total = steps * frame_w;
 
-  // TIMELINE
-  global_tl = gsap.timeline({
-    paused: true,
-  });
-
-  global_tl.to(sprite_active, 1, {
-    x: "-" + bg_position_total,
-    ease: SteppedEase.config(steps),
-  });
+  // Don't create GSAP timeline at all - we're not using it
+  global_tl = null;
 }
 export default function init(total = 28) {
+  totalSteps = total;
   if (!document.querySelector(".js-sprite-img")) {
     return;
   }
 
-  totalSteps = total;
+  // Inject CSS to force no transitions and disable smooth scrolling
+  const style = document.createElement('style');
+  style.textContent = `
+    html, :root {
+      scroll-behavior: auto !important;
+    }
+    * {
+      scroll-behavior: auto !important;
+    }
+    .js-sprite-img {
+      transition: none !important;
+      -webkit-transition: none !important;
+      -moz-transition: none !important;
+      -o-transition: none !important;
+      transition-property: none !important;
+      animation: none !important;
+      scroll-behavior: auto !important;
+    }
+    .js-sprite-img * {
+      transition: none !important;
+      animation: none !important;
+    }
+  `;
+  document.head.appendChild(style);
+
   turnkeyScreen = window.innerWidth;
   set_anim_active();
   window.addEventListener("wheel", () => handleScrolling(window.scrollY));

@@ -169,16 +169,7 @@ function MyApp({Component, pageProps}) {
         ></Script>
       )}
 
-      {pageLoading && <div id="loading-overlay-document" style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        zIndex: 1000,
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden',
-        background: '#f5f5f5'
-      }}/>}
+      {pageLoading && <LoadingStyles id="loading-overlay-document" />}
       <Layout dataHeader={dataHeader} dataGlobal={dataGlobal} dataFooter={dataFooter}>
         <React.Fragment>
         </React.Fragment>

@@ -2,12 +2,14 @@ import Link from "next/link";
 import { AccordianStyles } from "../styles/elements/accordian";
 import { HeroImageStyles, HomeDropOverMenu } from "../styles/home/HeroImage";
 import ImageComp from "../common/Image";
+import { Button } from "../ui";
 import Slider from "react-slick";
 import { useState, useEffect } from "react";
 
 
 function HeroBanner({ banners, bannerLinks }) {
-  if (banners.isEmpty || !bannerLinks)
+  // Fix: Check if banners exists and has content
+  if (!banners || !Array.isArray(banners) || banners.length === 0 || !bannerLinks)
     return (<></>);
 
   let initDotColor = banners[0]?.text_color ?? 'white';
@@ -21,13 +23,15 @@ function HeroBanner({ banners, bannerLinks }) {
   }, []);
 
   const settings = {
-        dots: true,
+        // Hide dots when only 1 slide
+        dots: banners.length > 1,
         arrows: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         fade: true,
-        autoplay: true,
+        // Disable autoplay when only 1 slide
+        autoplay: banners.length > 1,
         autoplaySpeed: 4000,
         customPaging: (i) => <span>{i + 1}</span>,
         appendDots: (dots) => (
@@ -110,16 +114,20 @@ function HeroBanner({ banners, bannerLinks }) {
                               </p>
                             </div>
 
-                            <p
+                            <div
                                 className="d-inline-block mb-0 js-animation--fade is-animation-loading"
                                 data-screen-offset="1.2"
                             >
-                              <Link href={link_to.url} legacyBehavior>
-                                <a className={`btn btn--large js-link--btn btn--bg btn--bg--${text_color}`}>
-                                  <span className="js-link__text">{link_to.label}</span>
-                                </a>
+                              <Link href={link_to.url}>
+                                <Button 
+                                  variant={text_color === 'white' ? 'white' : 'primary'}
+                                  size="lg"
+                                  className="js-link--btn"
+                                >
+                                  {link_to.label}
+                                </Button>
                               </Link>
-                            </p>
+                            </div>
                           </div>
                           {bannerLinks && show_links && (
                               <div

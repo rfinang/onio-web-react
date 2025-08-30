@@ -130,8 +130,9 @@ function BatterylessIntro({
     <StylesComponent>
       <div className="turnkey-landing-intro">
         <div className="container">
+          {/* First section: Description with sprite animation overlapping */}
           <div className="row">
-            <div className="col-12 order-2 order-md-2">
+            <div className="col-12">
               <div className="top">
                 <h3 className="h3 section-title js-animation--fade is-animation-loading" data-screen-offset=".2">
                   {description}
@@ -148,9 +149,34 @@ function BatterylessIntro({
                 </div>
               </div>
             </div>
-            <div className="col-12 order-first order-md-2">
+          </div>
+          
+          {/* Black pill label */}
+          {label && (
+            <div className="row">
+              <div className="col-12">
+                <h3 className="heading--block block-title d-inline-block">
+                  <span className="heading--block__text">{label}</span>
+                </h3>
+              </div>
+            </div>
+          )}
+          
+          {/* Bottom section: Large title on left, links on right */}
+          <div className="row align-items-end">
+            <div className="col-12 col-md-5">
+              {title && (
+                <h1 className="info-title js-animation--fade is-animation-loading" data-screen-offset=".1">
+                  {title}
+                </h1>
+              )}
+            </div>
+            <div className="col-12 col-md-3">
+              {/* Empty column for spacing */}
+            </div>
+            <div className="col-12 col-md-4 text-end">
               {(link_or_video || links) && (
-                <ul className="js-animation--fade is-animation-loading" data-screen-offset=".4">
+                <ul className="info-list js-animation--fade is-animation-loading" data-screen-offset=".4">
                   {renderLinks()}
                 </ul>
               )}

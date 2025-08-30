@@ -7,6 +7,7 @@ import { useAppContext } from "../../context/AppContext";
 import { postContactApi } from "../../api";
 import { ContactPopupStyles } from "../styles/block/ContactPopup";
 import { customSelectStyles } from "../styles/common/CustomSelect";
+import { Button } from "../ui";
 const ErrorStyles = styled.div`
   padding: 2rem;
   background: white;
@@ -681,13 +682,17 @@ function ContactPopup({ contactReason, dataGlobal }) {
                         </div>
                         <div className="row">
                           <div className="form-group col-12 mb-0">
-                            <button
+                            <Button
                               disabled={isLoading}
                               type="submit"
-                              className="btn w-100 btn--large btn--bg btn--bg--white bg-white text-dark border-white js-link--btn"
+                              variant="outline"
+                              size="lg"
+                              fullWidth={true}
+                              loading={isLoading}
+                              className="js-link--btn bg-white text-dark border-white"
                             >
-                              <span className="js-link__text">Send Inquiry</span>
-                            </button>
+                              Send Inquiry
+                            </Button>
                           </div>
                         </div>
                       </form>

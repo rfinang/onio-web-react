@@ -40,27 +40,13 @@ function update(st) {
   let steps = st === 0 ? 0 : Math.round(st / (stepByScreen / ratio));
   steps = steps > totalSteps ? totalSteps : steps;
   if (lastStep === steps) return;
-  if (st > lastScrollTop) {
-    playTimeline();
-  } else if (st < lastScrollTop) {
-    reverseTimeline();
-  }
-
-  lastScrollTop = st;
-
-  let currentStep = Math.abs(getMatrixValue() / frame_w);
-
-  let stepsToScroll = Math.abs(steps - currentStep);
+  
+  // Directly seek to the correct frame position
+  let progress = steps / totalSteps;
+  global_tl.progress(progress);
+  
   lastStep = steps;
-
-  // CLEAR TIMEOUT SCROLL
-  window.clearTimeout(scrollEndCallback);
-  // SET NEW TIMEOUT TO TRIGGER SCROLLEND CALLBACK
-
-  scrollEndCallback = setTimeout(function () {
-    // SCROLLEND
-    pauseTimeline();
-  }, (1000 / 22) * stepsToScroll);
+  lastScrollTop = st;
 }
 
 // PLAY

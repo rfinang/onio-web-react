@@ -40,27 +40,16 @@ function update(st) {
   let steps = st === 0 ? 0 : Math.round(st / (stepByScreen / ratio));
   steps = steps > 22 ? 22 : steps;
   if (lastStep === steps) return;
-  if (st > lastScrollTop) {
-    playTimeline();
-  } else if (st < lastScrollTop) {
-    reverseTimeline();
-  }
-
-  lastScrollTop = st;
-
-  let currentStep = Math.abs(getMatrixValue() / frame_w);
-
-  let stepsToScroll = Math.abs(steps - currentStep);
+  
+  // Directly set the position without animation - remove any transitions
+  let xPosition = steps * frame_w;
+  sprite_active.style.transition = 'none';
+  sprite_active.style.webkitTransition = 'none';
+  sprite_active.style.transform = `translateX(-${xPosition}px)`;
+  sprite_active.style.webkitTransform = `translateX(-${xPosition}px)`;
+  
   lastStep = steps;
-
-  // CLEAR TIMEOUT SCROLL
-  window.clearTimeout(scrollEndCallback);
-  // SET NEW TIMEOUT TO TRIGGER SCROLLEND CALLBACK
-
-  scrollEndCallback = setTimeout(function () {
-    // SCROLLEND
-    pauseTimeline();
-  }, (1000 / 22) * stepsToScroll);
+  lastScrollTop = st;
 }
 
 // PLAY
@@ -103,9 +92,12 @@ function set_anim_active() {
     paused: true,
   });
 
-  global_tl.to(sprite_active, 1, {
+  // Force stepped animation with no interpolation
+  global_tl.set(sprite_active, { x: 0 });
+  global_tl.to(sprite_active, {
     x: "-" + bg_position_total,
-    ease: SteppedEase.config(steps),
+    duration: 1,
+    ease: `steps(${steps})`,
   });
 }
 export default function init() {

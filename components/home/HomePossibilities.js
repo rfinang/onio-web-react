@@ -10,18 +10,22 @@ function HomePossibilities({ oneChipData: oneChipVideos, isHomepage = false }) {
   useEffect(() => {
     new VideoResponsive();
   }, []);
+  
+  const { label, endless_possiblities_item: videoList } = oneChipVideos;
+  
   const settings = {
-    dots: true,
+    // Hide dots when only 1 slide
+    dots: videoList && videoList.length > 1,
     arrows: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
-    autoplay: true,
+    // Disable autoplay when only 1 slide
+    autoplay: videoList && videoList.length > 1,
     autoplaySpeed: 5000,
     customPaging: (i) => <span>{i + 1}</span>,
   };
-  const { label, endless_possiblities_item: videoList } = oneChipVideos;
 
   return (
     <>
