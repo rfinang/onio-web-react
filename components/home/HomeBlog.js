@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typography } from "../ui";
 import { HomeNewsStyles } from "../styles/home/HomeNews";
 import ImageComp from "../common/Image";
 function HomeBlog({
@@ -18,9 +19,12 @@ function HomeBlog({
         <div className="container pb-2">
           <div className="row spacing--bottom--sm">
             <div className="col-sm-4 col-12">
-              <h4 className="heading--block mb-0 d-inline-block js-animation--fade">
-                <span className="heading--block__text">{headingBlock}</span>
-              </h4>
+              <Typography 
+                variant="section-badge"
+                className="js-animation--fade"
+              >
+                {headingBlock}
+              </Typography>
             </div>
             <div className="col-auto d-sm-block d-none ms-auto">
               <Link href={pageLinkURL} legacyBehavior>
@@ -88,7 +92,7 @@ function HomeBlog({
                               })}
                             </ul>
                           )}
-                          <h4 className="article__info__heading h6 text-primary">{item.title}</h4>
+                          <Typography variant="h6" color="primary" className="article__info__heading">{item.title}</Typography>
                           <div className="article__info__read">
                             <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">
                               <svg

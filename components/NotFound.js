@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import styled from "styled-components";
-import { Button } from "./ui";
+import { Button, Typography } from "./ui";
 import PageAnimations from "./helper/animation/page-animations";
 const NotFoundStyles = styled.div`
   .content__404 {
@@ -38,27 +38,32 @@ function NotFound() {
       <div className="content__404 bg-red">
         <div className="container">
           <div className="spacing--bottom--sm">
-            <h4
-              className="heading--block heading--block--solid mb-0 d-inline-block js-animation--fade is-animation-loading"
+            <Typography 
+              variant="section-badge"
+              className="js-animation--fade is-animation-loading"
               data-screen-offset=".1"
             >
-              <span className="heading--block__text">404 Error</span>
-            </h4>
+              404 Error
+            </Typography>
           </div>
           <div className="row justify-content-center">
             <div className="col-12 mb-3">
-              <h1
-                className="heading--supper heading--supper--lineHeight text-center mb-5 js-animation--fade is-animation-loading"
+              <Typography 
+                variant="hero"
+                as="h1"
+                className="text-center mb-5 js-animation--fade is-animation-loading"
                 data-screen-offset=".2"
               >
                 A glitch occurred
-              </h1>
-              <p
-                className="text-center h6 js-animation--chars is-animation-loading"
+              </Typography>
+              <Typography 
+                variant="h6"
+                as="p"
+                className="text-center js-animation--chars is-animation-loading"
                 data-screen-offset=".3"
               >
                 It seems that page could not be found
-              </p>
+              </Typography>
             </div>
             <div className="col-lg-3 col-sm-4 col-12">
               <Button

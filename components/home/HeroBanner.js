@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AccordianStyles } from "../styles/elements/accordian";
 import { HeroImageStyles, HomeDropOverMenu } from "../styles/home/HeroImage";
 import ImageComp from "../common/Image";
-import { Button } from "../ui";
+import { Button, Typography } from "../ui";
 import Slider from "react-slick";
 import { useState, useEffect } from "react";
 

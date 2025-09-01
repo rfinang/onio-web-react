@@ -35,21 +35,27 @@ Create these variables in a **"Spacing"** collection in Figma:
 | `onio/spacing/xl` | `--onio-spacing-xl` | `p-xl`, `m-xl`, `gap-xl` | 32px |
 | `onio/spacing/2xl` | `--onio-spacing-2xl` | `p-2xl`, `m-2xl`, `gap-2xl` | 48px |
 
-### **🔤 Typography Variables** (Recommended)
+### **🔤 Typography Variables** (Active Migration)
 
 Create these variables in a **"Typography"** collection in Figma:
 
-| Figma Variable Name | CSS Custom Property | Purpose |
-|-------------------|-------------------|---------|
-| `onio/font/size/xs` | `--onio-font-size-xs` | 12px - Small text |
-| `onio/font/size/sm` | `--onio-font-size-sm` | 14px - Body text |
-| `onio/font/size/md` | `--onio-font-size-md` | 16px - Default text |
-| `onio/font/size/lg` | `--onio-font-size-lg` | 18px - Large text |
-| `onio/font/size/xl` | `--onio-font-size-xl` | 24px - Headings |
-| `onio/font/size/2xl` | `--onio-font-size-2xl` | 32px - Large headings |
-| `onio/font/weight/normal` | `--onio-font-weight-normal` | 400 - Normal weight |
-| `onio/font/weight/medium` | `--onio-font-weight-medium` | 500 - Medium weight |
-| `onio/font/weight/bold` | `--onio-font-weight-bold` | 700 - Bold weight |
+| Figma Variable Name | CSS Custom Property | Tailwind Class | Current Value |
+|-------------------|-------------------|----------------|---------------|
+| `onio/typography/heading/hero` | `--onio-font-size-hero` | `text-6xl` | 6rem (60px) |
+| `onio/typography/heading/h1` | `--onio-font-size-h1` | `text-5xl` | 4.8rem (48px) |
+| `onio/typography/heading/h2` | `--onio-font-size-h2` | `text-4xl` | 3.6rem (36px) |
+| `onio/typography/heading/h3` | `--onio-font-size-h3` | `text-3xl` | 3rem (30px) |
+| `onio/typography/heading/h4` | `--onio-font-size-h4` | `text-2xl` | 2.4rem (24px) |
+| `onio/typography/heading/h5` | `--onio-font-size-h5` | `text-xl` | 2rem (20px) |
+| `onio/typography/heading/h6` | `--onio-font-size-h6` | `text-lg` | 1.8rem (18px) |
+| `onio/typography/body/large` | `--onio-font-size-body-lg` | `text-base` | 1.6rem (16px) |
+| `onio/typography/body/normal` | `--onio-font-size-body` | `text-sm` | 1.4rem (14px) |
+| `onio/typography/body/small` | `--onio-font-size-body-sm` | `text-xs` | 1.2rem (12px) |
+
+**Typography System Notes:**
+- Base font size: 62.5% (1rem = 10px for easy calculation)
+- Font family: Inter (already configured in Tailwind)
+- Font weight: 500 (default), bold available as needed
 
 ### **🌑 Shadows Variables** (Optional)
 
