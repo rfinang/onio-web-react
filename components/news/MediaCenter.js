@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 
 import DownloadPopup from "../common/DownloadPopup";
 import ImageComp from "../common/Image";
+import { Button } from "../ui";
 import { NewsLandingContentStyles } from "../styles/news/NewsLandingContent";
 import { useAppContext } from "../../context/AppContext";
 
@@ -127,12 +128,15 @@ function MediaCenter({ sendMail, mediaCenter }) {
                 {currentPage + 1 < mediaArr.length && (
                   <div className="row justify-content-center mb-6 pb-2">
                     <div className="col-lg-2 col-sm-3 col-12 js-animation--fade">
-                      <button
-                        className="btn btn--large btn--bg btn--bg--silver js-btn-load js-btn-load__media js-link--btn w-100"
+                      <Button
+                        variant="secondary"
+                        size="lg"
+                        fullWidth={true}
+                        className="js-btn-load js-btn-load__media js-link--btn"
                         onClick={handleLoadmore}
                       >
-                        <span className="js-link__text">Load More</span>
-                      </button>
+                        Load More
+                      </Button>
                     </div>
                   </div>
                 )}

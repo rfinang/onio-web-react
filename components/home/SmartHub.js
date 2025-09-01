@@ -37,11 +37,11 @@ function HomeSmartHub({ data, customClass = "" }) {
         <div className="row spacing--bottom--sm">
           <div className="col-lg-6 col-md-7 col-12 mb-md-0 mb-4 pb-md-0 pb-2">
             {/* {description && (
-              <ul className="ul-reset h5 d-sm-block d-none text-dark">
+              <ul className="ul-reset h5 d-sm-block d-none text-primary">
                 <li></li>
               </ul>
             )} */}
-            <p className="mb-0 h5 text-dark js-animation--lines">{description}</p>
+            <p className="mb-0 h5 text-primary js-animation--lines">{description}</p>
           </div>
           <div className="col-md-auto col-12 ms-md-auto">
             {links && (
@@ -77,7 +77,7 @@ function HomeSmartHub({ data, customClass = "" }) {
           </div>
         </div>
         <div className="videoInteractive__inner">
-          <h2 className="videoInteractive__heading heading--supper mb-0 text-center text-dark">
+          <h2 className="videoInteractive__heading heading--supper mb-0 text-center text-primary">
             <span className="d-block js-animation--chars--2d">{title[0]?.text_line}</span>
 
             <span className="d-block js-animation--chars--2d">{title[1]?.text_line}</span>

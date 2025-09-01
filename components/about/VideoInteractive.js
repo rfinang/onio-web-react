@@ -1,6 +1,7 @@
 import { useAppContext } from "../../context/AppContext";
 import { VideoInteractiveStyles } from "../styles/home/VideoInterative";
 import ImageComp from "../common/Image";
+import { Button } from "../ui";
 function VideoInteractive({ powerZero }) {
   if (!powerZero) return null;
   const { dispatch } = useAppContext();
@@ -22,7 +23,7 @@ function VideoInteractive({ powerZero }) {
           </div>
           <div className="col-lg-6 col-md-7 col-12 mb-md-0 mb-4 pb-md-0 pb-2">
             {description && (
-              <ul className="ul-reset h5 d-sm-block d-none text-dark">
+              <ul className="ul-reset h5 d-sm-block d-none text-primary">
                 {description.map((item, index) => (
                   <li
                     className="js-animation--fade"
@@ -35,7 +36,7 @@ function VideoInteractive({ powerZero }) {
                 ))}
               </ul>
             )}
-            <p className="mb-0 d-sm-none d-block h5 text-dark">
+            <p className="mb-0 d-sm-none d-block h5 text-primary">
               {description.map((item) => (
                 <span key={item.id}>{item.text_line}</span>
               ))}
@@ -43,7 +44,7 @@ function VideoInteractive({ powerZero }) {
           </div>
         </div>
         <div className="videoInteractive__inner">
-          <h2 className="videoInteractive__heading heading--supper mb-0 text-center text-dark">
+          <h2 className="videoInteractive__heading heading--supper mb-0 text-center text-primary">
             <span className="d-block js-animation--chars--2d">{title[0]?.text_line}</span>
             <br className="d-sm-block d-none" />
             <span className="d-block js-animation--chars--2d">{title[1]?.text_line}</span>
@@ -62,9 +63,14 @@ function VideoInteractive({ powerZero }) {
                   data-bs-target="#videoModal"
                 >
                   <div className="videoInteractive__button">
-                    <button className="btn btn--large btn--border btn--border--white js-link--btn">
-                      <span className="js-link__text">Play Video</span>
-                    </button>
+                    <Button
+                      variant="white"
+                      size="lg"
+                      className="js-link--btn"
+                      as="button"
+                    >
+                      Play Video
+                    </Button>
                   </div>
                   <div className="image__object-fit image--radius">
                     <ImageComp image={thumbnail} />

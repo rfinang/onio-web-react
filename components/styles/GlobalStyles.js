@@ -40,13 +40,23 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   html {
-    --black: #222021;
-    --grey: #AEADAD;
-    --yellow: #D2FE24;
-    --orange: #FF6231;
-    --white: #fff;
-    --light-grey: #F5F5F5;
-    --alert: #EE4A26;
+    /* Design Tokens - Single Source of Truth from Figma */
+    --onio-color-primary: #222021;
+    --onio-color-secondary: #D2FE24;
+    --onio-color-accent: #FF6231;
+    --onio-color-muted: #AEADAD;
+    --onio-color-background: #F5F5F5;
+    --onio-color-white: #ffffff;
+    --onio-color-alert: #EE4A26;
+    
+    /* Legacy aliases for backward compatibility */
+    --black: var(--onio-color-primary);
+    --grey: var(--onio-color-muted);
+    --yellow: var(--onio-color-secondary);
+    --orange: var(--onio-color-accent);
+    --white: var(--onio-color-white);
+    --light-grey: var(--onio-color-background);
+    --alert: var(--onio-color-alert);
     --bs-gutter-x: 1.2rem;
     font-size: 62.5%;
     font-weight: 500;
@@ -59,6 +69,37 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.6rem;
     background: #f5f5f5;
     color: #222021;
+  }
+  
+  /* Override Bootstrap's blue colors - must be very specific but not styled-components */
+  body a:not([class*="__link"]):not([class*="Link__"]), 
+  .main a:not([class*="__link"]):not([class*="Link__"]), 
+  .videoInteractive a:not([class*="__link"]):not([class*="Link__"]),
+  ul a:not([class*="__link"]):not([class*="Link__"]),
+  div a:not([class*="__link"]):not([class*="Link__"]) {
+    color: var(--onio-color-primary) !important;
+  }
+  body a:not([class*="__link"]):not([class*="Link__"]):hover, 
+  .main a:not([class*="__link"]):not([class*="Link__"]):hover, 
+  .videoInteractive a:not([class*="__link"]):not([class*="Link__"]):hover,
+  ul a:not([class*="__link"]):not([class*="Link__"]):hover,
+  div a:not([class*="__link"]):not([class*="Link__"]):hover {
+    color: var(--onio-color-primary) !important;
+    opacity: 0.8;
+  }
+  
+  /* Override Bootstrap's text color classes */
+  .text-primary {
+    color: var(--onio-color-primary) !important;
+  }
+  .text-secondary {
+    color: var(--onio-color-secondary) !important;
+  }
+  .text-accent {
+    color: var(--onio-color-accent) !important;
+  }
+  .text-muted {
+    color: var(--onio-color-muted) !important;
   }
   body:not(.site__template-mobile) .is-animation-loading {
     opacity: 0;
@@ -365,6 +406,10 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
     padding-left: 0;
   }
+  /* Legacy .btn styles - DEPRECATED
+   * All buttons now use Tailwind Button component 
+   * Keeping minimal styles only for demo pages and edge cases
+   */
   .btn {
     display: flex;
     align-items: center;
@@ -378,14 +423,9 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     background-color: transparent;
     border-radius: 1rem;
-    @media (max-width: 1399px) {
-      font-size: 1.75rem;
-      min-height: 3.938rem;
-      padding: 0 3rem;
-    }
-    @media (max-width: 1199px) {
-      font-size: 1.5rem;
-    }
+    border: none;
+    
+    /* Remove conflicting hover states - handled by Tailwind */
     &:focus,
     &:active,
     &:hover {
@@ -393,81 +433,8 @@ const GlobalStyles = createGlobalStyle`
       box-shadow: none;
       outline: none;
     }
-    &--border {
-      border: 0.2rem solid;
-      border-radius: 1rem;
-      &--white {
-        color: #fff;
-        border-color: #fff;
-        transition: all .4s cubic-bezier(.33,1,.68,1);
-        &:hover {
-          background-color: #fff;
-          border-color: #fff;
-          color: #222021;
-        }
-      }
-    }
-    &--black {
-      color: var(--black);
-      border-color: var(--black);
-      &:hover {
-        background-color: var(--black);
-        color: #fff;
-      }
-    }
-    &--large {
-      padding: 0 3.6rem;
-      line-height: 1.2;
-      @media (max-width: 1366px) {
-        padding: 0 3rem;
-      }
-      @media (max-width: 767px) {
-        padding: 0 2rem;
-      }
-    }
-
-    &--bg {
-      background-color: #fff;
-      &:hover {
-        color: #fff;
-        background-color: var(--black);
-      }
-      &--white {
-        border-color: #fff;
-        &:hover {
-          color: #fff;
-          background-color: var(--black);
-          border-color: var(--black);
-        }
-      }
-      &--silver {
-        border-color: #aeadad;
-        background: #aeadad;
-        color: #fff;
-      }
-      &--grey {
-        border-color: #aeadad;
-        background: #aeadad;
-        color: #fff;
-      }
-      &--black {
-        border-color: #222021;
-        background: #222021;
-        color: #fff;
-        &:hover {
-          color: #222021;
-          background-color: var(--white);
-          border-color: var(--white);
-        }
-      }
-    }
   }
-  a.bg-white:focus, 
-  a.bg-white:hover, 
-  button.bg-white:focus, 
-  button.bg-white:hover {
-    background-color: #e6e6e6!important;
-  }
+  /* Removed conflicting bg-white hover styles - handled by Tailwind Button component */
   .scrollable {
     padding-right: 0.5rem;
     overflow-y: auto;

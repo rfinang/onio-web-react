@@ -42,7 +42,7 @@ export const PoweredProfilerStyled = styled.div`
         }
     }
     
-    .text-dark{
+    .text-primary{
         color: #222121 !important;
     }
 `

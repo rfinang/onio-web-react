@@ -16,7 +16,7 @@ function AboutTeams({ teamData }) {
               </h4>
             </div>
             <div className="col-lg-5 col-md-6">
-              <h2 className="h2 spacing--bottom--md text-black js-animation--chars">{title}</h2>
+              <h2 className="h2 spacing--bottom--md text-primary js-animation--chars">{title}</h2>
             </div>
           </div>
           {images.length > 0 && (
@@ -41,10 +41,10 @@ function AboutTeams({ teamData }) {
                           >
                             <div className="row align-items-center">
                               <div className="col staff__info__left">
-                                <h5 className="h5 staff__info__heading text-dark mb-lg-2 mb-sm-1 mb-0">
+                                <h5 className="h5 staff__info__heading text-primary mb-lg-2 mb-sm-1 mb-0">
                                   {title}
                                 </h5>
-                                <h6 className="h6 staff__info__position text-dark mb-0">
+                                <h6 className="h6 staff__info__position text-primary mb-0">
                                   {description}
                                 </h6>
                               </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { getBlogApi } from "../../api";
 import Loading from "../common/Loading";
+import { Button } from "../ui";
 import { LastArticleStyles } from "../styles/blog/LastArticles";
 import Post from "./Post";
 import { blogItemsGenerate } from "../../helper";
@@ -60,13 +61,16 @@ function BlogLastArticles({ blogData, blogToTal }) {
           {blogList.length < blogToTal ? (
             <div className="row justify-content-center">
               <div className="col-md-auto col-12 js-animation--fade">
-                <button
-                  className="btn btn--large btn--bg btn--bg--silver js-btn-load js-link--btn w-100"
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  fullWidth={true}
+                  className="js-btn-load js-link--btn"
                   disabled={isLoading}
                   onClick={handleLoadmore}
                 >
-                  <span className="js-link__text">Load More</span>
-                </button>
+                  Load More
+                </Button>
               </div>
             </div>
           ) : null}

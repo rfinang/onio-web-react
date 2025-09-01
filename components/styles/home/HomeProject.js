@@ -137,20 +137,20 @@ export const HomeProjectStyles = styled.div`
     }
   }
   .bigThumbnailLink__link {
-    color: #ffffff;
+    color: var(--onio-color-white);
     display: block;
     position: relative;
   }
   @media (any-hover: hover) {
     .bigThumbnailLink__link:hover {
       text-decoration: none;
-      color: #ffffff;
+      color: var(--onio-color-white);
     }
     .bigThumbnailLink__link:hover .iconLink--arrow--large {
-      background-color: #ffffff;
+      background-color: var(--onio-color-white);
     }
     .bigThumbnailLink__link:hover .iconLink--arrow--large svg path {
-      stroke: #222021;
+      stroke: var(--onio-color-primary);
     }
   }
 
@@ -306,20 +306,20 @@ export const HomeProjectStyles = styled.div`
     }
   }
   .project__link {
-    color: #ffffff;
+    color: var(--onio-color-white);
     display: block;
     position: relative;
   }
   @media (any-hover: hover) {
     .project__link:hover {
       text-decoration: none;
-      color: #ffffff;
+      color: var(--onio-color-white);
     }
     .project__link:hover .iconLink--arrow--large {
-      background-color: #ffffff;
+      background-color: var(--onio-color-white);
     }
     .project__link:hover .iconLink--arrow--large svg path {
-      stroke: #222021;
+      stroke: var(--onio-color-primary);
     }
   }
 `;

@@ -23,13 +23,13 @@ function Post({ data }) {
             </div>
             <div className="article__info">
               <div className="article__info__meta d-flex">
-                <span className="metaLabel article__info__meta__date text-black">{createAt}</span>
-                {/* <span className="metaLabel ms-auto article__info__meta__timeRead text-black ps-1">
+                <span className="metaLabel article__info__meta__date text-primary">{createAt}</span>
+                {/* <span className="metaLabel ms-auto article__info__meta__timeRead text-primary ps-1">
                   {read_time ? read_time : "Less than 1 minute"}
                 </span> */}
               </div>
               <Tippy content={title} delay={[500, 0]}>
-                <h4 className="article__info__heading h6 text-black">{title}</h4>
+                <h4 className="article__info__heading h6 text-primary">{title}</h4>
               </Tippy>
 
               <div className="article__info__read">

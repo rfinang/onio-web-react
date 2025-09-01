@@ -24,13 +24,13 @@ function Post({ data }) {
             </div>
             <div className="article__info">
               <div className="article__info__meta d-flex">
-                <span className="metaLabel article__info__meta__date text-black">{createAt}</span>
-                <span className="metaLabel ms-auto article__info__meta__timeRead text-black ps-1">
+                <span className="metaLabel article__info__meta__date text-primary">{createAt}</span>
+                <span className="metaLabel ms-auto article__info__meta__timeRead text-primary ps-1">
                   {read_time ? read_time : calculateReadTime(content) + " min read"}
                 </span>
               </div>
               {categories && categories.length > 0 && (
-                <ul className="article__info__tags ul-reset text-silver metaLabel">
+                <ul className="article__info__tags ul-reset text-muted metaLabel">
                   {categories.map((category, index) => {
                     return (
                       <li key={category.id} className="tag__item">
@@ -44,7 +44,7 @@ function Post({ data }) {
                 </ul>
               )}
               <Tippy content={title} delay={[500, 0]}>
-                <h4 className="article__info__heading h6 text-black">{title}</h4>
+                <h4 className="article__info__heading h6 text-primary">{title}</h4>
               </Tippy>
               <div className="article__info__read">
                 <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">

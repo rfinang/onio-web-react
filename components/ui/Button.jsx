@@ -27,15 +27,20 @@ const Button = ({
     disabled:opacity-50 disabled:cursor-not-allowed
   `.trim();
 
-  // Variant styles
+  // Variant styles - matching actual website button styles
   const variantClasses = {
-    primary: 'bg-primary text-white hover:bg-black/90 focus:ring-primary',
-    secondary: 'bg-secondary text-black hover:bg-yellow/90 focus:ring-secondary',
-    white: 'bg-white text-black hover:bg-black hover:text-white focus:ring-white transition-colors duration-[400ms]',
-    accent: 'bg-accent text-white hover:bg-orange/90 focus:ring-accent',
-    outline: 'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary',
-    ghost: 'bg-transparent text-primary hover:bg-primary/10 focus:ring-primary',
-    danger: 'bg-danger text-white hover:bg-alert/90 focus:ring-danger',
+    // Primary: Black background, white text (btn--bg--black)
+    primary: 'bg-[var(--onio-color-primary)] text-white hover:bg-white hover:text-[var(--onio-color-primary)] border-2 border-[var(--onio-color-primary)] transition-all duration-[400ms] ease-[cubic-bezier(0.33,1,0.68,1)]',
+    // Secondary: Yellow background, black text
+    secondary: 'bg-[var(--onio-color-secondary)] text-[var(--onio-color-primary)] hover:bg-[var(--onio-color-primary)] hover:text-[var(--onio-color-secondary)] border-2 border-[var(--onio-color-secondary)] transition-all duration-[400ms] ease-[cubic-bezier(0.33,1,0.68,1)]',
+    // White: White bg, black text → Black bg, white text on hover
+    white: 'bg-white text-[var(--onio-color-primary)] border-2 border-white hover:!bg-[var(--onio-color-primary)] hover:!text-white transition-all duration-[400ms] ease-[cubic-bezier(0.33,1,0.68,1)]',
+    // Accent: Orange background
+    accent: 'bg-[var(--onio-color-accent)] text-white hover:bg-white hover:text-[var(--onio-color-accent)] border-2 border-[var(--onio-color-accent)] transition-all duration-[400ms] ease-[cubic-bezier(0.33,1,0.68,1)]',
+    // Outline: Transparent with border
+    outline: 'bg-transparent border-2 border-[var(--onio-color-primary)] text-[var(--onio-color-primary)] hover:bg-[var(--onio-color-primary)] hover:text-white transition-all duration-[400ms] ease-[cubic-bezier(0.33,1,0.68,1)]',
+    ghost: 'bg-transparent text-[var(--onio-color-primary)] hover:bg-[var(--onio-color-primary)]/10 transition-all duration-[400ms] ease-[cubic-bezier(0.33,1,0.68,1)]',
+    danger: 'bg-[var(--onio-color-alert)] text-white hover:bg-white hover:text-[var(--onio-color-alert)] border-2 border-[var(--onio-color-alert)] transition-all duration-[400ms] ease-[cubic-bezier(0.33,1,0.68,1)]',
   };
 
   // Size styles - matching original .btn and .btn--large classes  
@@ -66,7 +71,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={combinedClasses}
+      className={`${combinedClasses} js-link--btn`}
       disabled={disabled || loading}
       onClick={onClick}
       {...props}

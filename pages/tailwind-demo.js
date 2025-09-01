@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
+import { Input, Select, Textarea, Checkbox, Radio } from '../components/ui';
 
 /**
  * Tailwind Component Demo Page
  * Showcases the new Tailwind-based component system
  */
 export default function TailwindDemo() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    country: '',
+    message: '',
+    newsletter: false,
+    preference: 'email'
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
   return (
     <>
       <Head>
@@ -226,6 +244,292 @@ export default function TailwindDemo() {
             </div>
           </section>
 
+          {/* Form Components Section */}
+          <section className="mb-16">
+            <h2 className="heading-3 mb-8">Form Components</h2>
+            
+            <div className="space-y-8">
+              {/* Input Components */}
+              <Card>
+                <h4 className="heading-5 mb-6">Input Fields</h4>
+                <div className="space-y-6">
+                  {/* Text Input Variants */}
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <Input
+                      label="Default Input"
+                      placeholder="Enter your name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                    />
+                    <Input
+                      label="Email Input"
+                      type="email"
+                      placeholder="your@email.com"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      leftIcon={
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                        </svg>
+                      }
+                    />
+                    <Input
+                      label="Required Field"
+                      placeholder="Required input"
+                      required
+                      error={formData.name === ''}
+                      errorText="This field is required"
+                    />
+                  </div>
+
+                  {/* Input Sizes */}
+                  <div>
+                    <h6 className="font-medium mb-3 text-primary">Input Sizes</h6>
+                    <div className="space-y-3">
+                      <Input size="sm" placeholder="Small input ($input-size-sm)" />
+                      <Input size="md" placeholder="Medium input ($input-size-md)" />
+                      <Input size="lg" placeholder="Large input ($input-size-lg)" />
+                    </div>
+                  </div>
+
+                  {/* Input States */}
+                  <div>
+                    <h6 className="font-medium mb-3 text-primary">Input States</h6>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      <Input 
+                        placeholder="Default state" 
+                        helperText="This is helper text"
+                      />
+                      <Input 
+                        placeholder="Success state" 
+                        success
+                        helperText="Perfect! This looks good"
+                      />
+                      <Input 
+                        placeholder="Error state" 
+                        error
+                        errorText="Something went wrong"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Select Components */}
+              <Card>
+                <h4 className="heading-5 mb-6">Select Dropdowns</h4>
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Select
+                      label="Country Selection"
+                      placeholder="Choose your country"
+                      name="country"
+                      value={formData.country}
+                      onChange={handleInputChange}
+                      options={[
+                        'United States',
+                        'Canada',
+                        'United Kingdom',
+                        'Germany',
+                        'France',
+                        'Denmark',
+                        'Norway',
+                        'Sweden'
+                      ]}
+                    />
+                    <Select
+                      label="Priority Level"
+                      options={[
+                        { value: 'low', label: 'Low Priority' },
+                        { value: 'medium', label: 'Medium Priority' },
+                        { value: 'high', label: 'High Priority' },
+                        { value: 'urgent', label: 'Urgent', disabled: true }
+                      ]}
+                    />
+                  </div>
+                  
+                  <div>
+                    <h6 className="font-medium mb-3 text-primary">Select Sizes</h6>
+                    <div className="space-y-3">
+                      <Select size="sm" placeholder="Small select ($select-size-sm)" options={['Option 1', 'Option 2']} />
+                      <Select size="md" placeholder="Medium select ($select-size-md)" options={['Option 1', 'Option 2']} />
+                      <Select size="lg" placeholder="Large select ($select-size-lg)" options={['Option 1', 'Option 2']} />
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Textarea Component */}
+              <Card>
+                <h4 className="heading-5 mb-6">Textarea</h4>
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Textarea
+                      label="Message"
+                      placeholder="Enter your message here..."
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={4}
+                      helperText="Share your thoughts with us"
+                    />
+                    <Textarea
+                      label="Feedback (No Resize)"
+                      placeholder="Your feedback..."
+                      resize="none"
+                      rows={4}
+                    />
+                  </div>
+                  
+                  <div>
+                    <h6 className="font-medium mb-3 text-primary">Textarea Sizes</h6>
+                    <div className="space-y-3">
+                      <Textarea size="sm" placeholder="Small textarea ($textarea-size-sm)" rows={3} />
+                      <Textarea size="md" placeholder="Medium textarea ($textarea-size-md)" rows={3} />
+                      <Textarea size="lg" placeholder="Large textarea ($textarea-size-lg)" rows={3} />
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Checkbox and Radio Components */}
+              <Card>
+                <h4 className="heading-5 mb-6">Checkboxes & Radio Buttons</h4>
+                <div className="space-y-8">
+                  {/* Checkboxes */}
+                  <div>
+                    <h6 className="font-medium mb-4 text-primary">Checkboxes</h6>
+                    <div className="space-y-3">
+                      <Checkbox
+                        name="newsletter"
+                        checked={formData.newsletter}
+                        onChange={handleInputChange}
+                        label="Subscribe to our newsletter"
+                        helperText="Get updates about new products and features"
+                      />
+                      <Checkbox
+                        label="I agree to the terms and conditions"
+                        required
+                      />
+                      <Checkbox
+                        label="Send me promotional emails"
+                        disabled
+                      />
+                    </div>
+                    
+                    {/* Checkbox Sizes */}
+                    <div className="mt-6">
+                      <h6 className="font-medium mb-3 text-primary">Checkbox Sizes</h6>
+                      <div className="flex items-center space-x-6">
+                        <Checkbox size="sm" label="Small ($checkbox-size-sm)" />
+                        <Checkbox size="md" label="Medium ($checkbox-size-md)" />
+                        <Checkbox size="lg" label="Large ($checkbox-size-lg)" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Radio Buttons */}
+                  <div>
+                    <h6 className="font-medium mb-4 text-primary">Radio Buttons</h6>
+                    <div className="space-y-3">
+                      <p className="text-sm text-muted mb-3">Preferred contact method:</p>
+                      <Radio
+                        name="preference"
+                        value="email"
+                        checked={formData.preference === 'email'}
+                        onChange={handleInputChange}
+                        label="Email"
+                      />
+                      <Radio
+                        name="preference"
+                        value="phone"
+                        checked={formData.preference === 'phone'}
+                        onChange={handleInputChange}
+                        label="Phone"
+                      />
+                      <Radio
+                        name="preference"
+                        value="sms"
+                        checked={formData.preference === 'sms'}
+                        onChange={handleInputChange}
+                        label="SMS"
+                      />
+                    </div>
+                    
+                    {/* Radio Sizes */}
+                    <div className="mt-6">
+                      <h6 className="font-medium mb-3 text-primary">Radio Sizes</h6>
+                      <div className="flex items-center space-x-6">
+                        <Radio name="size-demo-sm" value="sm" size="sm" label="Small ($radio-size-sm)" />
+                        <Radio name="size-demo-md" value="md" size="md" label="Medium ($radio-size-md)" />
+                        <Radio name="size-demo-lg" value="lg" size="lg" label="Large ($radio-size-lg)" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Complete Form Example */}
+              <Card>
+                <h4 className="heading-5 mb-6">Complete Form Example</h4>
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Input
+                      label="Full Name"
+                      placeholder="Enter your full name"
+                      required
+                    />
+                    <Input
+                      label="Email Address"
+                      type="email"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                  
+                  <Select
+                    label="How did you hear about us?"
+                    placeholder="Select an option"
+                    options={[
+                      'Google Search',
+                      'Social Media',
+                      'Friend Referral',
+                      'Trade Show',
+                      'Other'
+                    ]}
+                  />
+                  
+                  <Textarea
+                    label="Message"
+                    placeholder="Tell us about your project..."
+                    rows={4}
+                  />
+                  
+                  <div className="space-y-3">
+                    <Checkbox
+                      label="I agree to the privacy policy"
+                      required
+                    />
+                    <Checkbox
+                      label="Send me product updates"
+                    />
+                  </div>
+                  
+                  <div className="flex gap-4">
+                    <Button type="submit" variant="primary" size="lg">
+                      Submit Form
+                    </Button>
+                    <Button type="button" variant="outline" size="lg">
+                      Cancel
+                    </Button>
+                  </div>
+                </form>
+              </Card>
+            </div>
+          </section>
+
           {/* Migration Progress */}
           <section className="mb-16">
             <h2 className="heading-3 mb-8">Migration Progress Examples</h2>
@@ -374,6 +678,10 @@ export default function TailwindDemo() {
                         <li>• ArticleSearchContent load more button</li>
                         <li>• Button component system</li>
                         <li>• Card component system</li>
+                        <li>• Input component system</li>
+                        <li>• Select component system</li>
+                        <li>• Textarea component system</li>
+                        <li>• Checkbox & Radio components</li>
                       </ul>
                     </div>
                     <div>
@@ -381,16 +689,17 @@ export default function TailwindDemo() {
                       <ul className="text-sm text-green-700 space-y-1">
                         <li>• Career page buttons</li>
                         <li>• Navigation menu buttons</li>
-                        <li>• Form input components</li>
+                        <li>• Modal/Dialog components</li>
                         <li>• Typography migration</li>
                         <li>• Layout utility cleanup</li>
+                        <li>• Icon system integration</li>
                       </ul>
                     </div>
                   </div>
                   <div className="bg-green-100 p-3 rounded">
                     <p className="text-sm text-green-800">
-                      <strong>Progress:</strong> ~25% of button components migrated. 
-                      Foundation complete with component library, utilities, and gradual migration strategy established.
+                      <strong>Progress:</strong> ~40% of essential components migrated. 
+                      Complete form component library established with Input, Select, Textarea, Checkbox, and Radio components. Button and Card systems fully functional with Figma variable mapping.
                     </p>
                   </div>
                 </div>

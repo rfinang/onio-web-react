@@ -11,31 +11,24 @@ module.exports = {
   },
   theme: {
     extend: {
-      // Onio Brand Colors - from GlobalStyles.js
+      // Design Token System - CSS Custom Properties from Figma
       colors: {
-        // Primary brand colors
-        'black': '#222021',
-        'grey': '#AEADAD',
-        'yellow': '#D2FE24',
-        'orange': '#FF6231',
-        'white': '#ffffff',
-        'light-grey': '#F5F5F5',
-        'alert': '#EE4A26',
+        // Main design tokens (connected to Figma)
+        'primary': 'var(--onio-color-primary)',
+        'secondary': 'var(--onio-color-secondary)', 
+        'accent': 'var(--onio-color-accent)',
+        'muted': 'var(--onio-color-muted)',
+        'background': 'var(--onio-color-background)',
+        'white': 'var(--onio-color-white)',
+        'alert': 'var(--onio-color-alert)',
         
-        // Semantic colors for components
-        'primary': '#222021', // black
-        'secondary': '#D2FE24', // yellow
-        'accent': '#FF6231', // orange
-        'muted': '#AEADAD', // grey
-        'background': '#F5F5F5', // light-grey
-        'danger': '#EE4A26', // alert
-        
-        // Keep Figma integration for future
-        'onio-primary': 'var(--onio-primary, #222021)',
-        'onio-secondary': 'var(--onio-secondary, #D2FE24)',
-        'onio-accent': 'var(--onio-accent, #FF6231)',
-        'onio-neutral': 'var(--onio-neutral, #F5F5F5)',
-        'onio-dark': 'var(--onio-dark, #222021)',
+        // Legacy aliases for backward compatibility (remove after full migration)
+        'black': 'var(--onio-color-primary)',
+        'grey': 'var(--onio-color-muted)', 
+        'yellow': 'var(--onio-color-secondary)',
+        'orange': 'var(--onio-color-accent)',
+        'light-grey': 'var(--onio-color-background)',
+        'danger': 'var(--onio-color-alert)',
       },
       spacing: {
         // Custom spacing scale from Figma
@@ -74,9 +67,15 @@ module.exports = {
   ],
   // Safelist classes that might be used dynamically
   safelist: [
-    'bg-onio-primary',
-    'bg-onio-secondary',
-    'text-onio-primary',
-    'text-onio-secondary',
+    'bg-primary',
+    'bg-secondary', 
+    'bg-accent',
+    'bg-muted',
+    'bg-background',
+    'text-primary',
+    'text-secondary',
+    'text-accent', 
+    'text-muted',
+    'text-white',
   ]
 }

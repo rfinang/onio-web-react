@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Cookies from "universal-cookie";
+import { Button } from "../ui";
 const CookiePopupStyles = styled.div`
   position: fixed;
   bottom: 0;
@@ -56,8 +57,10 @@ function CookiePopup() {
             </p>
           </div>
           <div className="col-sm-auto col-12 ms-sm-auto">
-            <button
-              className="btn btn--border btn--black btn--large close--cookie"
+            <Button
+              variant="primary"
+              size="lg"
+              className="close--cookie"
               onClick={() => {
                 // localStorage.setItem("cookie_accept", "true")
                 // localStorage.setItem("three_party_accept", "true")
@@ -67,8 +70,8 @@ function CookiePopup() {
                 setCookiePopup(false);
               }}
             >
-              <span className="js-link__text">I agree</span>
-            </button>
+              I agree
+            </Button>
           </div>
         </div>
       </div>

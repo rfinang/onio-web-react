@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getBlogApi } from "../../../api";
 import Loading from "../../common/Loading";
+import { Button } from "../../ui";
 import { LastArticleStyles } from "../../styles/blog/LastArticles";
 import Post from "../Post";
 
@@ -65,13 +66,16 @@ function CatArticles({ blogData, blogToTal, catID }) {
           {blogList.length > 0 && blogList.length < blogToTal ? (
             <div className="row justify-content-center">
               <div className="col-md-auto col-12">
-                <button
-                  className="btn btn--large btn--bg btn--bg--silver js-btn-load js-link--btn w-100 js-animation--fade"
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  fullWidth={true}
+                  className="js-btn-load js-link--btn js-animation--fade"
                   disabled={isLoading}
                   onClick={handleLoadmore}
                 >
-                  <span className="js-link__text">Load More</span>
-                </button>
+                  Load More
+                </Button>
               </div>
             </div>
           ) : null}

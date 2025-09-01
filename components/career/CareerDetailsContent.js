@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "../ui";
 const CareerDetailsStyles = styled.div`
   .careersDetail__content {
     padding-bottom: 7rem;
@@ -70,13 +71,15 @@ function CareerDetailsContent({ title, description, content, linkTo }) {
                 dangerouslySetInnerHTML={{ __html: content }}
               />
               <div className="d-sm-inline-block d-block careersDetail__content__apply">
-                <a
+                <Button
+                  variant="secondary"
+                  size="lg"
                   href={linkTo.url}
                   target="_blank"
-                  className="btn btn--large btn--bg btn--bg--silver pl-3 pr-3 js-link--btn"
+                  className="js-link--btn"
                 >
-                  <span className="js-link__text">Apply Now</span>
-                </a>
+                  Apply Now
+                </Button>
               </div>
             </div>
           </div>

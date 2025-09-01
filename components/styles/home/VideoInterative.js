@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const VideoInteractiveStyles = styled.div`
-  background: #d2fe24;
+  background: var(--onio-color-secondary);
   position: relative;
   z-index: 1;
   &.videoInteractive--home {
@@ -16,7 +16,7 @@ export const VideoInteractiveStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #d2fe24;
+    background: var(--onio-color-secondary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -152,8 +152,8 @@ export const VideoInteractiveStyles = styled.div`
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      background: #222021;
-      color: #fff;
+      background: var(--onio-color-primary);
+      color: var(--onio-color-white);
       border-radius: 1.8rem;
       padding: 0.2rem;
       li {
@@ -163,7 +163,7 @@ export const VideoInteractiveStyles = styled.div`
         a {
           text-align: center;
           overflow: hidden;
-          color: #fff;
+          color: var(--onio-color-white);
           display: block;
           padding: 0.2rem 1.4rem;
           border-radius: 1.8rem;
@@ -178,13 +178,13 @@ export const VideoInteractiveStyles = styled.div`
             left: 0;
             right: 0;
             transition: transform 0.4s ease;
-            background-color: #d2fe24;
+            background-color: var(--onio-color-secondary);
             height: 100%;
             border-radius: 1.8rem;
             transform: scaleX(0);
           }
           &.active {
-            color: #222021;
+            color: var(--onio-color-primary);
             &:after {
               transform: scaleX(1);
             }
@@ -194,7 +194,7 @@ export const VideoInteractiveStyles = styled.div`
           }
           @media (any-hover: hover) {
             &:not(.active):hover {
-              color: #d2fe24;
+              color: var(--onio-color-secondary);
             }
           }
         }

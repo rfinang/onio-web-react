@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+import { Button } from "../ui";
 import { VideoItem } from "../styles/VideoItem";
 import { NavNewsItem } from "../styles/NavNewsItem";
 import { NavMobileStyles } from "../styles/NavMobile";
@@ -205,15 +206,18 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
                 })}
               </ul>
             )}
-            <a
+            <Button
+              as="a"
               href="#contact-form"
+              variant="secondary"
+              size="md"
+              className="btn-contact"
+              title="Contact us"
               data-bs-toggle="modal"
               data-bs-target="#contactModal"
-              className="btn btn--bg btn--border btn--bg--white btn-contact"
-              title="Contact us"
             >
               Contact us
-            </a>
+            </Button>
             {social?.length > 0 && (
               <ul className="socials ul-reset">
                 {social.map((item) => (

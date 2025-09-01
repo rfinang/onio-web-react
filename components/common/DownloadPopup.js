@@ -2,6 +2,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ContactPopupStyles } from "../styles/block/ContactPopup";
 import ImageComp from "./Image";
+import { Button } from "../ui";
 import Slider from "react-slick";
 function DownloadPopup({ mediaFile, slider, next, previous }) {
   if (!mediaFile) return null;
@@ -116,15 +117,16 @@ function DownloadPopup({ mediaFile, slider, next, previous }) {
                                   </div>
                                   <p className="mb-0 d-inline-block">
                                     {file && (
-                                      <a
-                                        className="js-mediaPopup__info__link js-link--btn btn btn--large btn--bg btn--bg--grey"
+                                      <Button
+                                        as="a"
+                                        variant="secondary"
+                                        size="lg"
+                                        className="js-mediaPopup__info__link js-link--btn"
                                         href={file?.url}
                                         download
                                       >
-                                        <span>
-                                          <span className="js-link__text">Download</span>
-                                        </span>
-                                      </a>
+                                        Download
+                                      </Button>
                                     )}
                                   </p>
                                 </div>

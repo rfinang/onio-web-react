@@ -1,5 +1,6 @@
 import { InvestorDataStyles } from "../styles/investor/Data";
 import { useAppContext } from "../../context/AppContext";
+import { Button } from "../ui";
 function InvestorData({ fundingTimeline }) {
   if (!fundingTimeline) return null;
   const { label, description, link, completed, upcoming } = fundingTimeline;
@@ -67,16 +68,18 @@ function InvestorData({ fundingTimeline }) {
             <div className="col-lg-5 col-sm-6 col-12">
               <p className="desc--large text-white mb-4 js-animation--lines ">{description}</p>
               <p className="d-inline-block">
-                <a
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="js-link--btn js-animation--fade"
                   href={link.url}
-                  className="btn btn--large pr-3 pl-3 js-link--btn btn--bg btn--bg--white js-animation--fade"
                   data-screen-offset=".15"
                   data-bs-toggle="modal"
                   data-bs-target="#contactModal"
                   onClick={onClickGetStartedItem(link.url)}
                 >
-                  <span className="js-link__text">{link.label}</span>
-                </a>
+                  {link.label}
+                </Button>
               </p>
             </div>
           </div>

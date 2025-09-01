@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getNewsPostApi } from "../../api";
 import Loading from "../common/Loading";
+import { Button } from "../ui";
 
 import ImageLazy from "../helper/image-lazy/image-lazy";
 import { LastArticleStyles } from "../styles/blog/LastArticles";
@@ -26,7 +27,7 @@ function LatestNews({ newsData, newsToTal }) {
       _sort: "publish_date:DESC",
     });
     setQueryStart(queryStart + 6);
-    const newsPostArr = _.get(res, "data.data", []);
+    const newsPostArr = res?.data?.data || [];
     const newsPostData = newsPostArr.map((item) => {
       return {
         id: item.id,
@@ -74,13 +75,16 @@ function LatestNews({ newsData, newsToTal }) {
           {newsList.length < newsToTal ? (
             <div className="row justify-content-center">
               <div className="col-md-auto col-12 js-animation--fade">
-                <button
-                  className="btn btn--large btn--bg btn--bg--silver js-btn-load js-link--btn w-100"
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  fullWidth={true}
+                  className="js-btn-load js-link--btn"
                   disabled={isLoading}
                   onClick={handleLoadmore}
                 >
-                  <span className="js-link__text">Load More</span>
-                </button>
+                  Load More
+                </Button>
               </div>
             </div>
           ) : null}

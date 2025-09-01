@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getSearchArticlesApi, getSearchNewsApi } from "../../api";
 import ImageComp from "../common/Image";
+import { Button } from "../ui";
 
 import Loading from "../common/Loading";
 import ImageLazy from "../helper/image-lazy/image-lazy";
@@ -85,13 +86,16 @@ function NewsSearchContent({ keyword, news }) {
               {itemList.length < count && (
                 <div className="row justify-content-center search-page__loadmore">
                   <div className="col-md-auto col-12 js-animation--fade">
-                    <button
-                      className="btn btn--large btn--bg btn--bg--silver js-btn-load js-link--btn w-100"
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      fullWidth={true}
+                      className="js-btn-load js-link--btn"
                       onClick={handleLoadmore}
                       disabled={isLoading}
                     >
-                      <span className="js-link__text">Load More</span>
-                    </button>
+                      Load More
+                    </Button>
                   </div>
                 </div>
               )}

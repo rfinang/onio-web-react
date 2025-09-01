@@ -6,6 +6,7 @@ import * as yup from "yup";
 import useForm from "../../hooks/useForm";
 import {postNewsletterApi} from "../../api";
 import styled from "styled-components";
+import { Button } from "../ui";
 
 const ErrorStyles = styled.div`
   padding: 2rem;
@@ -267,13 +268,16 @@ function HomeContact({ data, newsletterRef, customClass = "" }) {
 
                 <div className="row">
                   <div className="form-group col-12 mb-0">
-                    <button
+                    <Button
                         disabled={isLoading}
                         type="submit"
-                        className="btn w-100 btn--large btn--bg btn--bg--white js-link--btn js-animation--fade is-animation-loading"
+                        variant="white"
+                        size="lg"
+                        fullWidth={true}
+                        className="js-animation--fade is-animation-loading"
                     >
-                      <span className="js-link__text">Subscribe Now</span>
-                    </button>
+                      Subscribe Now
+                    </Button>
                   </div>
                 </div>
               </form>

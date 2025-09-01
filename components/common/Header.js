@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import router from "next/router";
 import Nav from "./Nav";
+import { Button } from "../ui";
 import HeaderStyles from "../styles/Header";
 import NavMobile from "./NavMobile";
 export default function Header({ dataGlobal, dataHeader: header, dataFooter }) {
@@ -66,15 +67,16 @@ export default function Header({ dataGlobal, dataHeader: header, dataFooter }) {
             <img src="/icons/search.svg" alt="ico" />
           </button>
           <div className="header__action col-auto">
-            <button
+            <Button
               id="btnOpenContact"
-              type="button"
-              className="btn btn--border btn--bg btn--black btn--large js-link--btn"
+              variant="primary"
+              size="lg"
+              className="js-link--btn"
               data-bs-toggle="modal"
               data-bs-target="#contactModal"
             >
-              <span className="js-link__text">Contact Us</span>
-            </button>
+              Contact Us
+            </Button>
           </div>
           <div className="header__mobile col-auto">
             <button

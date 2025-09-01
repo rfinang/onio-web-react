@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import styled from "styled-components";
+import { Button } from "./ui";
 import PageAnimations from "./helper/animation/page-animations";
 const NotFoundStyles = styled.div`
   .content__404 {
@@ -60,12 +61,15 @@ function NotFound() {
               </p>
             </div>
             <div className="col-lg-3 col-sm-4 col-12">
-              <a
+              <Button
+                as="a"
                 href="/"
-                className="btn btn--large js-link--btn btn--bg btn--bg--white js-animation--fade"
+                variant="secondary"
+                size="lg"
+                className="js-link--btn js-animation--fade"
               >
-                <span className="js-link__text">Go Home</span>
-              </a>
+                Go Home
+              </Button>
             </div>
           </div>
         </div>

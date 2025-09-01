@@ -14,11 +14,13 @@ Create these variables in a **"Colors"** collection in Figma:
 
 | Figma Variable Name | CSS Custom Property | Tailwind Class | Current Value |
 |-------------------|-------------------|----------------|---------------|
-| `onio/primary` | `--onio-primary` | `bg-onio-primary`, `text-onio-primary` | #007bff |
-| `onio/secondary` | `--onio-secondary` | `bg-onio-secondary`, `text-onio-secondary` | #6c7788 |
-| `onio/accent` | `--onio-accent` | `bg-onio-accent`, `text-onio-accent` | #28a745 |
-| `onio/neutral` | `--onio-neutral` | `bg-onio-neutral`, `text-onio-neutral` | #f8f9fa |
-| `onio/dark` | `--onio-dark` | `bg-onio-dark`, `text-onio-dark` | #343a40 |
+| `onio/color/primary` | `--onio-color-primary` | `bg-primary`, `text-primary` | #222021 |
+| `onio/color/secondary` | `--onio-color-secondary` | `bg-secondary`, `text-secondary` | #D2FE24 |
+| `onio/color/accent` | `--onio-color-accent` | `bg-accent`, `text-accent` | #FF6231 |
+| `onio/color/muted` | `--onio-color-muted` | `bg-muted`, `text-muted` | #AEADAD |
+| `onio/color/background` | `--onio-color-background` | `bg-background` | #F5F5F5 |
+| `onio/color/white` | `--onio-color-white` | `bg-white`, `text-white` | #FFFFFF |
+| `onio/color/alert` | `--onio-color-alert` | `bg-alert`, `text-alert` | #EE4A26 |
 
 ### **📏 Spacing Variables**
 
@@ -128,19 +130,19 @@ collections: {
 3. **Use in components:**
    ```jsx
    // Tailwind classes
-   <div className="bg-onio-primary text-onio-neutral p-lg">
+   <div className="bg-primary text-white p-lg">
    
    // CSS custom properties
    <div style={{ 
-     backgroundColor: 'var(--onio-primary)', 
+     backgroundColor: 'var(--onio-color-primary)', 
      padding: 'var(--onio-spacing-lg)' 
    }}>
    
    // Styled Components
    const Button = styled.button`
-     background: var(--onio-primary);
+     background: var(--onio-color-primary);
      padding: var(--onio-spacing-md);
-     color: var(--onio-neutral);
+     color: var(--onio-color-white);
    `;
    ```
 

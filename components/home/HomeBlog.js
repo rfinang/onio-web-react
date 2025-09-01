@@ -67,15 +67,15 @@ function HomeBlog({
                         </div>
                         <div className="article__info">
                           <div className="article__info__meta d-flex">
-                            <span className="metaLabel article__info__meta__date text-black">
+                            <span className="metaLabel article__info__meta__date text-primary">
                               {createAt}
                             </span>
-                            <span className="metaLabel ms-auto article__info__meta__timeRead text-black">
+                            <span className="metaLabel ms-auto article__info__meta__timeRead text-primary">
                               {item.read_time}
                             </span>
                           </div>
                           {item.categories && item.categories.length > 0 && (
-                            <ul className="article__info__tags ul-reset text-silver metaLabel">
+                            <ul className="article__info__tags ul-reset text-muted metaLabel">
                               {item.categories.map((category, index) => {
                                 return (
                                   <li key={category.id} className="tag__item">
@@ -88,7 +88,7 @@ function HomeBlog({
                               })}
                             </ul>
                           )}
-                          <h4 className="article__info__heading h6 text-black">{item.title}</h4>
+                          <h4 className="article__info__heading h6 text-primary">{item.title}</h4>
                           <div className="article__info__read">
                             <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">
                               <svg

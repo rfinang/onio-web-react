@@ -689,7 +689,7 @@ function ContactPopup({ contactReason, dataGlobal }) {
                               size="lg"
                               fullWidth={true}
                               loading={isLoading}
-                              className="js-link--btn bg-white text-dark border-white"
+                              className="js-link--btn bg-white text-primary border-white"
                             >
                               Send Inquiry
                             </Button>

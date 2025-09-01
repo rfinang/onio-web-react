@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Loading from "../common/Loading";
+import { Button } from "../ui";
 
 import CardText from "./CardText";
 import { generateSlug } from "./helper";
@@ -62,13 +63,16 @@ function ProductsSearchContent({ keyword, data }) {
                   {itemList.length < count && (
                     <div className="row justify-content-start search-page__loadmore">
                       <div className="col-md-auto col-12 js-animation--fade">
-                        <button
-                          className="btn btn--large btn--bg btn--bg--silver js-btn-load js-link--btn w-100"
+                        <Button
+                          variant="secondary"
+                          size="lg"
+                          fullWidth={true}
+                          className="js-btn-load js-link--btn"
                           onClick={handleLoadmore}
                           disabled={isLoading}
                         >
-                          <span className="js-link__text">Load More</span>
-                        </button>
+                          Load More
+                        </Button>
                       </div>
                     </div>
                   )}
