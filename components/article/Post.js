@@ -31,7 +31,7 @@ function Post({ data }) {
                 </span>
               </div>
               {categories && categories.length > 0 && (
-                <ul className="article__info__tags ul-reset text-muted metaLabel">
+                <ul className="article__info__tags ul-reset text-primary metaLabel">
                   {categories.map((category, index) => {
                     return (
                       <li key={category.id} className="tag__item">

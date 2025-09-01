@@ -22,6 +22,7 @@ function HomeBlog({
               <Typography 
                 variant="section-badge"
                 className="js-animation--fade"
+                as="h4"
               >
                 {headingBlock}
               </Typography>
@@ -79,7 +80,7 @@ function HomeBlog({
                             </span>
                           </div>
                           {item.categories && item.categories.length > 0 && (
-                            <ul className="article__info__tags ul-reset text-muted metaLabel">
+                            <ul className="article__info__tags ul-reset text-primary metaLabel">
                               {item.categories.map((category, index) => {
                                 return (
                                   <li key={category.id} className="tag__item">
