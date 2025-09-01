@@ -2,6 +2,7 @@ import Link from "next/link";
 import ImageComp from "../common/Image";
 import { PostStyles } from "../styles/elements/Post";
 import {calculateReadTime} from "../../helper";
+import { Typography } from "../ui";
 import Tippy from "@tippyjs/react";
 import 'tippy.js/dist/tippy.css';
 
@@ -44,7 +45,7 @@ function Post({ data }) {
                 </ul>
               )}
               <Tippy content={title} delay={[500, 0]}>
-                <h4 className="article__info__heading h6 text-primary">{title}</h4>
+                <Typography variant="h4" color="primary" className="article__info__heading">{title}</Typography>
               </Tippy>
               <div className="article__info__read">
                 <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">

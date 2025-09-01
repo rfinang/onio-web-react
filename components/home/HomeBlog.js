@@ -92,7 +92,7 @@ function HomeBlog({
                               })}
                             </ul>
                           )}
-                          <Typography variant="h6" color="primary" className="article__info__heading">{item.title}</Typography>
+                          <Typography variant="h4" color="primary" className="article__info__heading">{item.title}</Typography>
                           <div className="article__info__read">
                             <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">
                               <svg
