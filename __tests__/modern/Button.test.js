@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Button from '../../components/modern/Button'
+import Button from '../../components/ui/Button'
 
 describe('Modern Button Component', () => {
   it('renders with default props', () => {

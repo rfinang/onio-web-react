@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../components/modern/Button'
+import Button from '../components/ui/Button'
 
 /**
  * Modern Demo Page

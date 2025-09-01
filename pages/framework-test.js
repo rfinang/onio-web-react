@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Button from '../components/modern/Button'
+import Button from '../components/ui/Button'
 
 // Simple isolated page that bypasses all the Link issues
 export default function FrameworkTest() {
