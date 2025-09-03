@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Button } from "../ui";
 function SearchHeader({
   popularKeyword,
   productsCount = 0,
@@ -47,7 +48,12 @@ function SearchHeader({
                   />
                 </div>
               </div>
-              <button type="submit" className="btn btn-submit">
+              <Button 
+                type="submit" 
+                variant="primary"
+                size="md"
+                className="btn-submit"
+              >
                 <svg
                   width="48"
                   height="47"
@@ -55,17 +61,17 @@ function SearchHeader({
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="18.5" cy="18.5" r="17.5" stroke="rgb(34, 32, 33)" strokeWidth="2" />
+                  <circle cx="18.5" cy="18.5" r="17.5" stroke="currentColor" strokeWidth="2" />
                   <line
                     x1="30.7071"
                     y1="30.2929"
                     x2="46.7071"
                     y2="46.2929"
-                    stroke="rgb(34, 32, 33)"
+                    stroke="currentColor"
                     strokeWidth="2"
                   />
                 </svg>
-              </button>
+              </Button>
             </form>
             <h1
               className="h5 total-results js-animation--fade is-animation-loading"

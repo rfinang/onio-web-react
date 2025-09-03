@@ -1,3 +1,4 @@
+import { Typography } from "../../ui";
 import { EnvironmentalBenefitsStyles } from "../../styles/home/EnvironmentalBenefits";
 
 function ZeroEnvironmentalBenefits({ sectionEnviromentalBenefits, materialSavings }) {
@@ -5,18 +6,18 @@ function ZeroEnvironmentalBenefits({ sectionEnviromentalBenefits, materialSaving
   const { label, title, description, contents } = sectionEnviromentalBenefits;
   return (
     <EnvironmentalBenefitsStyles>
-      <div className="ppEnvironmentalBenefits bg-dark">
+      <div className="ppEnvironmentalBenefits bg-primary">
         <div className="ppEnvironmentalBenefits__container container">
           <div className="row mb-ms-5 mb-4">
             <div className="col-12">
-              <h4 className="heading--block heading--block--white mb-0 d-inline-block js-animation--fade">
-                <span className="heading--block__text">{label}</span>
-              </h4>
+              <Typography variant="section-badge" className="heading--block--white mb-0 d-inline-block js-animation--fade">
+                {label}
+              </Typography>
             </div>
           </div>
           <div className="row text-white spacing--bottom--xl">
             <div className="col-md-5 col-12">
-              <h2 className="h2 js-animation--chars">{title}</h2>
+              <Typography variant="h2" className="js-animation--chars">{title}</Typography>
               <span className="spacing--bottom--lg d-md-block d-none pb-md-3"></span>
               <span className="d-md-none d-block mb-3"></span>
             </div>
@@ -29,7 +30,7 @@ function ZeroEnvironmentalBenefits({ sectionEnviromentalBenefits, materialSaving
           <div className="row mb-3">
             {materialSavings && (
               <div className="col-lg-6 col-md-7 col-12 mb-md-0 mb-6 text-red">
-                <h3 className="desc--large mb-2 js-animation--lines">{materialSavings.title}</h3>
+                <Typography variant="h3" className="desc--large mb-2 js-animation--lines">{materialSavings.title}</Typography>
                 <p className="desc--small mb-5 js-animation--fade">{materialSavings.description}</p>
                 {materialSavings.material_savings_item.map((item) => {
                   const { id, element_name, element_symbol, atomic_number, amount } = item;
@@ -65,7 +66,7 @@ function ZeroEnvironmentalBenefits({ sectionEnviromentalBenefits, materialSaving
                         className="col-md-12 col-sm-6 col-12 js-animation--fade"
                         data-offset=".15"
                       >
-                        <h5 className="h5">{title}</h5>
+                        <Typography variant="h5">{title}</Typography>
                         <p className="desc--small">{content}</p>
                         <p className="d-md-block d-sm-none d-block spacing--bottom--md"></p>
                       </div>

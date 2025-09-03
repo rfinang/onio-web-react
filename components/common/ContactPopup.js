@@ -7,7 +7,8 @@ import { useAppContext } from "../../context/AppContext";
 import { postContactApi } from "../../api";
 import { ContactPopupStyles } from "../styles/block/ContactPopup";
 import { customSelectStyles } from "../styles/common/CustomSelect";
-import { Button } from "../ui";
+import { Button, Typography } from "../ui";
+import Container from "../ui/Container";
 const ErrorStyles = styled.div`
   padding: 2rem;
   background: white;
@@ -303,17 +304,23 @@ function ContactPopup({ contactReason, dataGlobal }) {
               }`}
             >
               <div className="popup--main-body">
-                <div className="container">
-                  <div className="row align-items-center mb-4 pb-sm-0 pb-1">
-                    <div className="col-lg-2 col-sm-3 col-auto">
-                      <h4 className="heading--block heading--block--title heading--block--white mb-0 d-block">
-                        <span className="heading--block__text">Contact Us</span>
-                      </h4>
-                      <h4 className="heading--block heading--block--success heading--block--white mb-0">
-                        <span className="heading--block__text">Success</span>
-                      </h4>
+                <Container>
+                  <div className="grid md:grid-cols-12 items-center mb-4 pb-sm-0 pb-1">
+                    <div className="lg:col-span-2 sm:col-span-3 col-span-12">
+                      <Typography 
+                        variant="section-badge" 
+                        className="heading--block--title white mb-0"
+                      >
+                        Contact Us
+                      </Typography>
+                      <Typography 
+                        variant="section-badge" 
+                        className="heading--block--success white mb-0"
+                      >
+                        Success
+                      </Typography>
                     </div>
-                    <div className="col-auto ms-auto">
+                    <div className="justify-self-end">
                       <button
                         className="popupClose popupClose--white"
                         data-bs-dismiss="modal"
@@ -326,13 +333,13 @@ function ContactPopup({ contactReason, dataGlobal }) {
                       </button>
                     </div>
                   </div>
-                  <div className="row row--form">
-                    <div className="col-md-3 col-12 mb-5 pt-1">
+                  <div className="grid md:grid-cols-12 row--form gap-lg">
+                    <div className="md:col-span-3 lg:col-span-4 col-span-12 mb-5 pt-1">
                       <p className="desc--large mb-0 text-white">
                         Reach out to us and we will get back to you shortly
                       </p>
                     </div>
-                    <div className="col-lg-8 col-md-9 offset-lg-1">
+                    <div className="lg:col-span-8 md:col-span-9 col-span-12 lg:col-start-5">
                       {formError && (
                         <ErrorStyles>
                           <p>
@@ -342,8 +349,8 @@ function ContactPopup({ contactReason, dataGlobal }) {
                         </ErrorStyles>
                       )}
                       <form onSubmit={handleSubmit} className="formContact">
-                        <div className="row">
-                          <div className="col-sm-6 col-12">
+                        <div className="grid sm:grid-cols-2 gap-lg">
+                          <div>
                             <div
                               className={`form-group form-group--required is-required form-group--white ${
                                 formValidation?.first_name ? "error" : ""
@@ -364,7 +371,7 @@ function ContactPopup({ contactReason, dataGlobal }) {
                               </span>
                             </div>
                           </div>
-                          <div className="col-sm-6 col-12">
+                          <div>
                             <div
                               className={`form-group form-group--required is-required form-group--white ${
                                 formValidation?.last_name ? "error" : ""
@@ -387,8 +394,8 @@ function ContactPopup({ contactReason, dataGlobal }) {
                           </div>
                         </div>
 
-                        <div className="row">
-                          <div className="col-sm-6 col-12">
+                        <div className="grid sm:grid-cols-2 gap-lg">
+                          <div>
                             <div className="form-group form-group--white">
                               <div className="form-group__inner">
                                 <input
@@ -401,7 +408,7 @@ function ContactPopup({ contactReason, dataGlobal }) {
                               </div>
                             </div>
                           </div>
-                          <div className="col-sm-6 col-12">
+                          <div>
                             <div className="form-group form-group--white" data-offset=".4">
                               <div className="form-group__inner">
                                 <input
@@ -415,8 +422,8 @@ function ContactPopup({ contactReason, dataGlobal }) {
                             </div>
                           </div>
                         </div>
-                        <div className="row">
-                          <div className="col-sm-6 col-12">
+                        <div className="grid sm:grid-cols-2 gap-lg">
+                          <div>
                             <div
                               className={`form-group form-group--required is-required form-group--white ${
                                 formValidation?.email === "email-invalid" ? "error-email" : ""
@@ -439,7 +446,7 @@ function ContactPopup({ contactReason, dataGlobal }) {
                             </div>
                           </div>
 
-                          <div className="col-sm-6 col-12">
+                          <div>
                             <div
                               className={`form-group form-group--required is-required form-group--white ${
                                 formValidation?.reason_for_contacting ? "error" : ""
@@ -482,8 +489,8 @@ function ContactPopup({ contactReason, dataGlobal }) {
                           </div>
                         </div>
 
-                        <div className="row">
-                          <div className="col-sm-6 col-12 order-sm-0 order-1">
+                        <div className="grid sm:grid-cols-2 gap-lg">
+                          <div className="order-1 sm:order-none">
                             <div className="form-group form-group--white">
                               <textarea
                                 placeholder="Message"
@@ -493,7 +500,7 @@ function ContactPopup({ contactReason, dataGlobal }) {
                               ></textarea>
                             </div>
                           </div>
-                          <div className="col-sm-6 col-12 order-sm-1 order-0 mb-sm-0 mb-3">
+                          <div className="order-0 sm:order-1 mb-sm-0 mb-3">
                             {inputs.reason_for_contacting === reasons[0] && (
                               <>
                                 <div className="form-group">
@@ -680,8 +687,8 @@ function ContactPopup({ contactReason, dataGlobal }) {
                             )}
                           </div>
                         </div>
-                        <div className="row">
-                          <div className="form-group col-12 mb-0">
+                        <div className="grid">
+                          <div className="form-group col-span-12 mb-0">
                             <Button
                               disabled={isLoading}
                               type="submit"
@@ -698,14 +705,14 @@ function ContactPopup({ contactReason, dataGlobal }) {
                       </form>
                     </div>
                   </div>
-                  <div className="row row--success">
-                    <div className="col-lg-4 col-sm-6 col-12">
+                  <div className="grid md:grid-cols-12 row--success">
+                    <div className="lg:col-span-4 sm:col-span-6 col-span-12">
                       <p className="mb-0 desc--large text-white">
                         Thanks for contacting us. One of our team will be in touch shortly.
                       </p>
                     </div>
                   </div>
-                </div>
+                </Container>
               </div>
             </div>
           </div>

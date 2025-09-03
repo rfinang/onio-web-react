@@ -6,7 +6,7 @@ import * as yup from "yup";
 import useForm from "../../hooks/useForm";
 import {postNewsletterApi} from "../../api";
 import styled from "styled-components";
-import { Button } from "../ui";
+import { Button, Typography } from "../ui";
 
 const ErrorStyles = styled.div`
   padding: 2rem;
@@ -153,17 +153,17 @@ function HomeContact({ data, newsletterRef, customClass = "" }) {
         <div className="container">
           <div className="row">
             <div className="col-md-5 col-12 mb-md-0 mb-4">
-              <h4 className="heading--block heading--block--title mb-0 d-inline-block mb-4 js-animation--fade">
-                <span className="heading--block__text">{label}</span>
-              </h4>
-              <h4 className="heading--block heading--block--success mb-0 d-inline-block mb-4 js-animation--fade">
-                <span className="heading--block__text">Success</span>
-              </h4>
+              <Typography variant="section-badge" className="heading--block--title mb-4 js-animation--fade">
+                {label}
+              </Typography>
+              <Typography variant="section-badge" className="heading--block--success mb-4 js-animation--fade">
+                Success
+              </Typography>
             </div>
           </div>
           <div className="row row--form">
             <div className="col-md-4 col-lg-6 col-12 mb-md-0 mb-4">
-              <h2 className="h2 pt-1 js-animation--chars">{title}</h2>
+              <Typography variant="h2" className="pt-1 js-animation--chars">{title}</Typography>
             </div>
             <div className="col-xxl-4 col-lg-5 col-md-6 col-12 offset-lg-1 offset-md-1">
               {formError && (
@@ -285,9 +285,9 @@ function HomeContact({ data, newsletterRef, customClass = "" }) {
           </div>
           <div className="row row--success">
             <div className="col-lg-4 col-sm-6 col-12">
-              <p className="mb-0 desc--large">
+              <Typography variant="body-xl" className="mb-0">
                 A huge high-five for subscribing to our newsletter! We really appreciate it - stay tuned!
-              </p>
+              </Typography>
             </div>
           </div>
         </div>

@@ -102,10 +102,10 @@ const FeatureSetting = forwardRef(({
 
   return (
     <FeatureSettingStyled>
-      <div className={'col-lg-5 px-0'}>
+      <div className={'lg:col-span-5 col-span-12 px-0'}>
         <div className='text-48 text-white mb-64'>Global Settings</div>
-        <div className={'d-flex flex-column flex-md-row align-items-center'}>
-          <div className="col-md-4 col-lg-5 col-12 px-0">
+        <div className={'grid md:grid-cols-12 gap-36 items-center'}>
+          <div className="md:col-span-4 lg:col-span-5 col-span-12 px-0">
             <div
               className={`form-group form-group--required is-required form-group--white`}
             >
@@ -139,7 +139,7 @@ const FeatureSetting = forwardRef(({
               />
             </div>
           </div>
-          <div className="col-md-4 col-lg-5 col-12 ms-md-4 px-0 ml-144">
+          <div className="md:col-span-4 lg:col-span-5 col-span-12 md:ml-36 px-0">
             <div
               className={`form-group form-group--required is-required form-group--white`}
             >
@@ -177,7 +177,7 @@ const FeatureSetting = forwardRef(({
             </div>
           </div>
 
-          <div className="col-md-4 col-lg-5 col-12 ms-md-4 px-0 ml-144">
+          <div className="md:col-span-4 lg:col-span-5 col-span-12 md:ml-36 px-0">
             <div
               className={`form-group form-group--required is-required form-group--white`}
             >
@@ -215,7 +215,7 @@ const FeatureSetting = forwardRef(({
             </div>
           </div>
 
-          <div className=" px-0 col-md-2 ms-md-4 col-12">
+          <div className="px-0 md:col-span-2 col-span-12 md:ml-36">
             <div
               className={`form-group is-required form-group--white`}
             >

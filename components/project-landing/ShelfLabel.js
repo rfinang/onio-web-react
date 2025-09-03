@@ -35,7 +35,18 @@ function ShelfLabelPage({ shelfLabelData, newsletterSectionData, notFound }) {
         newsletterRef.current.scrollIntoView({block: "start", inline: "nearest", behavior: "instant"});
       }, 200)
     }
-    init(23);
+    
+    // Debug: Log data to see if there are animation settings
+    console.log('ShelfLabel CMS Data:', {
+      label,
+      title,
+      introduction,
+      batteryless,
+      connectivity,
+      integration
+    });
+    
+    init(24);
   }, []);
   const {
     seo,

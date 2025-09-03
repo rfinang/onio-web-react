@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typography, Button, Container } from "../ui";
 import { BlogHeaderStyles } from "../styles/blog/BlogHeader";
 
 function BlogHeader({ blogHeaderData, blogCategories, totalPost = null }) {
@@ -7,40 +8,63 @@ function BlogHeader({ blogHeaderData, blogCategories, totalPost = null }) {
   return (
     <BlogHeaderStyles>
       <div className="blpArticles blogHeader">
-        <div className="blpArticles__container container">
-          <div className="row spacing--bottom--xs">
+        <Container className="blpArticles__container">
+          <div className="grid spacing--bottom--xs">
             <div className="col-12">
-              <h4 className="heading--block mb-0 d-inline-block js-animation--fade">
-                <span className="heading--block__text">{label}</span>
-              </h4>
+              <Typography 
+                variant="section-badge"
+                className="mb-0 js-animation--fade"
+              >
+                {label}
+              </Typography>
             </div>
           </div>
-          <div className="row spacing--bottom--xs">
-            <div className="col-lg-5 col-sm-6 col-12">
-              {totalPost && <p className="h1 mb-0">{totalPost} articles about</p>}
-              <h1 className="h1 js-animation--chars" data-screen-offset=".15">
+          <div className="grid md:grid-cols-12 gap-lg spacing--bottom--xs">
+            <div className="lg:col-span-5 sm:col-span-6 col-span-12">
+              {totalPost && <Typography variant="h1" className="mb-0" as="p">{totalPost} articles about</Typography>}
+              <Typography 
+                variant="h1" 
+                className="js-animation--chars" 
+                data-screen-offset=".15"
+              >
                 {title}
-              </h1>
+              </Typography>
             </div>
-            <div className="col-lg-4 col-sm-5 col-12 offset-lg-2 offset-sm-1 pt-2 desc--large">
-              <p className="js-animation--lines" data-screen-offset=".35">
+            <div className="lg:col-span-4 sm:col-span-5 col-span-12 lg:col-start-8 sm:col-start-8 pt-2">
+              <Typography 
+                variant="body-xl" 
+                className="js-animation--lines" 
+                data-screen-offset=".35"
+                as="p"
+              >
                 {description}
-              </p>
+              </Typography>
             </div>
           </div>
           {blogCategories && (
-            <div className="row filterBlog">
-              <div className="col-sm-auto col-4">
-                <p className="h6 mb-0 js-animation--fade" data-screen-offset=".5">
+            <div className="grid md:grid-cols-12 gap-lg filterBlog">
+              <div className="sm:col-auto col-span-4">
+                <Typography 
+                  variant="h6" 
+                  className="mb-0 js-animation--fade" 
+                  data-screen-offset=".5"
+                  as="p"
+                >
                   Filter by:
-                </p>
+                </Typography>
               </div>
-              <div className="col-sm col-7 offset-sm-0 offset-1">
+              <div className="sm:col-span-10 col-span-7 sm:col-start-auto col-start-2">
                 <ul className="filterBlog__categories ul-reset">
                   <li className="filterBlog__item js-animation--fade" data-screen-offset=".6">
-                    <Link href="/article" legacyBehavior>
-                      <a className="h6 d-block linkHover--black">All</a>
-                    </Link>
+                    <Button
+                      as={Link}
+                      href="/article"
+                      variant="ghost"
+                      color="black"
+                      className="d-block"
+                    >
+                      <Typography variant="h6" as="span">All</Typography>
+                    </Button>
                   </li>
                   {blogCategories.map((item, index) => {
                     const { id, name, slug } = item;
@@ -50,9 +74,15 @@ function BlogHeader({ blogHeaderData, blogCategories, totalPost = null }) {
                         className="filterBlog__item js-animation--fade"
                         data-screen-offset={0.6 + (index + 1) / 10}
                       >
-                        <Link href={`/article/category/${slug}.html`} legacyBehavior>
-                          <a className="h6 d-block linkHover--black">{name}</a>
-                        </Link>
+                        <Button
+                          as={Link}
+                          href={`/article/category/${slug}.html`}
+                          variant="ghost"
+                          color="black"
+                          className="d-block"
+                        >
+                          <Typography variant="h6" as="span">{name}</Typography>
+                        </Button>
                       </li>
                     );
                   })}
@@ -60,7 +90,7 @@ function BlogHeader({ blogHeaderData, blogCategories, totalPost = null }) {
               </div>
             </div>
           )}
-        </div>
+        </Container>
       </div>
     </BlogHeaderStyles>
   );

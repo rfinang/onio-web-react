@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Cookies from "universal-cookie";
-import { Button } from "../ui";
+import { Button, Container } from "../ui";
 const CookiePopupStyles = styled.div`
   position: fixed;
   bottom: 0;
@@ -46,9 +46,9 @@ function CookiePopup() {
 
   return (
     <CookiePopupStyles className={cookiePopup ? `show` : ""}>
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-sm-9 col-12 cookieConsent__content mb-sm-0 mb-2">
+      <Container>
+        <div className="grid md:grid-cols-12 gap-lg items-center">
+          <div className="md:col-span-9 col-span-12 cookieConsent__content mb-sm-0 mb-2">
             <p className="mb-0">
               We are using cookies to give you the best experience on our website.{" "}
               <br className="d-md-inline d-none" />
@@ -56,7 +56,7 @@ function CookiePopup() {
               or switch them off in <a href="/privacy-settings">settings</a>.
             </p>
           </div>
-          <div className="col-sm-auto col-12 ms-sm-auto">
+          <div className="md:col-span-3 col-span-12 md:justify-self-end">
             <Button
               variant="primary"
               size="lg"
@@ -74,7 +74,7 @@ function CookiePopup() {
             </Button>
           </div>
         </div>
-      </div>
+      </Container>
     </CookiePopupStyles>
   );
 }

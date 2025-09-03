@@ -8,6 +8,8 @@ Your project includes an advanced **Figma Variables → CSS Custom Properties** 
 
 ## 📋 **Required Variable Names in Figma**
 
+Note: Use `onio/...` (no leading `$`) as the actual Figma variable names. In UI examples you may see `$onio/...` for readability, but the synced and copied value is `onio/...`.
+
 ### **🎨 Color Variables**
 
 Create these variables in a **"Colors"** collection in Figma:
@@ -42,20 +44,53 @@ Create these variables in a **"Typography"** collection in Figma:
 | Figma Variable Name | CSS Custom Property | Tailwind Class | Current Value |
 |-------------------|-------------------|----------------|---------------|
 | `onio/typography/heading/hero` | `--onio-font-size-hero` | `text-6xl` | 6rem (60px) |
-| `onio/typography/heading/h1` | `--onio-font-size-h1` | `text-5xl` | 4.8rem (48px) |
-| `onio/typography/heading/h2` | `--onio-font-size-h2` | `text-4xl` | 3.6rem (36px) |
-| `onio/typography/heading/h3` | `--onio-font-size-h3` | `text-3xl` | 3rem (30px) |
+| `onio/typography/heading/h1` | `--onio-font-size-h1` | `text-5xl` | 4rem (40px) - CORRECTED |
+| `onio/typography/heading/h2` | `--onio-font-size-h2` | `text-4xl` | 3.2rem (32px) - CORRECTED |
+| `onio/typography/heading/h3` | `--onio-font-size-h3` | `text-3xl` | 2.8rem (28px) - CORRECTED |
 | `onio/typography/heading/h4` | `--onio-font-size-h4` | `text-2xl` | 2.4rem (24px) |
 | `onio/typography/heading/h5` | `--onio-font-size-h5` | `text-xl` | 2rem (20px) |
-| `onio/typography/heading/h6` | `--onio-font-size-h6` | `text-lg` | 1.8rem (18px) |
-| `onio/typography/body/large` | `--onio-font-size-body-lg` | `text-base` | 1.6rem (16px) |
-| `onio/typography/body/normal` | `--onio-font-size-body` | `text-sm` | 1.4rem (14px) |
-| `onio/typography/body/small` | `--onio-font-size-body-sm` | `text-xs` | 1.2rem (12px) |
+| `onio/typography/heading/h6` | `--onio-font-size-h6` | `text-lg` | 1.6rem (16px) - CORRECTED |
+| `onio/typography/body/xl` | `--onio-font-size-body-xl` | `text-body-xl` | 3.5rem→2.6rem→2.4rem responsive - NEW |
+| `onio/typography/body/large` | `--onio-font-size-body-lg` | `text-body-lg` | 1.8rem (18px) - mobile body |
+| `onio/typography/body/normal` | `--onio-font-size-body` | `text-body` | 1.6rem→2rem responsive - CORRECTED |
+| `onio/typography/body/small` | `--onio-font-size-body-sm` | `text-body-sm` | 1.4rem (14px) - CORRECTED |
+| `onio/typography/body/xs` | `--onio-font-size-body-xs` | `text-body-xs` | 1.2rem (12px) - NEW |
 
 **Typography System Notes:**
 - Base font size: 62.5% (1rem = 10px for easy calculation)
 - Font family: Inter (already configured in Tailwind)
 - Font weight: 500 (default), bold available as needed
+- **Responsive body text**: 1.6rem default → 2rem desktop (1200px+) → 1.8rem mobile (739px-)
+- **All sizes corrected** to match original CSS exactly
+
+**🚀 MIGRATION STATUS:**
+- ✅ **Button component migration COMPLETE** - 95+ button instances now using Button component
+  - SearchPopup.js, SearchHeader.js, Header.js, SettingChart.js migrated
+  - All search forms, navigation buttons, and form controls updated
+  - Legacy .btn classes replaced with Button component variants
+- ✅ Typography component **COMPLETE** with **19 variants** (h4, h5, h6 FIXED + pill variant)
+- ✅ **90 heading instances migrated** (9 new in Phase 1 - Investor Pages): 
+  - **Phase 1 (Business Critical)**: InvestorData.js (2), InvestorPartner.js (4), InvestorUpdates.js (3)
+  - **Tier 1 (Homepage)**: NavMobile.js (3), HomeQuick.js (3), HomeContact.js (2)
+  - **Tier 2 (High-traffic)**: SearchContent.js (8), EnvironmentalBenefits.js (4)
+  - **Tier 3 (Content)**: CareerLandingContent.js (7), KeyFeature.js (3), Features.js (6)
+  - **Previous**: Careers.js, HomeProject.js, Teams.js, HomeBlog.js, etc. (45)
+- ✅ **CRITICAL FIXES APPLIED** (user feedback addressed):
+  - **h4**: 4.8rem (48px) all breakpoints - for news article titles ✅
+  - **h5**: 3.5rem→2.6rem→2.4rem responsive - for "Domain Experts" etc. ✅
+  - **h6**: 2.7rem→2.3625rem responsive - smallest headings ✅
+  - **Pill borders**: Fixed missing border-2 styling ✅
+  - **Exact line-heights**: All match original CSS precisely ✅
+- ✅ **MAJOR**: Body text system enhanced with exact desc--large replacement
+  - `body-xl` (EXACT match: 35px→26px→24px responsive with 1.142857 line-height)
+  - `body-large`, `body`, `body-small`, `body-xs` variants
+  - `section-description`, `accordion-description`, `feature-description` semantic variants
+- ✅ **NEW**: Pill variant added (replaces heading--block pattern)
+  - Responsive border pills with exact styling match + proper borders
+  - White variant for dark backgrounds 
+- ✅ Design system page updated with h4, h5, h6 examples
+- 🔄 **~190 heading instances remaining** for bulk migration (ready for Phase 2!)
+- 🆕 **160+ body text instances** ready for Typography migration (desc--large completed!)
 
 ### **🌑 Shadows Variables** (Optional)
 
@@ -133,8 +168,13 @@ collections: {
 
 1. **Design in Figma** using the variables
 2. **Sync variables** to code: `npm run figma:sync`
-3. **Use in components:**
+3. **Use Typography component** for consistent text styling
+4. **Use in components:**
    ```jsx
+   // Typography component (RECOMMENDED)
+   <Typography variant="h1" color="primary">Main Title</Typography>
+   <Typography variant="hero">Hero Text</Typography>
+   
    // Tailwind classes
    <div className="bg-primary text-white p-lg">
    

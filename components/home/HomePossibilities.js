@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Typography } from "../ui";
 import { VideoSlide } from "../styles/elements/video-slide";
 import VideoResponsive from "../helper/video-responsive";
 import ImageComp from "../common/Image";
@@ -30,9 +31,12 @@ function HomePossibilities({ oneChipData: oneChipVideos, isHomepage = false }) {
   return (
     <>
       <div className="mb-4">
-        <h4 className="heading--block heading--block--border d-inline-block mb-0 js-animation--fade">
-          <span className="heading--block__text">{label}</span>
-        </h4>
+        <Typography 
+          variant="section-badge"
+          className="mb-0 js-animation--fade"
+        >
+          {label}
+        </Typography>
       </div>
       {videoList && (
         <VideoSlide className="js-animation--fade">
@@ -86,7 +90,12 @@ function HomePossibilities({ oneChipData: oneChipVideos, isHomepage = false }) {
                               alt="i-heading-big-image-row"
                             />
                           </div>
-                          <h5 className="bigImageRow__desc__title heading--small">{title}</h5>
+                          <Typography 
+                            variant="h5" 
+                            className="bigImageRow__desc__title"
+                          >
+                            {title}
+                          </Typography>
                           <p className="mb-0 bigImageRow__desc__content">{description}</p>
                         </div>
                       </div>

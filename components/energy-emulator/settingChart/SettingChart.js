@@ -7,6 +7,7 @@ import EnergyHarvesting from "./EnergyHarvesting";
 import {useEffect, useMemo, useRef, useState} from "react";
 import {computeEnergy, generatePowerSeries} from "../../../helper/power-utils";
 import {convertTime} from "../../../helper/energy-helper";
+import { Button } from "../../ui";
 import 'react-toastify/dist/ReactToastify.css';
 import {KEY_CUSTOM_PRESET, LABEL_CUSTOM_PRESET} from "../../../constant/preset-key";
 import swal from 'sweetalert';
@@ -259,8 +260,8 @@ const SettingChart = ({powerProfilesConfig, solarProfilesConfig, powerProfilesPr
 
       </div>
       <div className="d-flex justify-content-center mt-4 gap-3">
-        <button onClick={clickSavePresent} className="btn btn-outline-light">Save Preset</button>
-        {/*<button onClick={clickLoadPresent} className="btn btn-outline-light">Load Preset</button>*/}
+        <Button onClick={clickSavePresent} variant="outline-white" size="md">Save Preset</Button>
+        {/*<Button onClick={clickLoadPresent} variant="outline-white" size="md">Load Preset</Button>*/}
         <label className="btn btn-outline-light" style={{cursor: 'pointer'}}>
           Load Preset
           <input

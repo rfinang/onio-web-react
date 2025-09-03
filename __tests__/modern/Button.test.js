@@ -7,29 +7,34 @@ describe('Modern Button Component', () => {
     render(<Button>Click me</Button>)
     const button = screen.getByRole('button', { name: 'Click me' })
     expect(button).toBeInTheDocument()
-    expect(button).toHaveClass('bg-onio-primary') // Default primary variant
+    expect(button).toHaveClass('bg-primary') // Default primary variant maps to design token
   })
 
   it('renders different variants correctly', () => {
     const { rerender } = render(<Button variant="secondary">Secondary</Button>)
-    expect(screen.getByRole('button')).toHaveClass('bg-onio-secondary')
+    // secondary maps to muted background
+    expect(screen.getByRole('button')).toHaveClass('bg-muted')
 
     rerender(<Button variant="outline">Outline</Button>)
-    expect(screen.getByRole('button')).toHaveClass('border-onio-primary')
+    expect(screen.getByRole('button')).toHaveClass('border-2', 'border-primary')
 
     rerender(<Button variant="ghost">Ghost</Button>)
-    expect(screen.getByRole('button')).toHaveClass('text-onio-dark')
+    expect(screen.getByRole('button')).toHaveClass('text-primary')
   })
 
   it('renders different sizes correctly', () => {
     const { rerender } = render(<Button size="small">Small</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-3', 'py-2', 'text-sm')
+    // small uses compact padding and text-sm
+    expect(screen.getByRole('button')).toHaveClass('px-4', 'py-2', 'text-sm')
 
-    rerender(<Button size="medium">Medium</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-6', 'py-3', 'text-base')
+    rerender(<Button size="md">Default MD</Button>)
+    // md has configured min height and responsive paddings
+    expect(screen.getByRole('button').className).toMatch(/min-h-\[4\.4rem\]/)
 
     rerender(<Button size="large">Large</Button>)
-    expect(screen.getByRole('button')).toHaveClass('px-8', 'py-4', 'text-lg')
+    // large increases gap and keeps configured min height
+    expect(screen.getByRole('button')).toHaveClass('gap-3')
+    expect(screen.getByRole('button').className).toMatch(/min-h-\[4\.4rem\]/)
   })
 
   it('handles disabled state correctly', () => {
@@ -61,6 +66,6 @@ describe('Modern Button Component', () => {
   it('has proper accessibility attributes', () => {
     render(<Button>Accessible Button</Button>)
     const button = screen.getByRole('button')
-    expect(button).toHaveClass('focus:outline-none', 'focus:ring-2')
+    expect(button).toHaveClass('focus:outline-none')
   })
 })

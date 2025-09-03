@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Typography } from "../ui";
 import { EnvironmentalBenefitsStyles } from "../styles/home/EnvironmentalBenefits";
 
 function EnvironmentalBenefits({ lowerBomData, customClass }) {
@@ -94,22 +95,25 @@ function EnvironmentalBenefits({ lowerBomData, customClass }) {
         <div className="ppEnvironmentalBenefits__container container">
           <div className="row mb-ms-5 mb-4">
             <div className="col-12">
-              <h4 className="heading--block mb-0 d-inline-block js-animation--fade">
-                <span className="heading--block__text">{label}</span>
-              </h4>
+              <Typography 
+                variant="section-badge"
+                className="mb-0 js-animation--fade"
+              >
+                {label}
+              </Typography>
             </div>
           </div>
           <div className="row">
             <div className="col-md-5 col-12">
-              <h2 className="h2 js-animation--chars">{title}</h2>
+              <Typography variant="h2" className="js-animation--chars">{title}</Typography>
               <span className="spacing--bottom--lg d-md-block d-none pb-md-3"></span>
               <span className="d-md-none d-block mb-3"></span>
             </div>
             <div
-              className="col-md-6 col-12 pt-2 desc--large offset-md-1 js-animation--lines"
+              className="col-md-6 col-12 pt-2 offset-md-1 js-animation--lines"
               data-offset=".15"
             >
-              <p>{description}</p>
+              <Typography variant="body-xl">{description}</Typography>
             </div>
           </div>
           <div className="row mb-3">
@@ -197,7 +201,10 @@ function EnvironmentalBenefits({ lowerBomData, customClass }) {
               data-offset=".15"
             >
               <div className="ppEnvironmentalBenefits__desc">
-                <p className="desc--small" dangerouslySetInnerHTML={{ __html: content }} />
+                <Typography 
+                  variant="body" 
+                  dangerouslySetInnerHTML={{ __html: content }} 
+                />
               </div>
             </div>
           </div>

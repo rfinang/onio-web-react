@@ -29,7 +29,7 @@ export const customSelectStylesNew = {
         color: "#fff",
         width: "100%",
         fontSize: "1.8rem",
-        // paddingTop: "2rem",
+        /* paddingTop: "2rem", */
         borderRadius: 0,
         border: "none",
         borderBottom: "0.2rem solid",

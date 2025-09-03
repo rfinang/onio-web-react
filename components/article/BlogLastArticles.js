@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { getBlogApi } from "../../api";
 import Loading from "../common/Loading";
-import { Button } from "../ui";
+import { Button, Container } from "../ui";
 import { LastArticleStyles } from "../styles/blog/LastArticles";
 import Post from "./Post";
 import { blogItemsGenerate } from "../../helper";
@@ -41,16 +41,16 @@ function BlogLastArticles({ blogData, blogToTal }) {
   return (
     <LastArticleStyles>
       {isLoading && <Loading />}
-      <div className="lastArticles bg-wild">
-        <div className="container pb-sm-5 pb-3">
-          <div className="row mb-4">
+      <div className="lastArticles bg-background">
+        <Container className="pb-sm-5 pb-3">
+          <div className="grid sm:grid-cols-2 gap-lg mb-4">
             {blogList.map((item, index) => {
               const { id } = item;
 
               return (
                 <div
                   key={id}
-                  className="col-sm-6 col-12  js-animation--fade"
+                  className="js-animation--fade"
                   data-offset={index % 2 === 1 ? ".15" : 0}
                 >
                   <Post data={item} />
@@ -59,8 +59,8 @@ function BlogLastArticles({ blogData, blogToTal }) {
             })}
           </div>
           {blogList.length < blogToTal ? (
-            <div className="row justify-content-center">
-              <div className="col-md-auto col-12 js-animation--fade">
+            <div className="grid justify-center">
+              <div className="js-animation--fade">
                 <Button
                   variant="secondary"
                   size="lg"
@@ -74,7 +74,7 @@ function BlogLastArticles({ blogData, blogToTal }) {
               </div>
             </div>
           ) : null}
-        </div>
+        </Container>
       </div>
     </LastArticleStyles>
   );

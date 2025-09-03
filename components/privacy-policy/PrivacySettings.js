@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import Head from "next/head";
+import { Typography } from "../ui";
 
 import { PolicyStyles } from "./index";
 import PageAnimations from "../helper/animation/page-animations";
@@ -41,9 +42,12 @@ function PrivacySettingsPage({ privacySettingsData }) {
             <div className="blogDetail__content pb-0">
               <div className="row spacing--bottom--sm">
                 <div className="blogDetail__meta__cat col-md-3 col-8 offset-md-0 offset-sm-2 mb-md-0 mb-4 pb-md-0 pb-1">
-                  <h4 className="heading--block mb-0 d-inline-block js-animation--fade">
-                    <span className="heading--block__text">Privacy Settings</span>
-                  </h4>
+                  <Typography 
+                    variant="section-badge"
+                    className="mb-0 d-inline-block js-animation--fade"
+                  >
+                    Privacy Settings
+                  </Typography>
                 </div>
                 <div
                   className="col-lg-6 col-md-7 col-sm-8 col-12 offset-lg-1 offset-md-0 offset-sm-2 blogDetail__content__right js-animation--fade"
@@ -53,7 +57,7 @@ function PrivacySettingsPage({ privacySettingsData }) {
                   <form action="">
                     <div className="dynamic-content">
                       <div dangerouslySetInnerHTML={{ __html: privacy_setting_description }} />
-                      <h2>Strictly Necessary Cookies</h2>
+                      <Typography variant="h2">Strictly Necessary Cookies</Typography>
                       <div dangerouslySetInnerHTML={{ __html: block_1 }} />
                       <div className="row">
                         <div className="col-auto me-4">
@@ -109,7 +113,7 @@ function PrivacySettingsPage({ privacySettingsData }) {
                       </div>
                       <br />
                       <br />
-                      <h2>3rd Party Cookies</h2>
+                      <Typography variant="h2">3rd Party Cookies</Typography>
                       <div dangerouslySetInnerHTML={{ __html: block_2 }} />
                       <div className="row">
                         <div className="col-auto me-4">

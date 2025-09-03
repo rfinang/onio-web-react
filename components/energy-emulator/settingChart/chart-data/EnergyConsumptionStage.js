@@ -143,7 +143,7 @@ const EnergyConsumptionStage = ({data, id, ...props}) => {
                 }} {...(!data?.locked ? listeners : {})}
                      className={'d-flex align-items-center justify-content-center col-1'}>
                     <svg width="30" height="13" viewBox="0 0 30 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M30 13H0V12H30V13ZM30 7H0V6H30V7ZM30 1H0V0H30V1Z" fill="#514B4D"/>
+                        <path d="M30 13H0V12H30V13ZM30 7H0V6H30V7ZM30 1H0V0H30V1Z" fill="var(--onio-color-muted)"/>
                     </svg>
                 </div>
                 <div className={'d-flex justify-content-sm-around w-100 pe-2 align-items-center flex-wrap gap-30'}>

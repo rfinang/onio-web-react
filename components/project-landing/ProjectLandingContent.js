@@ -1,4 +1,5 @@
 import { useAppContext } from "../../context/AppContext";
+import { Button, Container } from "../ui";
 function ProjectLandingContent({ data }) {
   if (!data) return null;
   const { title, content, description, link } = data;
@@ -10,79 +11,55 @@ function ProjectLandingContent({ data }) {
     });
   };
   return (
-    <div className="projectLading__content pageHero--after bg-wild">
-      <div className="container">
+    <div className="projectLading__content pageHero--after bg-background">
+      <Container>
         <h2
           className="h2 spacing--bottom--md pb-1 js-animation--chars"
           data-screen-offset=".8"
           dangerouslySetInnerHTML={{ __html: title }}
         />
 
-        <div className="row">
-          <div className="col-md-6 col-12 mb-md-0 mb-3">
+        <div className="grid md:grid-cols-12 gap-lg">
+          <div className="md:col-span-6 col-span-12 mb-md-0 mb-3">
             <div
               className="desc--large spacing--bottom--xs js-animation--lines"
               data-screen-offset=".9"
               dangerouslySetInnerHTML={{ __html: description }}
             />
 
-            <p className="d-md-block d-none js-animation--fade" data-screen-offset=".9">
-              <a
+            <div className="d-md-block d-none js-animation--fade" data-screen-offset=".9">
+              <Button
+                as="a"
                 href={link.url}
                 data-bs-toggle="modal"
                 data-bs-target="#contactModal"
                 onClick={onClickGetStartedItem(link.url)}
-                className="pageLink pageLink--black"
+                variant="link"
+                color="black"
+                hasArrow
               >
-                <span className="pageLink__text">{link.label}</span>
-                <span className="pageLink__icon">
-                  <svg
-                    width="31"
-                    height="27"
-                    viewBox="0 0 31 27"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="svg"
-                  >
-                    <path d="M15.8594 1L29 13.5L15.8594 26" stroke="white" strokeWidth="2"></path>
-                    <path d="M0 13.5898L28.7829 13.5898" stroke="white" strokeWidth="2"></path>
-                  </svg>
-                </span>
-              </a>
-            </p>
+                {link.label}
+              </Button>
+            </div>
           </div>
-          <div
-            className="col-lg-4 col-md-5 desc--small offset-lg-2 offset-md-1 js-animation--fade"
-            data-screen-offset="1.05"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
+          <div className="lg:col-span-4 md:col-span-5 md:col-start-8 js-animation--fade" data-screen-offset="1.05" dangerouslySetInnerHTML={{ __html: content }} />
 
           <div className="d-md-none d-block mt-md-0 col-12 mt-5">
-            <a
+            <Button
+              as="a"
               href={link.url}
               data-bs-toggle="modal"
               data-bs-target="#contactModal"
               onClick={onClickGetStartedItem(link.url)}
-              className="pageLink pageLink--black"
+              variant="link"
+              color="black"
+              hasArrow
             >
-              <span className="pageLink__text">{link.label}</span>
-              <span className="pageLink__icon">
-                <svg
-                  width="31"
-                  height="27"
-                  viewBox="0 0 31 27"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="svg"
-                >
-                  <path d="M15.8594 1L29 13.5L15.8594 26" stroke="white" strokeWidth="2"></path>
-                  <path d="M0 13.5898L28.7829 13.5898" stroke="white" strokeWidth="2"></path>
-                </svg>
-              </span>
-            </a>
+              {link.label}
+            </Button>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

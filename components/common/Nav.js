@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typography } from "../ui";
 import { VideoItem } from "../styles/VideoItem";
 import { NavNewsItem } from "../styles/NavNewsItem";
 import { useAppContext } from "../../context/AppContext";
@@ -43,11 +44,11 @@ function Nav({ menus }) {
                                   key={itemChild.id}
                                   className={`col-lg-${2 + index} col-sm-6 col-12`}
                                 >
-                                  <h6 className="h6 menu-item__child__title">
+                                  <Typography variant="h6" className="menu-item__child__title" as="h6">
                                     <Link href={itemChild.url} legacyBehavior>
                                       <a>{itemChild.label}</a>
                                     </Link>
-                                  </h6>
+                                  </Typography>
                                   {itemChild.Child.length > 0 && (
                                     <ul className="menu-item__child__menu mb-3 mb-lg-0">
                                       {itemChild.Child.map((itemSubChild) => (
@@ -70,7 +71,7 @@ function Nav({ menus }) {
                               {listChild.map((listChildItem) => (
                                 <li key={listChildItem.id}>
                                   <Link href={listChildItem.url} legacyBehavior>
-                                    <a className="h6 d-block">{listChildItem.label}</a>
+                                    <Typography variant="h6" className="d-block" as="a">{listChildItem.label}</Typography>
                                   </Link>
                                 </li>
                               ))}
@@ -79,8 +80,10 @@ function Nav({ menus }) {
                         )}
                         {video && (
                           <div className="col-lg-3 col-sm-6 col-12 offset-lg-1 mt-lg-0 mt-md-5 mt-sm-4 mt-3">
-                            <h6
-                              className="h6 menu-item__child__title"
+                            <Typography
+                              variant="h6"
+                              className="menu-item__child__title"
+                              as="h6"
                               dangerouslySetInnerHTML={{
                                 __html: video.label,
                               }}
@@ -115,7 +118,7 @@ function Nav({ menus }) {
                                 : "col-lg-6 col-sm-6 col-12 mt-md-0 mt-sm-4 mt-3 ms-md-auto"
                             }
                           >
-                            <h6 className="h6 menu-item__child__title">{news.label}</h6>
+                            <Typography variant="h6" className="menu-item__child__title">{news.label}</Typography>
                             <div className="row">
                               {news.items.length &&
                                 news.items.map((newsItem) => (

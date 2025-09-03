@@ -36,10 +36,9 @@ export const ConfigBarStyled = styled.div`
             flex-grow: 1;
             padding-top: 8px;
 
-            //.configBar {
-            //    display: none;
-            //
-            //}
+            /*.configBar {
+                display: none;
+            }*/
 
             .inputStage {
                 border-bottom: .2rem solid #222021;

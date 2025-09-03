@@ -4,106 +4,117 @@ import PropTypes from 'prop-types';
 const Input = forwardRef(({
   type = 'text',
   variant = 'default',
-  size = 'md',
   error = false,
-  success = false,
   disabled = false,
   placeholder,
   label,
-  helperText,
   errorText,
-  leftIcon,
-  rightIcon,
+  required = false,
   className = '',
   ...props
 }, ref) => {
-  // Base styles
+  // Onio form styling - matches original design exactly
   const baseStyles = `
     w-full
-    border
-    rounded
+    h-[var(--input-height)]
+    border-0
+    border-b-2
+    xl:border-b-2
+    lg:border-b-[1.5px]
+    bg-transparent
+    px-2
+    py-0
+    text-[18px]
     font-medium
-    transition-all
-    duration-200
+    font-[Inter]
+    rounded-none
     focus:outline-none
-    focus:ring-2
-    focus:ring-offset-0
-    placeholder-muted
-    disabled:opacity-60
-    disabled:cursor-not-allowed
+    focus:ring-0
+    focus:shadow-none
+    transition-colors
+    duration-[400ms]
+    ease-[cubic-bezier(0.33,1,0.68,1)]
   `;
 
-  // Size variants
-  const sizeStyles = {
-    sm: 'px-3 py-2 text-sm',
-    md: 'px-4 py-3 text-base',
-    lg: 'px-5 py-4 text-lg'
+  // Variant styles matching original Onio forms
+  const variantStyles = {
+    default: 'border-primary text-primary placeholder:text-primary placeholder:opacity-100',
+    white: 'border-white !text-white placeholder:!text-white placeholder:opacity-100',
+    silver: 'border-primary text-primary placeholder:text-primary placeholder:opacity-100'
   };
 
-  // State variants
-  const stateStyles = {
-    default: 'border-muted bg-white text-primary focus:border-primary focus:ring-primary/20',
-    error: 'border-red-500 bg-red-50 text-red-900 focus:border-red-500 focus:ring-red-500/20',
-    success: 'border-green-500 bg-green-50 text-green-900 focus:border-green-500 focus:ring-green-500/20'
-  };
-
-  // Determine current state
-  let currentVariant = variant;
-  if (error) currentVariant = 'error';
-  if (success) currentVariant = 'success';
+  // Error styles
+  const errorStyles = error ? 'border-alert' : '';
 
   // Build input classes
   const inputClasses = `
     ${baseStyles}
-    ${sizeStyles[size]}
-    ${stateStyles[currentVariant]}
-    ${leftIcon ? 'pl-10' : ''}
-    ${rightIcon ? 'pr-10' : ''}
+    ${variantStyles[variant]}
+    ${errorStyles}
+    ${required ? 'pr-[34px]' : ''}
     ${className}
   `.trim().replace(/\s+/g, ' ');
 
-  // Helper text classes
-  const helperClasses = `
-    text-sm mt-1
-    ${error ? 'text-red-600' : success ? 'text-green-600' : 'text-muted'}
+  // Label styles matching original
+  const labelClasses = `
+    block
+    mb-2
+    text-sm
+    font-medium
+    ${variant === 'white' ? 'text-white' : 'text-primary'}
   `;
 
   return (
-    <div className="w-full">
+    <div className="form-group mb-[3.5rem] relative">
       {label && (
-        <label className="block text-sm font-medium text-primary mb-2">
+        <label className={labelClasses}>
           {label}
-          {props.required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
       
-      <div className="relative">
-        {leftIcon && (
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <span className="text-muted">{leftIcon}</span>
-          </div>
-        )}
-        
-        <input
-          ref={ref}
-          type={type}
-          disabled={disabled}
-          placeholder={placeholder}
-          className={inputClasses}
-          {...props}
-        />
-        
-        {rightIcon && (
-          <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-            <span className="text-muted">{rightIcon}</span>
-          </div>
-        )}
-      </div>
+      <input
+        ref={ref}
+        type={type}
+        disabled={disabled}
+        placeholder={placeholder}
+        className={inputClasses}
+        {...props}
+      />
       
-      {(helperText || errorText) && (
-        <p className={helperClasses}>
-          {error ? errorText : helperText}
-        </p>
+      {/* Required indicator dot - matches original styling */}
+      {required && (
+        <div className={`
+          form-group__required
+          absolute
+          top-1/2
+          right-3
+          -mt-[5px]
+          w-0
+          h-0
+          border-[5px]
+          ${variant === 'white' ? 'border-white bg-white' : 'border-primary bg-primary'}
+          rounded-full
+          transition-opacity
+          duration-300
+          ${error ? 'opacity-100' : 'opacity-0'}
+        `}></div>
+      )}
+      
+      {/* Error message - matches original positioning */}
+      {error && errorText && (
+        <div className="
+          form-group__alert
+          absolute
+          w-full
+          mt-[5px]
+          text-right
+          text-muted
+          leading-[1.142857]
+          xl:text-[14px]
+          lg:text-[12px]
+        ">
+          {errorText}
+        </div>
       )}
     </div>
   );
@@ -113,17 +124,12 @@ Input.displayName = 'Input';
 
 Input.propTypes = {
   type: PropTypes.oneOf(['text', 'email', 'password', 'number', 'tel', 'url', 'search']),
-  variant: PropTypes.oneOf(['default', 'error', 'success']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  variant: PropTypes.oneOf(['default', 'white', 'silver']),
   error: PropTypes.bool,
-  success: PropTypes.bool,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  helperText: PropTypes.string,
   errorText: PropTypes.string,
-  leftIcon: PropTypes.node,
-  rightIcon: PropTypes.node,
   className: PropTypes.string,
   required: PropTypes.bool
 };

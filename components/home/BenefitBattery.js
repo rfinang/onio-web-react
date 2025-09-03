@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Typography } from "../ui";
 import { BenefitBatteryStyles } from "../styles/home/Benefitbattery";
 import BenefitAnimations from "./BenefitAnimations";
 import EnvironmentalBenefits from "./EnvironmentalBenefits";
@@ -13,22 +14,30 @@ function BenefitBattery({ benefitBatteryless, benefitAnimations, lowerBomData, o
         <div className="container">
           <div className="row spacing--bottom--xs">
             <div className="col-md-5 col-12">
-              <h4 className="heading--block mb-0 d-inline-block js-animation--fade">
-                <span className="heading--block__text">{label}</span>
-              </h4>
+              <Typography 
+                variant="section-badge"
+                className="mb-0 js-animation--fade"
+              >
+                {label}
+              </Typography>
             </div>
           </div>
           <div className="row spacing--bottom--md">
             <div className="col-lg-4 col-md-5 col-12">
-              <h2
-                className="h2 mb-md-0 mb-1 js-animation--chars"
+              <Typography
+                variant="h2"
+                className="mb-md-0 mb-1 js-animation--chars"
                 dangerouslySetInnerHTML={{ __html: title }}
               />
             </div>
-            <div className="col-lg-5 col-md-6 col-12 benefitsBatteryless__desc desc--large offset-lg-3 offset-md-1">
-              <p className="mb-0 pr-lg-1 js-animation--lines" data-offset=".3">
+            <div className="col-lg-5 col-md-6 col-12 benefitsBatteryless__desc offset-lg-3 offset-md-1">
+              <Typography 
+                variant="body-xl"
+                className="mb-0 pr-lg-1 js-animation--lines" 
+                data-offset=".3"
+              >
                 {description}
-              </p>
+              </Typography>
             </div>
           </div>
           <HomePossibilities oneChipData={oneChipData} isHomepage={true} />

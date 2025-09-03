@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Variable Test</title>
+  <style>
+    /* Simulate the CSS that should be loading */
+    html {
+      --onio-color-primary: #222021;
+      --onio-color-secondary: #D2FE24;
+      --onio-color-accent: #FF6231;
+    }
+    
+    /* Simulate Tailwind classes */
+    .bg-primary {
+      background-color: var(--onio-color-primary, #222021);
+    }
+    
+    .test-box {
+      width: 200px;
+      height: 100px;
+      border: 2px solid black;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS Variable Test</h1>
+  
+  <p><strong>If working correctly:</strong></p>
+  <div class="test-box bg-primary">
+    bg-primary<br>
+    Should be DARK GRAY (#222021)
+  </div>
+  
+  <p><strong>Direct CSS variable test:</strong></p>
+  <div class="test-box" style="background: var(--onio-color-primary, blue);">
+    CSS Variable<br>
+    Should be DARK GRAY, fallback to BLUE if broken
+  </div>
+  
+  <p><strong>Direct hex test:</strong></p>
+  <div class="test-box" style="background: #222021;">
+    Direct #222021<br>
+    Should be DARK GRAY
+  </div>
+  
+  <script>
+    // Check if CSS variables are available
+    const root = getComputedStyle(document.documentElement);
+    const primary = root.getPropertyValue('--onio-color-primary').trim();
+    console.log('CSS Variable --onio-color-primary:', primary || 'NOT FOUND');
+    
+    // Check computed styles
+    const box = document.querySelector('.bg-primary');
+    const computed = getComputedStyle(box);
+    console.log('Computed background-color:', computed.backgroundColor);
+  </script>
+</body>
+</html>

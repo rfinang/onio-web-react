@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typography } from "../../ui";
 import ImageComp from "../../common/Image";
 import { BatterylessStyles } from "../../styles/product/Batteryless";
 import Energy from "./Energy";
@@ -16,24 +17,30 @@ function Batteryless({ getStart, sectionEnergy, sectionKeyFeature }) {
   };
   return (
     <BatterylessStyles>
-      <div className="ppBatteryless bg-dark">
+      <div className="ppBatteryless bg-primary">
         <div className="ppBatteryless__container container">
           {getStart && (
             <>
               <div className="row ppBatteryless__top mb-md-3 mb-5 pb-md-0 pb-2">
-                <div className="col-md-6 col-12 mb-md-2 mb-4 text-white ppBatteryless__top__left desc--large">
-                  <p className="js-animation--lines is-animation-loading" data-screen-offset=".8">
+                <div className="col-md-6 col-12 mb-md-2 mb-4 text-white ppBatteryless__top__left">
+                  <Typography 
+                    variant="body-xl" 
+                    className="js-animation--lines is-animation-loading text-white" 
+                    data-screen-offset=".8"
+                    as="p"
+                  >
                     {description}
-                  </p>
+                  </Typography>
                 </div>
                 <div className="col-lg-4 col-md-5 col-12 offset-lg-2 offset-md-1 ppBatteryless__top__right pt-1">
-                  <h4
-                    className="heading--block heading--block--white mb-4 d-inline-block js-animation--fade is-animation-loading"
+                  <Typography 
+                    variant="section-badge"
+                    className="white mb-4 js-animation--fade is-animation-loading"
                     data-screen-offset="1"
                     data-offset=".15"
                   >
-                    <span className="heading--block__text">{label}</span>
-                  </h4>
+                    {label}
+                  </Typography>
                   {links && (
                     <ul className="overMenu__accordian ul-reset">
                       {links.map((item, index) => {
@@ -55,7 +62,7 @@ function Batteryless({ getStart, sectionEnergy, sectionKeyFeature }) {
                               >
                                 <div className="row g-0">
                                   <div className="col">
-                                    <h6 className="h6 accordian__item__link__text mb-0">{label}</h6>
+                                    <Typography variant="h6" className="accordian__item__link__text mb-0">{label}</Typography>
                                   </div>
                                   <div className="col-auto accordian__item__link__icon">
                                     <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--white">
@@ -91,7 +98,7 @@ function Batteryless({ getStart, sectionEnergy, sectionKeyFeature }) {
                               <a className="accordian__item__link accordian__item__link--white">
                                 <div className="row g-0">
                                   <div className="col">
-                                    <h6 className="h6 accordian__item__link__text mb-0">{label}</h6>
+                                    <Typography variant="h6" className="accordian__item__link__text mb-0">{label}</Typography>
                                   </div>
                                   <div className="col-auto accordian__item__link__icon">
                                     <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--white">

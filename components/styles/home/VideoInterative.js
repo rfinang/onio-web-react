@@ -103,7 +103,7 @@ export const VideoInteractiveStyles = styled.div`
     will-change: transform;
   }
 
-  // smart hub
+  /* smart hub */
   &.videoInteractive--smarthub {
     padding-bottom: 0;
     .videoInteractive__heading {

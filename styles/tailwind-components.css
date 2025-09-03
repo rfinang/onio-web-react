@@ -480,15 +480,15 @@
      ======================================== */
   
   .fade-in {
-    @apply animate-[fadeIn_0.3s_ease-in-out];
+    animation: fadeIn 0.3s ease-in-out;
   }
   
   .slide-up {
-    @apply animate-[slideUp_0.3s_ease-out];
+    animation: slideUp 0.3s ease-out;
   }
   
   .slide-down {
-    @apply animate-[slideDown_0.3s_ease-out];
+    animation: slideDown 0.3s ease-out;
   }
   
   /* ========================================
@@ -512,7 +512,7 @@
   }
   
   .shadow-soft {
-    @apply shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)];
+    box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);
   }
   
   /* Responsive text utilities */
@@ -585,3 +585,19 @@
     -webkit-line-clamp: 3;
   }
 }
+  /* Checkbox mark helpers for background SVG without Tailwind arbitrary URL */
+  .checkbox-mark {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+  }
+  /* White variant */
+  .peer:checked + .checkbox-mark.checkbox-white {
+    border-color: #ffffff;
+    background-image: url("data:image/svg+xml;utf8,<svg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20.2922 1.38592L8.58011 19.4864L1.47018 10.4361' stroke='white' stroke-width='1.5' stroke-linejoin='bevel'/></svg>");
+  }
+  /* Black variant */
+  .peer:checked + .checkbox-mark.checkbox-black {
+    border-color: #000000;
+    background-image: url("data:image/svg+xml;utf8,<svg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20.2922 1.38592L8.58011 19.4864L1.47018 10.4361' stroke='black' stroke-width='1.5' stroke-linejoin='bevel'/></svg>");
+  }

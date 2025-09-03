@@ -41,30 +41,30 @@ function update(st) {
   steps = steps > totalSteps ? totalSteps : steps;
   if (lastStep === steps) return;
   
-  // Directly set the position without animation - remove any transitions
-  let xPosition = steps * frame_w;
-  
-  // Debug logging
-  if (steps !== lastStep) {
-    console.log('ESL Update - step:', steps, 'xPosition:', xPosition, 'frame_w:', frame_w);
-  }
-  
-  // Kill any GSAP animations on this element immediately
+  // Completely disable GSAP for this element
   if (typeof gsap !== 'undefined') {
     gsap.killTweensOf(sprite_active);
+    gsap.set(sprite_active, { clearProps: "transform,x,y,rotation,scale" });
   }
   
-  // Try using margin-left instead of transform to avoid any smoothing
-  sprite_active.style.cssText = `
-    margin-left: -${xPosition}px !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    transition: none !important;
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    will-change: auto !important;
-  `;
+  let xPosition = steps * frame_w;
+  
+  // Debug update calculations
+  console.log('ESL Update:', {
+    scrollTop: st,
+    ratio,
+    steps,
+    frame_w,
+    xPosition,
+    totalSteps,
+    stepByScreen,
+    lastStep,
+    computedStyle: window.getComputedStyle(sprite_active).transition
+  });
+  
+  // Directly set transform - no cssText override
+  sprite_active.style.transform = `translateX(-${xPosition}px)`;
+  sprite_active.style.webkitTransform = `translateX(-${xPosition}px)`;
   
   lastStep = steps;
   lastScrollTop = st;
@@ -89,7 +89,7 @@ function pauseTimeline() {
   global_tl.pause();
 }
 function set_anim_active() {
-  stepByScreen = window.innerWidth < 992 ? 5 : 10;
+  stepByScreen = window.innerWidth < 992 ? 10 : 20;
   if (!!global_tl) {
     global_tl.seek(0);
     global_tl.pause();
@@ -99,30 +99,37 @@ function set_anim_active() {
   // SPRITE ACTIVE
   sprite_active = document.querySelector(".js-sprite-img");
   frame_w = sprite_active.parentNode.offsetWidth;
-  
-  // Debug: log the frame width and ensure no CSS transitions
-  console.log('ESL Sprite - frame_w:', frame_w, 'totalSteps:', totalSteps);
-  if (sprite_active) {
-    // Kill any GSAP tweens on this element
-    gsap.killTweensOf(sprite_active);
-    // Clear any inline GSAP transforms
-    gsap.set(sprite_active, { clearProps: "all" });
-    
-    // Force remove any transitions that might exist
-    sprite_active.style.transition = 'none !important';
-    sprite_active.style.webkitTransition = 'none !important';
-    // Check computed style
-    const computedStyle = window.getComputedStyle(sprite_active);
-    console.log('ESL Sprite computed transition:', computedStyle.transition);
-  }
+
+  // Debug sprite dimensions
+  console.log('ESL Sprite Debug:', {
+    sprite_active,
+    frame_w,
+    totalSteps,
+    sprite_naturalWidth: sprite_active.naturalWidth,
+    sprite_naturalHeight: sprite_active.naturalHeight,
+    sprite_offsetWidth: sprite_active.offsetWidth,
+    sprite_offsetHeight: sprite_active.offsetHeight,
+    container_offsetWidth: sprite_active.parentNode.offsetWidth,
+    container_offsetHeight: sprite_active.parentNode.offsetHeight
+  });
 
   steps = totalSteps;
 
   // SPRITE VALUES
   bg_position_total = steps * frame_w;
 
-  // Don't create GSAP timeline at all - we're not using it
-  global_tl = null;
+  // TIMELINE
+  global_tl = gsap.timeline({
+    paused: true,
+  });
+
+  // Force stepped animation with no interpolation
+  global_tl.set(sprite_active, { x: 0 });
+  global_tl.to(sprite_active, {
+    x: "-" + bg_position_total,
+    duration: 1,
+    ease: `steps(${steps})`,
+  });
 }
 export default function init(total = 28) {
   totalSteps = total;
@@ -130,26 +137,18 @@ export default function init(total = 28) {
     return;
   }
 
-  // Inject CSS to force no transitions and disable smooth scrolling
+  // Aggressive CSS to prevent all transitions on sprite and its containers
   const style = document.createElement('style');
   style.textContent = `
-    html, :root {
-      scroll-behavior: auto !important;
-    }
-    * {
-      scroll-behavior: auto !important;
-    }
-    .js-sprite-img {
+    .js-sprite-img,
+    .js-sprite-img *,
+    .product-canvas .js-sprite-img {
       transition: none !important;
       -webkit-transition: none !important;
       -moz-transition: none !important;
       -o-transition: none !important;
       transition-property: none !important;
-      animation: none !important;
-      scroll-behavior: auto !important;
-    }
-    .js-sprite-img * {
-      transition: none !important;
+      transition-duration: 0s !important;
       animation: none !important;
     }
   `;

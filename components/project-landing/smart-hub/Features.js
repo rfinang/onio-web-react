@@ -1,4 +1,5 @@
 import ImageComp from "../../common/Image";
+import { Typography, Container } from "../../ui";
 import { BatterylessReliabilityStyles } from "../../styles/project-landing/smart-hub/Features";
 import Link from "next/link";
 function Features({ data }) {
@@ -11,42 +12,41 @@ function Features({ data }) {
   return (
     <BatterylessReliabilityStyles>
       <div className="turnkey-landing-reliability">
-        <div className="container">
+        <Container>
           <div className="d-block">
-            <h4 className="heading--block heading--block--black d-inline-block block-title js-animation--fade">
-              <span className="heading--block__text">{label}</span>
-            </h4>
+            <Typography variant="section-badge" className="heading--block--black d-inline-block block-title js-animation--fade">
+              {label}
+            </Typography>
           </div>
-          <div className="row">
-            <div className="col-md-6 col-lg-5">
-              <h3
-                className="h2 section-title  js-animation--fade"
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6 lg:col-span-5">
+              <Typography
+                variant="h2"
+                className="section-title js-animation--fade"
                 data-offset=".1"
               >
                 {title}
-              </h3>
+              </Typography>
             </div>
-            <div className="col-md-6 offset-lg-1">
-              <p
-                className="h5 section-desc js-animation--fade"
+            <div className="md:col-span-6 lg:col-span-6 lg:col-start-7">
+              <Typography
+                variant="h5"
+                className="section-desc js-animation--fade"
                 data-offset=".15"
               >
                 {description}
-              </p>
+              </Typography>
             </div>
           </div>
-        </div>
+        </Container>
 
         {items && (
-          <div className="container focusFeatureList focusFeatureList--home">
-            <div className="row justify-content-center">
+          <Container className="focusFeatureList focusFeatureList--home">
+            <div className="grid md:grid-cols-12 gap-lg justify-center">
               {items.map((item, index) => {
                 const { image, title, description } = item;
                 return (
-                  <div
-                    key={item.id}
-                    className="col-md-4 col-sm-6 col-11 mb-md-0 mb-5"
-                  >
+                  <div key={item.id} className="md:col-span-4 sm:col-span-6 col-span-11 mb-md-0 mb-5">
                     <div className="focusFeature text-center">
                       <div className="focusFeature__thumbnail">
                         <div
@@ -60,8 +60,9 @@ function Features({ data }) {
                         className="focusFeature__info js-animation--fade"
                         data-offset={index * 0.15 + 0.1}
                       >
-                        <h4
-                          className="focusFeature__info__heading h5"
+                        <Typography
+                          variant="h5"
+                          className="focusFeature__info__heading"
                           dangerouslySetInnerHTML={{ __html: title }}
                         />
                         <div className="focusFeature__info__desc desc--small">
@@ -73,30 +74,26 @@ function Features({ data }) {
                 );
               })}
             </div>
-          </div>
+          </Container>
         )}
       </div>
       <div className="turnkey-landing-quick-info">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-lg-5">
+        <Container>
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6 lg:col-span-5">
               <div className="video-block image__object-fit js-animation--fade">
                 <ImageComp image={image} />
               </div>
             </div>
-            <div className="col-md-6 offset-lg-1">
+            <div className="md:col-span-6 lg:col-span-6 lg:col-start-7">
               {contents && (
-                <div className="row">
+                <div className="grid sm:grid-cols-2 gap-lg">
                   {contents.map((item, index) => {
                     const { id, title, content } = item;
                     return (
-                      <div
-                        key={id}
-                        className="col-sm-6 js-animation--fade"
-                        data-offset={(0.1 + index * 0.05).toFixed(2)}
-                      >
+                      <div key={id} className="js-animation--fade" data-offset={(0.1 + index * 0.05).toFixed(2)}>
                         <div className="item">
-                          <h4 className="h6 title">{title}</h4>
+                          <Typography variant="h6" className="title">{title}</Typography>
                           <p className="desc desc--block">{content}</p>
                         </div>
                       </div>
@@ -145,7 +142,7 @@ function Features({ data }) {
               </a>
             </Link>
           )}
-        </div>
+        </Container>
       </div>
     </BatterylessReliabilityStyles>
   );

@@ -10,6 +10,8 @@ import {getFooterApi, getGlobalApi, getHeaderApi} from "../api";
 import Config from "../config/index";
 
 import "nprogress/nprogress.css";
+import "../styles/bootstrap-grid.css";
+import "../styles/figma-variables.css";
 import "../styles/tailwind.css";
 
 // Configure NProgress

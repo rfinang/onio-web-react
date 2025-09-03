@@ -1,4 +1,5 @@
 import { IntegrationStyles } from "../../styles/project-landing/shelf-label/Integration";
+import Container from "../../ui/Container";
 import ImageComp from "../../common/Image";
 import {useAppContext} from "../../../context/AppContext";
 import {isMobile} from "react-device-detect";
@@ -24,40 +25,36 @@ function Integration({data}) {
   return (
     <IntegrationStyles>
       <div className="shelf-label-integration">
-        <div className="container">
+        <Container>
           <div className="d-block">
             <h4 className="heading--block heading--block--black d-inline-block block-title js-animation--fade is-animation-loading">
               <span className="heading--block__text">{label}</span>
             </h4>
           </div>
-          <div className="row">
-            <div className="col-sm-7 col-md-6 order-2 order-sm-1">
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="sm:col-span-7 md:col-span-6 col-span-12 order-2 sm:order-1">
               <p className="h5 info-desc desc--large js-animation--fade" data-screen-offset="1.6">
                 {description}
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
       <div className="shelf-label-quick-info">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-lg-5">
+        <Container>
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6 lg:col-span-5 col-span-12">
               <div className="video-block image__object-fit js-animation--fade">
                 <ImageComp image={image} />
               </div>
             </div>
-            <div className="col-md-6 offset-lg-1">
+            <div className="md:col-span-6 lg:col-span-6 lg:col-start-7">
               {contents && (
-                  <div className="row">
+                  <div className="grid sm:grid-cols-2 gap-lg">
                     {contents.map((item, index) => {
                       const { id, title, content } = item;
                       return (
-                          <div
-                              key={id}
-                              className="col-sm-6 js-animation--fade"
-                              data-offset={(0.1 + index * 0.05).toFixed(2)}
-                          >
+                          <div key={id} className="js-animation--fade" data-offset={(0.1 + index * 0.05).toFixed(2)}>
                             <div className="item">
                               <h4 className="h6 title">{title}</h4>
                               <p className="desc desc--block">{content}</p>
@@ -102,7 +99,7 @@ function Integration({data}) {
               </span>
               </a>
           )}
-        </div>
+        </Container>
       </div>
 
     </IntegrationStyles>

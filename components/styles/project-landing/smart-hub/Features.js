@@ -65,7 +65,7 @@ export const BatterylessReliabilityStyles = styled.div`
     padding-right: 5%;
   }
 
-  //
+  /* empty comment */
   .turnkey-landing-quick-info {
     padding: 6rem 0 17.7rem;
     position: relative;

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { getSearchArticlesApi } from "../../api";
 import ImageComp from "../common/Image";
-import { Button } from "../ui";
+import { Button, Container } from "../ui";
 import Loading from "../common/Loading";
 import ImageLazy from "../helper/image-lazy/image-lazy";
 
@@ -46,7 +46,7 @@ function ArticleSearchContent({ keyword, articles }) {
   return (
     <div className="main-section">
       {isLoading && <Loading />}
-      <div className="container">
+      <Container>
         <h3 className="heading--block d-inline-block js-animation--fade">
           <span className="heading--block__text">Articles</span>
         </h3>
@@ -58,16 +58,12 @@ function ArticleSearchContent({ keyword, articles }) {
         {articleItems && (
           <div className="block-content">
             <div className="block-main">
-              <div className="row">
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-lg">
                 {itemList.map((item) => {
                   const { id, title, slug, thumbnail } = item;
                   const itemSlug = `/article/${slug}.html`;
                   return (
-                    <div
-                      key={id}
-                      className="col-sm-6 col-md-4 block-col js-animation--fade"
-                      data-screen-offset=".15"
-                    >
+                    <div key={id} className="block-col js-animation--fade" data-screen-offset=".15">
                       <div className="article-card">
                         <div className="img image__object-fit">
                           <ImageComp image={thumbnail} />
@@ -99,8 +95,8 @@ function ArticleSearchContent({ keyword, articles }) {
                 })}
               </div>
               {itemList.length < count && (
-                <div className="row justify-content-center search-page__loadmore">
-                  <div className="col-md-auto col-12 js-animation--fade">
+                <div className="grid justify-center search-page__loadmore">
+                  <div className="js-animation--fade">
                     <Button
                       variant="secondary"
                       size="lg"
@@ -117,7 +113,7 @@ function ArticleSearchContent({ keyword, articles }) {
             </div>
           </div>
         )}
-      </div>
+      </Container>
     </div>
   );
 }

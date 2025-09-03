@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HomePossibilities from "../../home/HomePossibilities";
+import { Button } from "../../ui";
 import { BenefitBatteryStyles } from "../../styles/home/Benefitbattery";
 function BenefitBattery({ benefitBatteryless, sectionNavigation, oneChipData }) {
   const { content: navContent, link: navLink } = sectionNavigation;
@@ -19,31 +20,17 @@ function BenefitBattery({ benefitBatteryless, sectionNavigation, oneChipData }) 
                 </p>
               </div>
               <div className="col-sm-auto col-12 ms-sm-auto">
-                <Link href={navLink.url} legacyBehavior>
-                  <a
-                    className="pageLink pageLink--black js-animation--fade is-animation-loading"
-                    data-screen-offset="1.15"
-                  >
-                    <span className="pageLink__text">{navLink.label}</span>
-                    <span className="pageLink__icon">
-                      <svg
-                        width="31"
-                        height="27"
-                        viewBox="0 0 31 27"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="svg"
-                      >
-                        <path
-                          d="M15.8594 1L29 13.5L15.8594 26"
-                          stroke="white"
-                          strokeWidth="2"
-                        ></path>
-                        <path d="M0 13.5898L28.7829 13.5898" stroke="white" strokeWidth="2"></path>
-                      </svg>
-                    </span>
-                  </a>
-                </Link>
+                <Button
+                  as={Link}
+                  href={navLink.url}
+                  variant="link"
+                  color="black"
+                  hasArrow
+                  className="js-animation--fade is-animation-loading"
+                  data-screen-offset="1.15"
+                >
+                  {navLink.label}
+                </Button>
               </div>
             </div>
           </div>

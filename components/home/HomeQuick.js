@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typography } from "../ui";
 import { HomeQuickStyles } from "../styles/home/HomeQuick";
 import ImageComp from "../common/Image";
 function HomeQuick({ whatNext }) {
@@ -16,19 +17,20 @@ function HomeQuick({ whatNext }) {
           <div className="container">
             <div className="row mb-3 pb-1 g-0">
               <div className="col-auto">
-                <h4
-                  className="heading--block heading--block--solid mb-0 d-inline-block js-animation--fade"
+                <Typography
+                  variant="section-badge"
+                  className="mb-0 js-animation--fade"
                   data-offset=".3"
                 >
-                  <span className="heading--block__text">{label}</span>
-                </h4>
+                  {label}
+                </Typography>
               </div>
             </div>
             <div className="row">
               <div className="col-xxl-3 col-lg-4 col-md-5 col-sm-10 col-12 mb-md-0 mb-4">
-                <h2 className="h2 text-white mb-0 js-animation--chars" data-offset=".4">
+                <Typography variant="h2" className="text-white mb-0 js-animation--chars" data-offset=".4">
                   {title}
-                </h2>
+                </Typography>
               </div>
               <div className="col-lg-6 col-md-7 col-12 offset-lg-2">
                 {links.length > 0 && (
@@ -43,9 +45,9 @@ function HomeQuick({ whatNext }) {
                           <Link href={item.url} legacyBehavior>
                             <a className="relateLink__link backdropBlur backdropBlur--hover d-block">
                               <div className="backdropBlur__inner">
-                                <h5 className="h5 relateLink__heading text-white h6">
+                                <Typography variant="h6" className="relateLink__heading text-white">
                                   {item.label}
-                                </h5>
+                                </Typography>
                                 <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--white">
                                   <svg
                                     width="16"

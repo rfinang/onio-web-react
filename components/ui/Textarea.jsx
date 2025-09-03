@@ -3,83 +3,70 @@ import PropTypes from 'prop-types';
 
 const Textarea = forwardRef(({
   variant = 'default',
-  size = 'md',
   error = false,
-  success = false,
   disabled = false,
   placeholder,
   label,
-  helperText,
   errorText,
+  required = false,
   rows = 4,
-  resize = 'vertical',
   className = '',
   ...props
 }, ref) => {
-  // Base styles
+  // Onio textarea styling - matches original design exactly
   const baseStyles = `
     w-full
-    border
-    rounded
+    min-h-[24.4rem]
+    border-2
+    xl:border-2
+    lg:border-[1.5px]
+    bg-transparent
+    p-[1.3rem]
+    text-[18px]
     font-medium
-    transition-all
-    duration-200
+    font-[Inter]
+    rounded-none
+    resize-y
     focus:outline-none
-    focus:ring-2
-    focus:ring-offset-0
-    placeholder-muted
-    disabled:opacity-60
-    disabled:cursor-not-allowed
+    focus:ring-0
+    focus:shadow-none
+    transition-colors
+    duration-[400ms]
+    ease-[cubic-bezier(0.33,1,0.68,1)]
   `;
 
-  // Size variants
-  const sizeStyles = {
-    sm: 'px-3 py-2 text-sm',
-    md: 'px-4 py-3 text-base',
-    lg: 'px-5 py-4 text-lg'
+  // Variant styles matching original Onio forms
+  const variantStyles = {
+    default: 'border-primary text-primary placeholder:text-primary placeholder:opacity-100',
+    white: 'border-white !text-white placeholder:!text-white placeholder:opacity-100',
+    silver: 'border-primary text-primary placeholder:text-primary placeholder:opacity-100'
   };
 
-  // State variants
-  const stateStyles = {
-    default: 'border-muted bg-white text-primary focus:border-primary focus:ring-primary/20',
-    error: 'border-red-500 bg-red-50 text-red-900 focus:border-red-500 focus:ring-red-500/20',
-    success: 'border-green-500 bg-green-50 text-green-900 focus:border-green-500 focus:ring-green-500/20'
-  };
-
-  // Resize variants
-  const resizeStyles = {
-    none: 'resize-none',
-    vertical: 'resize-y',
-    horizontal: 'resize-x',
-    both: 'resize'
-  };
-
-  // Determine current state
-  let currentVariant = variant;
-  if (error) currentVariant = 'error';
-  if (success) currentVariant = 'success';
+  // Error styles
+  const errorStyles = error ? 'border-alert' : '';
 
   // Build textarea classes
   const textareaClasses = `
     ${baseStyles}
-    ${sizeStyles[size]}
-    ${stateStyles[currentVariant]}
-    ${resizeStyles[resize]}
+    ${variantStyles[variant]}
+    ${errorStyles}
     ${className}
   `.trim().replace(/\s+/g, ' ');
 
-  // Helper text classes
-  const helperClasses = `
-    text-sm mt-1
-    ${error ? 'text-red-600' : success ? 'text-green-600' : 'text-muted'}
+  // Label styles matching original
+  const labelClasses = `
+    block
+    mb-2
+    text-sm
+    font-medium
+    ${variant === 'white' ? 'text-white' : 'text-primary'}
   `;
 
   return (
-    <div className="w-full">
+    <div className="form-group mb-[3.5rem] relative">
       {label && (
-        <label className="block text-sm font-medium text-primary mb-2">
+        <label className={labelClasses}>
           {label}
-          {props.required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
       
@@ -92,10 +79,21 @@ const Textarea = forwardRef(({
         {...props}
       />
       
-      {(helperText || errorText) && (
-        <p className={helperClasses}>
-          {error ? errorText : helperText}
-        </p>
+      {/* Error message - matches original positioning */}
+      {error && errorText && (
+        <div className="
+          form-group__alert
+          absolute
+          w-full
+          mt-[5px]
+          text-right
+          text-muted
+          leading-[1.142857]
+          xl:text-[14px]
+          lg:text-[12px]
+        ">
+          {errorText}
+        </div>
       )}
     </div>
   );
@@ -104,19 +102,15 @@ const Textarea = forwardRef(({
 Textarea.displayName = 'Textarea';
 
 Textarea.propTypes = {
-  variant: PropTypes.oneOf(['default', 'error', 'success']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  variant: PropTypes.oneOf(['default', 'white', 'silver']),
   error: PropTypes.bool,
-  success: PropTypes.bool,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   label: PropTypes.string,
-  helperText: PropTypes.string,
   errorText: PropTypes.string,
-  rows: PropTypes.number,
-  resize: PropTypes.oneOf(['none', 'vertical', 'horizontal', 'both']),
   className: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  rows: PropTypes.number
 };
 
 export default Textarea;

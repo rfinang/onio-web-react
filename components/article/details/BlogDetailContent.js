@@ -1,4 +1,5 @@
 import {useAppContext} from "../../../context/AppContext";
+import { Button } from "../../ui";
 function BlogDetailContent({ content, linkTo, sendMail, handleMouseClick, customClass }) {
   const { dispatch } = useAppContext();
   const onClickContactUs = (reasonToContact) => () => {
@@ -55,28 +56,43 @@ function BlogDetailContent({ content, linkTo, sendMail, handleMouseClick, custom
           <ul className="blogDetail__content__sharing js-postSharing__translate ul-reset d-flex">
             <li>Share:</li>
             <li>
-              <a href="#" onClick={fbSharingClick} className="linkHover linkHover--black">
-                Facebook
-              </a>
-            </li>
-            /
-            <li>
-              <a href="#" onClick={twSharingClick} className="linkHover linkHover--black">
-                Twitter
-              </a>
-            </li>
-            /
-            <li>
-              <a
+              <Button
+                as="a"
                 href="#"
-                className="linkHover linkHover--black js-copy-clipboard"
+                onClick={fbSharingClick}
+                variant="ghost"
+                color="black"
+              >
+                Facebook
+              </Button>
+            </li>
+            /
+            <li>
+              <Button
+                as="a"
+                href="#"
+                onClick={twSharingClick}
+                variant="ghost"
+                color="black"
+              >
+                Twitter
+              </Button>
+            </li>
+            /
+            <li>
+              <Button
+                as="a"
+                href="#"
+                variant="ghost"
+                color="black"
+                className="js-copy-clipboard"
                 data-mobile="top"
                 data-position="right"
                 data-text="copy link"
                 onClick={handleMouseClick}
               >
-                <span>Copy Link</span>
-              </a>
+                Copy Link
+              </Button>
             </li>
           </ul>
           <span className="spacing--bottom--md d-lg-none d-block"></span>
@@ -91,57 +107,35 @@ function BlogDetailContent({ content, linkTo, sendMail, handleMouseClick, custom
                 <h5 className="h5 mb-2">Press Contact</h5>
                 <h6 className="h6 mb-0">{sendMail.name}</h6>
                 <p>{sendMail.short_description}</p>
-                <div className="d-inline-block">
-                  <a href={sendMail.link ?? "#contact-form-press"}
-                     data-bs-toggle={sendMail.link ? undefined : "modal"}
-                     data-bs-target={sendMail.link ? undefined : "#contactModal"}
-                     onClick={sendMail.link ? undefined : onClickContactUs("#contact-form-press")}
-                     className="pageLink pageLink--black">
-                    <span className="pageLink__text">Contact us</span>
-                    <span className="pageLink__icon">
-                    <svg
-                        width="31"
-                        height="27"
-                        viewBox="0 0 31 27"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                          d="M15.8594 1L29 13.5L15.8594 26"
-                          stroke="#222021"
-                          strokeWidth="2"
-                      />
-                      <path d="M0 13.5898L28.7829 13.5898" stroke="#222021" strokeWidth="2"/>
-                    </svg>
-                  </span>
-                  </a>
-                </div>
+                <Button
+                  as="a"
+                  href={sendMail.link ?? "#contact-form-press"}
+                  data-bs-toggle={sendMail.link ? undefined : "modal"}
+                  data-bs-target={sendMail.link ? undefined : "#contactModal"}
+                  onClick={sendMail.link ? undefined : onClickContactUs("#contact-form-press")}
+                  variant="link"
+                  color="black"
+                  hasArrow
+                >
+                  Contact us
+                </Button>
               </div>
           )}
 
           {linkTo && (
               <div className="blogDetail__content__right__press">
-                  <a href={linkTo.url}
-                     target={linkTo.open_new_tab ? "_blank" : "_self"}
-                     className="pageLink pageLink--black js-animation--fade" data-offset=".15">
-                    <span className="pageLink__text">{ linkTo.label ?? "Go to article" }</span>
-                    <span className="pageLink__icon">
-                    <svg
-                        width="31"
-                        height="27"
-                        viewBox="0 0 31 27"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                          d="M15.8594 1L29 13.5L15.8594 26"
-                          stroke="#222021"
-                          strokeWidth="2"
-                      />
-                      <path d="M0 13.5898L28.7829 13.5898" stroke="#222021" strokeWidth="2"/>
-                    </svg>
-                  </span>
-                  </a>
+                  <Button
+                    as="a"
+                    href={linkTo.url}
+                    target={linkTo.open_new_tab ? "_blank" : "_self"}
+                    variant="link"
+                    color="black"
+                    hasArrow
+                    className="js-animation--fade"
+                    data-offset=".15"
+                  >
+                    {linkTo.label ?? "Go to article"}
+                  </Button>
               </div>
           )}
         </div>

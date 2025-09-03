@@ -1,20 +1,21 @@
 import { TeamContentStyles } from "../styles/team-member/Content";
 import ImageComp from "../common/Image";
+import { Button, Container } from "../ui";
 function TeamMemberContent({ data, articleCount }) {
   const { name, job_title, bio, short_bio, social, avatar } = data;
   return (
     <TeamContentStyles>
-      <div className="teamMember__content section--topPage bg-wild">
-        <div className="container">
-          <div className="row spacing--bottom--xs">
+      <div className="teamMember__content section--topPage bg-background">
+        <Container>
+          <div className="grid spacing--bottom--xs">
             <div className="col-12">
               <h4 className="heading--block mb-0 d-inline-block js-animation--fade">
                 <span className="heading--block__text">Team Members</span>
               </h4>
             </div>
           </div>
-          <div className="row mb-4">
-            <div className="col-lg-7 col-md-10 col-12 pb-1">
+          <div className="grid md:grid-cols-12 gap-lg mb-4">
+            <div className="lg:col-span-7 md:col-span-10 col-span-12 pb-1">
               <div className="mb-4 pb-1">
                 <h1 className="h1 mb-0 js-animation--chars" data-screen-offset=".3">
                   {name}
@@ -32,9 +33,16 @@ function TeamMemberContent({ data, articleCount }) {
                     const { id, title, url, icon } = item;
                     return (
                       <li key={id}>
-                        <a href={url} target="_blank" className="linkHover--black" title={title}>
+                        <Button
+                          as="a"
+                          href={url}
+                          target="_blank"
+                          variant="ghost"
+                          color="black"
+                          title={title}
+                        >
                           <img src={icon.url} className="svg" alt={title} />
-                        </a>
+                        </Button>
                       </li>
                     );
                   })}
@@ -45,8 +53,8 @@ function TeamMemberContent({ data, articleCount }) {
               </p>
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-5 col-md-6 col-12">
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="lg:col-span-5 md:col-span-6 col-span-12">
               <div className="staff">
                 <div
                   className="staff__thumbnail image__object-fit font-0 js-animation--fade--none"
@@ -56,13 +64,9 @@ function TeamMemberContent({ data, articleCount }) {
                 </div>
               </div>
             </div>
-            <div
-              className="col-md-5 col-12 offset-md-1 js-animation--fade"
-              data-screen-offset=".65"
-              dangerouslySetInnerHTML={{ __html: bio }}
-            ></div>
+            <div className="md:col-span-5 col-span-12 md:col-start-8 js-animation--fade" data-screen-offset=".65" dangerouslySetInnerHTML={{ __html: bio }}></div>
           </div>
-        </div>
+        </Container>
       </div>
     </TeamContentStyles>
   );

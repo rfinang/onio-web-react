@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typography, Button } from "../ui";
 import { VideoInteractiveStyles } from "../styles/home/VideoInterative";
 
 import ImageComp from "../common/Image";
@@ -41,47 +42,44 @@ function HomeSmartHub({ data, customClass = "" }) {
                 <li></li>
               </ul>
             )} */}
-            <p className="mb-0 h5 text-primary js-animation--lines">{description}</p>
+            <Typography 
+              variant="h5" 
+              className="mb-0 text-primary js-animation--lines"
+            >
+              {description}
+            </Typography>
           </div>
           <div className="col-md-auto col-12 ms-md-auto">
             {links && (
               <div className="d-md-flex align-items-end flex-column">
                 {links.map((item) => (
-                  <Link key={item.id} href={item.url}>
-                    <a
-                      className="pageLink pageLink--black  js-animation--fade"
-                      target={item.open_new_tab ? "_blank" : "_self"}
-                    >
-                      <span className="pageLink__text">{item.label}</span>
-                      <span className="pageLink__icon">
-                        <svg
-                          width="31"
-                          height="27"
-                          viewBox="0 0 31 27"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M15.8594 1L29 13.5L15.8594 26"
-                            stroke="#222021"
-                            strokeWidth="2"
-                          />
-                          <path d="M0 13.5898L28.7829 13.5898" stroke="#222021" strokeWidth="2" />
-                        </svg>
-                      </span>
-                    </a>
-                  </Link>
+                  <Button
+                    key={item.id}
+                    as={Link}
+                    href={item.url}
+                    variant="link"
+                    color="black"
+                    hasArrow
+                    className="js-animation--fade"
+                    target={item.open_new_tab ? "_blank" : "_self"}
+                  >
+                    {item.label}
+                  </Button>
                 ))}
               </div>
             )}
           </div>
         </div>
         <div className="videoInteractive__inner">
-          <h2 className="videoInteractive__heading heading--supper mb-0 text-center text-primary">
+          <Typography 
+            variant="hero" 
+            as="h2"
+            className="videoInteractive__heading mb-0 text-center text-primary"
+          >
             <span className="d-block js-animation--chars--2d">{title[0]?.text_line}</span>
 
             <span className="d-block js-animation--chars--2d">{title[1]?.text_line}</span>
-          </h2>
+          </Typography>
           {image_tabs && (
             <div className="videoInteractive__element">
               <div className="row justify-content-center">

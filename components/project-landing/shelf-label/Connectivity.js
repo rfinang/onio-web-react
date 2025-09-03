@@ -1,5 +1,6 @@
 import ImageComp from "../../common/Image";
 import { ConnectivityStyles } from "../../styles/project-landing/shelf-label/Connectivity";
+import Container from "../../ui/Container";
 
 function Connectivity({ data }) {
   if (!data) return null;
@@ -8,14 +9,14 @@ function Connectivity({ data }) {
   return (
     <ConnectivityStyles>
       <div className="shelf-label-connectivity">
-        <div className="container">
+        <Container>
           <div className="d-block">
             <h4 className="heading--block heading--block--black d-inline-block block-title js-animation--fade">
               <span className="heading--block__text">{label}</span>
             </h4>
           </div>
-          <div className="row">
-            <div className="col-md-6">
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6">
               <h3
                 className="h2 section-title js-animation--fade"
                 data-offset=".1"
@@ -23,7 +24,7 @@ function Connectivity({ data }) {
                 {title}
               </h3>
             </div>
-            <div className="col-md-6">
+            <div className="md:col-span-6">
               <p
                 className="h5 section-desc js-animation--fade"
                 data-offset=".15"
@@ -32,7 +33,7 @@ function Connectivity({ data }) {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
         <div className="image-block js-animation--fade image__object-fit animation--fade banner">
           <ImageComp image={image} />
         </div>

@@ -42,7 +42,8 @@ export default class MyDocument extends Document {
         <Head>
             <link rel="dns-prefetch preconnect" href="//res.cloudinary.com"/>
             <link rel="icon" href="/favicon.ico" />
-            <link rel="stylesheet" href="/bootstrap.css" />
+            {/* Bootstrap CSS disabled - conflicts with Tailwind colors */}
+            {/* <link rel="stylesheet" href="/bootstrap.css" /> */}
             {/*<link rel="preload" href="/InterItalic500.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />*/}
             <link rel="preload" href="/Inter500.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
             <link rel="preconnect" href="https://fonts.googleapis.com"/>

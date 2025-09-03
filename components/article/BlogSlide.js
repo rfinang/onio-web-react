@@ -51,8 +51,8 @@ function BlogSlide({ blogFeatured }) {
                   </div>
                   <div className="blogSlide__container">
                     <div className="container blogSlide__articles">
-                      <div className="row">
-                        <div className="col-lg-5 col-md-7 col-sm-10 col-12">
+                      <div className="grid md:grid-cols-12">
+                        <div className="lg:col-span-5 md:col-span-7 sm:col-span-10 col-span-12">
                           <div className="blogSlide__articles__wrap">
                             <div className="blogSlide__article">
                               <Link href={`/article/${slug}.html`} legacyBehavior>

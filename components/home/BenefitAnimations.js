@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Waypoint } from "react-waypoint";
+import { Typography } from "../ui";
 import LottieAnimation from "../common/LottieAnimation";
 function BenefitAnimations({ benefitAnimations }) {
   const [renderLottie, setRenderLottie] = useState(false);
@@ -29,12 +30,14 @@ function BenefitAnimations({ benefitAnimations }) {
                     className="focusFeature__info js-animation--fade"
                     data-offset={index * 0.15 + 0.1}
                   >
-                    <h4
-                      className="focusFeature__info__heading h5"
+                    <Typography
+                      variant="h5"
+                      as="h4"
+                      className="focusFeature__info__heading"
                       dangerouslySetInnerHTML={{ __html: item.title }}
                     />
-                    <div className="focusFeature__info__desc desc--small">
-                      <p className="mb-0">{item.description}</p>
+                    <div className="focusFeature__info__desc">
+                      <Typography variant="body" className="mb-0">{item.description}</Typography>
                     </div>
                   </div>
                 </div>

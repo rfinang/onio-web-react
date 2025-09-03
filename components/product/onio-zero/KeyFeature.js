@@ -1,4 +1,5 @@
 import ImageComp from "../../common/Image";
+import { Typography } from "../../ui";
 import { useAppContext } from "../../../context/AppContext";
 function KeyFeature({ sectionKeyFeature }) {
   if (!sectionKeyFeature) return null;
@@ -14,15 +15,15 @@ function KeyFeature({ sectionKeyFeature }) {
   return (
     <>
       <div className="spacing--bottom--xs">
-        <h4 className="heading--block heading--block--white mb-0 d-inline-block js-animation--fade">
-          <span className="heading--block__text">{label}</span>
-        </h4>
+        <Typography variant="section-badge" className="heading--block--white mb-0 d-inline-block js-animation--fade">
+          {label}
+        </Typography>
       </div>
       <div className="row">
         <div className="col-md-5 col-12 mb-md-0 mb-5">
           <div className="row">
             <div className="col-md-12 col-sm-8 col-12">
-              <h2 className="h2 text-white spacing--bottom--md animation--chars">{title}</h2>
+              <Typography variant="h2" className="text-white spacing--bottom--md animation--chars">{title}</Typography>
             </div>
             <div className="col-md-12 col-sm-7 col-12">
               <figure className="image__object-fit image--radius js-animation--fade--none">
@@ -73,7 +74,7 @@ function KeyFeature({ sectionKeyFeature }) {
                       className="postIcon text-white js-animation--fade"
                       data-offset={index % 2 === 0 ? ".15" : ".3"}
                     >
-                      <h6 className="h6 mb-3">{title}</h6>
+                      <Typography variant="h6" className="mb-3">{title}</Typography>
                       <p>{content}</p>
                     </div>
                   </div>

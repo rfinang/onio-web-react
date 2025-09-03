@@ -6,7 +6,7 @@ function LastArticles({ name, data }) {
 
   return (
     <LastArticleStyles>
-      <div className="lastArticles bg-wild pb-md-3 pb-1">
+      <div className="lastArticles bg-background pb-md-3 pb-1">
         <div className="container pb-1">
           <div className="row mb-2 pb-1">
             <div className="col-12">

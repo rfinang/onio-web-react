@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 
 import DownloadPopup from "../common/DownloadPopup";
 import ImageComp from "../common/Image";
-import { Button } from "../ui";
+import { Button, Container } from "../ui";
 import { NewsLandingContentStyles } from "../styles/news/NewsLandingContent";
 import { useAppContext } from "../../context/AppContext";
 
@@ -56,18 +56,18 @@ function MediaCenter({ sendMail, mediaCenter }) {
   return (
     <>
       <NewsLandingContentStyles>
-        <div className="newsLanding__content bg-dark">
-          <div className="container">
+        <div className="newsLanding__content bg-primary">
+          <Container>
             {mediaCenter && (
               <>
-                <div className="row mb-3">
-                  <div className="col-12 mb-sm-4 mb-2 pb-1">
+                <div className="grid mb-3">
+                  <div className="mb-sm-4 mb-2 pb-1">
                     <h4 className="heading--block heading--block--white d-inline-block js-animation--fade">
                       <span className="heading--block__text">{label}</span>
                     </h4>
                   </div>
                 </div>
-                <ul className="mediaCentreList js-mediaCentreList ul-reset row mb-4">
+                <ul className="mediaCentreList js-mediaCentreList ul-reset grid sm:grid-cols-2 md:grid-cols-3 gap-lg mb-4">
                   {mediaList.map((item, index) => {
                     const { id, title, date, thumbnail } = item;
                     let createAt = new Date(date);
@@ -79,7 +79,7 @@ function MediaCenter({ sendMail, mediaCenter }) {
                         year: "numeric",
                       });
                     return (
-                      <li key={id} className="mediaCentre js-mediaCentre col-md-4 col-sm-6 col-12">
+                      <li key={id} className="mediaCentre js-mediaCentre">
                         <a
                           href="#"
                           data-bs-toggle="modal"
@@ -91,12 +91,12 @@ function MediaCenter({ sendMail, mediaCenter }) {
                           <div className="mediaCentre__thumbnail image__object-fit">
                             <ImageComp image={thumbnail} />
                           </div>
-                          <div className="mediaCentre__info align-items-end row">
-                            <div className="col mediaCentre__info__left">
+                          <div className="mediaCentre__info align-items-end grid grid-cols-[1fr_auto] gap-md">
+                            <div className="mediaCentre__info__left">
                               <p className="mb-0">{createAt}</p>
                               <p className="mb-0">{title}</p>
                             </div>
-                            <div className="col-auto ms-auto mediaCentre__info__right">
+                            <div className="mediaCentre__info__right justify-self-end">
                               <span className="iconLink iconLink--download iconLink--download--small iconLink--arrow--silver">
                                 <svg
                                   width="21"
@@ -126,8 +126,8 @@ function MediaCenter({ sendMail, mediaCenter }) {
                   })}
                 </ul>
                 {currentPage + 1 < mediaArr.length && (
-                  <div className="row justify-content-center mb-6 pb-2">
-                    <div className="col-lg-2 col-sm-3 col-12 js-animation--fade">
+                  <div className="grid justify-center mb-6 pb-2">
+                    <div className="js-animation--fade w-full sm:w-1/3 lg:w-1/6">
                       <Button
                         variant="secondary"
                         size="lg"
@@ -143,42 +143,26 @@ function MediaCenter({ sendMail, mediaCenter }) {
               </>
             )}
 
-            <div className="row">
-              <div className="col-md-3 col-sm-4 col-12 text-white js-animation--fade">
+            <div className="grid">
+              <div className="text-white js-animation--fade md:w-1/4 sm:w-1/3 w-full">
                 <h5 className="h5">Press Contact</h5>
                 <h6 className="h6 mb-0">{name}</h6>
                 <p>{short_description}</p>
-                <p>
-                  <a
-                    href="#contact-form-press"
-                    data-bs-toggle="modal"
-                    data-bs-target="#contactModal"
-                    className="pageLink pageLink--white"
-                    onClick={onClickGetStartedItem("#contact-form-press")}
-                  >
-                    <span className="pageLink__text">Contact us</span>
-                    <span className="pageLink__icon">
-                      <svg
-                        width="31"
-                        height="27"
-                        viewBox="0 0 31 27"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="svg"
-                      >
-                        <path
-                          d="M15.8594 1L29 13.5L15.8594 26"
-                          stroke="white"
-                          strokeWidth="2"
-                        ></path>
-                        <path d="M0 13.5898L28.7829 13.5898" stroke="white" strokeWidth="2"></path>
-                      </svg>
-                    </span>
-                  </a>
-                </p>
+                <Button
+                  as="a"
+                  href="#contact-form-press"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contactModal"
+                  variant="link"
+                  color="white"
+                  hasArrow
+                  onClick={onClickGetStartedItem("#contact-form-press")}
+                >
+                  Contact us
+                </Button>
               </div>
             </div>
-          </div>
+          </Container>
         </div>
       </NewsLandingContentStyles>
       <DownloadPopup mediaFile={mediaList} slider={slider} next={next} previous={previous} />

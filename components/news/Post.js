@@ -30,7 +30,7 @@ function Post({ data }) {
                 </span> */}
               </div>
               <Tippy content={title} delay={[500, 0]}>
-                <Typography variant="h4" color="primary" className="article__info__heading">{title}</Typography>
+                <Typography variant="h5" color="primary" className="article__info__heading">{title}</Typography>
               </Tippy>
 
               <div className="article__info__read">

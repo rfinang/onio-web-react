@@ -220,15 +220,15 @@ const EnergyHarvestingStage = ({data, id, ...props}) => {
                 <path d="M1 1L29 29" stroke="white" strokeWidth="2" strokeMiterlimit="10"/>
             </svg>
         </button>
-        <div className={'d-flex align-items-center '}>
+        <div className={'flex items-center'}>
             <div style={{minWidth: '6rem'}} {...listeners}
-                 className={'d-flex align-items-center justify-content-center col-1'}>
+                 className={'flex items-center justify-center w-[6rem]'}>
                 <svg width="30" height="13" viewBox="0 0 30 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30 13H0V12H30V13ZM30 7H0V6H30V7ZM30 1H0V0H30V1Z" fill="#514B4D"/>
                 </svg>
             </div>
-            <div className={'d-flex justify-content-sm-around w-100 pe-2 align-items-center flex-wrap'}>
-                <div className=" col-6 col-sm-4">
+            <div className={'flex flex-wrap items-center justify-between w-full pr-2 gap-4'}>
+                <div className="w-1/2 sm:w-1/3 min-w-[220px]">
                     <div
                         className={`form-group mb-0 is-required form-group--white`}
                     >
@@ -264,7 +264,7 @@ const EnergyHarvestingStage = ({data, id, ...props}) => {
                         />
                     </div>
                 </div>
-                <div className=" col-3 col-sm-2">
+                <div className="w-1/4 sm:w-1/6 min-w-[140px]">
                     <div
                         className={`form-group mb-0 is-required form-group--white`}
                     >
@@ -274,7 +274,7 @@ const EnergyHarvestingStage = ({data, id, ...props}) => {
                         />
                     </div>
                 </div>
-                <div className=" col-3 col-sm-2">
+                <div className="w-1/4 sm:w-1/6 min-w-[140px]">
                     <div
                         className={`form-group mb-0 is-required form-group--white`}
                     >
@@ -282,7 +282,7 @@ const EnergyHarvestingStage = ({data, id, ...props}) => {
                         <input value={duration} onChange={handleDurationChange} className={'inputStage'}/>
                     </div>
                 </div>
-                <div className=" col-4 col-sm-2">
+                <div className="w-1/3 sm:w-1/6 min-w-[160px]">
                     <div
                         className={`form-group mb-0 is-required form-group--white`}
                     >

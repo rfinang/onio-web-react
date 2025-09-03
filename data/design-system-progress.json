@@ -1,0 +1,26 @@
+{
+  "updatedAt": "2025-09-02T00:00:00.000Z",
+  "tokens": {
+    "colors": ["primary","secondary","accent","muted","background","white","alert"],
+    "spacing": ["xs","sm","md","lg","xl","2xl"],
+    "typography": ["hero","h1","h2","h3","h4","h5","h6","body-xl","body-large","body","body-small","body-xs"]
+  },
+  "migration": {
+    "componentsMigrated":  "Buttons, Typography, Inputs, Selects, Textareas, Pills, Cards (soft shadow)",
+    "pagesMigrated": [
+      "Homepage sections",
+      "Blog (list/detail/category)",
+      "News (list/detail)",
+      "Investors",
+      "Smart Hub",
+      "Batteryless",
+      "Shelf Label",
+      "Contact/Download modals"
+    ],
+    "remaining": [
+      "Energy emulator chart subcomponents (fine-tuning)",
+      "Remove Bootstrap grid CSS after final checks"
+    ]
+  }
+}
+

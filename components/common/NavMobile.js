@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import { Button } from "../ui";
+import { Button, Typography } from "../ui";
 import { VideoItem } from "../styles/VideoItem";
 import { NavNewsItem } from "../styles/NavNewsItem";
 import { NavMobileStyles } from "../styles/NavMobile";
@@ -92,11 +92,11 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
                                     if (itemChild.Child.length > 0) {
                                       return (
                                         <div key={itemChild.id}>
-                                          <h6 className="h6 menu-item__child__title">
+                                          <Typography variant="h6" className="menu-item__child__title">
                                             <Link href={itemChild.url} legacyBehavior>
                                               <a>{itemChild.label}</a>
                                             </Link>
-                                          </h6>
+                                          </Typography>
                                           {itemChild.Child.length > 0 && (
                                             <ul className="menu-item__child__menu">
                                               {itemChild.Child.map((itemSubChild) => (
@@ -126,8 +126,9 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
                                 )}
                                 {video && (
                                   <>
-                                    <h6
-                                      className="h6 menu-item__child__title"
+                                    <Typography
+                                      variant="h6"
+                                      className="menu-item__child__title"
                                       dangerouslySetInnerHTML={{
                                         __html: video.label,
                                       }}
@@ -156,7 +157,7 @@ function NavMobile({ menus, social, menuPolicy, isOpen }) {
                                 )}
                                 {news && (
                                   <div className={video ? `mt-3` : ""}>
-                                    <h6 className="h6 menu-item__child__title">{news.label}</h6>
+                                    <Typography variant="h6" className="menu-item__child__title">{news.label}</Typography>
 
                                     {news.items.length &&
                                       news.items.map((newsItem) => (

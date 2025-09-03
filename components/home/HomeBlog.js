@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Typography } from "../ui";
+import { Typography, Button } from "../ui";
 import { HomeNewsStyles } from "../styles/home/HomeNews";
 import ImageComp from "../common/Image";
 function HomeBlog({
@@ -12,7 +12,7 @@ function HomeBlog({
   if (!homeLatestBlog) return null;
   return (
     <HomeNewsStyles>
-      <div className="lastArticles bg-wild lastArticles--home pb-1">
+      <div className="lastArticles bg-background lastArticles--home pb-1">
         {hasSpacing ? (
           <span className="d-block line__spacing spacing--bottom--sm pt-sm-0 pt-2"></span>
         ) : null}
@@ -21,34 +21,23 @@ function HomeBlog({
             <div className="col-sm-4 col-12">
               <Typography 
                 variant="section-badge"
-                className="js-animation--fade"
-                as="h4"
+                className="mb-0 js-animation--fade"
               >
                 {headingBlock}
               </Typography>
             </div>
             <div className="col-auto d-sm-block d-none ms-auto">
-              <Link href={pageLinkURL} legacyBehavior>
-                <a className="pageLink pageLink--black js-animation--fade" data-offset=".15">
-                  <span className="pageLink__text">{pageLinkText}</span>
-                  <span className="pageLink__icon">
-                    <svg
-                      width="31"
-                      height="27"
-                      viewBox="0 0 31 27"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M15.8594 1L29 13.5L15.8594 26"
-                        stroke="#222021"
-                        strokeWidth="2"
-                      ></path>
-                      <path d="M0 13.5898L28.7829 13.5898" stroke="#222021" strokeWidth="2"></path>
-                    </svg>
-                  </span>
-                </a>
-              </Link>
+              <Button
+                as={Link}
+                href={pageLinkURL}
+                variant="link"
+                color="black"
+                hasArrow
+                className="js-animation--fade"
+                data-offset=".15"
+              >
+                {pageLinkText}
+              </Button>
             </div>
           </div>
           <div className="row">
@@ -93,24 +82,16 @@ function HomeBlog({
                               })}
                             </ul>
                           )}
-                          <Typography variant="h4" color="primary" className="article__info__heading">{item.title}</Typography>
+                          <Typography variant="h5" color="primary" className="article__info__heading">{item.title}</Typography>
                           <div className="article__info__read">
-                            <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">
-                              <svg
-                                width="16"
-                                height="28"
-                                viewBox="0 0 16 28"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="svg"
-                              >
-                                <path
-                                  d="M1.57715 1.61572L13.9615 14.0001L1.57715 26.3844"
-                                  stroke="white"
-                                  strokeWidth="2"
-                                ></path>
-                              </svg>
-                            </span>
+                            <Button
+                              variant="icon"
+                              hasIcon="arrow"
+                              color="black"
+                              size="large"
+                              shape="oval"
+                              aria-label="Read article"
+                            />
                           </div>
                         </div>
                       </a>
@@ -121,27 +102,15 @@ function HomeBlog({
             })}
 
             <div className="col-12 d-sm-none d-block mt-sm-0 mt-4 js-animation--fade">
-              <Link href="/articles" legacyBehavior>
-                <a className="pageLink pageLink--black">
-                  <span className="pageLink__text">View all articles</span>
-                  <span className="pageLink__icon">
-                    <svg
-                      width="31"
-                      height="27"
-                      viewBox="0 0 31 27"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M15.8594 1L29 13.5L15.8594 26"
-                        stroke="#222021"
-                        strokeWidth="2"
-                      ></path>
-                      <path d="M0 13.5898L28.7829 13.5898" stroke="#222021" strokeWidth="2"></path>
-                    </svg>
-                  </span>
-                </a>
-              </Link>
+              <Button
+                as={Link}
+                href="/articles"
+                variant="link"
+                color="black"
+                hasArrow
+              >
+                View all articles
+              </Button>
             </div>
           </div>
         </div>

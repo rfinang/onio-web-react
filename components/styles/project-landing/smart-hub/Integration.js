@@ -32,7 +32,7 @@ export const IntegrationStyles = styled.div`
     }
     .banner-list {
       .banner {
-        // height: 33.6rem;
+        /* height: 33.6rem; */
         margin-bottom: 2rem;
         background-color: #ffffff;
         border-radius: 5rem;

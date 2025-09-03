@@ -4,7 +4,7 @@ function Powered({ data }) {
   if (!data) return null;
   const { label, title, description, contents, image, mobile_image } = data;
   return (
-    <div className="powered bg-dark">
+    <div className="powered bg-primary">
       <div className="powered__container container">
         <div className="powered__heading mb-4">
           <h4 className="heading--block heading--block--white mb-0 d-inline-block js-animation--fade">

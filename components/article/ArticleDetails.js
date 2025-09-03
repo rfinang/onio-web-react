@@ -13,6 +13,7 @@ import Head from "next/head";
 import NotFound from "../NotFound";
 import PageAnimations from "../helper/animation/page-animations";
 import PageHead from "../common/Head";
+import { Button, Container } from "../ui";
 function ArticleDetailsPage({ blogDetailsData, notFound, authorPost, relatedPost, query }) {
   if (notFound) return <NotFound />;
   if (!blogDetailsData) return null;
@@ -77,29 +78,20 @@ function ArticleDetailsPage({ blogDetailsData, notFound, authorPost, relatedPost
   return (
     <ArticleDetailsStyles key={query?.slug}>
       <PageHead seo={seo} />
-      <div className="container">
+      <Container>
         <div className="blogDetail blogHeader">
           <div className="d-sm-none d-block mb-4">
-            <a
+            <Button
+              as="a"
               href="#"
-              className="pageLink pageLink--black pageLink--reverse js-animation--fade"
+              variant="link"
+              color="black"
+              hasArrow
+              className="js-animation--fade"
               onClick={handleGoBack}
             >
-              <span className="pageLink__text">Back</span>
-              <span className="pageLink__icon">
-                <svg
-                  width="31"
-                  height="27"
-                  viewBox="0 0 31 27"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="svg"
-                >
-                  <path d="M15.8594 1L29 13.5L15.8594 26" stroke="white" strokeWidth="2"></path>
-                  <path d="M0 13.5898L28.7829 13.5898" stroke="white" strokeWidth="2"></path>
-                </svg>
-              </span>
-            </a>
+              Back
+            </Button>
           </div>
           <BlogDetailMeta read_time={read_time} created_at={publish_date} categories={categories} content={content} />
           <BlogDetailHeader title={title} handleGoBack={handleGoBack} />
@@ -112,7 +104,7 @@ function ArticleDetailsPage({ blogDetailsData, notFound, authorPost, relatedPost
           <BlogDetailReadmore relatedPost={relatedPost} />
           <BlogDetailAuthor writer={writer} authorPost={authorPost} />
         </div>
-      </div>
+      </Container>
     </ArticleDetailsStyles>
   );
 }

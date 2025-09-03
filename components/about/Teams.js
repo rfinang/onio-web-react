@@ -1,22 +1,23 @@
 import Link from "next/link";
 import { TeamsStyles } from "../styles/about/Teams";
 import ImageComp from "../common/Image";
+import Typography from "../ui/Typography";
 function AboutTeams({ teamData }) {
   if (!teamData) return null;
   const { title, label, images } = teamData;
 
   return (
     <TeamsStyles>
-      <div id="teams" className="teams bg-red">
+      <div id="teams" className="teams bg-alert">
         <div className="teams__container container">
           <div className="row">
             <div className="col-12 mb-4 pb-1">
-              <h4 className="heading--block heading--block--black mb-0 d-inline-block  js-animation--fade">
-                <span className="heading--block__text">{label}</span>
-              </h4>
+              <div className="heading--block heading--block--black mb-0 d-inline-block  js-animation--fade">
+                <Typography variant="section-badge" className="heading--block__text text-primary">{label}</Typography>
+              </div>
             </div>
             <div className="col-lg-5 col-md-6">
-              <h2 className="h2 spacing--bottom--md text-primary js-animation--chars">{title}</h2>
+              <Typography variant="h2" className="spacing--bottom--md text-primary js-animation--chars">{title}</Typography>
             </div>
           </div>
           {images.length > 0 && (
@@ -41,12 +42,12 @@ function AboutTeams({ teamData }) {
                           >
                             <div className="row align-items-center">
                               <div className="col staff__info__left">
-                                <h5 className="h5 staff__info__heading text-primary mb-lg-2 mb-sm-1 mb-0">
+                                <Typography variant="h5" className="staff__info__heading text-primary mb-lg-2 mb-sm-1 mb-0">
                                   {title}
-                                </h5>
-                                <h6 className="h6 staff__info__position text-primary mb-0">
+                                </Typography>
+                                <Typography variant="h6" className="staff__info__position text-primary mb-0">
                                   {description}
-                                </h6>
+                                </Typography>
                               </div>
                               <div className="col-auto staff__info__right ms-auto">
                                 <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">

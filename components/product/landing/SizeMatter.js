@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Link from "next/link";
+import { Typography, Button } from "../../ui";
 import ImageComp from "../../common/Image";
 import BenefitAnimations from "../../home/BenefitAnimations";
 import EnvironmentalBenefits from "../../home/EnvironmentalBenefits";
@@ -15,32 +16,24 @@ function SizeMatter({ data, lowerBomData }) {
     data;
   return (
     <SizeMatterStyles>
-      <div className="sizeMatters bg-red">
+      <div className="sizeMatters bg-accent">
         <div className="container spacing--bottom--lg">
           <div className="row">
-            <div
-              className="col-md-6 col-sm-7 mb-sm-0 mb-4 col-12 desc--large js-animation--lines"
+            <Typography
+              variant="body-xl"
+              className="col-md-6 col-sm-7 mb-sm-0 mb-4 col-12 js-animation--lines"
               dangerouslySetInnerHTML={{ __html: description }}
             />
             <div className="col-sm-auto col-12 ms-sm-auto js-animation--fade" data-offset=".15">
-              <Link href={link_to.url} legacyBehavior>
-                <a className="pageLink pageLink--black">
-                  <span className="pageLink__text">{link_to.label}</span>
-                  <span className="pageLink__icon">
-                    <svg
-                      width="31"
-                      height="27"
-                      viewBox="0 0 31 27"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="svg"
-                    >
-                      <path d="M15.8594 1L29 13.5L15.8594 26" stroke="white" strokeWidth="2"></path>
-                      <path d="M0 13.5898L28.7829 13.5898" stroke="white" strokeWidth="2"></path>
-                    </svg>
-                  </span>
-                </a>
-              </Link>
+              <Button
+                as={Link}
+                href={link_to.url}
+                variant="link"
+                color="black"
+                hasArrow
+              >
+                {link_to.label}
+              </Button>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "../../ui";
 import { BatterylessAboutStyles } from "../../styles/project-landing/batteryless-remote/BatterylessAbout";
 
 function BatterylessAbout({ data }) {
@@ -20,28 +21,18 @@ function BatterylessAbout({ data }) {
               </p>
             </div>
             <div className="d-none d-sm-block col-auto ms-auto">
-              <Link href={link_to.url} legacyBehavior>
-                <a
-                  className="pageLink pageLink--black js-animation--fade"
-                  data-screen-offset="1.7"
-                  data-offset=".1"
-                >
-                  <span className="pageLink__text">{link_to.label}</span>
-                  <span className="pageLink__icon">
-                    <svg
-                      width="31"
-                      height="27"
-                      viewBox="0 0 31 27"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="svg"
-                    >
-                      <path d="M15.8594 1L29 13.5L15.8594 26" stroke="white" strokeWidth="2"></path>
-                      <path d="M0 13.5898L28.7829 13.5898" stroke="white" strokeWidth="2"></path>
-                    </svg>
-                  </span>
-                </a>
-              </Link>
+              <Button
+                as={Link}
+                href={link_to.url}
+                variant="link"
+                color="black"
+                hasArrow
+                className="js-animation--fade"
+                data-screen-offset="1.7"
+                data-offset=".1"
+              >
+                {link_to.label}
+              </Button>
             </div>
           </div>
           <p className="info-foot js-animation--fade" data-screen-offset="1.8" data-offset=".2">

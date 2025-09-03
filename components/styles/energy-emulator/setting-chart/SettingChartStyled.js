@@ -42,9 +42,9 @@ export const SettingChartStyled = styled.div`
 
     .text-alert {
         color: #ee4a26;
-        //@media screen and (max-width: 1200px) {
-        //    width: 70%;
-        //}
+        /*@media screen and (max-width: 1200px) {
+            width: 70%;
+        }*/
 
         @media screen and (max-width: 1023.98px) {
             width: 100%;
@@ -126,7 +126,7 @@ export const SettingChartStyled = styled.div`
         position: relative;
         padding-left: 4.6rem;
         height: 2.4rem;
-        //margin-bottom: 1.2rem;
+        /*margin-bottom: 1.2rem;*/
         cursor: pointer;
         font-size: 1.6rem;
         -webkit-user-select: none;

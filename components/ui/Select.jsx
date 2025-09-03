@@ -17,36 +17,29 @@ const Select = forwardRef(({
   children,
   ...props
 }, ref) => {
-  // Base styles
+  // Base styles - matching original contact form select styling
   const baseStyles = `
-    w-full
-    border
-    rounded
-    font-medium
-    transition-all
-    duration-200
-    focus:outline-none
-    focus:ring-2
-    focus:ring-offset-0
-    disabled:opacity-60
-    disabled:cursor-not-allowed
-    bg-white
-    appearance-none
-    cursor-pointer
+    w-full h-[var(--input-height)] border-0 border-b-2 xl:border-b-2 lg:border-b-[1.5px]
+    bg-transparent px-[3px] py-0 text-[18px] font-medium font-[Inter] rounded-none
+    focus:outline-none focus:ring-0 focus:shadow-none transition-colors
+    duration-[400ms] ease-[cubic-bezier(0.33,1,0.68,1)]
+    disabled:opacity-60 disabled:cursor-not-allowed
+    appearance-none cursor-pointer
   `;
 
   // Size variants
   const sizeStyles = {
-    sm: 'px-3 py-2 text-sm',
-    md: 'px-4 py-3 text-base',
-    lg: 'px-5 py-4 text-lg'
+    sm: 'h-[40px] text-sm',
+    md: 'h-[var(--input-height)] text-[18px]',
+    lg: 'h-[var(--input-height)] text-[18px]'
   };
 
-  // State variants
+  // State variants - matching form styling with bottom borders
   const stateStyles = {
-    default: 'border-muted text-primary focus:border-primary focus:ring-primary/20',
-    error: 'border-red-500 bg-red-50 text-red-900 focus:border-red-500 focus:ring-red-500/20',
-    success: 'border-green-500 bg-green-50 text-green-900 focus:border-green-500 focus:ring-green-500/20'
+    default: 'border-b-muted text-primary focus:border-b-primary placeholder:text-muted',
+    white: 'border-b-white text-white focus:border-b-white placeholder:text-white',
+    error: 'border-b-alert text-alert focus:border-b-alert',
+    success: 'border-b-green-500 text-green-600 focus:border-b-green-500'
   };
 
   // Determine current state
@@ -70,10 +63,20 @@ const Select = forwardRef(({
     ${error ? 'text-red-600' : success ? 'text-green-600' : 'text-muted'}
   `;
 
-  // Chevron icon
-  const ChevronIcon = () => (
-    <svg className="w-5 h-5 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+  // Chevron icon - matching original contact form
+  const ChevronIcon = ({ isWhite = false }) => (
+    <svg
+      width="27"
+      height="16"
+      viewBox="0 0 27 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M26 1.14063L13.5 14.2813L0.999999 1.14063"
+        stroke={isWhite ? "white" : "#AEADAD"}
+        strokeWidth="2"
+      />
     </svg>
   );
 
@@ -132,7 +135,7 @@ const Select = forwardRef(({
         
         {/* Chevron icon */}
         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-          <ChevronIcon />
+          <ChevronIcon isWhite={currentVariant === 'white'} />
         </div>
       </div>
       
@@ -148,7 +151,7 @@ const Select = forwardRef(({
 Select.displayName = 'Select';
 
 Select.propTypes = {
-  variant: PropTypes.oneOf(['default', 'error', 'success']),
+  variant: PropTypes.oneOf(['default', 'white', 'error', 'success']),
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   error: PropTypes.bool,
   success: PropTypes.bool,

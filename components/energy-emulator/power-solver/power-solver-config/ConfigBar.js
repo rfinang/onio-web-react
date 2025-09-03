@@ -166,19 +166,19 @@ const ConfigBar = (
                                     ...customSelectStylesNew,
                                     control: (provided, state) => ({
                                         ...customSelectStylesNew.control(provided, state),
-                                        borderBottomColor: "#222021",
+                                        borderBottomColor: "var(--onio-color-primary)",
                                         "&:hover": {
-                                            borderColor: "#222021",
+                                            borderColor: "var(--onio-color-primary)",
                                         },
-                                        color: "#222021",
+                                        color: "var(--onio-color-primary)",
                                     }),
                                     singleValue: (provided) => ({
                                         ...customSelectStylesNew.singleValue(provided),
-                                        color: "#222021"
+                                        color: "var(--onio-color-primary)"
                                     }),
                                     placeholder: (provided) => ({
                                         ...customSelectStylesNew.placeholder(provided),
-                                        color: "#222021",
+                                        color: "var(--onio-color-primary)",
                                     }),
                                 }}
                                 instanceId="reason_for_contacting"
@@ -200,7 +200,7 @@ const ConfigBar = (
                                         >
                                             <path
                                                 d="M26 1.14063L13.5 14.2813L0.999999 1.14063"
-                                                stroke="#222021"
+                                                stroke="var(--onio-color-primary)"
                                                 strokeWidth="2"
                                             />
                                         </svg>

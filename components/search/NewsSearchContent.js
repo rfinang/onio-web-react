@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getSearchArticlesApi, getSearchNewsApi } from "../../api";
 import ImageComp from "../common/Image";
-import { Button } from "../ui";
+import { Button, Typography } from "../ui";
 
 import Loading from "../common/Loading";
 import ImageLazy from "../helper/image-lazy/image-lazy";
@@ -32,13 +32,22 @@ function NewsSearchContent({ keyword, news }) {
     <div className="main-section">
       {isLoading && <Loading />}
       <div className="container">
-        <h3 className="heading--block d-inline-block js-animation--fade">
-          <span className="heading--block__text">News</span>
-        </h3>
+        <Typography 
+          variant="section-badge" 
+          className="js-animation--fade"
+          as="h3"
+        >
+          News
+        </Typography>
         {itemList.length === 0 && (
-          <p className="mb-0 h5 js-animation--fade" data-screen-offset=".15">
+          <Typography 
+            variant="h5" 
+            className="mb-0 js-animation--fade" 
+            data-screen-offset=".15"
+            as="p"
+          >
             No matches found
-          </p>
+          </Typography>
         )}
         {articleItems && (
           <div className="block-content">
@@ -58,7 +67,7 @@ function NewsSearchContent({ keyword, news }) {
                           <ImageComp image={thumbnail} />
                         </div>
                         <div className="info">
-                          <h3 className="h6 info-title">{title}</h3>
+                          <Typography variant="h6" className="info-title" as="h3">{title}</Typography>
                           <svg
                             className="info-icon"
                             width="46"

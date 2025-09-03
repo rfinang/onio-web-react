@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getBlogApi } from "../../../api";
 import Loading from "../../common/Loading";
-import { Button } from "../../ui";
+import { Button, Container } from "../../ui";
 import { LastArticleStyles } from "../../styles/blog/LastArticles";
 import Post from "../Post";
 
@@ -46,26 +46,22 @@ function CatArticles({ blogData, blogToTal, catID }) {
   return (
     <LastArticleStyles>
       {isLoading && <Loading />}
-      <div className="lastArticles bg-wild">
-        <div className="container pb-sm-5 pb-3">
-          <div className="row mb-4">
+      <div className="lastArticles bg-background">
+        <Container className="pb-sm-5 pb-3">
+          <div className="grid sm:grid-cols-2 gap-lg mb-4">
             {blogList.map((item, index) => {
               const { id } = item;
 
               return (
-                <div
-                  key={id}
-                  className="col-sm-6 col-12 js-animation--fade"
-                  data-screen-offset={index % 2 === 0 ? 0 : 0.15}
-                >
+                <div key={id} className="js-animation--fade" data-screen-offset={index % 2 === 0 ? 0 : 0.15}>
                   <Post data={item} />
                 </div>
               );
             })}
           </div>
           {blogList.length > 0 && blogList.length < blogToTal ? (
-            <div className="row justify-content-center">
-              <div className="col-md-auto col-12">
+            <div className="grid justify-center">
+              <div>
                 <Button
                   variant="secondary"
                   size="lg"
@@ -79,7 +75,7 @@ function CatArticles({ blogData, blogToTal, catID }) {
               </div>
             </div>
           ) : null}
-        </div>
+        </Container>
       </div>
     </LastArticleStyles>
   );

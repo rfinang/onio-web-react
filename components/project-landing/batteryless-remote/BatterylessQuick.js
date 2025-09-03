@@ -1,5 +1,7 @@
+import { Typography } from "../../ui";
 import { BatterylessQuickStyles } from "../../styles/project-landing/batteryless-remote/BatterylessQuick";
 import { useAppContext } from "../../../context/AppContext";
+import Container from "../../ui/Container";
 function BatterylessQuick({ data }) {
   if (!data) return null;
   const { contents, request_link, video } = data;
@@ -13,9 +15,9 @@ function BatterylessQuick({ data }) {
   return (
     <BatterylessQuickStyles>
       <div className="turnkey-landing-quick-info">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-lg-5">
+        <Container>
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6 lg:col-span-5">
               <div className="video-block js-animation--fade">
                 <video
                   className="js-video__responsive"
@@ -31,20 +33,16 @@ function BatterylessQuick({ data }) {
                 ></video>
               </div>
             </div>
-            <div className="col-md-6 offset-lg-1">
+            <div className="md:col-span-6 lg:col-span-6 lg:col-start-7">
               {contents && (
-                <div className="row">
+                <div className="grid sm:grid-cols-2 gap-lg">
                   {contents.map((item, index) => {
                     const { id, title, content } = item;
                     return (
-                      <div
-                        key={id}
-                        className="col-sm-6 js-animation--fade"
-                        data-offset={(0.1 + index * 0.05).toFixed(2)}
-                      >
+                      <div key={id} className="js-animation--fade" data-offset={(0.1 + index * 0.05).toFixed(2)}>
                         <div className="item">
-                          <h4 className="h6 title">{title}</h4>
-                          <p className="desc desc--block">{content}</p>
+                          <Typography variant="h6" className="title" as="h4">{title}</Typography>
+                          <Typography variant="body" className="desc desc--block" as="p">{content}</Typography>
                         </div>
                       </div>
                     );
@@ -105,7 +103,7 @@ function BatterylessQuick({ data }) {
               </span>
             </a>
           )}
-        </div>
+        </Container>
       </div>
     </BatterylessQuickStyles>
   );

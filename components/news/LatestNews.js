@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getNewsPostApi } from "../../api";
 import Loading from "../common/Loading";
-import { Button } from "../ui";
+import { Button, Typography, Container } from "../ui";
 
 import ImageLazy from "../helper/image-lazy/image-lazy";
 import { LastArticleStyles } from "../styles/blog/LastArticles";
@@ -45,36 +45,33 @@ function LatestNews({ newsData, newsToTal }) {
   return (
     <LastArticleStyles>
       {isLoading && <Loading />}
-      <div className="lastArticles bg-wild pb-3">
-        <div className="container pb-1">
-          <div className="row mb-2 pb-1">
+      <div className="lastArticles bg-background pb-3">
+        <Container className="pb-1">
+          <div className="grid mb-2 pb-1">
             <div className="col-12">
-              <h4
-                className="heading--block mb-0 d-inline-block mb-4 js-animation--fade"
+              <Typography
+                variant="section-badge"
+                className="mb-4 js-animation--fade"
                 data-screen-offset=".8"
               >
-                <span className="heading--block__text">Latest News</span>
-              </h4>
+                Latest News
+              </Typography>
             </div>
           </div>
-          <div className="row mb-4">
+          <div className="grid sm:grid-cols-2 gap-lg mb-4">
             {newsList.map((item) => {
               const { id } = item;
 
               return (
-                <div
-                  key={id}
-                  className="col-sm-6 col-12 js-animation--fade"
-                  data-screen-offset=".9"
-                >
+                <div key={id} className="js-animation--fade" data-screen-offset=".9">
                   <Post data={item} />
                 </div>
               );
             })}
           </div>
           {newsList.length < newsToTal ? (
-            <div className="row justify-content-center">
-              <div className="col-md-auto col-12 js-animation--fade">
+            <div className="grid justify-center">
+              <div className="js-animation--fade">
                 <Button
                   variant="secondary"
                   size="lg"
@@ -88,7 +85,7 @@ function LatestNews({ newsData, newsToTal }) {
               </div>
             </div>
           ) : null}
-        </div>
+        </Container>
       </div>
     </LastArticleStyles>
   );

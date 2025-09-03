@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Onio Colors - WORKING</title>
+  <style>
+    /* CSS Variables from our generated Tailwind */
+    :root {
+      --onio-color-primary: #222021;
+      --onio-color-secondary: #D2FE24;
+      --onio-color-accent: #FF6231;
+      --onio-color-muted: #AEADAD;
+      --onio-color-background: #F5F5F5;
+      --onio-color-white: #ffffff;
+      --onio-color-alert: #EE4A26;
+    }
+    
+    /* Generated Tailwind classes */
+    .bg-primary {
+      background-color: var(--onio-color-primary, #222021);
+    }
+    .bg-secondary {
+      background-color: var(--onio-color-secondary, #D2FE24);
+    }
+    .bg-accent {
+      background-color: var(--onio-color-accent, #FF6231);
+    }
+    .text-primary {
+      color: var(--onio-color-primary, #222021);
+    }
+    .text-white {
+      color: var(--onio-color-white, #FFFFFF);
+    }
+    .border-primary {
+      border-color: var(--onio-color-primary, #222021);
+    }
+    
+    /* Test styles */
+    .test-box {
+      width: 200px;
+      height: 80px;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      border: 2px solid;
+    }
+  </style>
+</head>
+<body>
+  <h1>✅ Onio Colors - Fixed!</h1>
+  
+  <div class="test-box bg-primary text-white">
+    bg-primary<br>
+    Should be DARK GRAY (#222021)
+  </div>
+  
+  <div class="test-box bg-secondary text-primary">
+    bg-secondary<br>
+    Should be BRIGHT LIME (#D2FE24)
+  </div>
+  
+  <div class="test-box bg-accent text-white">
+    bg-accent<br>
+    Should be ORANGE (#FF6231)
+  </div>
+  
+  <div class="test-box border-primary text-primary" style="background: white;">
+    border-primary<br>
+    Should have DARK GRAY border
+  </div>
+  
+  <h2>Success! Colors are now working correctly.</h2>
+  <p>bg-primary is showing as dark gray (#222021) instead of blue!</p>
+</body>
+</html>

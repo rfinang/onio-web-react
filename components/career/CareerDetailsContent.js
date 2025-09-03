@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "../ui";
+import { Button, Typography } from "../ui";
 const CareerDetailsStyles = styled.div`
   .careersDetail__content {
     padding-bottom: 7rem;
@@ -10,7 +10,7 @@ const CareerDetailsStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;
@@ -32,31 +32,39 @@ const CareerDetailsStyles = styled.div`
 function CareerDetailsContent({ title, description, content, linkTo }) {
   return (
     <CareerDetailsStyles>
-      <div className="careersDetail__content section--topPage bg-wild">
+      <div className="careersDetail__content section--topPage bg-background">
         <div className="container">
           <div className="row spacing--bottom--xs">
             <div className="col-12">
-              <h4 className="heading--block mb-0 d-inline-block js-animation--fade">
-                <span className="heading--block__text">Careers</span>
-              </h4>
+              <Typography 
+                variant="section-badge"
+                className="mb-0 js-animation--fade"
+              >
+                Careers
+              </Typography>
             </div>
           </div>
           <div className="row">
             <div className="col-md-7 col-12 pb-1">
-              <h1
-                className="h1 pb-md-2 mb-md-0 mb-3 js-animation--chars"
+              <Typography
+                variant="h1"
+                className="pb-md-2 mb-md-0 mb-3 js-animation--chars"
                 data-screen-offset=".3"
               >
                 {title}
-              </h1>
+              </Typography>
               <span className="d-md-block d-none spacing--bottom--md"></span>
             </div>
           </div>
           <div className="row">
-            <div className="col-md-5 col-12 desc--large pb-md-2">
-              <p className="js-animation--lines" data-screen-offset=".6">
+            <div className="col-md-5 col-12 pb-md-2">
+              <Typography 
+                variant="body-xl" 
+                className="js-animation--lines" 
+                data-screen-offset=".6"
+              >
                 {description}
-              </p>
+              </Typography>
               <span className="d-md-block d-none spacing--bottom--md"></span>
               <span className="d-md-none d-block spacing--bottom--sm"></span>
             </div>

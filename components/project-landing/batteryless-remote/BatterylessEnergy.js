@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Waypoint } from "react-waypoint";
+import { Typography } from "../../ui";
+import Container from "../../ui/Container";
 import LottieAnimation from "../../common/LottieAnimation";
 import { BatterylessEnergyStyles } from "../../styles/project-landing/batteryless-remote/BatterylessEnergy";
 
@@ -15,7 +17,7 @@ function BatterylessEnergy({ data }) {
   return (
     <BatterylessEnergyStyles>
       <div className="turnkey-landing-energy">
-        <div className="container">
+        <Container>
           <div className="video-block js-animation--fade" data-screen-offset="1.8">
             <video
               className="js-video__responsive"
@@ -31,40 +33,52 @@ function BatterylessEnergy({ data }) {
             ></video>
           </div>
           <div className="d-block">
-            <h4 className="heading--block heading--block--black d-inline-block block-title js-animation--fade">
-              <span className="heading--block__text">{label}</span>
-            </h4>
+            <Typography 
+              variant="section-badge" 
+              className="block-title js-animation--fade"
+            >
+              {label}
+            </Typography>
           </div>
-          <div className="row">
-            <div className="col-md-6">
-              <p className="block-desc desc--large js-animation--fade" data-screen-offset="1.6">
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6">
+              <Typography 
+                variant="body-xl" 
+                className="block-desc js-animation--fade" 
+                data-screen-offset="1.6"
+                as="p"
+              >
                 {first_paragraph}
-              </p>
+              </Typography>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-6">
-              <p
-                className="block-desc desc--large js-animation--fade"
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6">
+              <Typography
+                variant="body-xl"
+                className="block-desc js-animation--fade"
                 data-screen-offset="1.7"
                 data-offset=".1"
+                as="p"
               >
                 {second_paragraph}
-              </p>
+              </Typography>
             </div>
-            <div className="col-md-4 offset-md-2">
+            <div className="md:col-span-4 md:col-start-9">
               <Waypoint onEnter={() => checkRenderLottie()} />
               <div className="info">
                 <div className="icon">
                   {renderLottie && <LottieAnimation urlData={animation.file_animation.url} />}
                 </div>
-                <h4
-                  className="h5 title js-animation--fade"
+                <Typography
+                  variant="h5"
+                  className="title js-animation--fade"
                   data-screen-offset="1.8"
                   data-offset=".1"
+                  as="h4"
                 >
                   {animation.title}
-                </h4>
+                </Typography>
                 <div
                   className="desc js-animation--fade"
                   data-screen-offset="1.9"
@@ -74,7 +88,7 @@ function BatterylessEnergy({ data }) {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </BatterylessEnergyStyles>
   );

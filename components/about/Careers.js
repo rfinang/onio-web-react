@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ImageComp from "../common/Image";
+import { Typography, Button } from "../ui";
 import { CareersStyles } from "../styles/about/Careers";
 
 function Careers({ careerData, positions }) {
@@ -7,22 +8,31 @@ function Careers({ careerData, positions }) {
   const { label_1: label, title_1: title, description, content_blocks: content } = careerData;
   return (
     <CareersStyles>
-      <div className="careers bg-dark">
+      <div className="careers bg-primary">
         <div className="careers__container container">
           <div className="row spacing--bottom--xs">
             <div className="col-12">
-              <h4 className="heading--block heading--block--white mb-0 d-inline-block js-animation--fade">
-                <span className="heading--block__text">{label}</span>
-              </h4>
+              <Typography 
+                variant="section-badge" 
+                className="white mb-0 js-animation--fade"
+              >
+                {label}
+              </Typography>
             </div>
           </div>
           <div className="row">
             <div className="col-lg-5 col-md-6 col-12">
-              <h2 className="h2 text-white js-animation--chars">{title}</h2>
+              <Typography variant="h2" className="text-white js-animation--chars">{title}</Typography>
               <span className="spacing--bottom--xl d-md-block d-none"></span>
             </div>
-            <div className="col-lg-6 col-md-5 col-12 pt-2 desc--large text-white offset-md-1">
-              <p className="js-animation--lines">{description}</p>
+            <div className="col-lg-6 col-md-5 col-12 pt-2 offset-md-1">
+              <Typography 
+                variant="body-xl" 
+                className="text-white js-animation--lines"
+                as="p"
+              >
+                {description}
+              </Typography>
               <span className="spacing--bottom--xl d-md-none d-block"></span>
             </div>
           </div>
@@ -55,11 +65,12 @@ function Careers({ careerData, positions }) {
                           : "col-md-4 offset-sm-1"
                       } col-sm-5 text-white`}
                     >
-                      <h5 className="h5 spacing--top--md mb-3 js-animation--fade" data-offset=".15">
+                      <Typography variant="h5" className="spacing--top--md mb-3 js-animation--fade text-white" data-offset=".15">
                         {title}
-                      </h5>
-                      <div
-                        className="desc--small js-animation--fade"
+                      </Typography>
+                      <Typography
+                        variant="body"
+                        className="js-animation--fade"
                         data-offset=".25"
                         dangerouslySetInnerHTML={{ __html: itemContent }}
                       />
@@ -72,7 +83,7 @@ function Careers({ careerData, positions }) {
           {positions && (
             <div className="row">
               <div className="col-md-4 col-12">
-                <h4 className="h4 text-white js-animation--fade">Open positions:</h4>
+                <Typography variant="h4" className="text-white js-animation--fade">Open positions:</Typography>
               </div>
               <div className="col-md-8 col-12">
                 <ul className="overMenu__accordian pt-1 spacing--bottom--md ul-reset">
@@ -88,18 +99,22 @@ function Careers({ careerData, positions }) {
                           <a className="accordian__item__link accordian__item__link--white">
                             <div className="row align-items-sm-start align-items-center g-0">
                               <div className="col-ms-7 col">
-                                <h6 className="h6 accordian__item__link__text mb-0">{title}</h6>
+                                <Typography variant="h6" className="accordian__item__link__text mb-0 text-white">{title}</Typography>
                               </div>
                               <div className="col-4 d-sm-block d-none">
                                 {work_locations && (
-                                  <p className="desc--small accordian__item__link__desc mb-0">
+                                  <Typography 
+                                    variant="body" 
+                                    className="accordian__item__link__desc mb-0"
+                                    as="p"
+                                  >
                                     {work_locations.map((workItem, index) => (
                                       <span key={workItem.id}>
                                         {workItem.title}
                                         {index + 1 < work_locations.length ? " | " : null}
                                       </span>
                                     ))}
-                                  </p>
+                                  </Typography>
                                 )}
                               </div>
                               <div className="col-auto ms-auto accordian__item__link__icon">
@@ -121,14 +136,18 @@ function Careers({ careerData, positions }) {
                                 </span>
                               </div>
                               {work_locations && (
-                                <p className="desc--small col-12 d-sm-none d-block pb-sm-0 pb-1 accordian__item__link__desc mb-0">
+                                <Typography 
+                                  variant="body" 
+                                  className="col-12 d-sm-none d-block pb-sm-0 pb-1 accordian__item__link__desc mb-0"
+                                  as="p"
+                                >
                                   {work_locations.map((workItem, index) => (
                                     <span key={workItem.id}>
                                       {workItem.title}
                                       {index + 1 < workItem.length ? " | " : null}
                                     </span>
                                   ))}
-                                </p>
+                                </Typography>
                               )}
                             </div>
                           </a>
@@ -138,33 +157,16 @@ function Careers({ careerData, positions }) {
                   })}
                 </ul>
                 <div className="text-sm-end">
-                  <div className="d-inline-block js-animation--fade">
-                    <Link href="/career" legacyBehavior>
-                      <a className="pageLink pageLink--white">
-                        <span className="pageLink__text">View all current positions</span>
-                        <span className="pageLink__icon">
-                          <svg
-                            width="31"
-                            height="27"
-                            viewBox="0 0 31 27"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="svg"
-                          >
-                            <path
-                              d="M15.8594 1L29 13.5L15.8594 26"
-                              stroke="white"
-                              strokeWidth="2"
-                            ></path>
-                            <path
-                              d="M0 13.5898L28.7829 13.5898"
-                              stroke="white"
-                              strokeWidth="2"
-                            ></path>
-                          </svg>
-                        </span>
-                      </a>
-                    </Link>
+                  <div className="js-animation--fade">
+                    <Button
+                      as={Link}
+                      href="/career"
+                      variant="link"
+                      color="white"
+                      hasArrow
+                    >
+                      View all current positions
+                    </Button>
                   </div>
                 </div>
               </div>

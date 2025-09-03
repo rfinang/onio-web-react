@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typography, Container } from "../ui";
 import ImageComp from "../common/Image";
 
 import CardText from "./CardText";
@@ -11,18 +12,18 @@ function SearchContent({ keyword, articles, news, products, general }) {
   const { items: newsItems } = news.data;
   return (
     <div className="main-section">
-      <div className="container">
-        <h3 className="heading--block d-inline-block js-animation--fade">
-          <span className="heading--block__text">Top Hits</span>
-        </h3>
-        <div className="row">
-          <div className="col-md-8">
+      <Container>
+        <Typography variant="section-badge" className="d-inline-block js-animation--fade">
+          Top Hits
+        </Typography>
+        <div className="grid md:grid-cols-12 gap-lg">
+          <div className="md:col-span-8 col-span-12">
             {articleItems && (
               <div className="block-content">
                 <div className="block-top d-flex">
-                  <h3 className="h6 block-title js-animation--fade" data-screen-offset=".15">
+                  <Typography variant="h6" className="block-title js-animation--fade" data-screen-offset=".15">
                     Articles /
-                  </h3>
+                  </Typography>
                   <Link href={`/search/article?keyword=${keyword}`} legacyBehavior>
                     <a
                       className="block-viewmore js-animation--fade"
@@ -34,18 +35,18 @@ function SearchContent({ keyword, articles, news, products, general }) {
                   </Link>
                 </div>
                 <div className="block-main">
-                  <div className="row">
+                  <div className="grid sm:grid-cols-2 gap-lg">
                     {articleItems.map((item) => {
                       const { id, title, slug, thumbnail } = item;
                       const itemSlug = `/article/${slug}.html`;
                       return (
-                        <div key={id} className="col-sm-6 block-col js-animation--fade">
+                        <div key={id} className="block-col js-animation--fade">
                           <div className="article-card">
                             <div className="img image__object-fit">
                               <ImageComp image={thumbnail} />
                             </div>
                             <div className="info">
-                              <h3 className="h6 info-title">{title}</h3>
+                              <Typography variant="h6" className="info-title">{title}</Typography>
                               <svg
                                 className="info-icon"
                                 width="46"
@@ -76,9 +77,9 @@ function SearchContent({ keyword, articles, news, products, general }) {
 
             <div className="block-content">
               <div className="block-top d-flex">
-                <h3 className="h6 block-title js-animation--fade" data-screen-offset=".15">
+                <Typography variant="h6" className="block-title js-animation--fade" data-screen-offset=".15">
                   News /
-                </h3>
+                </Typography>
                 {news?.data?.count === 0 ? (
                   <span className="block-viewmore">No matches</span>
                 ) : (
@@ -94,18 +95,18 @@ function SearchContent({ keyword, articles, news, products, general }) {
                 )}
               </div>
               <div className="block-main">
-                <div className="row">
+                <div className="grid sm:grid-cols-2 gap-lg">
                   {newsItems.map((item) => {
                     const { id, title, slug, thumbnail } = item;
                     const itemSlug = `/news/${slug}.html`;
                     return (
-                      <div key={id} className="col-sm-6 block-col js-animation--fade">
+                      <div key={id} className="block-col js-animation--fade">
                         <div className="article-card">
                           <div className="img image__object-fit">
                             <ImageComp image={thumbnail} />
                           </div>
                           <div className="info">
-                            <h3 className="h6 info-title">{title}</h3>
+                            <Typography variant="h6" className="info-title" as="h3">{title}</Typography>
                             <svg
                               className="info-icon"
                               width="46"
@@ -134,14 +135,14 @@ function SearchContent({ keyword, articles, news, products, general }) {
             </div>
           </div>
 
-          <div className="col-md-4">
+          <div className="md:col-span-4 col-span-12">
             <div className="sidebar">
               {general && (
                 <div className="block-content">
                   <div className="block-top d-flex">
-                    <h3 className="h6 block-title js-animation--fade" data-screen-offset=".15">
+                    <Typography variant="h6" className="block-title js-animation--fade" data-screen-offset=".15">
                       General /
-                    </h3>
+                    </Typography>
                     {general?.data?.count === 0 ? (
                       <span className="block-viewmore">No matches</span>
                     ) : (
@@ -176,7 +177,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
               {products && (
                 <div className="block-content js-animation--fade">
                   <div className="block-top d-flex">
-                    <h3 className="h6 block-title">Products /</h3>
+                    <Typography variant="h6" className="block-title">Products /</Typography>
                     {products?.data?.count === 0 ? (
                       <span className="block-viewmore">No matches</span>
                     ) : (
@@ -213,7 +214,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
 
               {/* <div className="block-content js-animation--fade">
                 <div className="block-top d-flex">
-                  <h3 className="h6 block-title">Documents /</h3>
+                  <Typography variant="h6" className="block-title" as="h3">Documents /</Typography>
                   <a href="#" className="block-viewmore" title="See all ">
                     See all
                   </a>
@@ -313,7 +314,7 @@ function SearchContent({ keyword, articles, news, products, general }) {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

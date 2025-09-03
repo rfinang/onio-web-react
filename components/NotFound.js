@@ -35,7 +35,7 @@ function NotFound() {
   }, []);
   return (
     <NotFoundStyles>
-      <div className="content__404 bg-red">
+      <div className="content__404 bg-alert">
         <div className="container">
           <div className="spacing--bottom--sm">
             <Typography 

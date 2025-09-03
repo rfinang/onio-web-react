@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { isMobile } from "react-device-detect";
+import { Typography } from "../ui";
+import Container from "../ui/Container";
 import { useAppContext } from "../../context/AppContext";
 
 function BatterylessIntro({ 
@@ -129,14 +131,18 @@ function BatterylessIntro({
   return (
     <StylesComponent>
       <div className="turnkey-landing-intro">
-        <div className="container">
+        <Container>
           {/* First section: Description with sprite animation overlapping */}
-          <div className="row">
-            <div className="col-12">
+          <div className="grid">
+            <div className="col-span-12">
               <div className="top">
-                <h3 className="h3 section-title js-animation--fade is-animation-loading" data-screen-offset=".2">
+                <Typography 
+                  variant="h3" 
+                  className="section-title js-animation--fade is-animation-loading" 
+                  data-screen-offset=".2"
+                >
                   {description}
-                </h3>
+                </Typography>
                 <div className="product-canvas js-animation--fade is-animation-loading" data-screen-offset=".3">
                   <div className="img">
                     <Head>
@@ -153,28 +159,28 @@ function BatterylessIntro({
           
           {/* Black pill label */}
           {label && (
-            <div className="row">
-              <div className="col-12">
-                <h3 className="heading--block block-title d-inline-block">
+            <div className="grid">
+              <div className="col-span-12">
+                <h4 className="heading--block heading--block--black d-inline-block block-title js-animation--fade">
                   <span className="heading--block__text">{label}</span>
-                </h3>
+                </h4>
               </div>
             </div>
           )}
           
           {/* Bottom section: Large title on left, links on right */}
-          <div className="row align-items-end">
-            <div className="col-12 col-md-5">
+          <div className="grid md:grid-cols-12 items-end">
+            <div className="col-span-12 md:col-span-5">
               {title && (
                 <h1 className="info-title js-animation--fade is-animation-loading" data-screen-offset=".1">
                   {title}
                 </h1>
               )}
             </div>
-            <div className="col-12 col-md-3">
+            <div className="col-span-12 md:col-span-3">
               {/* Empty column for spacing */}
             </div>
-            <div className="col-12 col-md-4 text-end">
+            <div className="col-span-12 md:col-span-4 text-end">
               {(link_or_video || links) && (
                 <ul className="info-list js-animation--fade is-animation-loading" data-screen-offset=".4">
                   {renderLinks()}
@@ -182,7 +188,7 @@ function BatterylessIntro({
               )}
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </StylesComponent>
   );

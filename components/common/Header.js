@@ -58,18 +58,20 @@ export default function Header({ dataGlobal, dataHeader: header, dataFooter }) {
             </Link>
           </div>
           <Nav menus={menus} />
-          <button
+          <Button
             type="button"
+            variant="ghost"
+            size="sm"
             data-bs-toggle="modal"
             data-bs-target="#searchModal"
-            className="btn btn-search"
+            className="btn-search"
           >
             <img src="/icons/search.svg" alt="ico" />
-          </button>
+          </Button>
           <div className="header__action col-auto">
             <Button
               id="btnOpenContact"
-              variant="primary"
+              variant="outline"
               size="lg"
               className="js-link--btn"
               data-bs-toggle="modal"

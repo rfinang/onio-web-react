@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 const Checkbox = forwardRef(({
-  size = 'md',
+  variant = 'default',
   error = false,
   disabled = false,
   label,
@@ -11,63 +11,56 @@ const Checkbox = forwardRef(({
   className = '',
   ...props
 }, ref) => {
-  // Size variants
-  const sizeStyles = {
-    sm: 'w-4 h-4',
-    md: 'w-5 h-5',
-    lg: 'w-6 h-6'
-  };
+  // Container styles based on original form-check
+  const containerStyles = 'form-check mb-6 pl-0';
 
-  // Base checkbox styles
-  const checkboxStyles = `
-    ${sizeStyles[size]}
-    text-primary
-    bg-white
-    border-2
-    border-muted
-    rounded
-    focus:ring-2
-    focus:ring-primary/20
-    focus:ring-offset-0
-    transition-all
-    duration-200
-    disabled:opacity-60
-    disabled:cursor-not-allowed
-    cursor-pointer
-    ${error ? 'border-red-500 focus:ring-red-500/20' : ''}
+  // Label styles matching original form-check__label
+  const labelStyles = `
+    flex items-start cursor-pointer relative
+    ${disabled ? 'opacity-60 cursor-not-allowed' : ''}
+    ${variant === 'white' ? 'text-white' : 'text-primary'}
   `;
 
-  // Label text size
-  const labelTextSize = {
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg'
-  };
+  // Checkbox visual element matching original form-check__checkbox
+  const checkboxVisualStyles = `
+    flex-shrink-0 block border w-12 h-12 transition-all duration-[400ms] ease-out
+    ${variant === 'white' ? 'border-[0.15rem] border-muted hover:border-white' : 
+      variant === 'black' ? 'border-[0.2rem] border-primary' : 
+      'border-[0.15rem] border-muted hover:border-white'}
+  `;
+
+  // Text styles matching original form-check__text
+  const textStyles = `
+    block ml-[0.9375rem] leading-12 text-[18px]
+    ${variant === 'white' ? 'text-white' : 'text-primary'}
+  `;
 
   // Helper text classes
   const helperClasses = `
-    text-sm mt-1 ml-7
-    ${error ? 'text-red-600' : 'text-muted'}
+    text-sm mt-1 pl-12
+    ${error ? 'text-alert' : variant === 'white' ? 'text-white' : 'text-muted'}
   `;
 
+  // Checked state handled via CSS utilities (.checkbox-mark) with variant classes
+  const checkedStyles = '';
+  const visualVariantClass = variant === 'black' ? 'checkbox-black' : 'checkbox-white';
+
   return (
-    <div className={`flex flex-col ${className}`}>
-      <div className="flex items-start">
+    <div className={`${containerStyles} ${className}`}>
+      <label className={labelStyles}>
         <input
           ref={ref}
           type="checkbox"
           disabled={disabled}
-          className={checkboxStyles}
+          className="absolute opacity-0 peer"
           {...props}
         />
-        
-        {label && (
-          <label className={`ml-2 ${labelTextSize[size]} ${disabled ? 'text-muted' : 'text-primary'} cursor-pointer`}>
-            {label}
-            {props.required && <span className="text-red-500 ml-1">*</span>}
-          </label>
-        )}
-      </div>
+        <span className={`${checkboxVisualStyles} ${checkedStyles} ${visualVariantClass}`}></span>
+        <span className={textStyles}>
+          {label}
+          {props.required && <span className="text-red-500 ml-1">*</span>}
+        </span>
+      </label>
       
       {(helperText || errorText) && (
         <p className={helperClasses}>
@@ -81,7 +74,7 @@ const Checkbox = forwardRef(({
 Checkbox.displayName = 'Checkbox';
 
 Checkbox.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  variant: PropTypes.oneOf(['default', 'white', 'black']),
   error: PropTypes.bool,
   disabled: PropTypes.bool,
   label: PropTypes.string,

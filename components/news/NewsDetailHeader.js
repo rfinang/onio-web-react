@@ -2,9 +2,9 @@
 function NewsDetailHeader({ title }) {
   return (
     <div className="blogDetail__header">
-      <div className="row align-items-end">
-        <div className="col-2 d-sm-block d-none"></div>
-        <div className="col-md-7 col-sm-8 offset-md-2 offset-sm-2">
+      <div className="grid md:grid-cols-12 items-end">
+        <div className="col-span-2 hidden sm:block"></div>
+        <div className="md:col-span-7 sm:col-span-8 col-span-12 md:col-start-3 sm:col-start-3">
           <h1 className="h1 js-animation--chars" data-screen-offset=".4">
             {title}
           </h1>

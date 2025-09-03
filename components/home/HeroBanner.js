@@ -137,9 +137,12 @@ function HeroBanner({ banners, bannerLinks }) {
                                 <div className="overMenu backdropBlur">
                                   <div className="overMenu__inner">
                                     <div className="overMenuBlur__heading">
-                                      <h4 className={`heading--block heading--block--${text_color} d-inline-block`}>
-                                        <span className="heading--block__text">{bannerLinks.label}</span>
-                                      </h4>
+                                      <Typography 
+                                        variant="section-badge"
+                                        className={text_color === 'white' ? 'white' : ''}
+                                      >
+                                        {bannerLinks.label}
+                                      </Typography>
                                     </div>
                                     {bannerLinks.links.length > 0 && (
                                         <AccordianStyles className="ul-reset">
@@ -149,9 +152,12 @@ function HeroBanner({ banners, bannerLinks }) {
                                                   <a className={`accordian__item__link accordian__item__link--${text_color}`}>
                                                     <div className="row g-0">
                                                       <div className="col">
-                                                        <h6 className="h6 accordian__item__link__text mb-0">
+                                                        <Typography 
+                                                          variant="h6"
+                                                          className="accordian__item__link__text mb-0"
+                                                        >
                                                           {item.label}
-                                                        </h6>
+                                                        </Typography>
                                                       </div>
                                                       <div className="col-auto accordian__item__link__icon">
                                           <span className={`iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--${text_color}`}>
@@ -201,9 +207,11 @@ function HeroBanner({ banners, bannerLinks }) {
               <div className="overMenu backdropBlur">
                 <div className="overMenu__inner">
                   <div className="overMenuBlur__heading mt-3 mb-3">
-                    <h4 className="heading--block heading--block--black d-inline-block">
-                      <span className="heading--block__text">{bannerLinks.label}</span>
-                    </h4>
+                    <Typography 
+                      variant="section-badge"
+                    >
+                      {bannerLinks.label}
+                    </Typography>
                   </div>
                   {bannerLinks.links.length > 0 && (
                     <AccordianStyles className="ul-reset">
@@ -213,9 +221,12 @@ function HeroBanner({ banners, bannerLinks }) {
                             <a className="accordian__item__link accordian__item__link--black">
                               <div className="row g-0">
                                 <div className="col">
-                                  <h6 className="h6 accordian__item__link__text mb-0">
+                                  <Typography 
+                                    variant="h6"
+                                    className="accordian__item__link__text mb-0"
+                                  >
                                     {item.label}
-                                  </h6>
+                                  </Typography>
                                 </div>
                                 <div className="col-auto accordian__item__link__icon">
                                   <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">

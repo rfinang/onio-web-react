@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import Loading from "../common/Loading";
-import { Button } from "../ui";
+import { Button, Typography } from "../ui";
 
 import CardText from "./CardText";
 import { generateSlug } from "./helper";
@@ -33,15 +33,24 @@ function ProductsSearchContent({ keyword, data }) {
     <div className="main-section">
       {isLoading && <Loading />}
       <div className="container">
-        <h3 className="heading--block d-inline-block js-animation--fade">
-          <span className="heading--block__text">Products</span>
-        </h3>
+        <Typography 
+          variant="section-badge" 
+          className="js-animation--fade"
+          as="h3"
+        >
+          Products
+        </Typography>
         <div className="row">
           <div className="col-md-8">
             {itemList.length === 0 && (
-              <p className="mb-0 h5 js-animation--fade" data-screen-offset=".15">
+              <Typography 
+                variant="h5" 
+                className="mb-0 js-animation--fade" 
+                data-screen-offset=".15"
+                as="p"
+              >
                 No matches found
-              </p>
+              </Typography>
             )}
             <div className="block-content">
               {itemList && (

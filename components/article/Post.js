@@ -45,7 +45,7 @@ function Post({ data }) {
                 </ul>
               )}
               <Tippy content={title} delay={[500, 0]}>
-                <Typography variant="h4" color="primary" className="article__info__heading">{title}</Typography>
+                <Typography variant="h5" color="primary" className="article__info__heading">{title}</Typography>
               </Tippy>
               <div className="article__info__read">
                 <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">

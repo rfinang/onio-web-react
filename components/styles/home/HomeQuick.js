@@ -18,19 +18,7 @@ export const HomeQuickStyles = styled.div`
     position: relative;
     z-index: 1;
   }
-  .parallaxBg__content .container:before {
-    content: "";
-    width: 1px;
-    margin-left: -1px;
-    float: left;
-    height: 0;
-    padding-top: 35.32684%;
-  }
-  .parallaxBg__content .container:after {
-    content: "";
-    display: block;
-    clear: both;
-  }
+  /* Remove fixed aspect padding to avoid excessive empty space; let content drive height */
   .parallaxBg--productPage {
     padding-top: 11.5rem;
     padding-bottom: 8rem;

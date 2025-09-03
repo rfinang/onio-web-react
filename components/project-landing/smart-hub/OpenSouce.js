@@ -4,6 +4,7 @@ import { Waypoint } from "react-waypoint";
 import ImageComp from "../../common/Image";
 import LottieAnimation from "../../common/LottieAnimation";
 import { BatterylessEnergyStyles } from "../../styles/project-landing/smart-hub/OpenSource";
+import Container from "../../ui/Container";
 
 function OpenSource({ data }) {
   const { section_open_source } = data;
@@ -15,14 +16,14 @@ function OpenSource({ data }) {
   return (
     <BatterylessEnergyStyles>
       <div className="turnkey-landing-energy">
-        <div className="container">
+        <Container>
           <div className="d-block">
             <h4 className="heading--block heading--block--black d-inline-block block-title js-animation--fade">
               <span className="heading--block__text">{label}</span>
             </h4>
           </div>
-          <div className="row">
-            <div className="col-md-6 col-lg-5">
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6 lg:col-span-5">
               <h3
                 className="h2 section-title js-animation--fade"
                 data-offset=".1"
@@ -30,7 +31,7 @@ function OpenSource({ data }) {
                 {title}
               </h3>
             </div>
-            <div className="col-md-6 offset-lg-1">
+            <div className="md:col-span-6 lg:col-span-6 lg:col-start-7">
               <p
                 className="h5 block-desc js-animation--fade"
                 data-offset=".15"
@@ -38,8 +39,8 @@ function OpenSource({ data }) {
               />
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-6">
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6">
               {get_the_project_files && (
                 <Link href={url} legacyBehavior>
                   <a
@@ -79,9 +80,9 @@ function OpenSource({ data }) {
                   <ImageComp image={hub_images[0]} />
                 </div>
               ) : (
-                <div className="row">
+                <div className="grid md:grid-cols-12 gap-lg">
                   {hub_images.map((item, index) => (
-                    <div className="col-md-6" key={item.id}>
+                    <div className="md:col-span-6" key={item.id}>
                       <div
                         className="image-block js-animation--fade"
                         data-offset={index % 2 === 1 ? ".15" : 0}
@@ -95,7 +96,7 @@ function OpenSource({ data }) {
               )}
             </div>
           )}
-        </div>
+        </Container>
       </div>
     </BatterylessEnergyStyles>
   );

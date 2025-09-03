@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Typography } from "../ui";
 import { VideoInteractiveStyles } from "../styles/home/VideoInterative";
 import { useAppContext } from "../../context/AppContext";
 import ImageComp from "../common/Image";
@@ -19,7 +20,11 @@ function VideoInteractive({ powerZero, customClass = "" }) {
         <div className="row spacing--bottom--sm">
           <div className="col-lg-6 col-md-7 col-12 mb-md-0 mb-4 pb-md-0 pb-2">
             {description && (
-              <ul className="ul-reset h5 d-sm-block d-none text-primary">
+              <Typography 
+                variant="h5" 
+                as="ul" 
+                className="ul-reset d-sm-block d-none text-primary"
+              >
                 {description.map((item, index) => (
                   <li
                     className="js-animation--fade"
@@ -29,42 +34,42 @@ function VideoInteractive({ powerZero, customClass = "" }) {
                     {item.text_line}
                   </li>
                 ))}
-              </ul>
+              </Typography>
             )}
-            <p className="mb-0 d-sm-none d-block h5 text-primary js-animation--lines">
+            <Typography 
+              variant="h5" 
+              className="mb-0 d-sm-none d-block text-primary js-animation--lines"
+            >
               {description.map((item) => (
                 <span key={item.id}>{item.text_line}</span>
               ))}
-            </p>
+            </Typography>
           </div>
           <div className="col-md-auto col-12 ms-md-auto">
             {LinkTo && (
-              <Link href={LinkTo.url} legacyBehavior>
-                <a className="pageLink pageLink--black  js-animation--fade">
-                  <span className="pageLink__text">{LinkTo.label}</span>
-                  <span className="pageLink__icon">
-                    <svg
-                      width="31"
-                      height="27"
-                      viewBox="0 0 31 27"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M15.8594 1L29 13.5L15.8594 26" stroke="var(--onio-color-primary)" strokeWidth="2" />
-                      <path d="M0 13.5898L28.7829 13.5898" stroke="var(--onio-color-primary)" strokeWidth="2" />
-                    </svg>
-                  </span>
-                </a>
-              </Link>
+              <Button
+                as={Link}
+                href={LinkTo.url}
+                variant="link"
+                color="black"
+                hasArrow
+                className="js-animation--fade"
+              >
+                {LinkTo.label}
+              </Button>
             )}
           </div>
         </div>
         <div className="videoInteractive__inner">
-          <h2 className="videoInteractive__heading heading--supper mb-0 text-center text-primary">
+          <Typography 
+            variant="hero" 
+            as="h2"
+            className="videoInteractive__heading mb-0 text-center text-primary"
+          >
             <span className="d-block js-animation--chars--2d">{title[0]?.text_line}</span>
             <br className="d-sm-block d-none" />
             <span className="d-block js-animation--chars--2d">{title[1]?.text_line}</span>
-          </h2>
+          </Typography>
           <div className="videoInteractive__element ">
             <div className="row justify-content-center">
               <div className="col-sm-6">

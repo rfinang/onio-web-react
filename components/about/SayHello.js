@@ -1,3 +1,4 @@
+import { Typography } from "../ui";
 import { AboutSayHelloStyles } from "../styles/about/SayHello";
 
 function SayHello({ bigPicture }) {
@@ -9,12 +10,20 @@ function SayHello({ bigPicture }) {
         <div className="container">
           <div className="row">
             <div className="col-12 mb-4 pb-1">
-              <h4 className="heading--block mb-0 d-inline-block js-animation--fade">
-                <span className="heading--block__text">{label}</span>
-              </h4>
+              <Typography 
+                variant="section-badge"
+                className="mb-0 js-animation--fade"
+              >
+                {label}
+              </Typography>
             </div>
             <div className="col-lg-6 col-md-8 col-12">
-              <h2 className="h2 spacing--bottom--md js-animation--chars">{title}</h2>
+              <Typography 
+                variant="h2" 
+                className="spacing--bottom--md js-animation--chars"
+              >
+                {title}
+              </Typography>
             </div>
           </div>
           <div className="row">

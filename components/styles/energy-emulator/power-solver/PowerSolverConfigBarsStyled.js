@@ -52,9 +52,9 @@ export const PowerSolverConfigBarsStyled = styled.div`
     }
 
     @media screen and (max-width: 486.97px) {
-        //.powerConfigBarItem{
-        //    width: 100%;
-        //}
+        /*.powerConfigBarItem{
+            width: 100%;
+        }*/
         .powerConfigBarContainer {
             flex-wrap: wrap;
         }

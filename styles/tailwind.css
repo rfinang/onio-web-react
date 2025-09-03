@@ -8,15 +8,34 @@
 
 /* Base Layer - Global styles converted from GlobalStyles.js */
 @layer base {
+  /* Remove default browser focus outline - matching original Onio design */
+  *:focus {
+    outline: none !important;
+  }
+  
+  button:focus,
+  a:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Remove Tailwind's default focus styles */
+  *:focus-visible {
+    outline: none !important;
+  }
   :root {
-    /* Onio Brand Colors - Extracted from GlobalStyles.js */
-    --black: #222021;
-    --grey: #aeadad;
-    --yellow: #d2fe24;
-    --orange: #ff6231;
-    --white: #fff;
-    --light-grey: #f5f5f5;
-    --alert: #ee4a26;
+    /* Tokens are defined in styles/figma-variables.css (single source of truth) */
+    /* Legacy aliases for backward compatibility */
+    --black: var(--onio-color-primary);
+    --grey: var(--onio-color-muted);
+    --yellow: var(--onio-color-secondary);
+    --orange: var(--onio-color-accent);
+    --white: var(--onio-color-white);
+    --light-grey: var(--onio-color-background);
+    --alert: var(--onio-color-alert);
     --bs-gutter-x: 1.2rem;
     --bs-body-font-weight: 500;
   }
@@ -461,13 +480,6 @@
     color: #fff !important;
   }
   
-  /* Bootstrap override */
-  a.bg-white:focus,
-  a.bg-white:hover,
-  button.bg-white:focus,
-  button.bg-white:hover {
-    background-color: #e6e6e6 !important;
-  }
   
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }

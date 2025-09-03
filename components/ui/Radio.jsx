@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 const Radio = forwardRef(({
-  size = 'md',
+  variant = 'default',
   error = false,
   disabled = false,
   label,
@@ -11,62 +11,54 @@ const Radio = forwardRef(({
   className = '',
   ...props
 }, ref) => {
-  // Size variants
-  const sizeStyles = {
-    sm: 'w-4 h-4',
-    md: 'w-5 h-5',
-    lg: 'w-6 h-6'
-  };
+  // Custom styles based on original form-radio pattern
+  const containerStyles = 'form-radio mb-6';
 
-  // Base radio styles
-  const radioStyles = `
-    ${sizeStyles[size]}
-    text-primary
-    bg-white
-    border-2
-    border-muted
-    focus:ring-2
-    focus:ring-primary/20
-    focus:ring-offset-0
-    transition-all
-    duration-200
-    disabled:opacity-60
-    disabled:cursor-not-allowed
-    cursor-pointer
-    ${error ? 'border-red-500 focus:ring-red-500/20' : ''}
+  // Label styles matching original check-label--text
+  const labelStyles = `
+    block relative pl-[3.9rem] text-[18px] pt-[0.06em] cursor-pointer
+    ${variant === 'white' ? 'text-white' : 'text-primary'}
+    ${disabled ? 'opacity-60 cursor-not-allowed' : ''}
   `;
 
-  // Label text size
-  const labelTextSize = {
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg'
-  };
+  // Custom radio button styling matching original
+  const customRadioStyles = `
+    after:content-[''] after:absolute after:w-6 after:h-6 after:border-2 
+    after:border-primary after:left-0 after:top-1/2 after:rounded-full 
+    after:-translate-y-1/2 after:transition-all after:duration-[400ms]
+    before:content-[''] before:absolute before:w-[10px] before:h-[10px] 
+    before:bg-primary before:left-[7px] before:top-1/2 before:rounded-full 
+    before:-translate-y-1/2 before:transition-opacity before:duration-[400ms] before:opacity-0
+    ${variant === 'white' ? 'after:border-white before:bg-white' : ''}
+  `;
+
+  // Input styles - hidden but functional
+  const inputStyles = `
+    absolute opacity-0 invisible w-0 h-0 border-none
+    checked:${customRadioStyles.includes('before:opacity-0') ? '+ * before:opacity-100' : ''}
+  `;
 
   // Helper text classes
   const helperClasses = `
-    text-sm mt-1 ml-7
-    ${error ? 'text-red-600' : 'text-muted'}
+    text-sm mt-1 pl-[3.9rem]
+    ${error ? 'text-alert' : variant === 'white' ? 'text-white' : 'text-muted'}
   `;
 
   return (
-    <div className={`flex flex-col ${className}`}>
-      <div className="flex items-start">
+    <div className={`${containerStyles} ${className}`}>
+      <label className="form-radio-label relative cursor-pointer">
         <input
           ref={ref}
           type="radio"
           disabled={disabled}
-          className={radioStyles}
+          className="form-check-input w-0 h-0 invisible border-none peer"
           {...props}
         />
-        
-        {label && (
-          <label className={`ml-2 ${labelTextSize[size]} ${disabled ? 'text-muted' : 'text-primary'} cursor-pointer`}>
-            {label}
-            {props.required && <span className="text-red-500 ml-1">*</span>}
-          </label>
-        )}
-      </div>
+        <span className={`${labelStyles} ${customRadioStyles} peer-checked:before:opacity-100`}>
+          {label}
+          {props.required && <span className="text-red-500 ml-1">*</span>}
+        </span>
+      </label>
       
       {(helperText || errorText) && (
         <p className={helperClasses}>
@@ -80,7 +72,7 @@ const Radio = forwardRef(({
 Radio.displayName = 'Radio';
 
 Radio.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  variant: PropTypes.oneOf(['default', 'white']),
   error: PropTypes.bool,
   disabled: PropTypes.bool,
   label: PropTypes.string,

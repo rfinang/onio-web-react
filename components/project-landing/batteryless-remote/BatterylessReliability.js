@@ -1,6 +1,8 @@
+import { Typography } from "../../ui";
 import ImageComp from "../../common/Image";
 import BenefitAnimations from "../../home/BenefitAnimations";
 import { BatterylessReliabilityStyles } from "../../styles/project-landing/batteryless-remote/BatterylessReliability";
+import Container from "../../ui/Container";
 
 function BatterylessReliability({ data, banner }) {
   if (!data) return null;
@@ -8,31 +10,44 @@ function BatterylessReliability({ data, banner }) {
   return (
     <BatterylessReliabilityStyles>
       <div className="turnkey-landing-reliability">
-        <div className="container">
+        <Container>
           <div className="d-block">
-            <h4 className="heading--block heading--block--black d-inline-block block-title js-animation--fade">
-              <span className="heading--block__text">{label}</span>
-            </h4>
+            <Typography 
+              variant="section-badge" 
+              className="block-title js-animation--fade"
+            >
+              {label}
+            </Typography>
           </div>
-          <div className="row">
-            <div className="col-md-6 col-lg-5">
-              <h3 className="h2 section-title  js-animation--fade" data-offset=".1">
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6 lg:col-span-5">
+              <Typography 
+                variant="h2" 
+                className="section-title js-animation--fade" 
+                data-offset=".1"
+                as="h3"
+              >
                 {title}
-              </h3>
+              </Typography>
             </div>
-            <div className="col-md-6 offset-lg-1">
-              <p className="h5 section-desc js-animation--fade" data-offset=".15">
+            <div className="md:col-span-6 lg:col-span-6 lg:col-start-7">
+              <Typography 
+                variant="h5" 
+                className="section-desc js-animation--fade" 
+                data-offset=".15"
+                as="p"
+              >
                 {description}
-              </p>
+              </Typography>
             </div>
           </div>
-        </div>
+        </Container>
         <BenefitAnimations benefitAnimations={items} />
-        <div className="container">
+        <Container>
           <div className="banner js-animation--fade" data-offset=".35">
             <ImageComp image={banner} />
           </div>
-        </div>
+        </Container>
       </div>
     </BatterylessReliabilityStyles>
   );

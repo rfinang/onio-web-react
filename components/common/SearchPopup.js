@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { SearchPopupStyles } from "../styles/block/SearchPopup";
 import { getPopularSearchApi } from "../../api";
 import Link from "next/link";
+import { Button, Typography } from "../ui";
 function SearchPopup() {
   const router = useRouter();
   const [strKeyword, setKeyword] = useState("");
@@ -59,7 +60,12 @@ function SearchPopup() {
                               />
                             </div>
                           </div>
-                          <button type="submit" className="btn btn-submit">
+                          <Button 
+                            type="submit" 
+                            variant="primary"
+                            size="md"
+                            className="btn-submit"
+                          >
                             <svg
                               width="48"
                               height="47"
@@ -71,7 +77,7 @@ function SearchPopup() {
                                 cx="18.5"
                                 cy="18.5"
                                 r="17.5"
-                                stroke="rgb(34, 32, 33)"
+                                stroke="currentColor"
                                 strokeWidth="2"
                               />
                               <line
@@ -79,19 +85,22 @@ function SearchPopup() {
                                 y1="30.2929"
                                 x2="46.7071"
                                 y2="46.2929"
-                                stroke="rgb(34, 32, 33)"
+                                stroke="currentColor"
                                 strokeWidth="2"
                               />
                             </svg>
-                          </button>
+                          </Button>
                         </form>
                       </div>
                       {popularKeyword && (
                         <div className="col-md-4 col-lg-4 offset-lg-1">
-                          <h3 className="heading--block d-inline-block">
-                            <span className="heading--block__text">Popular Searches</span>
-                          </h3>
-                          <ul className="side-list h4" data-screen-offset=".25">
+                          <Typography 
+                            variant="section-badge" 
+                            as="h3"
+                          >
+                            Popular Searches
+                          </Typography>
+                          <ul className="side-list" data-screen-offset=".25">
                             {popularKeyword.map((item, index) => {
                               return (
                                 <li key={`ps_${index}`}>

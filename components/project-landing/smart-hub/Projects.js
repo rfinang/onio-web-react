@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ImageComp from "../../common/Image";
+import { Button } from "../../ui";
 import { SmartHubProjectStyles } from "../../styles/project-landing/smart-hub/Projects";
 
 function Project({ data }) {
@@ -17,35 +18,16 @@ function Project({ data }) {
               <h2 className={`h2 mb-0 js-animation--chars`}>{title}</h2>
             </div>
             <div className="col-auto ms-sm-auto mb-3 mt-sm-2">
-              <Link href={link_to.url} legacyBehavior>
-                <a
-                  className="pageLink pageLink--black"
-                  target={link_to.open_new_tab ? "_blank" : "_self"}
-                >
-                  <span className="pageLink__text">{link_to.label}</span>
-                  <span className="pageLink__icon">
-                    <svg
-                      width="31"
-                      height="27"
-                      viewBox="0 0 31 27"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="svg"
-                    >
-                      <path
-                        d="M15.8594 1L29 13.5L15.8594 26"
-                        stroke="white"
-                        strokeWidth="2"
-                      ></path>
-                      <path
-                        d="M0 13.5898L28.7829 13.5898"
-                        stroke="white"
-                        strokeWidth="2"
-                      ></path>
-                    </svg>
-                  </span>
-                </a>
-              </Link>
+              <Button
+                as={Link}
+                href={link_to.url}
+                variant="link"
+                color="black"
+                hasArrow
+                target={link_to.open_new_tab ? "_blank" : "_self"}
+              >
+                {link_to.label}
+              </Button>
             </div>
           </div>
           {items.length < 2 ? (

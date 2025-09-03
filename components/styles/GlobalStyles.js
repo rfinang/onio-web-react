@@ -7,20 +7,20 @@ import { IconLink } from "./common/IconLink";
 import { AnimationStyles } from "./common/AnimationStyles";
 const GlobalStyles = createGlobalStyle`
 
-//  @font-face {
-//    font-family: 'Inter';
-//    src: url('/InterItalic500.woff2') format('woff2'),
-//    font-weight: 500;
-//    font-style: italic;
-//    font-display: swap;
-//}
-//  @font-face {
-//    font-family: 'Inter';
-//    src: url('/Inter500.woff2') format('woff2'),
-//    font-weight: 500;
-//    font-style: normal;
-//    font-display: swap;
-//}
+/*  @font-face {
+    font-family: 'Inter';
+    src: url('/InterItalic500.woff2') format('woff2'),
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+  @font-face {
+    font-family: 'Inter';
+    src: url('/Inter500.woff2') format('woff2'),
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+} */
 
   :root {
     --bs-body-font-weight: 500;
@@ -40,23 +40,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   html {
-    /* Design Tokens - Single Source of Truth from Figma */
-    --onio-color-primary: #222021;
-    --onio-color-secondary: #D2FE24;
-    --onio-color-accent: #FF6231;
-    --onio-color-muted: #AEADAD;
-    --onio-color-background: #F5F5F5;
-    --onio-color-white: #ffffff;
-    --onio-color-alert: #EE4A26;
-    
-    /* Legacy aliases for backward compatibility */
-    --black: var(--onio-color-primary);
-    --grey: var(--onio-color-muted);
-    --yellow: var(--onio-color-secondary);
-    --orange: var(--onio-color-accent);
-    --white: var(--onio-color-white);
-    --light-grey: var(--onio-color-background);
-    --alert: var(--onio-color-alert);
+    /* Tokens are defined in styles/figma-variables.css (single source of truth) */
     --bs-gutter-x: 1.2rem;
     font-size: 62.5%;
     font-weight: 500;

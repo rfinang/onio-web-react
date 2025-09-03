@@ -41,7 +41,7 @@ const PowerSolverCalculator = ({solveFor, result}) => {
     return (
         <PowerSolverCalculatorStyled>
             <div className="d-flex gap-24 flex-lg-nowrap flex-wrap">
-                <div className={'box boxIndex boxValue col-12 col-lg-auto bg-orange'}>
+                <div className={'box boxIndex boxValue col-12 col-lg-auto bg-accent'}>
                     <div className={'title text-white text-uppercase'}>{solveFor}</div>
                     <div className={'flex-grow-1 d-flex align-items-end'}>
                         <div

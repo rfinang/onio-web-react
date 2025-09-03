@@ -2,7 +2,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ContactPopupStyles } from "../styles/block/ContactPopup";
 import ImageComp from "./Image";
-import { Button } from "../ui";
+import { Button, Container } from "../ui";
 import Slider from "react-slick";
 function DownloadPopup({ mediaFile, slider, next, previous }) {
   if (!mediaFile) return null;
@@ -30,14 +30,14 @@ function DownloadPopup({ mediaFile, slider, next, previous }) {
           <div className="modal-body">
             <div className="popup--main popup--main--full popup--main--download">
               <div className="popup--main-body">
-                <div className="container">
-                  <div className="row align-items-center mb-6 pb-sm-0 pb-1">
-                    <div className="col-auto">
+                <Container>
+                  <div className="flex items-center justify-between mb-6 pb-sm-0 pb-1">
+                    <div>
                       <h4 className="heading--block heading--block--title mb-0 d-block">
                         <span className="heading--block__text">Media</span>
                       </h4>
                     </div>
-                    <div className="col-auto ms-auto">
+                    <div>
                       <button className="popupClose popupClose--black" data-bs-dismiss="modal">
                         <span className="popupClose__text">Close</span>
                         <span>
@@ -79,15 +79,15 @@ function DownloadPopup({ mediaFile, slider, next, previous }) {
                         });
                       return (
                         <div key={id} className="slider-item">
-                          <div className="row mediaPopup">
-                            <div className="col-md-8 col-12 mediaPopup__thumbnail mb-md-0 mb-sm-4 mb-2 image__object-fit">
+                          <div className="mediaPopup grid md:grid-cols-12 gap-lg">
+                            <div className="md:col-span-8 col-span-12 mediaPopup__thumbnail mb-md-0 mb-sm-4 mb-2 image__object-fit">
                               <ImageComp image={image} />
                             </div>
-                            <div className="col-md-4 col-12 mediaPopup__info">
-                              <div className="row">
-                                <div className="col-md-12 col-sm-3 col-12">
-                                  <ul className="row g-0 ul-reset justify-content-sm-start justify-content-between mb-md-6 mb-sm-0 mb-3">
-                                    <li className="col-sm-auto col-auto">
+                            <div className="md:col-span-4 col-span-12 mediaPopup__info">
+                              <div className="grid">
+                                <div>
+                                  <ul className="ul-reset flex justify-between sm:justify-start gap-sm mb-md-6 mb-sm-0 mb-3">
+                                    <li>
                                       <button
                                         className="js-mediaPopup__info__prev mediaPopup__info__btn"
                                         onClick={previous}
@@ -95,7 +95,7 @@ function DownloadPopup({ mediaFile, slider, next, previous }) {
                                         <img src="/icons/i-popup-arrow.svg" alt="i-popup-arrow" />
                                       </button>
                                     </li>
-                                    <li className="col-sm-auto col-auto">
+                                    <li>
                                       <button
                                         className="js-mediaPopup__info__next mediaPopup__info__btn"
                                         onClick={next}
@@ -109,7 +109,7 @@ function DownloadPopup({ mediaFile, slider, next, previous }) {
                                     </li>
                                   </ul>
                                 </div>
-                                <div className="col-md-12 col-sm-9 col-12">
+                                <div>
                                   <h6 className="h6 mediaPopup__info__title mb-1">{title}</h6>
                                   <p className="mediaPopup__info__date mb-md-5 mb-3">{createAt}</p>
                                   <div className="js-mediaPopup__info__desc mediaPopup__info__desc mb-3 pb-1 pr-5">
@@ -137,7 +137,7 @@ function DownloadPopup({ mediaFile, slider, next, previous }) {
                       );
                     })}
                   </Slider>
-                </div>
+                </Container>
               </div>
             </div>
           </div>

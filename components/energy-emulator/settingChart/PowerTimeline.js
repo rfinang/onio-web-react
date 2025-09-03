@@ -43,7 +43,7 @@ const PowerTimeline = ({timeUnit, setTimeUnit, energy, chartData}) => {
         chart: {
             offsetX: 0,
             type: "line",
-            background: "#222021", // màu nền tối giống biểu đồ
+            background: "var(--onio-color-primary)", // màu nền tối giống biểu đồ
             toolbar: {
                 show: false
             },
@@ -174,7 +174,7 @@ const PowerTimeline = ({timeUnit, setTimeUnit, energy, chartData}) => {
         tooltip: {
             theme: "dark"
         },
-        colors: ["#d2fe24", "#ee4a26"],
+        colors: ["var(--onio-color-secondary)", "var(--onio-color-alert)"],
         responsive: [
             {
                 breakpoint: 1600,

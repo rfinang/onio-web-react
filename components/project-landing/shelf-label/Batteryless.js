@@ -1,4 +1,5 @@
 import { BatterylessStyles } from "../../styles/project-landing/shelf-label/Batteryless";
+import Container from "../../ui/Container";
 function Batteryless({ data }) {
   if (!data) return null;
 
@@ -8,14 +9,14 @@ function Batteryless({ data }) {
   return (
     <BatterylessStyles>
       <div className="shelf-label-batteryless">
-        <div className="container">
+        <Container>
           <div className="d-block">
             <h4 className="heading--block heading--block--black d-inline-block block-title js-animation--fade">
               <span className="heading--block__text">{label}</span>
             </h4>
           </div>
-          <div className="row">
-            <div className="col-md-6 col-lg-5">
+          <div className="grid md:grid-cols-12 gap-lg">
+            <div className="md:col-span-6 lg:col-span-5">
               <h3
                 className="h2 section-title  js-animation--fade"
                 data-offset=".1"
@@ -23,7 +24,7 @@ function Batteryless({ data }) {
                 {title}
               </h3>
             </div>
-            <div className="col-md-6 offset-lg-1">
+            <div className="md:col-span-6 lg:col-span-6 lg:col-start-7">
               <p
                 className="h5 section-desc js-animation--fade"
                 data-offset=".15"
@@ -32,18 +33,15 @@ function Batteryless({ data }) {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
 
         {items && (
-          <div className="container focusFeatureList focusFeatureList--home">
-            <div className="row justify-content-center">
+          <Container className="focusFeatureList focusFeatureList--home">
+            <div className="grid md:grid-cols-12 gap-lg justify-center">
               {items.map((item, index) => {
                 const { image, title, description } = item;
                 return (
-                  <div
-                    key={item.id}
-                    className="col-md-4 col-sm-6 col-11 mb-md-0 mb-5"
-                  >
+                  <div key={item.id} className="md:col-span-4 sm:col-span-6 col-span-11 mb-md-0 mb-5">
                     <div className="focusFeature text-center">
                       <div className="focusFeature__thumbnail">
                         <div
@@ -70,7 +68,7 @@ function Batteryless({ data }) {
                 );
               })}
             </div>
-          </div>
+          </Container>
         )}
       </div>
     </BatterylessStyles>

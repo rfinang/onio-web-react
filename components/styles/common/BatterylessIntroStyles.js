@@ -30,6 +30,20 @@ export const BatterylessIntroStyles = styled.div`
     max-width: none;
     display: block;
     height: 100%;
+    width: auto;
+  }
+  
+  .turnkey-landing-intro .top .product-canvas .img img.js-sprite-img {
+    height: 100% !important;
+    width: auto !important;
+    max-width: none !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition-property: none !important;
+    transition-duration: 0s !important;
+    animation: none !important;
   }
   .turnkey-landing-intro .block-title {
     margin-bottom: 4.7rem;

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Test</title>
+  <style>
+    /* Import our CSS variables */
+    :root {
+      --onio-color-primary: #222021;
+      --onio-color-secondary: #D2FE24;
+      --onio-color-accent: #FF6231;
+      --onio-color-muted: #AEADAD;
+      --onio-color-background: #F5F5F5;
+      --onio-color-white: #ffffff;
+      --onio-color-alert: #EE4A26;
+    }
+    
+    .test-primary { background: var(--onio-color-primary, #222021); }
+    .test-secondary { background: var(--onio-color-secondary, #D2FE24); }
+    .test-accent { background: var(--onio-color-accent, #FF6231); }
+    .test-muted { background: var(--onio-color-muted, #AEADAD); }
+    
+    .color-box {
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      display: inline-block;
+      color: white;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Onio Color Test</h1>
+  
+  <div class="color-box test-primary">Primary<br>#222021</div>
+  <div class="color-box test-secondary" style="color: black;">Secondary<br>#D2FE24</div>
+  <div class="color-box test-accent">Accent<br>#FF6231</div>
+  <div class="color-box test-muted">Muted<br>#AEADAD</div>
+  
+  <h2>Expected vs Actual</h2>
+  <p>Primary should be DARK GRAY (#222021), not blue!</p>
+  <p>Secondary should be BRIGHT LIME (#D2FE24)</p>
+  <p>Accent should be ORANGE-RED (#FF6231)</p>
+</body>
+</html>

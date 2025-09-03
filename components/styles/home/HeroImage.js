@@ -155,6 +155,13 @@ export const HeroImageStyles = styled.div`
   }
   .heroImage__container__content {
     padding-bottom: 23.5rem;
+    /* Add top padding to create breathing room under the header */
+    @media (min-width: 1200px) {
+      padding-top: 12rem;
+    }
+    @media (min-width: 740px) and (max-width: 1199.98px) {
+      padding-top: 8rem;
+    }
     @media (min-width: 740px) and (max-width: 1199.98px) {
       padding-bottom: 8rem;
     }
@@ -249,10 +256,10 @@ export const HeroImageStyles = styled.div`
   }
   .heroImage__container__heading {
     margin-bottom: 5.8rem;
-    // max-width: 55.4rem;
-    // @media (min-width: 1600px) {
-    //   max-width: 67.2rem;
-    // }
+    /* max-width: 55.4rem;
+    @media (min-width: 1600px) {
+      max-width: 67.2rem;
+    } */
   }
   @media (max-width: 1023px) {
     .heroImage__container__heading {
