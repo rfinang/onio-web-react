@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import { Heading } from "./common/Heading";
 import { Spacing } from "./common/Spacing";
 import { PageLink } from "./common/Pagelink";
-import { FormStyles } from "./common/Form";
 import { IconLink } from "./common/IconLink";
 import { AnimationStyles } from "./common/AnimationStyles";
 const GlobalStyles = createGlobalStyle`
@@ -240,7 +239,6 @@ const GlobalStyles = createGlobalStyle`
   ${Heading}
   ${Spacing}
   ${PageLink}
-  ${FormStyles}
   ${IconLink}
   ${AnimationStyles}
 

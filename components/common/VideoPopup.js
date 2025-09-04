@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { VideoPopupStyles } from "../styles/block/VideoPopup";
 
 function VideoPopup({ videoURL }) {
   // if (!videoURL) return null;
@@ -19,7 +18,7 @@ function VideoPopup({ videoURL }) {
     };
   }, []);
   return (
-    <VideoPopupStyles className="modal fade" id="videoModal" tabIndex={-1} aria-hidden="true">
+    <div className="video-popup modal fade" id="videoModal" tabIndex={-1} aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-body">
@@ -39,7 +38,7 @@ function VideoPopup({ videoURL }) {
         </div>
       </div>
       <button type="button" className="modal__close" data-bs-dismiss="modal" />
-    </VideoPopupStyles>
+    </div>
   );
 }
 
