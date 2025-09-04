@@ -34,7 +34,7 @@ export const IntegrationStyles = styled.div`
       .banner {
         /* height: 33.6rem; */
         margin-bottom: 2rem;
-        background-color: #ffffff;
+        background-color: var(--onio-color-white);
         border-radius: 5rem;
         display: flex;
         align-items: center;

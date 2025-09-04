@@ -6,7 +6,7 @@ export const customSelectStylesNew = {
     option: (provided, state) => ({
         ...provided,
         borderBottom: "1px dotted pink",
-        color: "#222021",
+        color: "var(--onio-color-primary)",
         fontWeight: 500,
         fontSize: "1.8rem",
         lineHeight: "2.2rem",
@@ -16,30 +16,30 @@ export const customSelectStylesNew = {
         paddingRight: 12,
         zIndex: 23,
         border: "none",
-        backgroundColor: state.isSelected ? "#f5f5f5" : "transparent",
+        backgroundColor: state.isSelected ? "var(--onio-color-background)" : "transparent",
         transition: "background-color 0.4s ease",
         "&:hover": {
-            backgroundColor: "#f5f5f5",
+            backgroundColor: "var(--onio-color-background)",
             cursor: "pointer",
         },
     }),
     control: (provided) => ({
         ...provided,
         backgroundColor: "transparent",
-        color: "#fff",
+        color: "var(--onio-color-white)",
         width: "100%",
         fontSize: "1.8rem",
         /* paddingTop: "2rem", */
         borderRadius: 0,
         border: "none",
         borderBottom: "0.2rem solid",
-        borderBottomColor: "#fff",
+        borderBottomColor: "var(--onio-color-white)",
         boxShadow: "none",
         "&:hover": {
-            borderColor: "#fff",
+            borderColor: "var(--onio-color-white)",
         },
     }),
-    singleValue: (provided) => ({ ...provided, color: "#fff", gap: 0, margin: 0 }),
+    singleValue: (provided) => ({ ...provided, color: "var(--onio-color-white)", gap: 0, margin: 0 }),
     valueContainer: (provided) => ({
         ...provided,
         zIndex: 20,
@@ -49,7 +49,7 @@ export const customSelectStylesNew = {
     }),
     placeholder: (provided) => ({
         ...provided,
-        color: "#fff",
+        color: "var(--onio-color-white)",
     }),
     input: (provided) => ({
         ...provided,

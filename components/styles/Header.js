@@ -48,7 +48,7 @@ const HeaderStyles = styled.header`
           display: block;
           padding: 4.5rem 0;
           font-weight: 500;  
-          color: var(--black);
+          color: var(--onio-color-primary);
           text-decoration: none;
           position: relative;
           @media (max-width: 1399px) {
@@ -63,7 +63,7 @@ const HeaderStyles = styled.header`
             transition: transform 0.4s ease;
             transform: scaleX(0);
             height: 0.2rem;
-            background-color: var(--black);
+            background-color: var(--onio-color-primary);
           }
           &:hover {
             &:after {
@@ -128,7 +128,7 @@ const HeaderStyles = styled.header`
           top: 100%;
           left: 0;
           right: 0;
-          background-color: var(--grey);
+          background-color: var(--onio-color-muted);
           -webkit-clip-path: inset(0 0 100% 0);
           clip-path: inset(0 0 100% 0);
           visibility: hidden;

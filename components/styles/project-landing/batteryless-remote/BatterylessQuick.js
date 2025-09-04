@@ -51,7 +51,7 @@ export const BatterylessQuickStyles = styled.div`
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    border: 2px solid #222021;
+    border: 2px solid var(--onio-color-primary);
     padding: 1.1rem 1.4rem;
     min-height: 21.6rem;
     width: 21.6rem;
@@ -74,7 +74,7 @@ export const BatterylessQuickStyles = styled.div`
   }
   .turnkey-landing-quick-info .btn-link:focus,
   .turnkey-landing-quick-info .btn-link:hover {
-    color: #fff;
+    color: var(--onio-color-white);
     background-color: #000000;
     text-decoration: none;
   }
@@ -82,7 +82,7 @@ export const BatterylessQuickStyles = styled.div`
   .turnkey-landing-quick-info .btn-link:focus svg path,
   .turnkey-landing-quick-info .btn-link:hover svg rect,
   .turnkey-landing-quick-info .btn-link:hover svg path {
-    stroke: #fff;
+    stroke: var(--onio-color-white);
   }
   @media (max-width: 1023.98px) {
     .turnkey-landing-quick-info .item .title {
@@ -127,40 +127,40 @@ export const BatterylessQuickStyles = styled.div`
     width: 100%;
   }
   .resource--red {
-    color: #ff6231;
+    color: var(--onio-color-accent);
   }
   @media (min-width: 1200px) {
     .resource--red {
-      border: 2px solid #ff6231;
+      border: 2px solid var(--onio-color-accent);
     }
   }
   @media (max-width: 1199.98px) {
     .resource--red {
-      border: 1.5px solid #ff6231;
+      border: 1.5px solid var(--onio-color-accent);
     }
   }
   @media (any-hover: hover) {
     .resource--red:hover {
-      background: #ff6231;
-      color: #222021;
+      background: var(--onio-color-accent);
+      color: var(--onio-color-primary);
     }
     .resource--red:hover .iconLink {
-      background: #222021;
-      border-color: #222021 !important;
+      background: var(--onio-color-primary);
+      border-color: var(--onio-color-primary) !important;
     }
     .resource--red:hover .iconLink svg path {
-      stroke: #ff6231;
+      stroke: var(--onio-color-accent);
     }
   }
   .resource--black {
-    border: 2px solid #222021;
+    border: 2px solid var(--onio-color-primary);
   }
   .resource--black:hover {
-    background-color: #222021;
-    color: #fff;
+    background-color: var(--onio-color-primary);
+    color: var(--onio-color-white);
   }
   .resource--black:hover .iconLink {
-    background-color: #fff;
+    background-color: var(--onio-color-white);
   }
   .resource__heading {
     margin-bottom: 3rem;

@@ -46,7 +46,7 @@ export const BlogSlideStyles = styled.div`
   .blogSlide .slick-dots li span:hover,
   .blogSlide .slick-dots li.slick-active span {
     background-color: #fff;
-    color: var(--black);
+    color: var(--onio-color-primary);
   }
   @media (max-width: 575px) {
     .blogSlide .slick-dots li span {

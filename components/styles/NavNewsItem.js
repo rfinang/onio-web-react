@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const NavNewsItem = styled.a`
-  background-color: var(--black);
-  color: var(--grey);
+  background-color: var(--onio-color-primary);
+  color: var(--onio-color-muted);
   display: block;
   max-width: 21.6rem;
   padding: 1.1rem 1.4rem 1.7rem;
@@ -14,7 +14,7 @@ export const NavNewsItem = styled.a`
     max-width: 100%;
   }
   .news-nav__desc {
-    color: var(--grey);
+    color: var(--onio-color-muted);
     transition: color 0.4s ease;
   }
   .news-nav__icon {
@@ -24,10 +24,10 @@ export const NavNewsItem = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0.2rem solid var(--grey);
+    border: 0.2rem solid var(--onio-color-muted);
     border-radius: 50%;
     transition: border-color 0.4s ease, background-color 0.4s ease;
-    background-color: var(--black);
+    background-color: var(--onio-color-primary);
     svg {
       margin-left: 0.2rem;
       display: block;
@@ -42,11 +42,11 @@ export const NavNewsItem = styled.a`
     background-color: #ffff;
     text-decoration: none;
     .news-nav__desc {
-      color: var(--black);
+      color: var(--onio-color-primary);
     }
     .news-nav__icon {
-      border-color: var(--black);
-      background-color: var(--black);
+      border-color: var(--onio-color-primary);
+      background-color: var(--onio-color-primary);
       svg path {
         stroke: #fff;
       }

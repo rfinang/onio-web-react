@@ -72,8 +72,8 @@
   body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", sans-serif;
     font-size: 1.6rem;
-    background: #f5f5f5;
-    color: #222021;
+    background: var(--onio-color-background);
+    color: var(--onio-color-primary);
   }
   
   body:not(.site__template-mobile) .is-animation-loading {
@@ -84,7 +84,7 @@
   #nprogress .bar {
     z-index: 9999;
     height: 5px;
-    background: #aeadad;
+    background: var(--onio-color-muted);
   }
   
   #nprogress .peg {
@@ -165,11 +165,11 @@
   a {
     display: inline-block;
     text-decoration: none;
-    color: var(--black);
+    color: var(--onio-color-primary);
   }
   
   a:hover {
-    color: var(--black);
+    color: var(--onio-color-primary);
     text-decoration: underline;
   }
   
@@ -202,7 +202,7 @@
   .lds-ring div {
     @apply box-border block absolute w-16 h-16 m-2 border-8 border-white rounded-full;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
+    border-color: var(--onio-color-white) transparent transparent transparent;
   }
   
   .lds-ring div:nth-child(1) { animation-delay: -0.45s; }
@@ -279,15 +279,15 @@
   }
   
   .btn--border--white:hover {
-    @apply bg-white border-white text-[#222021];
+    @apply bg-white border-white text-[var(--onio-color-primary)];
   }
   
   .btn--black {
-    @apply text-[var(--black)] border-[var(--black)];
+    @apply text-[var(--onio-color-primary)] border-[var(--onio-color-primary)];
   }
   
   .btn--black:hover {
-    @apply bg-[var(--black)] text-white;
+    @apply bg-[var(--onio-color-primary)] text-white;
   }
   
   .btn--large {
@@ -299,7 +299,7 @@
   }
   
   .btn--bg:hover {
-    @apply text-white bg-[var(--black)];
+    @apply text-white bg-[var(--onio-color-primary)];
   }
   
   .btn--bg--white {
@@ -307,20 +307,20 @@
   }
   
   .btn--bg--white:hover {
-    @apply text-white bg-[var(--black)] border-[var(--black)];
+    @apply text-white bg-[var(--onio-color-primary)] border-[var(--onio-color-primary)];
   }
   
   .btn--bg--silver,
   .btn--bg--grey {
-    @apply border-[#aeadad] bg-[#aeadad] text-white;
+    @apply border-[var(--onio-color-muted)] bg-[var(--onio-color-muted)] text-white;
   }
   
   .btn--bg--black {
-    @apply border-[#222021] bg-[#222021] text-white;
+    @apply border-[var(--onio-color-primary)] bg-[var(--onio-color-primary)] text-white;
   }
   
   .btn--bg--black:hover {
-    @apply text-[#222021] bg-white border-white;
+    @apply text-[var(--onio-color-primary)] bg-white border-white;
   }
   
   /* Resource cards */
@@ -330,29 +330,29 @@
   }
   
   .resource--red {
-    @apply text-[#ff6231] xl:border-2 xl:border-[#ff6231] max-xl:border-[1.5px] max-xl:border-[#ff6231];
+    @apply text-[var(--onio-color-accent)] xl:border-2 xl:border-[var(--onio-color-accent)] max-xl:border-[1.5px] max-xl:border-[var(--onio-color-accent)];
   }
   
   @media (any-hover: hover) {
     .resource--red:hover {
-      @apply bg-[#ff6231] text-[#222021];
+      @apply bg-[var(--onio-color-accent)] text-[var(--onio-color-primary)];
     }
     
     .resource--red:hover .iconLink {
-      @apply bg-[#222021] border-[#222021];
+      @apply bg-[var(--onio-color-primary)] border-[var(--onio-color-primary)];
     }
     
     .resource--red:hover .iconLink svg path {
-      stroke: #ff6231;
+      stroke: var(--onio-color-accent);
     }
   }
   
   .resource--black {
-    @apply border-2 border-[#222021];
+    @apply border-2 border-[var(--onio-color-primary)];
   }
   
   .resource--black:hover {
-    @apply bg-[#222021] text-white;
+    @apply bg-[var(--onio-color-primary)] text-white;
   }
   
   .resource--black:hover .iconLink {
@@ -407,11 +407,11 @@
   }
   
   .scrollable::-webkit-scrollbar-thumb {
-    background: #5a5c5b;
+    background: var(--onio-color-muted);
   }
   
   .scrollable::-webkit-scrollbar-track {
-    background: #f5f5f5;
+    background: var(--onio-color-background);
   }
   
   .js-link--btn {
@@ -460,24 +460,24 @@
     opacity: 0;
   }
   
-  .bg-red {
-    background-color: #ff6231;
+  .bg-accent {
+    background-color: var(--onio-color-accent);
   }
   
-  .bg-dark {
-    background-color: #222021 !important;
+  .bg-primary {
+    background-color: var(--onio-color-primary) !important;
   }
   
-  .bg-yellow {
-    background-color: #d2fe24 !important;
+  .bg-secondary {
+    background-color: var(--onio-color-secondary) !important;
   }
   
-  .text-red {
-    color: #ff6231 !important;
+  .text-alert {
+    color: var(--onio-color-alert) !important;
   }
   
   .text-white {
-    color: #fff !important;
+    color: var(--onio-color-white) !important;
   }
   
   

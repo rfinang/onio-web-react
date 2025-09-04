@@ -25,7 +25,7 @@ export const ProjectLandingStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;

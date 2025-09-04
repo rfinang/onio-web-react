@@ -160,21 +160,7 @@ function HeroBanner({ banners, bannerLinks }) {
                                                         </Typography>
                                                       </div>
                                                       <div className="col-auto accordian__item__link__icon">
-                                          <span className={`iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--${text_color}`}>
-                                            <svg
-                                                width="16"
-                                                height="28"
-                                                viewBox="0 0 16 28"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                              <path
-                                                  d="M1.5769 1.61548L13.9613 13.9998L1.5769 26.3842"
-                                                  stroke={text_color}
-                                                  strokeWidth="2"
-                                              />
-                                            </svg>
-                                          </span>
+                                          <Button variant="icon" hasIcon="arrow" color={text_color === 'white' ? 'white' : 'black'} size="large" shape="oval" />
                                                       </div>
                                                     </div>
                                                   </a>
@@ -229,21 +215,7 @@ function HeroBanner({ banners, bannerLinks }) {
                                   </Typography>
                                 </div>
                                 <div className="col-auto accordian__item__link__icon">
-                                  <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">
-                                    <svg
-                                      width="16"
-                                      height="28"
-                                      viewBox="0 0 16 28"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        d="M1.5769 1.61548L13.9613 13.9998L1.5769 26.3842"
-                                        stroke="white"
-                                        strokeWidth="2"
-                                      />
-                                    </svg>
-                                  </span>
+                                  <Button variant="icon" hasIcon="arrow" color="black" size="large" shape="oval" />
                                 </div>
                               </div>
                             </a>

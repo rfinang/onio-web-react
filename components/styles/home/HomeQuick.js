@@ -131,16 +131,16 @@ export const HomeQuickStyles = styled.div`
     }
   }
   .iconLink--download--red {
-    border-color: #ff6231 !important;
+    border-color: var(--onio-color-accent) !important;
   }
   .iconLink--download--red svg path {
-    stroke: #ff6231;
+    stroke: var(--onio-color-accent);
   }
   .iconLink--download--silver {
-    border-color: #aeadad !important;
+    border-color: var(--onio-color-muted) !important;
   }
   .iconLink--download--silver svg path {
-    stroke: #aeadad;
+    stroke: var(--onio-color-muted);
   }
   @media (min-width: 992px) {
     .iconLink--arrow--small {
@@ -206,28 +206,28 @@ export const HomeQuickStyles = styled.div`
     border-radius: 50%;
   }
   .iconLink--arrow--silver {
-    border-color: #aeadad !important;
+    border-color: var(--onio-color-muted) !important;
   }
   .iconLink--arrow--silver svg path {
-    stroke: #aeadad;
+    stroke: var(--onio-color-muted);
   }
   .iconLink--arrow--white {
-    border-color: #ffffff !important;
+    border-color: var(--onio-color-white) !important;
   }
   .iconLink--arrow--white svg path {
-    stroke: #ffffff;
+    stroke: var(--onio-color-white);
   }
   .iconLink--arrow--black {
-    border-color: #222021 !important;
+    border-color: var(--onio-color-primary) !important;
   }
   .iconLink--arrow--black svg path {
-    stroke: #222021;
+    stroke: var(--onio-color-primary);
   }
   .iconLink--arrow--red {
-    border-color: #ff6231 !important;
+    border-color: var(--onio-color-accent) !important;
   }
   .iconLink--arrow--red svg path {
-    stroke: #ff6231;
+    stroke: var(--onio-color-accent);
   }
 
   .relateLink {
@@ -242,10 +242,10 @@ export const HomeQuickStyles = styled.div`
       text-decoration: none;
     }
     .relateLink__link:hover .iconLink--arrow--large {
-      background-color: #ffffff;
+      background-color: var(--onio-color-white);
     }
     .relateLink__link:hover .iconLink--arrow--large svg path {
-      stroke: #222021;
+      stroke: var(--onio-color-primary);
     }
     .relateLink__link:hover:before {
       opacity: 0;

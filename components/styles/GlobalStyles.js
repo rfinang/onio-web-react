@@ -51,8 +51,8 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
     font-size: 1.6rem;
-    background: #f5f5f5;
-    color: #222021;
+    background: var(--onio-color-background);
+    color: var(--onio-color-primary);
   }
   
   /* Override Bootstrap's blue colors - must be very specific but not styled-components */
@@ -91,7 +91,7 @@ const GlobalStyles = createGlobalStyle`
   #nprogress .bar {
     z-index: 9999;
     height: 5px;
-    background: #AEADAD;
+    background: var(--onio-color-muted);
   }
   #nprogress .peg {
     /* box-shadow: 0 0 10px #404040, 0 0 5px #404040; */
@@ -189,10 +189,10 @@ const GlobalStyles = createGlobalStyle`
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #fff;
+    border: 8px solid var(--onio-color-white);
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
+    border-color: var(--onio-color-white) transparent transparent transparent;
   }
 
   .lds-ring div:nth-child(1) {
@@ -222,20 +222,20 @@ const GlobalStyles = createGlobalStyle`
   .opacity-0 {
     opacity: 0;
   }
-  .bg-red {
-    background-color: #ff6231;
+  .bg-accent {
+    background-color: var(--onio-color-accent);
   }
-  .bg-dark {
-    background-color: #222021!important;
+  .bg-primary {
+    background-color: var(--onio-color-primary)!important;
   }
-  .bg-yellow {
-    background-color: #d2fe24!important;
+  .bg-secondary {
+    background-color: var(--onio-color-secondary)!important;
   }
-  .text-red {
-    color: #ff6231!important;
+  .text-alert {
+    color: var(--onio-color-accent)!important;
   }
   .text-white {
-    color: #fff!important;
+    color: var(--onio-color-white)!important;
   }
   ${Heading}
   ${Spacing}
@@ -254,40 +254,40 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
   }
   .resource--red {
-    color: #ff6231;
+    color: var(--onio-color-accent);
   }
   @media (min-width: 1200px) {
     .resource--red {
-      border: 2px solid #ff6231;
+      border: 2px solid var(--onio-color-accent);
     }
   }
   @media (max-width: 1199.98px) {
     .resource--red {
-      border: 1.5px solid #ff6231;
+      border: 1.5px solid var(--onio-color-accent);
     }
   }
   @media (any-hover: hover) {
     .resource--red:hover {
-      background: #ff6231;
-      color: #222021;
+      background: var(--onio-color-accent);
+      color: var(--onio-color-primary);
     }
     .resource--red:hover .iconLink {
-      background: #222021;
-      border-color: #222021 !important;
+      background: var(--onio-color-primary);
+      border-color: var(--onio-color-primary) !important;
     }
     .resource--red:hover .iconLink svg path {
-      stroke: #ff6231;
+      stroke: var(--onio-color-accent);
     }
   }
   .resource--black {
-    border: 2px solid #222021;
+    border: 2px solid var(--onio-color-primary);
   }
   .resource--black:hover {
-    background-color: #222021;
-    color: #fff;
+    background-color: var(--onio-color-primary);
+    color: var(--onio-color-white);
   }
   .resource--black:hover .iconLink {
-    background-color: #fff;
+    background-color: var(--onio-color-white);
   }
   .resource__heading {
     margin-bottom: 3rem;
@@ -380,9 +380,9 @@ const GlobalStyles = createGlobalStyle`
   a {
     display: inline-block;
     text-decoration: none;
-    color: var(--black);
+    color: var(--onio-color-primary);
     &:hover {
-      color: var(--black);
+      color: var(--onio-color-primary);
       text-decoration: underline;
     }
   }
@@ -428,10 +428,10 @@ const GlobalStyles = createGlobalStyle`
       width: 3px;
     } 
     &::-webkit-scrollbar-thumb {
-      background: #5a5c5b;
+      background: var(--onio-color-muted);
     }
     &::-webkit-scrollbar-track {
-      background: #f5f5f5;
+      background: var(--onio-color-background);
     }
   }
   .js-link--btn {

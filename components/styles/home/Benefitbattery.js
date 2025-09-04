@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const BenefitBatteryStyles = styled.div`
   .benefitsBatteryless {
-    background: #aeadad;
+    background: var(--onio-color-muted);
     position: relative;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
   }
   .benefitsBatteryless:before {
-    background: #aeadad;
+    background: var(--onio-color-muted);
     z-index: 0;
     content: "";
     display: block;
@@ -40,12 +40,12 @@ export const BenefitBatteryStyles = styled.div`
   }
   .benefitsBatteryless--topRadius .benefitsBatteryless__content {
     position: relative;
-    background-color: #f5f5f5;
+    background-color: var(--onio-color-background);
     padding-top: 8rem;
     padding-bottom: 8rem;
   }
   .benefitsBatteryless--topRadius .benefitsBatteryless__content:before {
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     z-index: 0;
     content: "";
     display: block;
@@ -60,7 +60,7 @@ export const BenefitBatteryStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;

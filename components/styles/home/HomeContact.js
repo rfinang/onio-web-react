@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HomeContactStyles = styled.div`
   .contactBlock {
-    background: #d2fe24;
+    background: var(--onio-color-secondary);
     padding-top: 14rem;
     position: relative;
   }
@@ -33,7 +33,7 @@ export const HomeContactStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #d2fe24;
+    background: var(--onio-color-secondary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -42,14 +42,14 @@ export const HomeContactStyles = styled.div`
     will-change: opacity;
   }
   .contactBlock.contactBlock--invertors {
-    background: #aeadad;
+    background: var(--onio-color-muted);
   }
   .contactBlock.contactBlock--invertors:after {
     content: "";
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #aeadad;
+    background: var(--onio-color-muted);
     display: block;
     width: 100%;
     z-index: 3;
@@ -81,7 +81,7 @@ export const HomeContactStyles = styled.div`
   input:-webkit-autofill,
   input:-webkit-autofill:hover, 
   input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px #d2fe24 inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--onio-color-secondary) inset !important;
     font-size: 18px !important;
   }
 `;

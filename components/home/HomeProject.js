@@ -88,22 +88,7 @@ function HomeProject({ homeProject, customClass, hideTop = false, showDesc = fal
                       <Typography variant="h5" className="bigThumbnailLink__info__heading">
                         {techRedefinedItem.title}
                       </Typography>
-                      <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--white">
-                        <svg
-                          width="16"
-                          height="28"
-                          viewBox="0 0 16 28"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="svg"
-                        >
-                          <path
-                            d="M1.57715 1.61572L13.9615 14.0001L1.57715 26.3844"
-                            stroke="white"
-                            strokeWidth="2"
-                          ></path>
-                        </svg>
-                      </span>
+                      <Button variant="icon" hasIcon="arrow" color="white" size="large" shape="oval" />
                     </div>
                   </div>
                 </a>
@@ -130,22 +115,7 @@ function HomeProject({ homeProject, customClass, hideTop = false, showDesc = fal
                               data-offset=".25"
                             >
                               <Typography variant="h5" className="project__info__heading">{title}</Typography>
-                              <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--white">
-                                <svg
-                                  width="16"
-                                  height="28"
-                                  viewBox="0 0 16 28"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="svg"
-                                >
-                                  <path
-                                    d="M1.57715 1.61572L13.9615 14.0001L1.57715 26.3844"
-                                    stroke="white"
-                                    strokeWidth="2"
-                                  ></path>
-                                </svg>
-                              </span>
+                              <Button variant="icon" hasIcon="arrow" color="white" size="large" shape="oval" />
                             </div>
                           </div>
                         </a>

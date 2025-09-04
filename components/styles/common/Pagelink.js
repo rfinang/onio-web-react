@@ -17,16 +17,16 @@ export const PageLink = `
   }
 }
 .pageLink--white {
-  color: #ffffff !important;
+  color: var(--onio-color-white) !important;
 }
 .pageLink--black {
-  color: #222021 !important;
+  color: var(--onio-color-primary) !important;
 }
 .pageLink--black .pageLink__text:after {
-  border-color: #222021 !important;
+  border-color: var(--onio-color-primary) !important;
 }
 .pageLink--black svg path {
-  stroke: #222021 !important;
+  stroke: var(--onio-color-primary) !important;
 }
 .pageLink--reverse .pageLink__icon {
   order: 0;
@@ -57,12 +57,12 @@ export const PageLink = `
 }
 @media (min-width: 1200px) {
   .pageLink__text:after {
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid var(--onio-color-white);
   }
 }
 @media (max-width: 1023.98px) {
   .pageLink__text:after {
-    border-bottom: 1.5px solid #ffffff;
+    border-bottom: 1.5px solid var(--onio-color-white);
   }
 }
 .pageLink__icon {

@@ -1,5 +1,5 @@
 import ImageComp from "../../common/Image";
-import { Typography } from "../../ui";
+import { Typography, Button } from "../../ui";
 import { useAppContext } from "../../../context/AppContext";
 function KeyFeature({ sectionKeyFeature }) {
   if (!sectionKeyFeature) return null;
@@ -41,22 +41,7 @@ function KeyFeature({ sectionKeyFeature }) {
                 >
                   <span className="d-block resource__heading">{request_link.label}</span>
                   <span className="d-block resource__icon">
-                    <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--small iconLink--arrow--red">
-                      <svg
-                        width="21"
-                        height="21"
-                        viewBox="0 0 21 21"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="svg"
-                      >
-                        <path
-                          d="M10.1348 1.07703L19.5576 10.4999L10.1348 19.9228"
-                          stroke="#FF6231"
-                          strokeWidth="2"
-                        ></path>
-                      </svg>
-                    </span>
+                    <Button variant="icon" hasIcon="arrow" color="accent" size="small" shape="oval" />
                   </span>
                 </a>
               </p>

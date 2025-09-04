@@ -79,11 +79,11 @@ export const SizeMatterStyles = styled.div`
     pointer-events: none;
   }
   .sizeMatters__image__size {
-    color: #ff6231;
+    color: var(--onio-color-accent);
     font-weight: 500;
     border-radius: var(--border-radius);
     display: block;
-    background: #222021;
+    background: var(--onio-color-primary);
   }
   @media (min-width: 1024px) {
     .sizeMatters__image__size {
@@ -199,13 +199,13 @@ export const SizeMatterStyles = styled.div`
   .sizeMatters__gird__lines--v li .border__line {
     display: block;
     height: 100%;
-    border-right: 1px solid #222021;
+    border-right: 1px solid var(--onio-color-primary);
     position: absolute;
     right: 0;
   }
   @media (min-width: 740px) {
     .sizeMatters__gird__lines--v li:nth-child(2n) .border__line {
-      border-right: 2px solid #222021;
+      border-right: 2px solid var(--onio-color-primary);
     }
   }
   @media (max-width: 739.98px) {
@@ -228,7 +228,7 @@ export const SizeMatterStyles = styled.div`
     display: block;
     width: 100%;
     height: 100%;
-    border-bottom: 1px solid #222021;
+    border-bottom: 1px solid var(--onio-color-primary);
     position: absolute;
     bottom: 0;
   }
@@ -238,17 +238,17 @@ export const SizeMatterStyles = styled.div`
   }
   @media (min-width: 740px) {
     .sizeMatters__gird__lines--h li .border__line--top {
-      border-top: 2px solid #222021;
+      border-top: 2px solid var(--onio-color-primary);
     }
   }
   @media (max-width: 739.98px) {
     .sizeMatters__gird__lines--h li .border__line--top {
-      border-top: 1px solid #222021;
+      border-top: 1px solid var(--onio-color-primary);
     }
   }
   @media (min-width: 740px) {
     .sizeMatters__gird__lines--h li:nth-child(2n) .border__line {
-      border-bottom: 2px solid #222021;
+      border-bottom: 2px solid var(--onio-color-primary);
     }
   }
 

@@ -77,7 +77,7 @@ export default function DesignSystem() {
   const StatusBadge = ({ status }) => {
     const colors = {
       migrated: 'bg-green-100 text-green-700',
-      partial: 'bg-yellow-100 text-yellow-700', 
+      partial: 'bg-secondary-100 text-yellow-700', 
       pending: 'bg-gray-100 text-gray-600'
     };
     return (

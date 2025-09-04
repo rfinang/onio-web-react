@@ -97,27 +97,7 @@ function MediaCenter({ sendMail, mediaCenter }) {
                               <p className="mb-0">{title}</p>
                             </div>
                             <div className="mediaCentre__info__right justify-self-end">
-                              <span className="iconLink iconLink--download iconLink--download--small iconLink--arrow--silver">
-                                <svg
-                                  width="21"
-                                  height="23"
-                                  viewBox="0 0 21 23"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="svg"
-                                >
-                                  <path
-                                    d="M19.5115 11.8057L10.4998 21.2791L1.48822 11.8057"
-                                    stroke="#FF6231"
-                                    strokeWidth="2"
-                                  ></path>
-                                  <path
-                                    d="M10.4351 0.37207L10.4351 21.1225"
-                                    stroke="#FF6231"
-                                    strokeWidth="2"
-                                  ></path>
-                                </svg>
-                              </span>
+                              <Button variant="icon" hasIcon="download" color="muted" size="small" />
                             </div>
                           </div>
                         </a>

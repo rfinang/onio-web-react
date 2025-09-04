@@ -47,8 +47,8 @@ export const BatterylessIntroStyles = styled.div`
   }
   .turnkey-landing-intro .block-title {
     margin-bottom: 4.7rem;
-    background-color: #222021;
-    color: #fff;
+    background-color: var(--onio-color-primary);
+    color: var(--onio-color-white);
   }
   .turnkey-landing-intro .info-title {
     margin-bottom: 7.3rem;
@@ -93,7 +93,7 @@ export const BatterylessIntroStyles = styled.div`
     fill: #000000;
   }
   .turnkey-landing-intro .info-list li a:hover svg path {
-    stroke: #fff;
+    stroke: var(--onio-color-white);
   }
   .turnkey-landing-intro .videoSlide {
     margin-top: 4.7rem;

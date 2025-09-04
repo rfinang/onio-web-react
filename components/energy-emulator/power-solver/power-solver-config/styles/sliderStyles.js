@@ -15,7 +15,7 @@ export const SLIDER_STYLES = {
     track: {
         width: TRACK_WIDTH,
         height: TRACK_HEIGHT,
-        background: '#2A2728',
+        background: 'var(--onio-color-primary)',
         borderRadius: TRACK_WIDTH / 2,
         position: 'relative'
     },
@@ -24,14 +24,14 @@ export const SLIDER_STYLES = {
         bottom: 0,
         width: TRACK_WIDTH,
         height: `${((value - min) / (max - min)) * 100}%`,
-        background: '#EE4A26',
+        background: 'var(--onio-color-alert)',
         borderRadius: TRACK_WIDTH / 2
     }),
     thumbBase: {
         height: 30,
         width: 30,
-        backgroundColor: '#EE4A26',
-        border: '2px solid #F5F5F5',
+        backgroundColor: 'var(--onio-color-alert)',
+        border: '2px solid var(--onio-color-background)',
         borderRadius: '50%',
         boxSizing: 'border-box',
         opacity: 1,

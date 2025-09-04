@@ -43,8 +43,8 @@ export const Heading = `
   line-height: 1.2;
   border-radius: 5rem;
   margin-bottom: 4.4rem;
-  color: #222021;
-  border-color: #222021 !important;
+  color: var(--onio-color-primary);
+  border-color: var(--onio-color-primary) !important;
 }
 @media (min-width: 1400px) {
   .heading--block {
@@ -86,12 +86,12 @@ export const Heading = `
   }
 }
 .heading--block--white {
-  color: #fff;
-  border-color: #fff !important;
+  color: var(--onio-color-white);
+  border-color: var(--onio-color-white) !important;
 }
 .heading--block--solid {
-  border-color: #fff !important;
-  background-color: #fff;
+  border-color: var(--onio-color-white) !important;
+  background-color: var(--onio-color-white);
 }
 
 .desc--large {

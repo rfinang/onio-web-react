@@ -59,14 +59,14 @@ const PowerSolverCalculator = ({solveFor, result}) => {
                             {/*        threshold.*/}
                             {/*        You could cold-start approximately {devicesSupportedState} devices with this setup.*/}
                             {/*    </div>) : (*/}
-                            {/*        <div className={'description text-red-bold'}>Received power is below 1 µW. Cold-start*/}
+                            {/*        <div className={'description text-alert-bold'}>Received power is below 1 µW. Cold-start*/}
                             {/*            unlikely. Try increasing TX*/}
                             {/*            power, gain, or reducing distance.*/}
                             {/*        </div>)*/}
                             {/*}*/}
-                            {
-                                result?.error && <div className={'description text-red-bold'}>{result?.error}</div>
-                            }
+                            {result?.error && (
+                                <div className={'description text-alert font-bold'}>{result?.error}</div>
+                            )}
                         </div>
                         <div
                             className={'text-56 text-orange flex-grow-1 d-flex align-items-end calculatorReceive'}>

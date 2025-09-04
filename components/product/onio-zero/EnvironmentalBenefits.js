@@ -29,7 +29,7 @@ function ZeroEnvironmentalBenefits({ sectionEnviromentalBenefits, materialSaving
           </div>
           <div className="row mb-3">
             {materialSavings && (
-              <div className="col-lg-6 col-md-7 col-12 mb-md-0 mb-6 text-red">
+              <div className="col-lg-6 col-md-7 col-12 mb-md-0 mb-6 text-accent">
                 <Typography variant="h3" className="desc--large mb-2 js-animation--lines">{materialSavings.title}</Typography>
                 <p className="desc--small mb-5 js-animation--fade">{materialSavings.description}</p>
                 {materialSavings.material_savings_item.map((item) => {

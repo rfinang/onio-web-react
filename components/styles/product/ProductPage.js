@@ -6,7 +6,7 @@ export const ProductPageStyles = styled.div`
     padding-top: 8rem;
   }
   .ppBatteryless:before {
-    background: #222021;
+    background: var(--onio-color-primary);
     z-index: 0;
     content: "";
     display: block;
@@ -21,7 +21,7 @@ export const ProductPageStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #222021;
+    background: var(--onio-color-primary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -49,7 +49,7 @@ export const ProductPageStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #d2fe24;
+    background: var(--onio-color-secondary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -155,7 +155,7 @@ export const ProductPageStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #222021;
+    background: var(--onio-color-primary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -168,7 +168,7 @@ export const ProductPageStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #aeadad;
+    background: var(--onio-color-muted);
     display: block;
     width: 100%;
     z-index: 3;
@@ -181,7 +181,7 @@ export const ProductPageStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;
@@ -189,12 +189,12 @@ export const ProductPageStyles = styled.div`
     transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     will-change: opacity;
   }
-  .ppEnvironmentalBenefits.bg-red:after {
+  .ppEnvironmentalBenefits.bg-accent:after {
     content: "";
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #ff6231;
+    background: var(--onio-color-accent);
     display: block;
     width: 100%;
     z-index: 3;
@@ -225,7 +225,7 @@ export const ProductPageStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;

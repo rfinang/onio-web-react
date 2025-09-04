@@ -56,7 +56,7 @@ const Radio = forwardRef(({
         />
         <span className={`${labelStyles} ${customRadioStyles} peer-checked:before:opacity-100`}>
           {label}
-          {props.required && <span className="text-red-500 ml-1">*</span>}
+          {props.required && <span className="text-alert ml-1">*</span>}
         </span>
       </label>
       

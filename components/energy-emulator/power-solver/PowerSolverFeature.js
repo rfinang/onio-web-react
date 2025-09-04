@@ -39,7 +39,7 @@ const PowerSolverFeature = ({solveFor, setSolveFor}) => {
                                             </label>
                                         </div>
                                     </div>
-                                    <div className={'text-20 text-red-bold text-nowrap'}>{item}</div>
+                                    <div className={'text-20 text-alert font-bold text-nowrap'}>{item}</div>
                                 </div>
                             )
                         )

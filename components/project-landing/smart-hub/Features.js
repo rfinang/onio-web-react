@@ -1,5 +1,5 @@
 import ImageComp from "../../common/Image";
-import { Typography, Container } from "../../ui";
+import { Typography, Container, Button } from "../../ui";
 import { BatterylessReliabilityStyles } from "../../styles/project-landing/smart-hub/Features";
 import Link from "next/link";
 function Features({ data }) {
@@ -113,31 +113,7 @@ function Features({ data }) {
                   {buy_hardware.label}
                 </span>
                 <span className="d-block resource__icon">
-                  <span className="iconLink iconLink--download iconLink--download--small">
-                    <svg
-                      width="24"
-                      height="23"
-                      viewBox="0 0 24 23"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <line
-                        x1="12"
-                        y1="23"
-                        x2="12"
-                        y2="-4.7354e-08"
-                        stroke="#222021"
-                        strokeWidth="2"
-                      />
-                      <line
-                        x1="24"
-                        y1="12"
-                        y2="12"
-                        stroke="#222021"
-                        strokeWidth="2"
-                      />
-                    </svg>
-                  </span>
+                  <Button variant="icon" hasIcon="download" color="black" size="small" />
                 </span>
               </a>
             </Link>

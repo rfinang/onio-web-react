@@ -67,7 +67,7 @@ export const BatterylessInterfacesStyles = styled.div`
     right: 13px;
     content: "";
     position: absolute;
-    border: 1px solid #fff;
+    border: 1px solid var(--onio-color-white);
     opacity: 0;
     z-index: -1;
     animation: zoom-in-zoom-out 2s ease infinite;

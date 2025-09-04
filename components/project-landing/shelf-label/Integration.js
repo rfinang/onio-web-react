@@ -1,6 +1,7 @@
 import { IntegrationStyles } from "../../styles/project-landing/shelf-label/Integration";
 import Container from "../../ui/Container";
 import ImageComp from "../../common/Image";
+import { Button } from "../../ui";
 import {useAppContext} from "../../../context/AppContext";
 import {isMobile} from "react-device-detect";
 
@@ -80,23 +81,8 @@ function Integration({data}) {
                 {watch_demo.label}
               </span>
                 <span className="d-block resource__icon">
-                  <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--small">
-                <svg
-                    width="21"
-                    height="21"
-                    viewBox="0 0 21 21"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="svg"
-                >
-                  <path
-                      d="M10.1348 1.07703L19.5576 10.4999L10.1348 19.9228"
-                      stroke="#222021"
-                      strokeWidth="2"
-                  ></path>
-                </svg>
-              </span>
-              </span>
+                  <Button variant="icon" hasIcon="arrow" color="black" size="small" shape="oval" />
+                </span>
               </a>
           )}
         </Container>

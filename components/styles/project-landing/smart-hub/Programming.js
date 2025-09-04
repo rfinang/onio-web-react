@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const ProgrammingStyles = styled.div`
   padding: 12.6rem 0 5.9rem;
-  background-color: #f5f5f5;
+  background-color: var(--onio-color-background);
   position: relative;
   &:after {
     content: "";
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;
@@ -38,7 +38,7 @@ export const ProgrammingStyles = styled.div`
       background-repeat: repeat;
       background-position: top;
       border-radius: 5rem;
-      background-color: #fff;
+      background-color: var(--onio-color-white);
       padding: 100px;
       /* display: flex;
       align-items: center;

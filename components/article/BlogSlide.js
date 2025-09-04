@@ -6,6 +6,7 @@ import {calculateReadTime} from "../../helper";
 import { BlogSlideStyles } from "../styles/blog/BlogSlide";
 import ImageComp from "../common/Image";
 import Link from "next/link";
+import { Button } from "../ui";
 const settings = {
   dots: true,
   arrows: false,
@@ -84,22 +85,7 @@ function BlogSlide({ blogFeatured }) {
                                       {title}
                                     </h3>
                                     <div className="blogSlide__article__info__read">
-                                      <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--white">
-                                        <svg
-                                          width="16"
-                                          height="28"
-                                          viewBox="0 0 16 28"
-                                          fill="none"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                          className="svg"
-                                        >
-                                          <path
-                                            d="M1.57715 1.61572L13.9615 14.0001L1.57715 26.3844"
-                                            stroke="white"
-                                            strokeWidth="2"
-                                          ></path>
-                                        </svg>
-                                      </span>
+                                      <Button variant="icon" hasIcon="arrow" color="white" size="large" shape="oval" />
                                     </div>
                                   </div>
                                 </a>

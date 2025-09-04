@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Typography } from "../../ui";
+import { Typography, Button } from "../../ui";
 import ImageComp from "../../common/Image";
 import { BatterylessStyles } from "../../styles/product/Batteryless";
 import Energy from "./Energy";
@@ -65,22 +65,7 @@ function Batteryless({ getStart, sectionEnergy, sectionKeyFeature }) {
                                     <Typography variant="h6" className="accordian__item__link__text mb-0">{label}</Typography>
                                   </div>
                                   <div className="col-auto accordian__item__link__icon">
-                                    <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--white">
-                                      <svg
-                                        width="16"
-                                        height="28"
-                                        viewBox="0 0 16 28"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="svg"
-                                      >
-                                        <path
-                                          d="M1.57715 1.61572L13.9615 14.0001L1.57715 26.3844"
-                                          stroke="white"
-                                          strokeWidth="2"
-                                        ></path>
-                                      </svg>
-                                    </span>
+                                    <Button variant="icon" hasIcon="arrow" color="white" size="large" shape="oval" />
                                   </div>
                                 </div>
                               </a>
@@ -101,22 +86,7 @@ function Batteryless({ getStart, sectionEnergy, sectionKeyFeature }) {
                                     <Typography variant="h6" className="accordian__item__link__text mb-0">{label}</Typography>
                                   </div>
                                   <div className="col-auto accordian__item__link__icon">
-                                    <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--white">
-                                      <svg
-                                        width="16"
-                                        height="28"
-                                        viewBox="0 0 16 28"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="svg"
-                                      >
-                                        <path
-                                          d="M1.57715 1.61572L13.9615 14.0001L1.57715 26.3844"
-                                          stroke="white"
-                                          strokeWidth="2"
-                                        ></path>
-                                      </svg>
-                                    </span>
+                                    <Button variant="icon" hasIcon="arrow" color="white" size="large" shape="oval" />
                                   </div>
                                 </div>
                               </a>

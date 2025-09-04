@@ -9,7 +9,7 @@ export const NavMobileStyles = styled.div`
   height: calc(100vh - 12.9rem);
 
   transform: translateX(${(props) => (props.isOpen ? "0" : "100%")});
-  background-color: var(--grey);
+  background-color: var(--onio-color-muted);
   transition: transform 0.4s ease;
 
   @media (min-width: 1024px) {
@@ -47,7 +47,7 @@ export const NavMobileStyles = styled.div`
       &__icon {
         width: 3rem;
         height: 3rem;
-        border: 0.15rem solid var(--black);
+        border: 0.15rem solid var(--onio-color-primary);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -97,7 +97,7 @@ export const NavMobileStyles = styled.div`
         display: inline-flex;
         align-items: center;
         margin-bottom: 1.1rem;
-        color: var(--black);
+        color: var(--onio-color-primary);
         svg {
           display: block;
           margin-right: 0.7rem;
@@ -137,7 +137,7 @@ export const NavMobileStyles = styled.div`
       font-weight: 500;
       font-size: 1.2rem;
       line-height: 2.5rem;
-      color: var(--black);
+      color: var(--onio-color-primary);
     }
   }
 `;

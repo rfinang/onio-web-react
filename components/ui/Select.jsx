@@ -60,7 +60,7 @@ const Select = forwardRef(({
   // Helper text classes
   const helperClasses = `
     text-sm mt-1
-    ${error ? 'text-red-600' : success ? 'text-green-600' : 'text-muted'}
+    ${error ? 'text-alert' : success ? 'text-green-600' : 'text-muted'}
   `;
 
   // Chevron icon - matching original contact form
@@ -74,7 +74,7 @@ const Select = forwardRef(({
     >
       <path
         d="M26 1.14063L13.5 14.2813L0.999999 1.14063"
-        stroke={isWhite ? "white" : "#AEADAD"}
+        stroke={isWhite ? 'white' : 'var(--onio-color-muted)'}
         strokeWidth="2"
       />
     </svg>
@@ -85,7 +85,7 @@ const Select = forwardRef(({
       {label && (
         <label className="block text-sm font-medium text-primary mb-2">
           {label}
-          {props.required && <span className="text-red-500 ml-1">*</span>}
+          {props.required && <span className="text-alert ml-1">*</span>}
         </label>
       )}
       

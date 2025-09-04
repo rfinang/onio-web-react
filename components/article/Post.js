@@ -2,7 +2,7 @@ import Link from "next/link";
 import ImageComp from "../common/Image";
 import { PostStyles } from "../styles/elements/Post";
 import {calculateReadTime} from "../../helper";
-import { Typography } from "../ui";
+import { Typography, Button } from "../ui";
 import Tippy from "@tippyjs/react";
 import 'tippy.js/dist/tippy.css';
 
@@ -48,22 +48,7 @@ function Post({ data }) {
                 <Typography variant="h5" color="primary" className="article__info__heading">{title}</Typography>
               </Tippy>
               <div className="article__info__read">
-                <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--large iconLink--arrow--black">
-                  <svg
-                    width="16"
-                    height="28"
-                    viewBox="0 0 16 28"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="svg"
-                  >
-                    <path
-                      d="M1.57715 1.61572L13.9615 14.0001L1.57715 26.3844"
-                      stroke="white"
-                      strokeWidth="2"
-                    ></path>
-                  </svg>
-                </span>
+                <Button variant="icon" hasIcon="arrow" color="black" size="large" shape="oval" />
               </div>
             </div>
           </a>

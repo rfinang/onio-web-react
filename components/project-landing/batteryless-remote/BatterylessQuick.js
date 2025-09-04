@@ -1,4 +1,4 @@
-import { Typography } from "../../ui";
+import { Typography, Button } from "../../ui";
 import { BatterylessQuickStyles } from "../../styles/project-landing/batteryless-remote/BatterylessQuick";
 import { useAppContext } from "../../../context/AppContext";
 import Container from "../../ui/Container";
@@ -55,23 +55,7 @@ function BatterylessQuick({ data }) {
             <a href={request_link.file.url} className="resource resource--black">
               <span className="d-block resource__heading">{request_link.label}</span>
               <span className="d-block resource__icon">
-                <span className="iconLink iconLink--download iconLink--download--small">
-                  <svg
-                    className="svg"
-                    width="20"
-                    height="24"
-                    viewBox="0 0 20 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.9131 12.3174L9.94299 21.8287L0.972889 12.3174"
-                      stroke="#222021"
-                      strokeWidth="2"
-                    />
-                    <path d="M9.87842 0.837891L9.87842 21.6712" stroke="#222021" strokeWidth="2" />
-                  </svg>
-                </span>
+                <Button variant="icon" hasIcon="download" color="black" size="small" />
               </span>
             </a>
           ) : (
@@ -84,22 +68,7 @@ function BatterylessQuick({ data }) {
             >
               <span className="d-block resource__heading"> {request_link.label} </span>
               <span className="d-block resource__icon">
-                <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--small">
-                  <svg
-                    width="21"
-                    height="21"
-                    viewBox="0 0 21 21"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="svg"
-                  >
-                    <path
-                      d="M10.1348 1.07703L19.5576 10.4999L10.1348 19.9228"
-                      stroke="#222021"
-                      strokeWidth="2"
-                    ></path>
-                  </svg>
-                </span>
+                <Button variant="icon" hasIcon="arrow" color="black" size="small" shape="oval" />
               </span>
             </a>
           )}

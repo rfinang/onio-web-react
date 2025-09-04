@@ -58,7 +58,7 @@ const Checkbox = forwardRef(({
         <span className={`${checkboxVisualStyles} ${checkedStyles} ${visualVariantClass}`}></span>
         <span className={textStyles}>
           {label}
-          {props.required && <span className="text-red-500 ml-1">*</span>}
+          {props.required && <span className="text-alert ml-1">*</span>}
         </span>
       </label>
       

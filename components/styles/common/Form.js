@@ -22,7 +22,7 @@ export const FormStyles = `
   border-radius: 0;
   font-size: 18px;
   font-weight: 500;
-  color: #222021;
+  color: var(--onio-color-primary);
   outline: none !important;
   box-shadow: none !important;
 }
@@ -30,14 +30,14 @@ export const FormStyles = `
   .form-group select,
 .form-group input,
 .form-group textarea {
-    border-bottom: 2px solid #222021;
+    border-bottom: 2px solid var(--onio-color-primary);
   }
 }
 @media (max-width: 1199.98px) {
   .form-group select,
 .form-group input,
 .form-group textarea {
-    border-bottom: 1.5px solid #222021;
+    border-bottom: 1.5px solid var(--onio-color-primary);
   }
 }
 .form-group textarea {
@@ -46,12 +46,12 @@ export const FormStyles = `
 }
 @media (min-width: 1200px) {
   .form-group textarea {
-    border: 2px solid #222021;
+    border: 2px solid var(--onio-color-primary);
   }
 }
 @media (max-width: 1199.98px) {
   .form-group textarea {
-    border: 1.5px solid #222021;
+    border: 1.5px solid var(--onio-color-primary);
   }
 }
 .form-group__inner {
@@ -66,7 +66,7 @@ export const FormStyles = `
 .form-group--silver input::placeholder,
 .form-group--silver textarea::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #222021;
+  color: var(--onio-color-primary);
   opacity: 1;
   /* Firefox */
 }
@@ -74,13 +74,13 @@ export const FormStyles = `
 .form-group--silver input:-ms-input-placeholder,
 .form-group--silver textarea:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #222021;
+  color: var(--onio-color-primary);
 }
 .form-group--silver select::-ms-input-placeholder,
 .form-group--silver input::-ms-input-placeholder,
 .form-group--silver textarea::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #222021;
+  color: var(--onio-color-primary);
 }
 .form-group--silver select {
   background-repeat: no-repeat;
@@ -92,19 +92,19 @@ export const FormStyles = `
 .form-group--white textarea {
   background: transparent;
   border-color: white !important;
-  color: #ffffff;
+  color: var(--onio-color-white);
 }
 .form-group--white input:-webkit-autofill,
 .form-group--white input:-webkit-autofill:hover, 
 .form-group--white input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px #222021 inset !important;
-    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px var(--onio-color-primary) inset !important;
+    -webkit-text-fill-color: var(--onio-color-white);
 }
 .form-group--white select::placeholder,
 .form-group--white input::placeholder,
 .form-group--white textarea::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #ffffff;
+  color: var(--onio-color-white);
   opacity: 1;
   /* Firefox */
 }
@@ -112,13 +112,13 @@ export const FormStyles = `
 .form-group--white input:-ms-input-placeholder,
 .form-group--white textarea:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #ffffff;
+  color: var(--onio-color-white);
 }
 .form-group--white select::-ms-input-placeholder,
 .form-group--white input::-ms-input-placeholder,
 .form-group--white textarea::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #ffffff;
+  color: var(--onio-color-white);
 }
 .form-group--white select {
   background-repeat: no-repeat;
@@ -148,25 +148,25 @@ export const FormStyles = `
   color: #ee4a26;
 }
 .form-group--required.form-group--white .form-group__required {
-  border-color: #ffffff;
-  background: #ffffff;
+  border-color: var(--onio-color-white);
+  background: var(--onio-color-white);
 }
 .form-group--required.form-group--silver .form-group__required {
-  border-color: #222021;
-  background: #222021;
+  border-color: var(--onio-color-primary);
+  background: var(--onio-color-primary);
 }
 .form-group--required.form-group--white .form-group__alert {
-  color: #ffffff;
+  color: var(--onio-color-white);
 }
 .form-group--required.form-group--silver .form-group__alert {
-  color: #222021;
+  color: var(--onio-color-primary);
 }
 .form-group__required {
-  border: 5px solid #222021;
+  border: 5px solid var(--onio-color-primary);
   border-radius: 50%;
   width: 0;
   height: 0;
-  background: #222021;
+  background: var(--onio-color-primary);
   display: block;
   position: absolute;
   top: calc(50% - 5px);
@@ -223,7 +223,7 @@ export const FormStyles = `
 }
 .form-check input:checked + .form-check__checkbox {
   background-size: 16px;
-  border-color: #fff;
+  border-color: var(--onio-color-white);
   background-repeat: no-repeat;
   background-position: center;
   background-image: url('data:image/svg+xml,<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.2922 1.38592L8.58011 19.4864L1.47018 10.4361" stroke="white" strokeWidth="1.5" stroke-linejoin="bevel"/></svg>') !important;
@@ -242,7 +242,7 @@ export const FormStyles = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   display: block;
-  border: 0.15rem solid #AEADAD;
+  border: 0.15rem solid var(--onio-color-muted);
   width: 3rem;
   height: 3rem;
 }
@@ -252,7 +252,7 @@ export const FormStyles = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   display: block;
-  border: 0.2rem solid #222021;
+  border: 0.2rem solid var(--onio-color-primary);
   width: 3rem;
   height: 3rem;
 }
@@ -263,13 +263,13 @@ export const FormStyles = `
   line-height: 3rem;
 }
 .form-check:hover .form-check__checkbox {
-  border-color: #fff;
+  border-color: var(--onio-color-white);
 }
 .form-check--white {
-  color: #fff;
+  color: var(--onio-color-white);
 }
 .form-check--white .form-check__label {
-  color: #fff;
+  color: var(--onio-color-white);
 }
 
 .form-check-label {
@@ -304,7 +304,7 @@ export const FormStyles = `
   padding-top: 0.06em;
 }
 .form-check--white .check-label--text {
-  color: #ffffff;
+  color: var(--onio-color-white);
 }
 .form-check--white .ht-checkbox {
   background-image: url('data:image/svg+xml,<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.2922 1.38592L8.58011 19.4864L1.47018 10.4361" stroke="white" strokeWidth="1.5" stroke-linejoin="bevel"/></svg>') !important;
@@ -332,7 +332,7 @@ export const FormStyles = `
       position: absolute;
       width: 24px;
       height: 24px;
-      border: 2px solid #222021;
+      border: 2px solid var(--onio-color-primary);
       left: 0;
       top: 50%;
       border-radius: 50%;
@@ -344,7 +344,7 @@ export const FormStyles = `
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: #222021;
+      background-color: var(--onio-color-primary);
       left: 0;
       top: 50%;
       border-radius: 50%;

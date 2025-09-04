@@ -90,7 +90,7 @@ const Button = ({
 
   // Arrow icon component
   const ArrowIcon = ({ color = 'black', size = 'large' }) => {
-    const strokeColor = color === 'white' ? '#FFFFFF' : color === 'black' ? '#222021' : '#222021';
+    const strokeColor = color === 'white' ? 'currentColor' : 'currentColor';
     const dimensions = size === 'large' ? { width: 31, height: 27 } : { width: 16, height: 28 };
     
     return (
@@ -116,7 +116,7 @@ const Button = ({
 
   // Icon component for iconLink patterns
   const IconComponent = ({ type = 'arrow', color = 'black', size = 'large', shape = 'oval' }) => {
-    const strokeColor = color === 'white' ? 'white' : color === 'black' ? 'white' : 'white';
+    const strokeColor = 'currentColor';
     
     if (type === 'arrow') {
       return (
@@ -195,7 +195,7 @@ const Button = ({
   return (
     <Element
       type={as === 'button' ? type : undefined}
-      className={`${combinedClasses} onio-button ${variant === 'link' ? 'pageLink pageLink--' + color : 'js-link--btn'}`}
+      className={`${combinedClasses} onio-button js-link--btn`}
       disabled={disabled || loading}
       onClick={onClick}
       href={href}
@@ -229,7 +229,7 @@ const Button = ({
       )}
       
       {variant === 'link' && children && (
-        <span className="pageLink__text js-link__text">{children}</span>
+        <span className="js-link__text">{children}</span>
       )}
       
       {variant !== 'link' && (

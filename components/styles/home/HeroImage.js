@@ -58,8 +58,8 @@ export const HeroImageStyles = styled.div`
             justify-content: center;
             width: 3.4rem;
             height: 3.4rem;
-            border: 2px solid var(--black);
-            color: var(--black);
+            border: 2px solid var(--onio-color-primary);
+            color: var(--onio-color-primary);
             border-radius: 50%;
             font-weight: 400;
             font-size: 2rem;
@@ -68,8 +68,8 @@ export const HeroImageStyles = styled.div`
           }
           .slick-dots li span:hover,
           .slick-dots li.slick-active span {
-            color: #fff;
-            background-color: var(--black);
+            color: var(--onio-color-white);
+            background-color: var(--onio-color-primary);
           }
        }
        &.dot-white {
@@ -79,8 +79,8 @@ export const HeroImageStyles = styled.div`
             justify-content: center;
             width: 3.4rem;
             height: 3.4rem;
-            border: 2px solid #fff;
-            color: #fff;
+            border: 2px solid var(--onio-color-white);
+            color: var(--onio-color-white);
             border-radius: 50%;
             font-weight: 400;
             font-size: 2rem;
@@ -89,8 +89,8 @@ export const HeroImageStyles = styled.div`
           }
           .slick-dots li span:hover,
           .slick-dots li.slick-active span {
-            background-color: #fff;
-            color: var(--black);
+            background-color: var(--onio-color-white);
+            color: var(--onio-color-primary);
           }
        }
   }
@@ -151,7 +151,7 @@ export const HeroImageStyles = styled.div`
     height: 100%;
   }
   .content-black {
-    color: #222021;
+    color: var(--onio-color-primary);
   }
   .heroImage__container__content {
     padding-bottom: 23.5rem;
@@ -194,7 +194,7 @@ export const HeroImageStyles = styled.div`
   .heroImage__poster {
     width: 100%;
     overflow: hidden;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     @media (max-width: 739px) {
       position: absolute;
@@ -267,7 +267,7 @@ export const HeroImageStyles = styled.div`
     }
   }
   .heroImage__container__desc {
-    color: #fff;
+    color: var(--onio-color-white);
     margin-bottom: 5.4rem;
     max-width: 51.4rem;
     @media (min-width: 1600px) {
@@ -323,7 +323,7 @@ export const HomeDropOverMenu = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;

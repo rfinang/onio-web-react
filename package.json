@@ -11,6 +11,9 @@
     "test:coverage": "jest --coverage",
     "validate:typography": "node validate-typography.js",
     "validate:migration": "node validate-typography.js",
+    "audit:migration": "node scripts/audit-migration.js",
+    "validate:nongrid": "node scripts/check-legacy-css.js",
+    "validate:nongrid:safe": "node scripts/check-legacy-css.js --no-fail",
     "pre-deploy": "npm run validate:migration && npm run build",
     "figma:sync": "node scripts/sync-figma-tokens.js",
     "figma:watch": "nodemon scripts/sync-figma-tokens.js"

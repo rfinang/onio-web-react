@@ -62,47 +62,47 @@ export const BatterylessStyles = styled.div`
     }
   }
   .accordian__item__link--white {
-    color: #ffffff;
-    border-color: #ffffff;
+    color: var(--onio-color-white);
+    border-color: var(--onio-color-white);
   }
   @media (any-hover: hover) {
     .accordian__item__link--white:active,
     .accordian__item__link--white:focus,
     .accordian__item__link--white:hover {
-      color: #ffffff;
-      border-color: #ffffff;
+      color: var(--onio-color-white);
+      border-color: var(--onio-color-white);
     }
     .accordian__item__link--white:active .iconLink--arrow--large,
     .accordian__item__link--white:focus .iconLink--arrow--large,
     .accordian__item__link--white:hover .iconLink--arrow--large {
-      background-color: #ffffff;
+      background-color: var(--onio-color-white);
     }
     .accordian__item__link--white:active .iconLink--arrow--large svg path,
     .accordian__item__link--white:focus .iconLink--arrow--large svg path,
     .accordian__item__link--white:hover .iconLink--arrow--large svg path {
-      stroke: #222021;
+      stroke: var(--onio-color-primary);
     }
   }
   .accordian__item__link--black {
-    color: #222021;
-    border-color: #222021;
+    color: var(--onio-color-primary);
+    border-color: var(--onio-color-primary);
   }
   @media (any-hover: hover) {
     .accordian__item__link--black:active,
     .accordian__item__link--black:focus,
     .accordian__item__link--black:hover {
-      color: #222021;
-      border-color: #222021;
+      color: var(--onio-color-primary);
+      border-color: var(--onio-color-primary);
     }
     .accordian__item__link--black:active .iconLink--arrow--large,
     .accordian__item__link--black:focus .iconLink--arrow--large,
     .accordian__item__link--black:hover .iconLink--arrow--large {
-      background-color: #222021;
+      background-color: var(--onio-color-primary);
     }
     .accordian__item__link--black:active .iconLink--arrow--large svg path,
     .accordian__item__link--black:focus .iconLink--arrow--large svg path,
     .accordian__item__link--black:hover .iconLink--arrow--large svg path {
-      stroke: #ffffff;
+      stroke: var(--onio-color-white);
     }
   }
   .accordian__item__link .row {
@@ -130,40 +130,40 @@ export const BatterylessStyles = styled.div`
     width: 100%;
   }
   .resource--red {
-    color: #ff6231;
+    color: var(--onio-color-accent);
   }
   @media (min-width: 1200px) {
     .resource--red {
-      border: 2px solid #ff6231;
+      border: 2px solid var(--onio-color-accent);
     }
   }
   @media (max-width: 1199.98px) {
     .resource--red {
-      border: 1.5px solid #ff6231;
+      border: 1.5px solid var(--onio-color-accent);
     }
   }
   @media (any-hover: hover) {
     .resource--red:hover {
-      background: #ff6231;
-      color: #222021;
+      background: var(--onio-color-accent);
+      color: var(--onio-color-primary);
     }
     .resource--red:hover .iconLink {
-      background: #222021;
-      border-color: #222021 !important;
+      background: var(--onio-color-primary);
+      border-color: var(--onio-color-primary) !important;
     }
     .resource--red:hover .iconLink svg path {
-      stroke: #ff6231;
+      stroke: var(--onio-color-accent);
     }
   }
   .resource--black {
-    border: 2px solid #222021;
+    border: 2px solid var(--onio-color-primary);
   }
   .resource--black:hover {
-    background-color: #222021;
-    color: #fff;
+    background-color: var(--onio-color-primary);
+    color: var(--onio-color-white);
   }
   .resource--black:hover .iconLink {
-    background-color: #fff;
+    background-color: var(--onio-color-white);
   }
   .resource__heading {
     margin-bottom: 3rem;

@@ -9,7 +9,7 @@ export const HomeNewsStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;
@@ -30,7 +30,7 @@ export const HomeNewsStyles = styled.div`
 
   .article {
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: var(--onio-color-white);
     margin-bottom: 2.4rem;
   }
   @media (min-width: 768px) {
@@ -150,13 +150,13 @@ export const HomeNewsStyles = styled.div`
     top: 0.06em;
   }
   .article__info__tags .tag__item__link {
-    color: #aeadad;
+    color: var(--onio-color-muted);
     transition: color 0.3s cubic-bezier(0.33, 1, 0.68, 1);
   }
   @media (any-hover: hover) {
     .article__info__tags .tag__item__link:hover {
       text-decoration: none;
-      color: #222021;
+      color: var(--onio-color-primary);
     }
   }
   .article__info__heading {
@@ -197,10 +197,10 @@ export const HomeNewsStyles = styled.div`
       text-decoration: none;
     }
     .article__link:hover .iconLink--arrow--large {
-      background-color: #222021;
+      background-color: var(--onio-color-primary);
     }
     .article__link:hover .iconLink--arrow--large svg path {
-      stroke: #ffffff;
+      stroke: var(--onio-color-white);
     }
   }
 
@@ -257,16 +257,16 @@ export const HomeNewsStyles = styled.div`
     }
   }
   .iconLink--download--red {
-    border-color: #ff6231 !important;
+    border-color: var(--onio-color-accent) !important;
   }
   .iconLink--download--red svg path {
-    stroke: #ff6231;
+    stroke: var(--onio-color-accent);
   }
   .iconLink--download--silver {
-    border-color: #aeadad !important;
+    border-color: var(--onio-color-muted) !important;
   }
   .iconLink--download--silver svg path {
-    stroke: #aeadad;
+    stroke: var(--onio-color-muted);
   }
   @media (min-width: 992px) {
     .iconLink--arrow--small {
@@ -332,28 +332,28 @@ export const HomeNewsStyles = styled.div`
     border-radius: 50%;
   }
   .iconLink--arrow--silver {
-    border-color: #aeadad !important;
+    border-color: var(--onio-color-muted) !important;
   }
   .iconLink--arrow--silver svg path {
-    stroke: #aeadad;
+    stroke: var(--onio-color-muted);
   }
   .iconLink--arrow--white {
-    border-color: #ffffff !important;
+    border-color: var(--onio-color-white) !important;
   }
   .iconLink--arrow--white svg path {
-    stroke: #ffffff;
+    stroke: var(--onio-color-white);
   }
   .iconLink--arrow--black {
-    border-color: #222021 !important;
+    border-color: var(--onio-color-primary) !important;
   }
   .iconLink--arrow--black svg path {
-    stroke: #222021;
+    stroke: var(--onio-color-primary);
   }
   .iconLink--arrow--red {
-    border-color: #ff6231 !important;
+    border-color: var(--onio-color-accent) !important;
   }
   .iconLink--arrow--red svg path {
-    stroke: #ff6231;
+    stroke: var(--onio-color-accent);
   }
 
 `;

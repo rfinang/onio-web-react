@@ -5,6 +5,7 @@ import ImageComp from "../../common/Image";
 import LottieAnimation from "../../common/LottieAnimation";
 import { BatterylessEnergyStyles } from "../../styles/project-landing/smart-hub/OpenSource";
 import Container from "../../ui/Container";
+import { Button } from "../../ui";
 
 function OpenSource({ data }) {
   const { section_open_source } = data;
@@ -51,22 +52,7 @@ function OpenSource({ data }) {
                       {linkLabel}
                     </span>
                     <span className="d-block resource__icon">
-                      <span className="iconLink iconLink--arrow iconLink--arrow--oval iconLink--arrow--small iconLink--arrow--black">
-                        <svg
-                          width="21"
-                          height="21"
-                          viewBox="0 0 21 21"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="svg"
-                        >
-                          <path
-                            d="M10.1348 1.07703L19.5576 10.4999L10.1348 19.9228"
-                            stroke="#222021"
-                            strokeWidth="2"
-                          ></path>
-                        </svg>
-                      </span>
+                      <Button variant="icon" hasIcon="arrow" color="black" size="small" shape="oval" />
                     </span>
                   </a>
                 </Link>

@@ -62,7 +62,7 @@ const PowerTimeline = ({timeUnit, setTimeUnit, energy, chartData}) => {
                 bottom: 30,
                 right: 40,
             },
-            borderColor: "#444",
+            borderColor: "var(--onio-color-muted)",
             strokeDashArray: 5
         },
         xaxis: {
@@ -73,11 +73,11 @@ const PowerTimeline = ({timeUnit, setTimeUnit, energy, chartData}) => {
                 offsetX: offsetX,
                 offsetY: 30,
                 text: `Time (${timeUnit})`,
-                style: {color: "#fff", fontSize: '2.7rem', fontFamily: "Inter", fontWeight: "300"},
+                style: {color: "var(--onio-color-white)", fontSize: '2.7rem', fontFamily: "Inter", fontWeight: "300"},
             },
             labels: {
                 // offsetY: 6,
-                style: {colors: "#ccc", fontSize: '1.8rem', lineHeight: '5rem', fontFamily: "Inter", fontWeight: "300"},
+                style: {colors: "var(--onio-color-muted)", fontSize: '1.8rem', lineHeight: '5rem', fontFamily: "Inter", fontWeight: "300"},
                 formatter: (val) => {
                     const num = parseFloat(val);
                     if (!isFinite(num)) return '∞';
@@ -126,12 +126,12 @@ const PowerTimeline = ({timeUnit, setTimeUnit, energy, chartData}) => {
                 offsetX: -30,
                 offsetY: -180,
                 text: "Power (mW)",
-                style: {color: "#fff", fontSize: '2.4rem', fontFamily: "Inter", fontWeight: "300"},
+            style: {color: "var(--onio-color-white)", fontSize: '2.4rem', fontFamily: "Inter", fontWeight: "300"},
 
             },
             labels: {
                 offsetX: 27,
-                style: {colors: "#ccc", fontSize: '1.8rem', lineHeight: '5rem', fontFamily: "Inter", fontWeight: "300"},
+            style: {colors: "var(--onio-color-muted)", fontSize: '1.8rem', lineHeight: '5rem', fontFamily: "Inter", fontWeight: "300"},
                 hideOverlappingLabels: true,
                 showDuplicates: false,
                 minWidth: 0,
@@ -164,7 +164,7 @@ const PowerTimeline = ({timeUnit, setTimeUnit, energy, chartData}) => {
                 offsetX: -10
             },
             labels: {
-                colors: "#fff"
+                colors: "var(--onio-color-white)"
             },
             itemMargin: {
                 horizontal: 30,
@@ -213,7 +213,7 @@ const PowerTimeline = ({timeUnit, setTimeUnit, energy, chartData}) => {
                         labels: {
                             offsetX: 27,
                             style: {
-                                colors: "#ccc",
+                                colors: "var(--onio-color-muted)",
                                 fontSize: '1.8rem',
                                 lineHeight: '5rem',
                                 fontFamily: "Inter",

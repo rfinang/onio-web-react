@@ -12,7 +12,6 @@ function BlogDetailHeader({ handleGoBack, title }) {
             variant="link"
             color="black"
             hasArrow
-            className="pageLink--reverse"
             onClick={handleGoBack}
           >
             Back

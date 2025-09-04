@@ -6,7 +6,7 @@ export const SmartHubProjectStyles = styled.div`
   .turnkeyProjects {
     padding-top: 15rem;
     position: relative;
-    background-color: #f5f5f5;
+    background-color: var(--onio-color-background);
   }
   .turnkeyProjects:not(.turnkeyProjects--none) {
     padding-bottom: 11rem;
@@ -19,7 +19,7 @@ export const SmartHubProjectStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;
@@ -140,20 +140,20 @@ export const SmartHubProjectStyles = styled.div`
     }
   }
   .bigThumbnailLink__link {
-    color: #ffffff;
+    color: var(--onio-color-white);
     display: block;
     position: relative;
   }
   @media (any-hover: hover) {
     .bigThumbnailLink__link:hover {
       text-decoration: none;
-      color: #ffffff;
+      color: var(--onio-color-white);
     }
     .bigThumbnailLink__link:hover .iconLink--arrow--large {
-      background-color: #ffffff;
+      background-color: var(--onio-color-white);
     }
     .bigThumbnailLink__link:hover .iconLink--arrow--large svg path {
-      stroke: #222021;
+      stroke: var(--onio-color-primary);
     }
   }
 
@@ -309,20 +309,20 @@ export const SmartHubProjectStyles = styled.div`
     }
   }
   .project__link {
-    color: #ffffff;
+    color: var(--onio-color-white);
     display: block;
     position: relative;
   }
   @media (any-hover: hover) {
     .project__link:hover {
       text-decoration: none;
-      color: #ffffff;
+      color: var(--onio-color-white);
     }
     .project__link:hover .iconLink--arrow--large {
-      background-color: #ffffff;
+      background-color: var(--onio-color-white);
     }
     .project__link:hover .iconLink--arrow--large svg path {
-      stroke: #222021;
+      stroke: var(--onio-color-primary);
     }
   }
 `;

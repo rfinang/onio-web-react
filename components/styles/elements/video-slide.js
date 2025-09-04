@@ -22,7 +22,7 @@ export const VideoSlide = styled.div`
     justify-content: center;
     width: 3.4rem;
     height: 3.4rem;
-    border: 2px solid var(--black);
+    border: 2px solid var(--onio-color-primary);
     border-radius: 50%;
     font-weight: 400;
     font-size: 2rem;
@@ -31,7 +31,7 @@ export const VideoSlide = styled.div`
   }
   .videoSlide .slick-dots li span:hover,
   .videoSlide .slick-dots li.slick-active span {
-    background-color: var(--black);
+    background-color: var(--onio-color-primary);
     color: #fff;
   }
   @media (max-width: 739px) {

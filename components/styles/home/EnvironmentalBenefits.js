@@ -37,7 +37,7 @@ export const EnvironmentalBenefitsStyles = styled.div`
     line-height: 3.2rem;
     background-color: transparent;
     border: none;
-    color: var(--black);
+    color: var(--onio-color-primary);
   }
   .ppEnvironmentalBenefits .nav-tabs .nav-link:hover,
   .ppEnvironmentalBenefits .nav-tabs .nav-link.active {
@@ -148,7 +148,7 @@ export const EnvironmentalBenefitsStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #222021;
+    background: var(--onio-color-primary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -161,7 +161,7 @@ export const EnvironmentalBenefitsStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #aeadad;
+    background: var(--onio-color-muted);
     display: block;
     width: 100%;
     z-index: 3;
@@ -174,7 +174,7 @@ export const EnvironmentalBenefitsStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;
@@ -182,12 +182,12 @@ export const EnvironmentalBenefitsStyles = styled.div`
     transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     will-change: opacity;
   }
-  .ppEnvironmentalBenefits.bg-red:after {
+  .ppEnvironmentalBenefits.bg-accent:after {
     content: "";
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #ff6231;
+    background: var(--onio-color-accent);
     display: block;
     width: 100%;
     z-index: 3;
@@ -205,12 +205,12 @@ export const EnvironmentalBenefitsStyles = styled.div`
     margin-bottom: 40px;
   }
   .material__card {
-    background-color: #ff6231;
+    background-color: var(--onio-color-accent);
     width: 17.5rem;
     height: 17.5rem;
     max-width: 100%;
     display: flex;
-    color: #222021;
+    color: var(--onio-color-primary);
     align-items: center;
     justify-content: center;
     position: relative;
@@ -244,7 +244,7 @@ export const EnvironmentalBenefitsStyles = styled.div`
     position: relative;
   }
   .material__line__el {
-    border-bottom: 2px solid #ff6231;
+    border-bottom: 2px solid var(--onio-color-accent);
     display: block;
     width: 100%;
     position: absolute;
@@ -252,7 +252,7 @@ export const EnvironmentalBenefitsStyles = styled.div`
   }
   .material__number {
     flex: 0 0 auto;
-    border: 2px solid #ff6231;
+    border: 2px solid var(--onio-color-accent);
     display: flex;
     align-items: center;
     justify-content: center;

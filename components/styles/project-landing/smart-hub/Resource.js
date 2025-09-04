@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const ResourceStyles = styled.div`
   padding: 11.9rem 0 3.7rem;
-  background-color: #222021;
+  background-color: var(--onio-color-primary);
   position: relative;
-  color: #fff;
+  color: var(--onio-color-white);
   &:after {
     content: "";
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #222021;
+    background: var(--onio-color-primary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -29,10 +29,10 @@ export const ResourceStyles = styled.div`
     .section-title {
       max-width: 57.4rem;
       margin-bottom: 6.8rem;
-      color: #fff;
+      color: var(--onio-color-white);
     }
     .section-desc {
-      color: #fff;
+      color: var(--onio-color-white);
       max-width: 69.2rem;
       margin-bottom: 10.5rem;
     }
@@ -48,10 +48,10 @@ export const ResourceStyles = styled.div`
       margin-bottom: 0;
     }
     .info-list li {
-      border-top: 2px solid #fff;
+      border-top: 2px solid var(--onio-color-white);
     }
     .info-list li:last-child {
-      border-bottom: 2px solid #fff;
+      border-bottom: 2px solid var(--onio-color-white);
     }
     .info-list li a {
       display: flex;
@@ -61,7 +61,7 @@ export const ResourceStyles = styled.div`
       -webkit-box-pack: justify;
       -ms-flex-pack: justify;
       justify-content: space-between;
-      color: #fff;
+      color: var(--onio-color-white);
       padding: 16px 0;
     }
     .info-list li a svg circle {
@@ -75,7 +75,7 @@ export const ResourceStyles = styled.div`
       text-decoration: none;
     }
     .info-list li a:hover svg circle {
-      fill: #fff;
+      fill: var(--onio-color-white);
     }
     .info-list li a:hover svg path {
       stroke: #000;

@@ -86,7 +86,7 @@ export const IntegrationStyles = styled.div`
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    border: 2px solid #222021;
+    border: 2px solid var(--onio-color-primary);
     padding: 1.1rem 1.4rem;
     min-height: 21.6rem;
     width: 21.6rem;
@@ -109,7 +109,7 @@ export const IntegrationStyles = styled.div`
   }
   .shelf-label-quick-info .btn-link:focus,
   .shelf-label-quick-info .btn-link:hover {
-    color: #fff;
+    color: var(--onio-color-white);
     background-color: #000000;
     text-decoration: none;
   }
@@ -117,7 +117,7 @@ export const IntegrationStyles = styled.div`
   .shelf-label-quick-info .btn-link:focus svg path,
   .shelf-label-quick-info .btn-link:hover svg rect,
   .shelf-label-quick-info .btn-link:hover svg path {
-    stroke: #fff;
+    stroke: var(--onio-color-white);
   }
   @media (max-width: 1023.98px) {
     .shelf-label-quick-info .item .title {
