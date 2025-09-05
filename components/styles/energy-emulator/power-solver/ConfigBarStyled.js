@@ -11,7 +11,7 @@ export const ConfigBarStyled = styled.div`
             width: 40%;
             @media screen and (max-width: 1199.96px) {
                     width: 55%;
-                    border-bottom: .2rem #222021 solid;
+                    border-bottom: .2rem var(--onio-color-primary) solid;
             }
         }
         
@@ -41,7 +41,7 @@ export const ConfigBarStyled = styled.div`
             }*/
 
             .inputStage {
-                border-bottom: .2rem solid #222021;
+                border-bottom: .2rem solid var(--onio-color-primary);
             }
 
         }

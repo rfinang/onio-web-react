@@ -1,173 +1,34 @@
-/* Figma Variables - Comprehensive Design Tokens */
-/* Last updated: 2025-09-01T12:00:00.000Z */
-/* 
- * This file contains all design tokens from our Figma Variables integration
- * Flow: Figma → Figma Variables → CSS Custom Properties → Tailwind → Components
- * 
- * NOTE: While this file says "Auto-generated - do not edit manually",
- * we are manually maintaining it until the Figma API integration is fully configured.
- * Run 'npm run figma:sync' to update when Figma API is set up.
- */
+/* Figma Variables - REST API Integration */
+/* Last updated: 2025-09-04T13:16:22.573Z */
+/* Auto-generated from Figma API */
 
 :root {
   /* ===== BRAND COLORS ===== */
-  /* Core Onio brand colors - matches current design system */
-  --onio-color-primary: #222021;        /* Main brand color (black) */
-  --onio-color-secondary: #D2FE24;      /* Brand accent (lime green) */
-  --onio-color-accent: #FF6231;         /* Secondary accent (orange) */
-  --onio-color-muted: #AEADAD;          /* Neutral gray */
-  --onio-color-background: #F5F5F5;     /* Light background */
-  --onio-color-white: #ffffff;          /* Pure white */
-  --onio-color-alert: #EE4A26;          /* Alert/error color */
-  
-  /* Legacy aliases for backward compatibility */
-  --onio-primary: var(--onio-color-primary);
-  --onio-secondary: var(--onio-color-muted);
+  --onio-color-primary: #222021; /* Main brand color */
+  --onio-color-secondary: #D2FE24; /* Brand accent */
+  --onio-color-accent: #FF6231; /* Secondary accent */
+  --onio-color-muted: #AEADAD;
+  --onio-color-background: #F5F5F5;
+  --onio-color-white: #ffffff;
+  --onio-color-alert: #EE4A26; /* Alert/error color */
 
   /* ===== SPACING SYSTEM ===== */
-  /* Consistent spacing scale following 4px base unit */
-  --onio-spacing-xs: 4px;               /* Extra small */
-  --onio-spacing-sm: 8px;               /* Small */
-  --onio-spacing-md: 16px;              /* Medium */
-  --onio-spacing-lg: 24px;              /* Large */
-  --onio-spacing-xl: 32px;              /* Extra large */
-  --onio-spacing-2xl: 48px;             /* Double extra large */
+  --onio-spacing-xs: 4px;
+  --onio-spacing-sm: 8px;
+  --onio-spacing-md: 16px;
+  --onio-spacing-lg: 24px;
+  --onio-spacing-xl: 32px;
+  --onio-spacing-2xl: 48px;
 
   /* ===== TYPOGRAPHY SYSTEM ===== */
-  /* 
-   * Typography tokens based on rem units (1rem = 10px at 62.5% html font-size)
-   * Responsive scaling included for body text
-   * All sizes match existing CSS patterns exactly
-   */
-  
-  /* HEADING SIZES */
-  --onio-font-size-hero: 6rem;          /* 60px - Hero text */
-  --onio-font-size-h1: 4rem;            /* 40px - Main heading */
-  --onio-font-size-h2: 3.2rem;          /* 32px - Section heading */
-  --onio-font-size-h3: 2.8rem;          /* 28px - Subsection heading */
-  --onio-font-size-h4: 4.8rem;          /* 48px - Card heading (FIXED - was wrong) */
-  --onio-font-size-h5: 3.5rem;          /* 35px - Small heading (FIXED - was wrong) */
-  --onio-font-size-h6: 2.7rem;          /* 27px - Tiny heading (FIXED - was wrong) */
-
-  /* RESPONSIVE HEADING OVERRIDES */
-  /* H4 sizing: 48px all breakpoints */
-  --onio-font-size-h4-all: 4.8rem;      /* 48px - consistent across all breakpoints */
-  
-  /* H5 responsive: 35px desktop → 26px tablet → 24px mobile */
-  --onio-font-size-h5-desktop: 3.5rem;  /* 35px - h5 desktop */
-  --onio-font-size-h5-tablet: 2.6rem;   /* 26px - h5 tablet */
-  --onio-font-size-h5-mobile: 2.4rem;   /* 24px - h5 mobile */
-  
-  /* H6 responsive: 27px desktop → 23.625px mobile */
-  --onio-font-size-h6-desktop: 2.7rem;     /* 27px - h6 desktop */
-  --onio-font-size-h6-mobile: 2.3625rem;   /* 23.625px - h6 mobile */
-
-  /* BODY TEXT SIZES */
-  --onio-font-size-body-xl: 3.5rem;     /* 35px - Large descriptive text (desc--large replacement) */
-  --onio-font-size-body-lg: 1.8rem;     /* 18px - Mobile body text */
-  --onio-font-size-body: 1.6rem;        /* 16px - Default body text (responsive: 16px→20px desktop→18px mobile) */
-  --onio-font-size-body-sm: 1.4rem;     /* 14px - Small body text */
-  --onio-font-size-body-xs: 1.2rem;     /* 12px - Extra small text */
-
-  /* RESPONSIVE BODY TEXT OVERRIDES */
-  /* Desktop scaling (992px+) - matches desc--large exactly */
-  --onio-font-size-body-desktop: 2rem;  /* 20px */
-  --onio-font-size-body-xl-desktop: 3.5rem; /* 35px - desktop desc--large */
-  
-  /* Tablet scaling (576px-991px) - matches desc--large exactly */
-  --onio-font-size-body-xl-tablet: 2.6rem; /* 26px - tablet desc--large */
-  
-  /* Mobile scaling (575px-) - matches desc--large exactly */
-  --onio-font-size-body-mobile: 1.8rem; /* 18px */
-  --onio-font-size-body-xl-mobile: 2.4rem; /* 24px - mobile desc--large */
-
-  /* ===== SHADOW SYSTEM ===== */
-  /* Optional shadow tokens for future use */
-  --onio-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --onio-shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --onio-shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.2);
-
-  /* ===== BORDER RADIUS ===== */
-  /* Responsive border radius system (from existing CSS) */
-  --onio-radius-sm: 6px;                /* Small radius (mobile buttons) */
-  --onio-radius-md: 1rem;               /* Medium radius (desktop buttons) */
-  --onio-radius-lg: 20px;               /* Large radius (mobile general) */
-  --onio-radius-xl: 5rem;               /* Extra large radius (desktop general) */
-
-  /* ===== COMPONENT-SPECIFIC TOKENS ===== */
-  /* Button and form component heights */
-  --onio-input-height-mobile: 40px;     /* Mobile input height */
-  --onio-input-height-desktop: 5rem;    /* Desktop input height */
-  --onio-button-height-mobile: 40px;    /* Mobile button height */
-  --onio-button-height-desktop: 4.4rem; /* Desktop button height */
-}
-
-/* ===== RESPONSIVE OVERRIDES ===== */
-/* Apply responsive scaling matching original breakpoints exactly */
-
-/* H5 responsive sizing (1400px+) */
-@media (min-width: 1400px) {
-  :root {
-    --onio-font-size-h5: var(--onio-font-size-h5-desktop); /* 35px */
-    --onio-font-size-h6: var(--onio-font-size-h6-desktop); /* 27px */
-  }
-}
-
-/* H5 responsive sizing (740px-1399px) */  
-@media (min-width: 740px) and (max-width: 1399.98px) {
-  :root {
-    --onio-font-size-h5: var(--onio-font-size-h5-tablet); /* 26px */
-    --onio-font-size-h6: var(--onio-font-size-h6-mobile); /* 23.625px */
-  }
-}
-
-/* H5 responsive sizing (739px-) */
-@media (max-width: 739.98px) {
-  :root {
-    --onio-font-size-h5: var(--onio-font-size-h5-mobile); /* 24px */
-    --onio-font-size-h6: var(--onio-font-size-h6-mobile); /* 23.625px */
-  }
-}
-
-/* Body XL responsive sizing */
-@media (min-width: 992px) {
-  :root {
-    --onio-font-size-body-xl: var(--onio-font-size-body-xl-desktop); /* 35px */
-  }
-}
-
-@media (min-width: 576px) and (max-width: 991.98px) {
-  :root {
-    --onio-font-size-body-xl: var(--onio-font-size-body-xl-tablet); /* 26px */
-  }
-}
-
-@media (max-width: 575.98px) {
-  :root {
-    --onio-font-size-body-xl: var(--onio-font-size-body-xl-mobile); /* 24px */
-  }
-}
-
-/* General responsive scaling for other elements */
-@media (min-width: 1200px) {
-  :root {
-    --onio-font-size-body: var(--onio-font-size-body-desktop);
-    --onio-radius-default: var(--onio-radius-xl);
-    --onio-input-height: var(--onio-input-height-desktop);
-  }
-}
-
-@media (max-width: 739px) {
-  :root {
-    --onio-font-size-body: var(--onio-font-size-body-mobile);
-    --onio-radius-default: var(--onio-radius-lg);
-    --onio-input-height: var(--onio-input-height-mobile);
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1199px) {
-  :root {
-    --onio-radius-default: var(--onio-radius-xl);
-    --onio-input-height: var(--onio-input-height-desktop);
-  }
+  --onio-font-size-hero: 6rem;
+  --onio-font-size-h1: 4rem;
+  --onio-font-size-h2: 3.2rem;
+  --onio-font-size-h3: 2.8rem;
+  --onio-font-size-h4: 4.8rem;
+  --onio-font-size-h5: 3.5rem;
+  --onio-font-size-h6: 2.7rem;
+  --onio-font-size-body: 1.6rem;
+  --onio-font-size-body-lg: 1.8rem;
+  --onio-font-size-body-sm: 1.4rem;
 }

@@ -26,7 +26,7 @@ export const AboutStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #ff6231;
+    background: var(--onio-color-accent);
     display: block;
     width: 100%;
     z-index: 3;
@@ -47,7 +47,7 @@ export const AboutStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #222021;
+    background: var(--onio-color-primary);
     display: block;
     width: 100%;
     z-index: 3;

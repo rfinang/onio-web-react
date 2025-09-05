@@ -9,7 +9,7 @@ export const PoweredProfilerStyled = styled.div`
         }
     }
     .powered:before {
-        background: #222021;
+        background: var(--onio-color-primary);
         z-index: 0;
         content: "";
         display: block;
@@ -26,7 +26,7 @@ export const PoweredProfilerStyled = styled.div`
         }
         
         :after {
-            background: #f5f5f5;
+            background: var(--onio-color-background);
         }
     }
 

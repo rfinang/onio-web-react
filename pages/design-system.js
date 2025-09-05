@@ -263,7 +263,7 @@ export default function DesignSystem() {
               </FigmaVar>
               
               
-              <FigmaVar name="$onio/typography/body/default" value="1.6rem/1.625">
+              <FigmaVar name="$onio/typography/body/normal" value="1.6rem/1.625">
                 <Typography variant="body">
                   Body Default - Standard paragraph text for content areas. Optimized for readability.
                 </Typography>

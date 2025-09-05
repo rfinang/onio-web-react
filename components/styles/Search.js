@@ -92,7 +92,7 @@ export const SearchPageStyles = styled.div`
   }
   .search-page .top-section .search-category li a {
     display: block;
-    color: #aeadad;
+    color: var(--onio-color-muted);
     transition: color 0.4s ease;
   }
   .search-page .top-section .search-category li a:hover {
@@ -102,7 +102,7 @@ export const SearchPageStyles = styled.div`
     color: #5a5c5b;
   }
   .search-page .top-section .search-category li a.active {
-    color: #222021;
+    color: var(--onio-color-primary);
   }
   .search-page .top-section .heading--block {
     margin-bottom: 6.2rem;
@@ -146,7 +146,7 @@ export const SearchPageStyles = styled.div`
     border-radius: 5rem;
     overflow: hidden;
     position: relative;
-    background-color: #fff;
+    background-color: var(--onio-color-white);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -177,7 +177,7 @@ export const SearchPageStyles = styled.div`
     width: 4.6rem;
   }
   .search-page .main-section .article-card .info-icon circle {
-    fill: #fff;
+    fill: var(--onio-color-white);
   }
   .search-page .main-section .article-card .info-icon circle,
   .search-page .main-section .article-card .info-icon path {
@@ -191,10 +191,10 @@ export const SearchPageStyles = styled.div`
     bottom: 0;
   }
   .search-page .main-section .article-card:hover .info-icon circle {
-    fill: #222021;
+    fill: var(--onio-color-primary);
   }
   .search-page .main-section .article-card:hover .info-icon path {
-    stroke: #fff;
+    stroke: var(--onio-color-white);
   }
   @media (max-width: 739.98px) {
     .search-page .main-section .article-card {
@@ -215,7 +215,7 @@ export const SearchPageStyles = styled.div`
     margin-bottom: 4.1rem;
   }
   .search-page .main-section .card-text__category {
-    color: #aeadad;
+    color: var(--onio-color-muted);
     display: flex;
     flex-wrap: wrap;
     -webkit-box-align: start;
@@ -258,7 +258,7 @@ export const SearchPageStyles = styled.div`
     font-size: 1.6478rem;
     line-height: 121%;
     text-decoration-line: underline;
-    color: #222021;
+    color: var(--onio-color-primary);
     transition: letter-spacing 0.4s ease;
     display: inline-block;
   }
@@ -287,7 +287,7 @@ export const SearchPageStyles = styled.div`
   }
   .search-page .main-section .block-content + .block-content {
     padding-top: 4.6rem;
-    border-top: 2px solid #aeadad;
+    border-top: 2px solid var(--onio-color-muted);
   }
   .search-page .main-section .block-content .block-top {
     -webkit-box-align: end;
@@ -303,7 +303,7 @@ export const SearchPageStyles = styled.div`
     flex-shrink: 0;
     display: inline-block;
     font-size: 2rem;
-    color: #aeadad;
+    color: var(--onio-color-muted);
     text-decoration: underline;
     transition: color 0.4s ease;
   }
@@ -336,7 +336,7 @@ export const SearchPageStyles = styled.div`
   }
   @media (max-width: 1023.98px) {
     .search-page .main-section .sidebar {
-      border-top: 2px solid #aeadad;
+      border-top: 2px solid var(--onio-color-muted);
       padding-top: 33px;
     }
   }
@@ -359,40 +359,40 @@ export const SearchPageStyles = styled.div`
     width: 100%;
   }
   .resource--red {
-    color: #ff6231;
+    color: var(--onio-color-accent);
   }
   @media (min-width: 1200px) {
     .resource--red {
-      border: 2px solid #ff6231;
+      border: 2px solid var(--onio-color-accent);
     }
   }
   @media (max-width: 1199.98px) {
     .resource--red {
-      border: 1.5px solid #ff6231;
+      border: 1.5px solid var(--onio-color-accent);
     }
   }
   @media (any-hover: hover) {
     .resource--red:hover {
-      background: #ff6231;
-      color: #222021;
+      background: var(--onio-color-accent);
+      color: var(--onio-color-primary);
     }
     .resource--red:hover .iconLink {
-      background: #222021;
-      border-color: #222021 !important;
+      background: var(--onio-color-primary);
+      border-color: var(--onio-color-primary) !important;
     }
     .resource--red:hover .iconLink svg path {
-      stroke: #ff6231;
+      stroke: var(--onio-color-accent);
     }
   }
   .resource--black {
-    border: 2px solid #222021;
+    border: 2px solid var(--onio-color-primary);
   }
   .resource--black:hover {
-    background-color: #222021;
-    color: #fff;
+    background-color: var(--onio-color-primary);
+    color: var(--onio-color-white);
   }
   .resource--black:hover .iconLink {
-    background-color: #fff;
+    background-color: var(--onio-color-white);
   }
   .resource__heading {
     margin-bottom: 3rem;

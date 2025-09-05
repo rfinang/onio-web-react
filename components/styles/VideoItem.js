@@ -42,7 +42,7 @@ export const VideoItem = styled.a`
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 0.2rem solid #fff;
+      border: 0.2rem solid var(--onio-color-white);
       width: 4.6rem;
       height: 4.6rem;
       border-radius: 50%;

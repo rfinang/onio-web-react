@@ -15,8 +15,14 @@
     "validate:nongrid": "node scripts/check-legacy-css.js",
     "validate:nongrid:safe": "node scripts/check-legacy-css.js --no-fail",
     "pre-deploy": "npm run validate:migration && npm run build",
-    "figma:sync": "node scripts/sync-figma-tokens.js",
-    "figma:watch": "nodemon scripts/sync-figma-tokens.js"
+    "figma:sync": "node scripts/sync-figma-styles.js",
+    "figma:sync:mcp": "node scripts/sync-figma-mcp.js",
+    "figma:sync:api": "node scripts/sync-figma-api.js",
+    "figma:sync:styles": "node scripts/sync-figma-styles.js",
+    "figma:watch": "nodemon scripts/sync-figma-styles.js",
+    "figma:watch:mcp": "nodemon scripts/sync-figma-mcp.js",
+    "figma:watch:api": "nodemon scripts/sync-figma-api.js",
+    "figma:watch:styles": "nodemon scripts/sync-figma-styles.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -31,6 +37,7 @@
     "babel-plugin-styled-components": "^1.12.0",
     "babel-preset-next": "^1.4.0",
     "dayjs": "~1.11.5",
+    "dotenv": "^17.2.2",
     "gsap": "^3.10.4",
     "ioredis": "^5.2.3",
     "ismobilejs": "^1.1.1",

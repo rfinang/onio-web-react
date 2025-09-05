@@ -32,7 +32,7 @@ export const VideoSlide = styled.div`
   .videoSlide .slick-dots li span:hover,
   .videoSlide .slick-dots li.slick-active span {
     background-color: var(--onio-color-primary);
-    color: #fff;
+    color: var(--onio-color-white);
   }
   @media (max-width: 739px) {
     .videoSlide .slick-dots {
@@ -143,7 +143,7 @@ export const VideoSlide = styled.div`
   @media (max-width: 739px) {
     .fadeSlide__item__content {
       margin-top: 2.5rem;
-      color: #222021;
+      color: var(--onio-color-primary);
       max-width: 21.2rem;
     }
     .fadeSlide__item__content img {

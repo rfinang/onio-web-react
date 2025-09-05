@@ -169,7 +169,7 @@
   }
   
   .header__mobile__line {
-    @apply block border-b-[3px] border-[#222021] mb-[0.30769rem] w-[2.6rem] mx-auto transition-all duration-[400ms] ease-in-out;
+    @apply block border-b-[3px] border-primary mb-[0.30769rem] w-[2.6rem] mx-auto transition-all duration-[400ms] ease-in-out;
   }
   
   .header__mobile__line:last-child {
@@ -202,7 +202,7 @@
   
   /* Footer base styles */
   .footer {
-    @apply bg-[#222021];
+    @apply bg-primary;
   }
   
   @media (min-width: 740px) {
@@ -322,7 +322,7 @@
   }
   
   .social__item svg path {
-    @apply fill-[#aeadad] transition-[fill] duration-[400ms];
+    @apply fill-muted transition-[fill] duration-[400ms];
     transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
   }
   

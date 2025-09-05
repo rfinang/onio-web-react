@@ -43,11 +43,11 @@ export const TeamsStyles = styled.div`
       text-decoration: none;
     }
     .staff__link:hover .iconLink--arrow--large {
-      background-color: #222021;
-      border-color: #222021;
+      background-color: var(--onio-color-primary);
+      border-color: var(--onio-color-primary);
     }
     .staff__link:hover .iconLink--arrow--large svg path {
-      stroke: #ffffff;
+      stroke: var(--onio-color-white);
     }
   }
 `;

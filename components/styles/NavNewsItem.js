@@ -48,7 +48,7 @@ export const NavNewsItem = styled.a`
       border-color: var(--onio-color-primary);
       background-color: var(--onio-color-primary);
       svg path {
-        stroke: #fff;
+        stroke: var(--onio-color-white);
       }
     }
   }

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PostStyles = styled.div`
     .article {
         overflow: hidden;
-        background-color: #ffffff;
+        background-color: var(--onio-color-white);
         margin-bottom: 2.4rem;
     }
 
@@ -143,14 +143,14 @@ export const PostStyles = styled.div`
     }
 
     .article__info__tags .tag__item__link {
-        color: #aeadad;
+        color: var(--onio-color-muted);
         transition: color 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     @media (any-hover: hover) {
         .article__info__tags .tag__item__link:hover {
             text-decoration: none;
-            color: #222021;
+            color: var(--onio-color-primary);
         }
     }
 
@@ -204,11 +204,11 @@ export const PostStyles = styled.div`
         }
 
         .article__link:hover .iconLink--arrow--large {
-            background-color: #222021;
+            background-color: var(--onio-color-primary);
         }
 
         .article__link:hover .iconLink--arrow--large svg path {
-            stroke: #ffffff;
+            stroke: var(--onio-color-white);
         }
     }
 

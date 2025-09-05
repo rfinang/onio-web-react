@@ -125,12 +125,12 @@ export const ContactPopupStyles = styled.div`
   }
   @media (any-hover: hover) {
     .popup--main__btn--text:hover {
-      color: #222021;
+      color: var(--onio-color-primary);
     }
   }
   .popup--main__btn--bg {
-    background-color: #222021;
-    color: #ffffff;
+    background-color: var(--onio-color-primary);
+    color: var(--onio-color-white);
     border-radius: 0.2rem;
     transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
   }
@@ -212,14 +212,14 @@ export const ContactPopupStyles = styled.div`
   }
 
   .popup--main--download {
-    background-color: #f5f5f5;
+    background-color: var(--onio-color-background);
     .slider-item {
       padding-left: calc(0.5 * var(--bs-gutter-x));
       padding-right: calc(0.5 * var(--bs-gutter-x));
     }
   }
   .popup--main--download .popupClose svg path {
-    stroke: #222021 !important;
+    stroke: var(--onio-color-primary) !important;
   }
   .popup--main--download .mediaPopup__thumbnail img {
     border-radius: var(--border-radius);
@@ -264,7 +264,7 @@ export const ContactPopupStyles = styled.div`
   }
 
   .popup--main--contactForm {
-    background: #222021;
+    background: var(--onio-color-primary);
   }
   .popup--main.is-success .row--form {
     display: none !important;

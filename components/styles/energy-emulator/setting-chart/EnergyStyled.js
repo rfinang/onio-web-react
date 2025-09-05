@@ -7,7 +7,7 @@ export const EnergyStyled = styled.div`
     }
     
     .addBtn{
-        border: .2rem solid #fff;
+        border: .2rem solid var(--onio-color-white);
         border-radius: 1rem;
         padding: 1rem 1.4rem;
         background: transparent;

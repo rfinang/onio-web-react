@@ -20,7 +20,7 @@ export const SettingChartStyled = styled.div`
     }
     
     .bg-orange{
-        background-color: #ff6231;
+        background-color: var(--onio-color-accent);
     }
 
     .text-56{
@@ -53,7 +53,7 @@ export const SettingChartStyled = styled.div`
     }
     
     .text-successful{
-        color: #d2fe24;
+        color: var(--onio-color-secondary);
         @media screen and (max-width: 1200px) {
             width: 70%;
         }
@@ -153,10 +153,10 @@ export const SettingChartStyled = styled.div`
         width: 2.4rem;
         background-color: transparent;
         border-radius: 50%;
-        border: .2rem solid #aeadad;
+        border: .2rem solid var(--onio-color-muted);
         
         &.checkmark-dark{
-            border: .2rem solid #222021;
+            border: .2rem solid var(--onio-color-primary);
         }
     }
     
@@ -176,10 +176,10 @@ export const SettingChartStyled = styled.div`
     /* When the radio button is checked, add a blue background */
     .containerRadio input:checked ~ .checkmark {
         background-color: transparent;
-        border: .2rem solid #fff;
+        border: .2rem solid var(--onio-color-white);
         
         &.checkmark-dark{
-            border: .2rem solid #222021;
+            border: .2rem solid var(--onio-color-primary);
         }
     }
 
@@ -203,7 +203,7 @@ export const SettingChartStyled = styled.div`
             width: 1rem;
             height: 1rem;
             border-radius: 50%;
-            background: #fff;
+            background: var(--onio-color-white);
         }
         .checkmark.checkmark-dark:after{
             top: .5rem;
@@ -211,7 +211,7 @@ export const SettingChartStyled = styled.div`
             width: 1rem;
             height: 1rem;
             border-radius: 50%;
-            background: #222021;
+            background: var(--onio-color-primary);
         }
     }
 

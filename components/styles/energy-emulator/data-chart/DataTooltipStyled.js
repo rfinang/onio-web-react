@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DataTooltipStyled = styled.div`
-    color: #fff;
+    color: var(--onio-color-white);
     display: flex;
     flex-direction: column;
     padding: 0 1.8rem;

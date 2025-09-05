@@ -35,8 +35,8 @@ export const BlogSlideStyles = styled.div`
     justify-content: center;
     width: 3.4rem;
     height: 3.4rem;
-    border: 2px solid #fff;
-    color: #fff;
+    border: 2px solid var(--onio-color-white);
+    color: var(--onio-color-white);
     border-radius: 50%;
     font-weight: 400;
     font-size: 2rem;
@@ -45,7 +45,7 @@ export const BlogSlideStyles = styled.div`
   }
   .blogSlide .slick-dots li span:hover,
   .blogSlide .slick-dots li.slick-active span {
-    background-color: #fff;
+    background-color: var(--onio-color-white);
     color: var(--onio-color-primary);
   }
   @media (max-width: 575px) {
@@ -180,16 +180,16 @@ export const BlogSlideStyles = styled.div`
       text-decoration: none;
     }
     .blogSlide__article__inner:hover .iconLink--arrow--large svg path {
-      stroke: #222021;
+      stroke: var(--onio-color-primary);
     }
     .blogSlide__article__inner:hover .iconLink--arrow--large {
-      background-color: #ffffff;
+      background-color: var(--onio-color-white);
     }
   }
 
   .article {
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: var(--onio-color-white);
     margin-bottom: 2.4rem;
   }
   @media (min-width: 1024px) {
@@ -309,13 +309,13 @@ export const BlogSlideStyles = styled.div`
     top: 0.06em;
   }
   .article__info__tags .tag__item__link {
-    color: #aeadad;
+    color: var(--onio-color-muted);
     transition: color 0.3s cubic-bezier(0.33, 1, 0.68, 1);
   }
   @media (any-hover: hover) {
     .article__info__tags .tag__item__link:hover {
       text-decoration: none;
-      color: #222021;
+      color: var(--onio-color-primary);
     }
   }
   .article__info__heading {
@@ -356,10 +356,10 @@ export const BlogSlideStyles = styled.div`
       text-decoration: none;
     }
     .article__link:hover .iconLink--arrow--large {
-      background-color: #222021;
+      background-color: var(--onio-color-primary);
     }
     .article__link:hover .iconLink--arrow--large svg path {
-      stroke: #ffffff;
+      stroke: var(--onio-color-white);
     }
   }
 `;

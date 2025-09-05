@@ -7,7 +7,7 @@ export const CatHeaderStyles = styled.div`
   .catArticles__title__text:after {
     content: "";
     display: block;
-    border-bottom: 0.06em solid #222021;
+    border-bottom: 0.06em solid var(--onio-color-primary);
     width: 100%;
     bottom: 0.06em;
     position: absolute;
@@ -52,6 +52,6 @@ export const CatHeaderStyles = styled.div`
   }
   .filterBlog__item a {
     display: block;
-    color: #222021;
+    color: var(--onio-color-primary);
   }
 `;

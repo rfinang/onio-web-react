@@ -8,7 +8,7 @@ export const InvestorDataStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #222021;
+    background: var(--onio-color-primary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -17,9 +17,9 @@ export const InvestorDataStyles = styled.div`
     will-change: opacity;
   }
   .invertors__data .btn--bg:hover {
-    background-color: #aeadad;
-    border-color: #aeadad;
-    color: #222021;
+    background-color: var(--onio-color-muted);
+    border-color: var(--onio-color-muted);
+    color: var(--onio-color-primary);
   }
 
   .fundingTimeline {
@@ -28,12 +28,12 @@ export const InvestorDataStyles = styled.div`
     font-weight: 500 !important;
   }
   .fundingTimeline--solid {
-    background: #ff6231;
-    color: #222021;
+    background: var(--onio-color-accent);
+    color: var(--onio-color-primary);
   }
   .fundingTimeline--border {
-    border: 2px solid #ff6231;
-    color: #ff6231;
+    border: 2px solid var(--onio-color-accent);
+    color: var(--onio-color-accent);
   }
   .fundingTimeline__inner {
     position: relative;

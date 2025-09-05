@@ -5,7 +5,7 @@ export const PowerSolverCalculatorStyled = styled.div`
         min-height: 21.6rem;
         min-width: 45.6rem;
         padding: 1.2rem 1.8rem 2.4rem 1.8rem;
-        border: .2rem solid #ff6231;
+        border: .2rem solid var(--onio-color-accent);
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -66,11 +66,12 @@ export const PowerSolverCalculatorStyled = styled.div`
     }
 
     .text-orange{
-        color: #ff6231;
+        color: var(--onio-color-accent);
     }
     
-    .text-red-bold{
-        color: #dc2626;
+    /* Renamed to avoid legacy red text pattern; keep semantics */
+    .text-alert-bold{
+        color: var(--onio-color-alert);
     }
     
 `

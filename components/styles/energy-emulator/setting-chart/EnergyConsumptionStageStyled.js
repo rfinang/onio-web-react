@@ -22,7 +22,7 @@ export const EnergyConsumptionStageStyled = styled.div`
         margin-top: 2rem;
         padding-bottom: 1.2rem;
         padding-left: 0;
-        border-bottom: .2rem solid #fff;
+        border-bottom: .2rem solid var(--onio-color-white);
 
         @media screen and (max-width: 767.95px) {
             margin-top: 3rem;

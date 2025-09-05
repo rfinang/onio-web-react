@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AboutSayHelloStyles = styled.div`
   .aboutSayHello {
-    background-color: #f5f5f5;
+    background-color: var(--onio-color-background);
     position: relative;
     padding-top: 13rem;
   }
@@ -11,7 +11,7 @@ export const AboutSayHelloStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;

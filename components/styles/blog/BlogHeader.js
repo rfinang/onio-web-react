@@ -38,6 +38,6 @@ export const BlogHeaderStyles = styled.div`
   }
   .filterBlog__item a {
     display: block;
-    color: #222021;
+    color: var(--onio-color-primary);
   }
 `;

@@ -18,7 +18,7 @@ export const SearchPopupStyles = styled.div`
   }
   .search-popup {
     padding-top: 10rem;
-    background-color: #f5f5f5;
+    background-color: var(--onio-color-background);
     min-height: 100vh;
   }
   @media (max-width: 739.98px) {
@@ -122,7 +122,7 @@ export const SearchPopupStyles = styled.div`
   }
   .search-page .top-section .search-category li a {
     display: block;
-    color: #aeadad;
+    color: var(--onio-color-muted);
     transition: color 0.4s ease;
   }
   .search-page .top-section .search-category li a:hover {
@@ -132,7 +132,7 @@ export const SearchPopupStyles = styled.div`
     color: #5a5c5b;
   }
   .search-page .top-section .search-category li a.active {
-    color: #222021;
+    color: var(--onio-color-primary);
   }
   .search-page .top-section .heading--block {
     margin-bottom: 6.2rem;

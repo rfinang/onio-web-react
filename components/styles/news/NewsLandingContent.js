@@ -9,7 +9,7 @@ export const NewsLandingContentStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #222021;
+    background: var(--onio-color-primary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -63,16 +63,16 @@ export const NewsLandingContentStyles = styled.div`
   }
   .mediaCentre__info__left {
     font-size: 2rem;
-    color: #ffffff;
+    color: var(--onio-color-white);
   }
   .mediaCentre__info__right {
     padding-bottom: 0.3em;
   }
   .mediaCentre a:hover .iconLink {
-    background: #ff6231;
-    border-color: #ff6231 !important;
+    background: var(--onio-color-accent);
+    border-color: var(--onio-color-accent) !important;
   }
   .mediaCentre a:hover .iconLink svg path {
-    stroke: #222021;
+    stroke: var(--onio-color-primary);
   }
 `;

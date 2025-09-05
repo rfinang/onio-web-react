@@ -56,7 +56,7 @@ export const ArticleDetailsStyles = styled.div`
       font-size: 1.4rem;
       line-height: 1.6rem;
       margin-top: 1rem;
-      color: #aeadad;
+      color: var(--onio-color-muted);
       padding-left: 53px;
       @media (max-width: 739.98px) {
         padding-left: 20px;
@@ -98,7 +98,7 @@ export const ArticleDetailsStyles = styled.div`
   }
   .blogDetail__content blockquote {
     line-height: 1.1555555556;
-    color: #aeadad;
+    color: var(--onio-color-muted);
     margin-top: 9.4rem;
     margin-bottom: 9.4rem;
   }
@@ -116,7 +116,7 @@ export const ArticleDetailsStyles = styled.div`
   .blogDetail__content blockquote small {
     font-size: 2rem;
     display: block;
-    color: #222021;
+    color: var(--onio-color-primary);
     margin-top: 2.4rem;
   }
   .blogDetail__content ul {
@@ -151,13 +151,13 @@ export const ArticleDetailsStyles = styled.div`
   }
   @media (min-width: 1200px) {
     .blogDetail__content ul.ul--navi .ul__number {
-      border: 2px solid #222021;
+      border: 2px solid var(--onio-color-primary);
       font-size: 1.2em;
     }
   }
   @media (max-width: 1199.98px) {
     .blogDetail__content ul.ul--navi .ul__number {
-      border: 1.5px solid #222021;
+      border: 1.5px solid var(--onio-color-primary);
       font-size: 18px;
     }
   }
@@ -179,13 +179,13 @@ export const ArticleDetailsStyles = styled.div`
   }
   @media (min-width: 1200px) {
     .blogDetail__content ul.ul--list li {
-      border: 2px solid #222021;
+      border: 2px solid var(--onio-color-primary);
       padding: 3rem 4rem;
     }
   }
   @media (max-width: 1199.98px) {
     .blogDetail__content ul.ul--list li {
-      border: 1.5px solid #222021;
+      border: 1.5px solid var(--onio-color-primary);
       padding: 22px;
     }
   }
@@ -212,7 +212,7 @@ export const ArticleDetailsStyles = styled.div`
     margin-bottom: 0.5em;
   }
   .blogDetail__content__border {
-    border-bottom: 2px solid #222021;
+    border-bottom: 2px solid var(--onio-color-primary);
   }
   @media (min-width: 740px) {
     .blogDetail__content__border {
@@ -251,7 +251,7 @@ export const ArticleDetailsStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;

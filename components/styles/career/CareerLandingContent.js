@@ -11,7 +11,7 @@ export const CareersLandingContentStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;
@@ -102,47 +102,47 @@ export const CareersLandingContentStyles = styled.div`
     }
   }
   .accordian__item__link--white {
-    color: #ffffff;
-    border-color: #ffffff;
+    color: var(--onio-color-white);
+    border-color: var(--onio-color-white);
   }
   @media (any-hover: hover) {
     .accordian__item__link--white:active,
     .accordian__item__link--white:focus,
     .accordian__item__link--white:hover {
-      color: #ffffff;
-      border-color: #ffffff;
+      color: var(--onio-color-white);
+      border-color: var(--onio-color-white);
     }
     .accordian__item__link--white:active .iconLink--arrow--large,
     .accordian__item__link--white:focus .iconLink--arrow--large,
     .accordian__item__link--white:hover .iconLink--arrow--large {
-      background-color: #ffffff;
+      background-color: var(--onio-color-white);
     }
     .accordian__item__link--white:active .iconLink--arrow--large svg path,
     .accordian__item__link--white:focus .iconLink--arrow--large svg path,
     .accordian__item__link--white:hover .iconLink--arrow--large svg path {
-      stroke: #222021;
+      stroke: var(--onio-color-primary);
     }
   }
   .accordian__item__link--black {
-    color: #222021;
-    border-color: #222021;
+    color: var(--onio-color-primary);
+    border-color: var(--onio-color-primary);
   }
   @media (any-hover: hover) {
     .accordian__item__link--black:active,
     .accordian__item__link--black:focus,
     .accordian__item__link--black:hover {
-      color: #222021;
-      border-color: #222021;
+      color: var(--onio-color-primary);
+      border-color: var(--onio-color-primary);
     }
     .accordian__item__link--black:active .iconLink--arrow--large,
     .accordian__item__link--black:focus .iconLink--arrow--large,
     .accordian__item__link--black:hover .iconLink--arrow--large {
-      background-color: #222021;
+      background-color: var(--onio-color-primary);
     }
     .accordian__item__link--black:active .iconLink--arrow--large svg path,
     .accordian__item__link--black:focus .iconLink--arrow--large svg path,
     .accordian__item__link--black:hover .iconLink--arrow--large svg path {
-      stroke: #ffffff;
+      stroke: var(--onio-color-white);
     }
   }
   .accordian__item__link .row {

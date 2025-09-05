@@ -10,7 +10,7 @@ export const InvestorUpdateStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #f5f5f5;
+    background: var(--onio-color-background);
     display: block;
     width: 100%;
     z-index: 3;
@@ -26,7 +26,7 @@ export const InvestorUpdateStyles = styled.div`
     position: absolute;
     height: 6rem;
     bottom: -5.9rem;
-    background: #222021;
+    background: var(--onio-color-primary);
     display: block;
     width: 100%;
     z-index: 3;
@@ -35,8 +35,8 @@ export const InvestorUpdateStyles = styled.div`
     will-change: opacity;
   }
   .invertors__data .btn--bg:hover {
-    background-color: #aeadad;
-    border-color: #aeadad;
-    color: #222021;
+    background-color: var(--onio-color-muted);
+    border-color: var(--onio-color-muted);
+    color: var(--onio-color-primary);
   }
 `;
